@@ -1,0 +1,18 @@
+{  
+  "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": ["airbnb", "prettier"],
+    "rules": {
+      "react/jsx-filename-extension": [0],
+      "no-tabs": [0],
+      "no-mixed-spaces-and-tabs": [0]
+    },
+    "plugins": [
+      "only-warn"
+    ]
+}
+  
+//  https://eslint.org/docs/rules/
