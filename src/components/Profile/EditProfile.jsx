@@ -14,12 +14,17 @@
 
 import React from 'react'
 
+import Arrow from "./arrow+left.png";
+import { Header } from "./Styles";
+
+
 const EditProfile = () => (
-  <div>
+  <Header>
+    <img src={Arrow} className="arrow"/>
     <h1>Edit Profile</h1>
     
     
-  </div>
+  </Header>
     )
 
 export default EditProfile

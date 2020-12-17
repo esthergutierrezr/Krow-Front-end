@@ -8,7 +8,6 @@ export const Content = styled.div`
       background: #3D8FFF;
   }
 
-
 /*Func*/
 
  .item ul, .nav input[type="checkbox"] {
@@ -21,19 +20,20 @@ export const Content = styled.div`
 /*Arrow*/
 
 .arrow {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
+    color: gray;
     vertical-align: middle;
     float: right;
     z-index: 0;
     margin: 17px 1em 0 2em;
 }
 .item input + .arrow {
-    transform: rotate(0deg);
+    transform: rotate(90deg);
     transition: 0.1s;
 }
 .item input:checked + .arrow {
-    transform: rotate(180deg);
+    transform: rotate(270deg);
     transition: 0.1s;
 }
 
@@ -52,11 +52,9 @@ label {
 }
 .nav {
     text-decoration: none;
-
     width: 100%;
     background-color: white;
     overflow-x: hidden;
-    border-bottom: 1px solid #CFD8DC;
 }
 
 .nav ul, .nav li, label {
@@ -68,14 +66,19 @@ label {
     color: #90A4AE;
     font-weight: 100;
     width: 100%;
-    border-bottom: 1px solid #CFD8DC;
 
 }
 .item ul {
-    padding: 0 0.25em;
-    text-decoration: none;
+    padding: 0 0.5em;
+}
 
-    
+a{
+    text-decoration: none;
+}
+
+label, li {
+    border-bottom: 1px solid #CFD8DC;
+
 }
 .nav li a {
     line-height: 50px;
@@ -85,6 +88,42 @@ label {
     text-decoration: none;
     color: #90A4AE;
     font-weight: 100;
-    
 }
 `;
+
+export const Header = styled.div`
+  h1{
+      font-size: 1.5em;
+      color: #fff;
+      background: #3D8FFF;
+  }
+
+/*Func*/
+
+ .item ul, .nav input[type="checkbox"] {
+    display: none;
+}
+#menu:checked ~ .multi-level, .item input:checked ~ ul {
+    display: block;
+}
+
+/*Arrow*/
+
+.arrow {
+    width: 15px;
+    height: 15px;
+    color: gray;
+    vertical-align: middle;
+    float: right;
+    z-index: 0;
+    margin: 17px 1em 0 2em;
+}
+.item input + .arrow {
+    transform: rotate(90deg);
+    transition: 0.1s;
+}
+.item input:checked + .arrow {
+    transform: rotate(270deg);
+    transition: 0.1s;
+}
+`

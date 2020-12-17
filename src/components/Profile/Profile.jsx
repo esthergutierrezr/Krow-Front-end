@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink as Link } from "react-router-dom";
 import Users from "./UserArray";
-import Arrow from "./Arrow.png";
+import Arrow from "./arrow+left.png";
 import { Content } from "./Styles";
 
 const Profile = () => {
