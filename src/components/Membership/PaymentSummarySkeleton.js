@@ -5,13 +5,11 @@ const PaymentSummarySkeleton = (props) => {
   const { name, checkIns, dailyCost, price, validity } = props;
   const [termsAndConditions, setTermsAndContitions] = React.useState(false);
   const [autoRenew, setAutoRenew] = React.useState(true);
-  const [isDisabled, setIsDisabled] = React.useState(false);
   const handleTermsChange = () => {
     setTermsAndContitions(!termsAndConditions);
   };
   const handleRenewChange = () => {
     setAutoRenew(!autoRenew);
-    setIsDisabled(!isDisabled);
   };
   return (
     <div>
@@ -29,6 +27,7 @@ const PaymentSummarySkeleton = (props) => {
       <div>Payable Ammount {price * 1.23}€</div>
       <input
         type="checkbox"
+        value={termsAndConditions}
         checked={termsAndConditions}
         onChange={handleTermsChange}
       />
@@ -43,7 +42,16 @@ const PaymentSummarySkeleton = (props) => {
         <Link to="/membership/auto-renew">Auto Renew</Link>
       </div>
       <div>
-        <button >CONFIRM PAYMENT</button>
+        <button disabled={!termsAndConditions ? true : false}>
+          <span>
+            <Link
+              to="/membership/payment-method"
+              onClick={!termsAndConditions ? (e) => e.preventDefault() : null}
+            >
+              CONFIRM PAYMENT
+            </Link>
+          </span>
+        </button>
       </div>
     </div>
   );
