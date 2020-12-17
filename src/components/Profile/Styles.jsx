@@ -2,47 +2,79 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  .dropbtn {
-    background-color: #3498db;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+  h1{
+      font-size: 1.5em;
+      color: #fff;
+      background: #3D8FFF;
   }
+  /*Func*/
 
-  .dropbtn:hover,
-  .dropbtn:focus {
-    background-color: #2980b9;
-  }
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-content {
+ .item ul, .nav input[type="checkbox"] {
     display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
+}
+#menu:checked ~ .multi-level, .item input:checked ~ ul {
+    display: block;
+}
 
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+/*Arrow*/
+
+.arrow {
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    float: right;
+    z-index: 0;
+    margin: 17px 1em 0 2em;
+}
+.item input + .arrow {
+    transform: rotate(0deg);
+    transition: 0.1s;
+}
+.item input:checked + .arrow {
+    transform: rotate(180deg);
+    transition: 0.1s;
+}
+
+
+
+/*Styles*/
+
+label:hover {
+    cursor: pointer;
+}
+label {
+    width: 100%;
+    display: block;
+    z-index: 3;
+    position: relative;
+}
+.nav {
+    width: 100%;
+    background-color: white;
+    overflow-x: hidden;
+    border-bottom: 1px solid #CFD8DC;
+}
+
+.nav ul, .nav li, label {
+    line-height: 50px;
+    margin: 0;
+    padding: 0 2em;
+    list-style: none;
     text-decoration: none;
-    display: block;
-  }
-
-  .dropdown a:hover {
-    background-color: #ddd;
-  }
-
-  .show {
-    display: block;
-  }
+    color: #90A4AE;
+    font-weight: 100;
+    width: 100%;
+}
+.item ul {
+    padding: 0 0.25em;
+}
+.nav li a {
+    line-height: 50px;
+    margin: 0;
+    padding: 0 0.5em;
+    list-style: none;
+    text-decoration: none;
+    color: #90A4AE;
+    font-weight: 100;
+}
 `;

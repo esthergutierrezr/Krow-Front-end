@@ -1,30 +1,17 @@
-import React, {useEffect} from "react";
-import {NavLink as Link} from "react-router-dom";
-import {Content} from "./Styles";
+import React, { useState, useEffect } from "react";
+import { NavLink as Link } from "react-router-dom";
+import Users from "./UserArray";
+import Arrow from "./Arrow.png";
+import { Content } from "./Styles";
 
 const Profile = () => {
+  const [user, setUser] = useState([]);
 
-    // show dropdown
-    useEffect=()=>{
+  useEffect(() => {
+    Users.map((response) => console.log(response));
+  }, []);
 
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-          }
-    }
-      
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          const dropdowns = document.getElementsByClassName("dropdown-content");
-          let i;
-          for (i = 0; i < dropdowns.length; i++) {
-            const openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
-        }
-      }
+  // show dropdown
 
   return (
     <Content>
@@ -35,14 +22,25 @@ const Profile = () => {
       <p>Name</p>
       <p>Active Membership</p>
       <p>Membership Status</p>
-      <div className="dropdown">
-        <button onClick="myFunction()" className="dropbtn">
-          Account Settings
-        </button>
-        <div id="myDropdown" className="dropdown-content">
-          <Link to="/profile/edit">Edit Profile</Link>
-          <Link to="/profile/password">Change Password</Link>
+      <div className="nav">
+        <input type="checkbox" id="menu" />
+        <div className="multi-level">
+          <div className="item">
+            <input type="checkbox" id="A" />
+            <img src={Arrow} className="arrow" />
+            <label htmlFor="A">Account Settings</label>
+            <ul>
+              <li>
+                <Link to="/profile/edit">Edit Profile</Link>
+              </li>
+              <li>
+                <Link to="/profile/password">Change Password</Link>
+              </li>
+            </ul>
+          </div>
         </div>
+            <label>Contact Us</label>
+            <label>Log Out</label>
       </div>
     </Content>
     // Account settings(drop down menu)
