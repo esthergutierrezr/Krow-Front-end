@@ -7,7 +7,9 @@ export const Content = styled.div`
       color: #fff;
       background: #3D8FFF;
   }
-  /*Func*/
+
+
+/*Func*/
 
  .item ul, .nav input[type="checkbox"] {
     display: none;
@@ -19,8 +21,8 @@ export const Content = styled.div`
 /*Arrow*/
 
 .arrow {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     vertical-align: middle;
     float: right;
     z-index: 0;
@@ -35,8 +37,6 @@ export const Content = styled.div`
     transition: 0.1s;
 }
 
-
-
 /*Styles*/
 
 label:hover {
@@ -47,8 +47,12 @@ label {
     display: block;
     z-index: 3;
     position: relative;
+    border-bottom: 1px solid #CFD8DC;
+
 }
 .nav {
+    text-decoration: none;
+
     width: 100%;
     background-color: white;
     overflow-x: hidden;
@@ -64,9 +68,14 @@ label {
     color: #90A4AE;
     font-weight: 100;
     width: 100%;
+    border-bottom: 1px solid #CFD8DC;
+
 }
 .item ul {
     padding: 0 0.25em;
+    text-decoration: none;
+
+    
 }
 .nav li a {
     line-height: 50px;
@@ -76,5 +85,6 @@ label {
     text-decoration: none;
     color: #90A4AE;
     font-weight: 100;
+    
 }
 `;

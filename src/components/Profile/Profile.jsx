@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from "react";
 import { NavLink as Link } from "react-router-dom";
 import Users from "./UserArray";
@@ -8,7 +9,10 @@ const Profile = () => {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    Users.map((response) => console.log(response));
+    Users.map((response) => 
+    console.log(response)
+    
+    );
   }, []);
 
   // show dropdown
@@ -23,24 +27,23 @@ const Profile = () => {
       <p>Active Membership</p>
       <p>Membership Status</p>
       <div className="nav">
-        <input type="checkbox" id="menu" />
         <div className="multi-level">
           <div className="item">
             <input type="checkbox" id="A" />
-            <img src={Arrow} className="arrow" />
+            <img src={Arrow} className="arrow"/>
             <label htmlFor="A">Account Settings</label>
             <ul>
-              <li>
-                <Link to="/profile/edit">Edit Profile</Link>
-              </li>
-              <li>
-                <Link to="/profile/password">Change Password</Link>
-              </li>
+              <Link to="/profile/edit">
+                <li>Edit Profile</li>
+              </Link>
+              <Link to="/profile/password">
+                <li>Change Password</li>
+              </Link>
             </ul>
           </div>
         </div>
-            <label>Contact Us</label>
-            <label>Log Out</label>
+        <label>Contact Us</label>
+        <label>Log Out</label>
       </div>
     </Content>
     // Account settings(drop down menu)

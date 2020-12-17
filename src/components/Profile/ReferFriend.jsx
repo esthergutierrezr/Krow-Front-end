@@ -1,9 +1,7 @@
 import React from 'react'
 
-export const ReferFriend = () => {
-    return (
-        <div>
-            
-        </div>
+export const ReferFriend = () => (
+  <div>
+    Refer a Friend
+  </div>
     )
-}

@@ -2,16 +2,14 @@
 // Billing
 // membership card
 // Check-Ins
-//check-in card
+// check-in card
 
 import React from 'react'
 
-const History = () => {
-    return (
-        <div>
-            
-        </div>
+const History = () => (
+  <div>
+    History
+  </div>
     )
-}
 
 export default History
