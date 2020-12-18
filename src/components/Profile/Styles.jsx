@@ -96,34 +96,21 @@ export const Header = styled.div`
       font-size: 1.5em;
       color: #fff;
       background: #3D8FFF;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
   }
 
-/*Func*/
+/*Arrow Left*/
 
- .item ul, .nav input[type="checkbox"] {
-    display: none;
-}
-#menu:checked ~ .multi-level, .item input:checked ~ ul {
-    display: block;
-}
-
-/*Arrow*/
-
-.arrow {
+.arrowleft {
     width: 15px;
     height: 15px;
     color: gray;
     vertical-align: middle;
-    float: right;
+    float: left;
     z-index: 0;
     margin: 17px 1em 0 2em;
 }
-.item input + .arrow {
-    transform: rotate(90deg);
-    transition: 0.1s;
-}
-.item input:checked + .arrow {
-    transform: rotate(270deg);
-    transition: 0.1s;
-}
+
 `
