@@ -14,8 +14,8 @@ const Membership = () => {
         <Route exact path="/membership" component={PackagesDisplay} />
         <Route path="/membership/auto-renew" component={AutoRenew} />
         <Route path="/membership/payment-method" component={PaymentMethod} />
-        <Route path="/membership/payment-summary" component={PaymentSummary} />
         <Route path="/membership/payment-successful" component={PaymentSuccessful} />
+        <Route path="/membership/payment-summary" component={PaymentSummary} />
         <Route path="/membership/terms-and-conditions" component={TermsAndConditions} />
       </Switch>
     </div>

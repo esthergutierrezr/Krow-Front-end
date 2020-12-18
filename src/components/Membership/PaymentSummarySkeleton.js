@@ -46,7 +46,7 @@ const PaymentSummarySkeleton = (props) => {
           <span>
             <Link
               to="/membership/payment-method"
-              onClick={!termsAndConditions ? (e) => e.preventDefault() : null}
+              onClick={!termsAndConditions && ((e) => e.preventDefault())}
             >
               CONFIRM PAYMENT
             </Link>
