@@ -5,20 +5,21 @@ import CTAButtons from "./home-subcomponents/CTAButtons";
 import CommunityUpdates from "./home-subcomponents/CommunityUpdates";
 import FeaturedLocations from "./home-subcomponents/FeaturedLocations";
 import ImportantMessage from "./home-subcomponents/ImportantMessage";
+import './homepage.css'
 
 const Homepage = () => {
   const [state, setState] = React.useState({});
     return (
       <div>
-        <Greeting />
+        {/* <Greeting /> */}
         <h2>Welcome to Krow.Works</h2>
-        {/* <CTAButtons />
-        <h2>Community updates</h2>
-        <CommunityUpdates />
-        <h2>Featured Locations</h2>
-        <Link to="/locations">view all</Link>
-        <FeaturedLocations />
-        <ImportantMessage /> */}
+        <CTAButtons />
+        {/* <h2>Community updates</h2> */}
+        {/* <CommunityUpdates /> */}
+        {/* <h2>Featured Locations</h2> */}
+        {/* <Link to="/locations">view all</Link> */}
+        {/* <FeaturedLocations /> */}
+        {/* <ImportantMessage /> */}
 
       </div>
     )
