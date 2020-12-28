@@ -1,3 +1,6 @@
-.ctabuttons__button{
+.ctabuttons__button {
   margin: 5px;
+  height: 75px;
+  width: auto;
 }
+
