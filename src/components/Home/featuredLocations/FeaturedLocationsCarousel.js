@@ -28,7 +28,7 @@ const Carousel = () => {
     slidesToShow: 2.3,
     // slidesToScroll: 4,
     initialSlide: 0,
-    // centerPadding: "30px",
+    padding: "30px",
     swipeToSlide: true,
     arrows: true,
     responsive: [
@@ -36,7 +36,6 @@ const Carousel = () => {
       breakpoint: 1024,
       settings: {
         slidesToShow: 3.3,
-        slidesToScroll: 3,
         infinite: false,
         dots: false
       }

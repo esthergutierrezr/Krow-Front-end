@@ -19,7 +19,7 @@ const Homepage = () => {
         <h2>Featured Locations</h2>
         <Link to="/locations">view all</Link>
         <FeaturedLocations />
-        {/* <ImportantMessage /> */}
+        <ImportantMessage />
 
       </div>
     )

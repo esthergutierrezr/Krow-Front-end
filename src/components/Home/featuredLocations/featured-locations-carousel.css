@@ -32,7 +32,8 @@
 
 .carousel-card__image{
   grid-area: image;
-  height: 100%;
+  min-height: 100%;
+  max-height: 100px;
   border-radius: 10px;
 
   width: 100%;
@@ -40,7 +41,8 @@
 }
 
 .carousel-card__text{
-  display: block;
+  display: inline-block;
+  grid-template-rows: 1fr 1fr;
 }
 
 .carousel-card__location-name{
@@ -48,9 +50,8 @@
   margin-bottom: 4px;
 }
 .carousel-card__location-rating{
-  color: #444;
   grid-area: rating;
-  height: 0;
+  color: #444;
 }
 
 .star {
@@ -65,4 +66,5 @@ a{
 h3{
   font-weight: 400;
   font-size: 20px;
+  break-after: always;
 }

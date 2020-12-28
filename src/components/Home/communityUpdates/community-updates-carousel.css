@@ -4,47 +4,32 @@
   width: 100vw;
 }
 .slick-list{
-  padding:0 20% 0 0;
+  padding: 20% 0 20%;
 }
 
-.slick-slider{
+.slick-slide{
   height: 200px;
+  width: 100px;
 }
 
+.slick-dots{
+  margin-bottom: 30px;
+}
 .carousel-card{
   margin: 10px;
   height: 150px;
   max-width: 200px;
-  
-  display: grid;
-  grid-template-areas: 
-  "image"
-  "image"
-  "image"
-  "image"
-  "image"
-  "image"
-  "image"
-  "name"
-  "rating";
+  display: flex;
+  justify-self:center;
 }
 
-.carousel-card__image{
-  grid-area: image;
-  height: 100%;
+.cu-carousel-card__image{
   border-radius: 10px;
-
-  width: 100%;
-  max-width: 100%;
-}
-
-.carousel-card__location-name{
-  grid-area: name;
-  height: 0px;
-}
-.carousel-card__location-rating{
-  grid-area: rating;
-  height: 0;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: 5%;
+  height: 162px;
+  width: 310px;
 }
 
 a{

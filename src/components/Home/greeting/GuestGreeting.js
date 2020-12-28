@@ -6,7 +6,7 @@ function GuestGreeting() {
   // Some endpoints don't exist yet --> register
 
   return (
-    <div>
+    <div className="greeting-container">
       <span> 
         <Link to="/register">Sign Up</Link>
         {' | '}

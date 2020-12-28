@@ -4,3 +4,25 @@
   width: auto;
 }
 
+.greeting-container{
+  display: flex;
+  justify-content: space-between;
+  margin:10px;
+  margin-right:20px;
+
+}
+.profile-picture{
+  
+}
+
+.important-messages{
+  display: flex;
+  justify-content: center;
+}
+
+.important-message{
+  border-radius: 10px;
+  width: 90vw;
+  height: auto;
+
+}

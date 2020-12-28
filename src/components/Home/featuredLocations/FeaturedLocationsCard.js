@@ -11,7 +11,6 @@ const CarouselCard=(props)=>{
       <img className="carousel-card__image" src={img} alt="" />
       <div className="carousel-card__text">
         <h3 className="carousel-card__location-name">{locationName}</h3> 
-        <br />
         <Rating rating={rating} />
       </div>
     </Link>
