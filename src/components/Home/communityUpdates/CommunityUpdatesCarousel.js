@@ -59,7 +59,7 @@ const Carousel = () => {
   ]
 };
   return (
-    <div id="carousel">
+    <div id="carousel-community-updates">
       <Slider {...settings}>
         {cards.map((card, index) => (
           <CarouselCard key={index} {...card}/>

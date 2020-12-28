@@ -1,8 +1,8 @@
-#carousel{
+#carousel-featured-locations{
   min-height: 150px;
   max-height: 200px;
   width: 100vw;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 .slick-list{
   padding:0 20% 0 0;
@@ -10,10 +10,6 @@
 
 .slick-slider{
   height: 200px;
-}
-
-.slick-dots{
-  margin-top: -50px;
 }
 
 .carousel-card{
@@ -43,16 +39,30 @@
   max-width: 100%;
 }
 
+.carousel-card__text{
+  display: block;
+}
+
 .carousel-card__location-name{
   grid-area: name;
-  height: 0px;
+  margin-bottom: 4px;
 }
 .carousel-card__location-rating{
+  color: #444;
   grid-area: rating;
   height: 0;
+}
+
+.star {
+  color: orange;
 }
 
 a{
   color: #000;
   text-decoration: none;
+}
+
+h3{
+  font-weight: 400;
+  font-size: 20px;
 }
