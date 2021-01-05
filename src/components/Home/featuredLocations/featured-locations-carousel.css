@@ -1,0 +1,70 @@
+#carousel-featured-locations{
+  min-height: 150px;
+  max-height: 200px;
+  width: 100vw;
+  /* margin-left: 10px; */
+}
+.slick-list{
+  padding:0 20% 0 0;
+}
+
+.slick-slider{
+  height: 200px;
+}
+
+.carousel-card{
+  margin: 10px;
+  height: 150px;
+  max-width: 200px;
+  
+  display: grid;
+  grid-template-areas: 
+  "image"
+  "image"
+  "image"
+  "image"
+  "image"
+  "image"
+  "image"
+  "name"
+  "rating";
+}
+
+.carousel-card__image{
+  grid-area: image;
+  min-height: 100%;
+  max-height: 100px;
+  border-radius: 10px;
+
+  width: 100%;
+  max-width: 100%;
+}
+
+.carousel-card__text{
+  display: inline-block;
+  grid-template-rows: 1fr 1fr;
+}
+
+.carousel-card__location-name{
+  grid-area: name;
+  margin-bottom: 4px;
+}
+.carousel-card__location-rating{
+  grid-area: rating;
+  color: #444;
+}
+
+.star {
+  color: orange;
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+h3{
+  font-weight: 400;
+  font-size: 20px;
+  break-after: always;
+}
