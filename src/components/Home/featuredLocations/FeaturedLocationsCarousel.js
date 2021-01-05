@@ -5,17 +5,17 @@ import "slick-carousel/slick/slick-theme.css";
 import CarouselCard from './FeaturedLocationsCard'
 
 const cards = [
-  {locationName: "Hotel1",
-  rating: .5,
+  {locationName: "Hotel 1",
+  rating: 4.5,
   img: "https://images.unsplash.com/photo-1551023629-106d39e0c145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"},
-  {locationName: "Hotel2",
-  rating: 2,
+  {locationName: "Hotel 2",
+  rating: 4.8,
   img: "https://images.unsplash.com/photo-1468512442914-319d95deb34a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"},
-  {locationName: "Hotel3",
-  rating: 3,
+  {locationName: "Hotel 3",
+  rating: 5,
   img: "https://images.unsplash.com/photo-1546971587-02375cbbdade?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"},
-  {locationName: "Hotel4",
-  rating: 4,
+  {locationName: "Hotel 4",
+  rating: 3,
   img: "https://images.unsplash.com/photo-1546538071-ea2ae093450b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"},
 ]
 

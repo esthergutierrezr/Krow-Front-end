@@ -16,8 +16,10 @@ const Homepage = () => {
         <CTAButtons />
         <h2>Community updates</h2>
         <CommunityUpdates />
-        <h2>Featured Locations</h2>
-        <Link to="/locations">view all</Link>
+        <p className="home__featured-locations">
+          <h2>Featured Locations</h2>
+          <Link id="home__view-all-locations" to="/locations">view all</Link>
+        </p>
         <FeaturedLocations />
         <ImportantMessage />
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 function UserGreeting(props) {
-  const {membership, firstName, lastName} = props;
+  const {membership, img, firstName, lastName} = props;
 
   const initialGreeting = `Hi, ${firstName} ${lastName}`;
 
@@ -20,7 +20,7 @@ function UserGreeting(props) {
             </span>)
         }
       </span>
-      <Link to="/profile"><img className="profile-picture" src="https://via.placeholder.com/150" alt={firstName} /></Link>
+      <Link to="/profile"><img className="profile-picture" src={img} alt={firstName} /></Link>
     </div>
   );
 }

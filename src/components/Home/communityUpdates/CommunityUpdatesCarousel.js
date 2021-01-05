@@ -6,13 +6,12 @@ import CarouselCard from './CommunityUpdatesCard'
 import './community-updates-carousel.css';
 
 const cards = [
-  {updateName: "Hotel1",
+  {updateName: "Update 1",
   img: "https://www.swift.com/sites/default/files/styles/cta_background/public/images/Event-banner-simple-map-EU_0.jpg?itok=VKwuCNJG"},
-  {updateName: "",
+  {updateName: "Update 2",
   img: "https://pixinal.com/wp-content/uploads/2019/12/update.jpg"},
-  {updateName: "Hotel1",
+  {updateName: "Update 31",
   img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDvqGLr28bOpc7STyhp4ObDSS7Qy4e1-vHhw&usqp=CAU"}
-  
 ]
 
 const Carousel = () => {
@@ -23,8 +22,7 @@ const Carousel = () => {
     speed: 500,
     slidesToShow: 1,
     initialSlide: 0,
-    swipeToSlide: true,
-    arrows: true,
+    // swipeToSlide: true,
     responsive: [
     {
       breakpoint: 1024,
@@ -44,7 +42,9 @@ const Carousel = () => {
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1.1,
+        centerMode: true,
+        slidesToShow: 1,
+        arrows: true,
         slidesToScroll: 1,
       }
     },
