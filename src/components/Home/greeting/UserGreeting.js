@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
+import {UserContext} from '../../../contexts/UserContext'
 
-function UserGreeting(props) {
-  const {membership, img, firstName, lastName} = props;
+function UserGreeting() {
+  const {firstName, lastName, isMember, image, toggleIsMember} = useContext(UserContext)
 
   const initialGreeting = `Hi, ${firstName} ${lastName}`;
 
@@ -11,8 +12,8 @@ function UserGreeting(props) {
       <span>
         {initialGreeting}
         <br />
-        {membership
-          ? membership
+        {isMember
+          ? "active membership!"
           : (<span> 
               No active membership 
               <br /> 
@@ -20,7 +21,7 @@ function UserGreeting(props) {
             </span>)
         }
       </span>
-      <Link to="/profile"><img className="profile-picture" src={img} alt={firstName} /></Link>
+      <Link to="/profile"><img className="profile-picture" src={image} alt={firstName} /></Link>
     </div>
   );
 }

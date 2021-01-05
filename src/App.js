@@ -6,13 +6,13 @@ import Locations from './components/Locations/Locations';
 import Login from './components/Login/Login';
 import Membership from './components/Membership/Membership';
 import Profile from './components/Profile/Profile';
-import UserContext from './contexts/UserContext';
+import UserContextProvider from './contexts/UserContext';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <UserContext>
+      <UserContextProvider>
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/locations" component={Locations} />
@@ -21,7 +21,7 @@ function App() {
           <Route path="/profile" component={Profile} />
         </Switch>
         <BottomNav />
-      </UserContext>
+      </UserContextProvider>
     </div>
   );
 }
