@@ -1,19 +1,63 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink as Link } from "react-router-dom";
-import Users from "./UserArray";
+import { UserContext } from "../../contexts/UserContext";
+import { useHistory } from "react-router-dom";
+// import Users from "./UserArray";
 import Arrow from "./arrow+left.png";
 import { Content } from "./Styles";
 
-const Profile = () => {
-  const [user, setUser] = useState([]);
+// function UserGreeting() {
+//   const {firstName, lastName, isMember, image, toggleIsMember} = useContext(UserContext)
 
-  useEffect(() => {
-    Users.map((response) => 
-    console.log(response)
-    
-    );
-  }, []);
+//   const initialGreeting = `Hi, ${firstName} ${lastName}`;
+
+//   return (
+//     <div className="greeting-container">
+//       <span>
+//         {initialGreeting}
+//         <br />
+//         {isMember
+//           ? "active membership!"
+//           : (<span>
+//               No active membership
+//               <br />
+//               <Link to="membership">Click here to buy a plan</Link>
+//             </span>)
+//         }
+//       </span>
+//       <Link to="/profile"><img className="profile-picture" src={image} alt={firstName} /></Link>
+//     </div>
+//   );
+// }
+
+// export default UserGreeting;
+
+export function LogOut() {
+  // Some endpoints don't exist yet --> register
+
+  return (
+    <div className="greeting-container">
+      <span>
+        <Link to="/register">Sign Up</Link>
+        {" | "}
+        <Link to="/login">Log in</Link>
+      </span>
+      <Link to="/login">
+        <img
+          className="profile-picture"
+          src="https://via.placeholder.com/150"
+          alt=""
+        />
+      </Link>
+    </div>
+  );
+}
+
+
+const Profile = () => {
+  const { firstName, lastName, isMember, image } = useContext(UserContext);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // show dropdown
 
@@ -22,15 +66,14 @@ const Profile = () => {
       <header>
         <h1>Profile</h1>
       </header>
-      <p>User img</p>
-      <p>Name</p>
-      <p>Active Membership</p>
-      <p>Membership Status</p>
+
+      {isLoggedIn ? <UserProfile /> : <LogOut />}
+
       <div className="nav">
         <div className="multi-level">
           <div className="item">
             <input type="checkbox" id="A" />
-            <img src={Arrow} className="arrow"/>
+            <img src={Arrow} className="arrow" />
             <label htmlFor="A">Account Settings</label>
             <ul>
               <Link to="/profile/edit">
@@ -43,7 +86,9 @@ const Profile = () => {
           </div>
         </div>
         <label>Contact Us</label>
-        <label>Log Out</label>
+        <button type="button" onClick={() => log(!isLoggedIn)}>
+          Log Out
+        </button>
       </div>
     </Content>
     // Account settings(drop down menu)
