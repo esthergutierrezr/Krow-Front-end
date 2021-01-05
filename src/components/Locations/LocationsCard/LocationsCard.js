@@ -1,16 +1,19 @@
 import React from "react";
 
-function LocationsCard() {
+function LocationsCard(props) {
+  const checkoutClicked = () => console.log("checkedinn");
+
   return (
     <div>
-      <h1>Location Name</h1>
+      <h1>{props.name}</h1>
+      <img src={props.image} alt="image" />
       <div>
         <p>Wifi Details</p>
-        <p>Network:</p>
-        <p>Password:</p>
+        <p>Network:{props.network}</p>
+        <p>Password:{props.password}</p>
       </div>
       <div>Closing at </div>
-      <button>Check Out</button>
+      <button onClick={checkoutClicked}>Check Out</button>
     </div>
   );
 }
