@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useContext} from "react";
+// import { useHistory } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
-export function UserProfile() {
-  // Some endpoints don't exist yet --> register
+export default function UserProfile() {
+  const {firstName, lastName, isMember, image} = useContext(UserContext)
+
+//   const history = useHistory();
+
+//   async function handleSubmit(event) {
+//     event.preventDefault();
+  
+//     try {
+//       await Auth.signIn();
+//       userHasAuthenticated(true);
+//       history.push("/profile");
+//     } catch (error) {
+//       alert(error.message);
+//     }
+//   }
 
   return (
     <div>
@@ -16,7 +32,7 @@ export function UserProfile() {
       </p>
       <p>
         {isMember ? (
-          "active membership!"
+          "Membership Active"
         ) : (
           <p>
             No active membership

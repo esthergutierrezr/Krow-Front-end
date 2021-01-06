@@ -1,74 +1,28 @@
-import React, { useState, useContext } from "react";
-import { NavLink as Link } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext";
-import { useHistory } from "react-router-dom";
-// import Users from "./UserArray";
+import React, { useState } from "react";
+import { NavLink as Link, useHistory } from "react-router-dom";
+import UserProfile from "./UserProfile";
 import Arrow from "./arrow+left.png";
 import { Content } from "./Styles";
 
-// function UserGreeting() {
-//   const {firstName, lastName, isMember, image, toggleIsMember} = useContext(UserContext)
+export const LogOut = () => {
+  const history = useHistory();
 
-//   const initialGreeting = `Hi, ${firstName} ${lastName}`;
+    userHasAuthenticated(false);
 
-//   return (
-//     <div className="greeting-container">
-//       <span>
-//         {initialGreeting}
-//         <br />
-//         {isMember
-//           ? "active membership!"
-//           : (<span>
-//               No active membership
-//               <br />
-//               <Link to="membership">Click here to buy a plan</Link>
-//             </span>)
-//         }
-//       </span>
-//       <Link to="/profile"><img className="profile-picture" src={image} alt={firstName} /></Link>
-//     </div>
-//   );
-// }
-
-// export default UserGreeting;
-
-export function LogOut() {
-  // Some endpoints don't exist yet --> register
-
-  return (
-    <div className="greeting-container">
-      <span>
-        <Link to="/register">Sign Up</Link>
-        {" | "}
-        <Link to="/login">Log in</Link>
-      </span>
-      <Link to="/login">
-        <img
-          className="profile-picture"
-          src="https://via.placeholder.com/150"
-          alt=""
-        />
-      </Link>
-    </div>
-  );
-}
-
+    history.push("/")
+};
 
 const Profile = () => {
-  const { firstName, lastName, isMember, image } = useContext(UserContext);
-
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-
-  // show dropdown
 
   return (
     <Content>
       <header>
         <h1>Profile</h1>
+
+        {isLoggedIn ? <UserProfile /> : <LogOut />}
       </header>
-
-      {isLoggedIn ? <UserProfile /> : <LogOut />}
-
+      {/* show dropdown */}
       <div className="nav">
         <div className="multi-level">
           <div className="item">
@@ -86,42 +40,13 @@ const Profile = () => {
           </div>
         </div>
         <label>Contact Us</label>
-        <button type="button" onClick={() => log(!isLoggedIn)}>
+        <Link to="/">
+        <button type="button" onClick={() => setIsLoggedIn(!isLoggedIn)}>
           Log Out
         </button>
+        </Link>
       </div>
     </Content>
-    // Account settings(drop down menu)
-    // edit profile
-    // header same from Homepage with different display
-    // Image
-    // Username
-    // (active) membership
-    // Buy membership (link)
-    // Form fields
-    // Phone number
-    // Email address
-    // Username
-    // City
-    // Profession
-    // Company
-    // Button Save details
-    // change password
-    // old password
-    // new password
-    // confirm password
-    // forget password (different component????)
-    // insert email
-    // Button Send Reset Link
-    // (How generate a link to reset password)
-    // History
-    // Billing
-    // membership card
-    // Check-Ins
-    // check-in card
-    // Discounts (link to Refer Friend)
-    // Contact Us (link to web site contact)
-    // Log out
   );
 };
 
