@@ -7,9 +7,9 @@ import { Content } from "./Styles";
 export const LogOut = () => {
   const history = useHistory();
 
-    userHasAuthenticated(false);
+  userHasAuthenticated(false);
 
-    history.push("/")
+  history.push("/");
 };
 
 const Profile = () => {
@@ -19,7 +19,6 @@ const Profile = () => {
     <Content>
       <header>
         <h1>Profile</h1>
-
         {isLoggedIn ? <UserProfile /> : <LogOut />}
       </header>
       {/* show dropdown */}
@@ -39,11 +38,13 @@ const Profile = () => {
             </ul>
           </div>
         </div>
-        <label>Contact Us</label>
+        <Link to="/contact">
+          <label>Contact Us</label>
+        </Link>
         <Link to="/">
-        <button type="button" onClick={() => setIsLoggedIn(!isLoggedIn)}>
-          Log Out
-        </button>
+          <button type="button" onClick={() => setIsLoggedIn(!isLoggedIn)}>
+            Log Out
+          </button>
         </Link>
       </div>
     </Content>
