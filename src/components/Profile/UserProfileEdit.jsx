@@ -2,13 +2,18 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 
-function UserProfile() {
+function UserProfileEdit() {
   const { firstName, lastName, isMember, image } = useContext(UserContext);
 
   const initialGreeting = `Hi, ${firstName} ${lastName}`;
 
   return (
     <div className="greeting">
+      <img
+        className="profile-picture"
+        src={image}
+        alt={`${firstName}_${lastName}`}
+      />
       <h1>{initialGreeting}</h1>
       <br />
       {isMember ? (
@@ -20,21 +25,16 @@ function UserProfile() {
           </p>
         </>
       ) : (
-        <>
+        <p>
           <p className="no-membership">No Active Membership</p>
           <br />
           <Link to="/membership">
             <p className="add-membership">Add a Membership</p>
           </Link>
-        </>
+        </p>
       )}
-      <img
-        className="profile-picture"
-        src={image}
-        alt={`${firstName}_${lastName}`}
-      />
     </div>
   );
 }
 
-export default UserProfile;
+export default UserProfileEdit;

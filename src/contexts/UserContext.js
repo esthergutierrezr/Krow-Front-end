@@ -13,7 +13,9 @@ function UserContextProvider(props) {
     image: "https://images.unsplash.com/photo-1609694923332-ac96287d7203?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
     phoneNumber: 555555555,
     password: "xxxxx",
+    country: "Portugal",
     city: "Lisbon",
+    company: "ITWORK",
     profession: "work",
     industry: "IT",
     isMember: true

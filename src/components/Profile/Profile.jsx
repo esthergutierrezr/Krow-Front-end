@@ -6,9 +6,7 @@ import { Content } from "./Styles";
 
 export const LogOut = () => {
   const history = useHistory();
-
-  userHasAuthenticated(false);
-
+  // userHasAuthenticated(false);
   history.push("/");
 };
 
@@ -17,35 +15,54 @@ const Profile = () => {
 
   return (
     <Content>
-      <header>
-        <h1>Profile</h1>
-        {isLoggedIn ? <UserProfile /> : <LogOut />}
-      </header>
+      <header>{isLoggedIn ? <UserProfile /> : <LogOut />}</header>
       {/* show dropdown */}
       <div className="nav">
         <div className="multi-level">
           <div className="item">
             <input type="checkbox" id="A" />
-            <img src={Arrow} className="arrow" />
-            <label htmlFor="A">Account Settings</label>
+            <label className="label-top" htmlFor="A">
+              Account Settings
+              <img src={Arrow} className="arrow" />
+            </label>
             <ul>
               <Link to="/profile/edit">
-                <li>Edit Profile</li>
+                <li className="active">Edit Profile</li>
               </Link>
               <Link to="/profile/password">
-                <li>Change Password</li>
+                <li className="active">Change Password</li>
               </Link>
             </ul>
           </div>
         </div>
-        <Link to="/contact">
-          <label>Contact Us</label>
+        <Link to="/membership">
+          <label className="label-top">Add a Membership</label>
         </Link>
-        <Link to="/">
-          <button type="button" onClick={() => setIsLoggedIn(!isLoggedIn)}>
-            Log Out
-          </button>
+        <Link to="/notifications">
+          <label className="label-top">Notifications</label>
         </Link>
+        <Link to="/historic">
+          <label className="label-top">Historic</label>
+        </Link>
+        <Link to="/invite">
+          <label className="label-top">Invite a Friend</label>
+        </Link>
+        <br />
+        <br />
+        <div>
+          <Link to="/contact">
+            <label className="label-bottom">Contact Us</label>
+          </Link>
+          <Link to="/">
+            <label
+              className="label-bottom"
+              type="button"
+              onClick={() => setIsLoggedIn(!isLoggedIn)}
+            >
+              Log Out
+            </label>
+          </Link>
+        </div>
       </div>
     </Content>
   );

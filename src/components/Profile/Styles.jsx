@@ -4,8 +4,9 @@ import styled from "styled-components";
 export const Content = styled.div`
   h1{
       font-size: 1.5em;
-      color: #fff;
-      background: #3D8FFF;
+      color: #FBBC05;
+      background: #1E847B;
+      height: 80hv;
   }
 
 /*Func*/
@@ -22,11 +23,8 @@ export const Content = styled.div`
 .arrow {
     width: 15px;
     height: 15px;
-    color: gray;
-    vertical-align: middle;
-    float: right;
-    z-index: 0;
-    margin: 17px 1em 0 2em;
+    color: #000;
+    margin-top: 15px;
 }
 .item input + .arrow {
     transform: rotate(90deg);
@@ -42,7 +40,7 @@ export const Content = styled.div`
 label:hover {
     cursor: pointer;
 }
-label {
+.label-top {
     width: 100%;
     display: block;
     z-index: 3;
@@ -50,11 +48,23 @@ label {
     border-bottom: 1px solid #CFD8DC;
 
 }
+.label-bottom {
+    width: 100%;
+    display: block;
+    z-index: 3;
+    position: relative;
+    color: #CFD8DC;
+}
+.active{
+    color:#fff;
+    background-color: #1E847B;
+}
 .nav {
     text-decoration: none;
     width: 100%;
     background-color: white;
     overflow-x: hidden;
+    margin: 0 2em 0 2em;
 }
 
 .nav ul, .nav li, label {
@@ -63,13 +73,12 @@ label {
     padding: 0 2em;
     list-style: none;
     text-decoration: none;
-    color: #90A4AE;
     font-weight: 100;
     width: 100%;
 
 }
 .item ul {
-    padding: 0 0.5em;
+    padding: 0;
 }
 
 a{
@@ -80,15 +89,7 @@ label, li {
     border-bottom: 1px solid #CFD8DC;
 
 }
-.nav li a {
-    line-height: 50px;
-    margin: 0;
-    padding: 0 0.5em;
-    list-style: none;
-    text-decoration: none;
-    color: #90A4AE;
-    font-weight: 100;
-}
+
 `;
 
 export const Header = styled.div`

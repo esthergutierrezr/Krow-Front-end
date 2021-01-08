@@ -1,17 +1,19 @@
 import React, {useState, useContext} from 'react';
 import { UserContext } from "../../contexts/UserContext";
+import UserProfileEdit from "./UserProfile"
 
 const EditMode = (props) => {
     
-  const { firstName, lastName, phoneNumber, image, gender, email, city, profession, industry} = useContext(UserContext)
+  const { firstName, lastName, phoneNumber, country, company, email, city, profession, industry} = useContext(UserContext)
 
-  const { editUser } = props;
+  const { user,  editUser } = props;
 
   const [editedUser, setEditedUser] = useState({
       firstName,
       lastName,
       email,
-      gender,
+      country,
+      company,
       phoneNumber,
       city,
       profession,
@@ -19,16 +21,21 @@ const EditMode = (props) => {
     });
 
     const [inEditMode, setInEditMode] = useState(false);
-  
+
     const handleChange = (e) => {
-      const {name} = e.target;
-      const {value} = e.target;
-      setEditedUser({ ...editedUser, [name]: value });
+      const { name, value } = e.target;
+      setEditedUser({ [name]: value });
     };
+    // const handleChange = (e) => {
+    //   const {name} = e.target;
+    //   const {value} = e.target;
+    //   setEditedUser({ ...editedUser, [name]: value });
+    // };
   return (
     <div>
       <h1>Edit Profile</h1>
-      {inEditMode ? (
+      {/* {inEditMode ? ( */}
+      <UserProfileEdit />
         <div>
           <form
             onSubmit={(e) => {
@@ -36,56 +43,48 @@ const EditMode = (props) => {
               setInEditMode(false);
             }}
           >
-            <label>First Name: </label>
             <input
               onChange={handleChange}
               defaultValue={firstName}
               name="firstName"
             />
             <br />
-            <label>Last Name: </label>
-            <input
-              onChange={handleChange}
-              defaultValue={lastName}
-              name="lastName"
-            />
-            <br />
-            <label>Email: </label>
             <input
               onChange={handleChange}
               defaultValue={email}
               name="email"
             />
             <br />
-            <label>Gender: </label>
-            <input
-              onChange={handleChange}
-              defaultValue={gender}
-              name="gender"
-            />
-            <br />
-            <label>Phone: </label>
             <input
               onChange={handleChange}
               defaultValue={phoneNumber}
               name="phoneNumber"
             />
             <br />
-            <label>City: </label>
+            <input
+              onChange={handleChange}
+              defaultValue={country}
+              name="country"
+            />
+            <br />
             <input
               onChange={handleChange}
               defaultValue={city}
               name="city"
             />
             <br />
-            <label>Profession: </label>
+            <input
+              onChange={handleChange}
+              defaultValue={company}
+              name="company"
+            />
+            <br />
             <input
               onChange={handleChange}
               defaultValue={profession}
               name="profession"
             />
             <br />
-            <label>Industry: </label>
             <input
               onChange={handleChange}
               defaultValue={industry}
@@ -95,7 +94,7 @@ const EditMode = (props) => {
             <button type="submit">Save changes</button>
           </form>
         </div>
-      ) : (
+      {/* ) : (
         <div>
           <h4>
             Name:
@@ -131,7 +130,7 @@ const EditMode = (props) => {
         onClick={() => setInEditMode(!inEditMode)}
       >
         {inEditMode ? "Cancel Edit" : "Edit Profile"}
-      </button>
+      </button> */}
     </div>
   )
 }
