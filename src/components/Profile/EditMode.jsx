@@ -47,48 +47,56 @@ const EditMode = (props) => {
               onChange={handleChange}
               defaultValue={firstName}
               name="firstName"
+              placeholder="Name"
             />
             <br />
             <input
               onChange={handleChange}
               defaultValue={email}
               name="email"
+              placeholder="Email"
             />
             <br />
             <input
               onChange={handleChange}
               defaultValue={phoneNumber}
               name="phoneNumber"
+              placeholder="Phone Number"
             />
             <br />
             <input
               onChange={handleChange}
               defaultValue={country}
               name="country"
+              placeholder="Country"
             />
             <br />
             <input
               onChange={handleChange}
               defaultValue={city}
               name="city"
+              placeholder="City"
             />
             <br />
             <input
               onChange={handleChange}
               defaultValue={company}
               name="company"
+              placeholder="Company"
             />
             <br />
             <input
               onChange={handleChange}
               defaultValue={profession}
               name="profession"
+              placeholder="Profession"
             />
             <br />
             <input
               onChange={handleChange}
               defaultValue={industry}
               name="industry"
+              placeholder="Industry"
             />
             <br />
             <button type="submit">Save changes</button>

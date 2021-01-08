@@ -25,12 +25,13 @@ export const Content = styled.div`
     height: 15px;
     color: #000;
     margin-top: 15px;
+    float:right;
 }
-.item input + .arrow {
+.item input + label-top .arrow {
     transform: rotate(90deg);
     transition: 0.1s;
 }
-.item input:checked + .arrow {
+.item input label-top:checked + .arrow {
     transform: rotate(270deg);
     transition: 0.1s;
 }
@@ -41,7 +42,7 @@ label:hover {
     cursor: pointer;
 }
 .label-top {
-    width: 100%;
+    width: auto;
     display: block;
     z-index: 3;
     position: relative;
@@ -49,7 +50,7 @@ label:hover {
 
 }
 .label-bottom {
-    width: 100%;
+    width: auto;
     display: block;
     z-index: 3;
     position: relative;

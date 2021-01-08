@@ -20,11 +20,11 @@ const Profile = () => {
       <div className="nav">
         <div className="multi-level">
           <div className="item">
-            <input type="checkbox" id="A" />
+            <input type="checkbox" id="A"/>
             <label className="label-top" htmlFor="A">
               Account Settings
-              <img src={Arrow} className="arrow" />
             </label>
+              <img src={Arrow} className="arrow" />
             <ul>
               <Link to="/profile/edit">
                 <li className="active">Edit Profile</li>
@@ -38,10 +38,10 @@ const Profile = () => {
         <Link to="/membership">
           <label className="label-top">Add a Membership</label>
         </Link>
-        <Link to="/notifications">
+        <Link to="/profile/notifications">
           <label className="label-top">Notifications</label>
         </Link>
-        <Link to="/historic">
+        <Link to="/profile/historic">
           <label className="label-top">Historic</label>
         </Link>
         <Link to="/invite">
