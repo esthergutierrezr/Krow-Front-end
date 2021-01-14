@@ -15,7 +15,7 @@ function Login() {
      setUser(response.data.foundUser);
      setAuth(true);
      Cookies.set("authToken", response.data.token);
-     history.push("/profile");
+     history.push("/");
    });
  };
 
