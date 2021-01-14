@@ -12,7 +12,7 @@ function UserContextProvider(props) {
 
 
   return (
-    <UserContext.Provider value={{ ...activeUser }}>
+    <UserContext.Provider value={{ ...user }}>
       {props.children}
     </UserContext.Provider>
   );

@@ -13,6 +13,7 @@ export default function AuthContextProvider(props) {
    axios
      .get("/auth/verify-token", config)
      .then((response) => {
+      //  console.log(response.data)
        setUser(response.data);
        setAuth(true);
      })

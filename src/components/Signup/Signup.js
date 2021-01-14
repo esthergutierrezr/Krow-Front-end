@@ -1,44 +1,81 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import "./Signup.css";
 
 function Signup() {
-  const [state, setState] = useState({});
+  const { register, errors, handleSubmit } = useForm();
+  const [userInfo, setUserInfo] = useState({});
   const history = useHistory();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios.post("/auth/signup", state).then((response) => {
-      alert("User has been signed up successfully");
-      history.push("/login");
-    });
+  const onSubmit = (userInfo) => {
+    console.log(userInfo);
+    axios
+      .post("/auth/signup", userInfo)
+      .then((response) => {
+        alert("User has been signed up successfully");
+        // console.log(response);
+        history.push("/login");
+      })
+      .catch((error) => console.error(error));
   };
 
   const handleChange = (event) => {
-    const { value, name } = event.target;
-    setState({ ...state, [name]: value });
+    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
+    // console.log(event.target.name, event.target.value);
   };
 
   return (
     <div>
-      <p>Signup</p>
-      <form onSubmit={handleSubmit}>
-        <p>Email</p>
-        <input name="email" value={state.email} onChange={handleChange} />
-        <br />
-        <p>Country Code</p>
-        <br />
-        <p>Phone Number</p>
-       <input name="phoneNumber" value={state.phoneNumber} onChange={handleChange} />
-       <br />
-       <p>Full Name</p>
-       <input name="fullName" value={state.fullName} onChange={handleChange} />
-       <br />
-        <p>Password</p>
-        <input name="password" value={state.password} onChange={handleChange} />
-        <br />
-        <button type="submit">Login</button>
-      </form>
+      <div className="form-container">
+        <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="email"
+            name="email"
+            placeholder={
+              !errors.email ? "Your email is required to log-in later" : "email"
+            }
+            ref={register({ required: true, maxLength: 80 })}
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder={
+              !errors.password
+                ? "Please enter your password"
+                : "repeat password"
+            }
+            ref={register({
+              minLength: 8,
+              required: true,
+              // pattern: /^[A-Za-z]+$/i,
+            })}
+            onChange={handleChange}
+          />
+          <p>Country Code</p>
+          <input
+            type="number"
+            name="phoneNumber"
+            placeholder={
+              !errors.phoneNumber ? "Phone Number is required" : "Phone Number"
+            }
+            ref={register({ required: true, maxLength: 9 })}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="fullName"
+            placeholder={
+              !errors.fullName ? "Full Name is required" : "Full Name"
+            }
+            ref={register({ required: true, maxLength: 30 })}
+            onChange={handleChange}
+          />
+          <input type="submit" />
+        </form>
+      </div>
     </div>
   );
 }
