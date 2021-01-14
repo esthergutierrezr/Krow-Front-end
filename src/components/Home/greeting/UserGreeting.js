@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import {UserContext} from '../../../contexts/UserContext'
 
 function UserGreeting() {
-  const {firstName, lastName, isMember, image, toggleIsMember} = useContext(UserContext)
+  const {fullName} = useContext(UserContext)
 
-  const initialGreeting = `Hi, ${firstName} ${lastName}`;
+  const initialGreeting = `Hi, ${fullName}`;
 
   return (
     <div className="greeting-container">
@@ -21,7 +21,7 @@ function UserGreeting() {
             </span>)
         }
       </span>
-      <Link to="/profile"><img className="profile-picture" src={image} alt={firstName} /></Link>
+      <Link to="/profile"><img className="profile-picture" src={image} alt={fullName} /></Link>
     </div>
   );
 }
