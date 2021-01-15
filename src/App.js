@@ -7,14 +7,14 @@ import Login from "./components/Login/Login";
 import Membership from "./components/Membership/Membership";
 import Profile from "./components/Profile/Profile";
 import UserContext from "./contexts/UserContext";
-import LocationContext from "./contexts/LocationContext";
+import LocationProvider from "./contexts/LocationContext";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <UserContext>
-        <LocationContext>
+        <LocationProvider>
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/locations" component={Locations} />
@@ -23,7 +23,7 @@ function App() {
             <Route path="/profile" component={Profile} />
           </Switch>
           <BottomNav />
-        </LocationContext>
+        </LocationProvider>
       </UserContext>
     </div>
   );

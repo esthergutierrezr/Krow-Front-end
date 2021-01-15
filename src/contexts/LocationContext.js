@@ -1,25 +1,17 @@
 import React, { createContext, useState } from "react";
 
-export const myContext = createContext();
+export const LocationContext = createContext();
 
-function LocationContext(props) {
-  const [location, setLocation] = useState({
-    id: 0,
-    name: "Wild Code School",
-    lat: 38.72493608746106,
-    lng: -9.14578853237358,
-    network: "Wild Wifi",
-    password: "1234",
-    overview: "Located at the beautifull centre, the location offers...",
-    image:
-      "https://images.adsttc.com/media/images/5ca7/72a6/284d/d153/3000/01f2/slideshow/feature-_UC8A1822.jpg?1554477709",
-  });
+function LocationProvider(props) {
+  const [location, setLocation] = useState({});
 
   return (
-    <UserContext.Provider value={{ ...location }}>
+    <LocationContext.Provider
+      value={{ location: location, setLocation: setLocation }}
+    >
       {props.children}
-    </UserContext.Provider>
+    </LocationContext.Provider>
   );
 }
 
-export default UserContext;
+export default LocationProvider;
