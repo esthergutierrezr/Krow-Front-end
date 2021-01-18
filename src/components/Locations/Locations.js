@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import "./Locations.css";
+import MapContainer from "./MapContainer.js";
 
-const Locations = () => {
-    return (
-        <div>
-            Locations
-        </div>
-    )
+function Locations() {
+  return (
+    <div>
+      Locations
+      <div>
+        <MapContainer />
+      </div>
+    </div>
+  );
 }
 
-export default Locations
+export default Locations;
