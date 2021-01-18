@@ -1,9 +1,9 @@
 import React, {createContext, useState} from 'react';
 
-export const myContext = createContext();
+export const UserContext = createContext();
 
 
-function UserContext(props) {
+function UserContextProvider(props) {
   const [user, setUser] = useState({
     id: 1,
     firstName: "Jane",
@@ -28,4 +28,4 @@ function UserContext(props) {
   );
 }
 
-export default UserContext;
+export default UserContextProvider;

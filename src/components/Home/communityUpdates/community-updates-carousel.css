@@ -1,0 +1,38 @@
+#carousel-community-updates{
+  min-height: 150px;
+  max-height: 200px;
+  width: 100vw;
+}
+.slick-list{
+  padding: 20% 0 20%;
+}
+
+.slick-slide{
+  height: 200px;
+  width: 100px;
+}
+
+.slick-dots{
+  margin-bottom: 30px;
+}
+.carousel-card{
+  margin: 10px;
+  height: 150px;
+  max-width: 200px;
+  display: flex;
+  justify-self:center;
+}
+
+.cu-carousel-card__image{
+  border-radius: 10px;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: 5%;
+  height: 162px;
+  width: 310px;
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+}
