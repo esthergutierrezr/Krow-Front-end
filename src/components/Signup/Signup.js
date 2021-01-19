@@ -45,7 +45,7 @@ function Signup() {
             placeholder={
               !errors.password
                 ? "Please enter your password"
-                : "repeat password"
+                : "Password is required"
             }
             ref={register({
               minLength: 8,
@@ -54,7 +54,7 @@ function Signup() {
             })}
             onChange={handleChange}
           />
-          <p>Country Code</p>
+          {/* <p>Country Code</p>
           <input
             type="number"
             name="phoneNumber"
@@ -63,7 +63,7 @@ function Signup() {
             }
             ref={register({ required: true, maxLength: 9 })}
             onChange={handleChange}
-          />
+          /> */}
           <input
             type="text"
             name="fullName"
