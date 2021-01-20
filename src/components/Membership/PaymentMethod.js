@@ -1,4 +1,6 @@
 import React from "react";
+import { StyledButton } from "./Style"
+
 
 const PaymentMethod = () => {
     const [creditCard, setCreditCard] = React.useState({
@@ -41,7 +43,7 @@ const PaymentMethod = () => {
           <input type="checkbox" />
         </label>
         <br/>
-        <input type="submit" value="Pay Now" />
+        <StyledButton type="submit">Pay Now</StyledButton>
       </form>
     </div>
   );
