@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useState} from "react";
 import UserGreeting from "./UserGreeting";
 import GuestGreeting from "./GuestGreeting";
 
@@ -9,15 +9,15 @@ import GuestGreeting from "./GuestGreeting";
 // TODO: integrate context, if user is logged in --> stay logged in on refresh
 
 function Greeting() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // Used object "user" as placeholder  instead of context
   return (
     <div>
       {isLoggedIn ? <UserGreeting /> : <GuestGreeting />}
-
+     
       <button type="button" onClick={() => setIsLoggedIn(!isLoggedIn)}>
-        Log
+        Log Out
       </button>
     </div>
   );
