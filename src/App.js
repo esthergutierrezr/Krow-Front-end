@@ -8,6 +8,7 @@ import Membership from "./components/Membership/Membership";
 import Profile from "./components/Profile/Profile";
 // import UserContextProvider from "./contexts/UserContext";
 import AuthContextProvider, { AuthContext } from "./contexts/AuthContext";
+import LocationProvider from "./contexts/LocationContext";
 import Signup from "./components/Signup/Signup";
 import "./App.css";
 
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       <AuthContextProvider>
         {/* <UserContextProvider> */}
+        <LocationProvider>
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/locations" component={Locations} />
@@ -39,6 +41,8 @@ function App() {
             {/* <Redirect to="/" /> */}
           </Switch>
           <BottomNav />
+          <BottomNav />
+        </LocationProvider>
         {/* </UserContextProvider> */}
       </AuthContextProvider>
     </div>
