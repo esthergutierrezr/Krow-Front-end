@@ -5,7 +5,7 @@ import Homepage from "./components/Home/Homepage";
 import Locations from "./components/Locations/Locations";
 import Login from "./components/Login/Login";
 import Membership from "./components/Membership/Membership";
-import Profile from "./components/Profile/Profile";
+import MainProfile from './components/Profile/MainProfile';
 // import UserContextProvider from "./contexts/UserContext";
 import AuthContextProvider, { AuthContext } from "./contexts/AuthContext";
 import LocationProvider from "./contexts/LocationContext";
@@ -37,7 +37,7 @@ function App() {
             <Route path="/membership" component={Membership} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/profile" component={MainProfile} />
             {/* <Redirect to="/" /> */}
           </Switch>
           <BottomNav />
