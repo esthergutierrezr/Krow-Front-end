@@ -2,73 +2,76 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  h1{
-      font-size: 1.5em;
-      color: #FBBC05;
-      background: #1E847B;
-      height: 80hv;
+  h1 {
+    font-size: 1.5em;
+    color: #fbbc05;
+    background: #1e847b;
+    height: 80hv;
   }
 
-/*Func*/
+  /*Func*/
 
- .item ul, .nav input[type="checkbox"] {
+  .item ul,
+  .nav input[type="checkbox"] {
     display: none;
-}
-#menu:checked ~ .multi-level, .item input:checked ~ ul {
+  }
+  #menu:checked ~ .multi-level,
+  .item input:checked ~ ul {
     display: block;
-}
+  }
 
-/*Arrow*/
+  /*Arrow*/
 
-.arrow {
+  .arrow {
     width: 15px;
     height: 15px;
     color: #000;
     margin-top: 15px;
-    float:right;
-}
-.item input + label-top .arrow {
+    // float: right;
+  }
+  .item input + label-top .arrow {
     transform: rotate(90deg);
     transition: 0.1s;
-}
-.item input label-top:checked + .arrow {
+  }
+  .item input label-top:checked + .arrow {
     transform: rotate(270deg);
     transition: 0.1s;
-}
+  }
 
-/*Styles*/
+  /*Styles*/
 
-label:hover {
+  label:hover {
     cursor: pointer;
-}
-.label-top {
+  }
+  .label-top {
     width: auto;
     display: block;
     z-index: 3;
     position: relative;
-    border-bottom: 1px solid #CFD8DC;
-
-}
-.label-bottom {
+    border-bottom: 1px solid #cfd8dc;
+  }
+  .label-bottom {
     width: auto;
     display: block;
     z-index: 3;
     position: relative;
-    color: #CFD8DC;
-}
-.active{
-    color:#fff;
-    background-color: #1E847B;
-}
-.nav {
+    color: #cfd8dc;
+  }
+  .active {
+    color: #fff;
+    background-color: #1e847b;
+  }
+  .nav {
     text-decoration: none;
     width: 100%;
     background-color: white;
     overflow-x: hidden;
     margin: 0 2em 0 2em;
-}
+  }
 
-.nav ul, .nav li, label {
+  .nav ul,
+  .nav li,
+  label {
     line-height: 50px;
     margin: 0;
     padding: 0 2em;
@@ -76,36 +79,34 @@ label:hover {
     text-decoration: none;
     font-weight: 100;
     width: 100%;
-
-}
-.item ul {
+  }
+  .item ul {
     padding: 0;
-}
+  }
 
-a{
+  a {
     text-decoration: none;
-}
+  }
 
-label, li {
-    border-bottom: 1px solid #CFD8DC;
-
-}
-
+  label,
+  li {
+    border-bottom: 1px solid #cfd8dc;
+  }
 `;
 
 export const Header = styled.div`
-  h1{
-      font-size: 1.5em;
-      color: #fff;
-      background: #3D8FFF;
-      height: 40px;
-      justify-content: center;
-      align-items: center;
+  h1 {
+    font-size: 1.5em;
+    color: #fff;
+    background: #3d8fff;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
   }
 
-/*Arrow Left*/
+  /*Arrow Left*/
 
-.arrowleft {
+  .arrowleft {
     width: 15px;
     height: 15px;
     color: gray;
@@ -113,6 +114,5 @@ export const Header = styled.div`
     float: left;
     z-index: 0;
     margin: 17px 1em 0 2em;
-}
-
-`
+  }
+`;

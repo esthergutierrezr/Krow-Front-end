@@ -1,23 +1,19 @@
 import React, {useState, useContext} from 'react';
-import { UserContext } from "../../contexts/UserContext";
+import { Link } from 'react-router-dom';
+import { AuthContext } from "../../contexts/AuthContext";
+
 import UserProfileEdit from "./UserProfile"
 
 const EditMode = (props) => {
     
-  const { firstName, lastName, phoneNumber, country, company, email, city, profession, industry} = useContext(UserContext)
+  const { user } = useContext(AuthContext)
 
-  const { user,  editUser } = props;
+  const { editUser } = props;
 
   const [editedUser, setEditedUser] = useState({
-      firstName,
-      lastName,
-      email,
-      country,
-      company,
-      phoneNumber,
-      city,
-      profession,
-      industry,
+      fullName: user.fullName,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
     });
 
     const [inEditMode, setInEditMode] = useState(false);
@@ -26,11 +22,8 @@ const EditMode = (props) => {
       const { name, value } = e.target;
       setEditedUser({ [name]: value });
     };
-    // const handleChange = (e) => {
-    //   const {name} = e.target;
-    //   const {value} = e.target;
-    //   setEditedUser({ ...editedUser, [name]: value });
-    // };
+ 
+    
   return (
     <div>
       <h1>Edit Profile</h1>
@@ -45,26 +38,26 @@ const EditMode = (props) => {
           >
             <input
               onChange={handleChange}
-              defaultValue={firstName}
-              name="firstName"
-              placeholder="Name"
+              defaultValue={user.fullName}
+              name="fullName"
+              placeholder="First and last name"
             />
             <br />
             <input
               onChange={handleChange}
-              defaultValue={email}
+              defaultValue={user.email}
               name="email"
               placeholder="Email"
             />
             <br />
             <input
               onChange={handleChange}
-              defaultValue={phoneNumber}
+              defaultValue={user.phoneNumber}
               name="phoneNumber"
               placeholder="Phone Number"
             />
             <br />
-            <input
+            {/* <input
               onChange={handleChange}
               defaultValue={country}
               name="country"
@@ -98,47 +91,12 @@ const EditMode = (props) => {
               name="industry"
               placeholder="Industry"
             />
-            <br />
-            <button type="submit">Save changes</button>
+            <br /> */}
+            <Link to="/profile">
+              <button type="submit">Save changes</button>
+            </Link>
           </form>
         </div>
-      {/* ) : (
-        <div>
-          <h4>
-            Name:
-            {`${firstName} ${lastName}`}
-          </h4>
-          <h4>
-            Email:
-            {email}
-          </h4>
-          <h4>
-            Gender:
-            {gender}
-          </h4>
-          <h4>
-          Phone:
-            {phoneNumber}
-          </h4>
-          <h4>
-            City:
-            {city}
-          </h4>
-          <h4>
-            Profession:
-            {profession}
-          </h4>
-          <h4>
-            Industry:
-            {industry}
-          </h4>
-        </div>
-      )}
-      <button
-        onClick={() => setInEditMode(!inEditMode)}
-      >
-        {inEditMode ? "Cancel Edit" : "Edit Profile"}
-      </button> */}
     </div>
   )
 }

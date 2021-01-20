@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from "react";
 import EditMode from './EditMode';
-import { UserContext } from "../../contexts/UserContext";
+import { AuthContext } from "../../contexts/AuthContext";
+
 
 const EditProfile = () => {
 
-  const {user, setUser} = useContext(UserContext)
+  const {user, setUser} = useContext(AuthContext)
 
   const editUser = (e, editedUser) => {
     e.preventDefault();

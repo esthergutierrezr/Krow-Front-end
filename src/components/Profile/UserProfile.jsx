@@ -1,17 +1,43 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext";
+import { AuthContext } from "../../contexts/AuthContext";
+
+// import { useHistory } from "react-router-dom";
+// import Cookies from "js-cookie";
+// import { AuthContext } from "../../contexts/AuthContext";
+
+// export default function Profile() {
+//   const { user } = useContext(AuthContext);
+//   const history = useHistory();
+
+//   return (
+//     <div>
+//       <p>
+//         Welcome
+//         {user.fullName}
+//       </p>
+//       <button
+//         onClick={() => {
+//           Cookies.remove("authToken");
+//           history.push("/login");
+//         }}
+//       >
+//         Logout
+//       </button>
+//     </div>
+//   );
+// }
 
 function UserProfile() {
-  const { firstName, lastName, isMember, image } = useContext(UserContext);
+  const { user } = useContext(AuthContext);
 
-  const initialGreeting = `Hi, ${firstName} ${lastName}`;
+  const initialGreeting = `Welcome, ${user.fullName}`;
 
   return (
     <div className="greeting">
       <h1>{initialGreeting}</h1>
       <br />
-      {isMember ? (
+      {/* {isMember ? (
         <>
           <p>Active Membership</p>
           <p>
@@ -19,7 +45,7 @@ function UserProfile() {
             (time to expire membership)
           </p>
         </>
-      ) : (
+      ) : ( */}
         <>
           <p className="no-membership">No Active Membership</p>
           <br />
@@ -27,11 +53,11 @@ function UserProfile() {
             <p className="add-membership">Add a Membership</p>
           </Link>
         </>
-      )}
+      {/* )} */}
       <img
         className="profile-picture"
-        src={image}
-        alt={`${firstName}_${lastName}`}
+        src={user.image}
+        alt={`${user.fullName}`}
       />
     </div>
   );

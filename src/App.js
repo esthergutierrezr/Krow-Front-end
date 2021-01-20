@@ -41,7 +41,6 @@ function App() {
             {/* <Redirect to="/" /> */}
           </Switch>
           <BottomNav />
-          <BottomNav />
         </LocationProvider>
         {/* </UserContextProvider> */}
       </AuthContextProvider>

@@ -6,7 +6,6 @@ import { Content } from "./Styles";
 
 export const LogOut = () => {
   const history = useHistory();
-  // userHasAuthenticated(false);
   history.push("/");
 };
 
@@ -53,15 +52,14 @@ const Profile = () => {
           <Link to="/contact">
             <label className="label-bottom">Contact Us</label>
           </Link>
-          <Link to="/">
+        
             <label
               className="label-bottom"
-              type="button"
-              onClick={() => setIsLoggedIn(!isLoggedIn)}
+              type="button" onClick={() => setIsLoggedIn(!isLoggedIn)}
             >
               Log Out
             </label>
-          </Link>
+      
         </div>
       </div>
     </Content>
