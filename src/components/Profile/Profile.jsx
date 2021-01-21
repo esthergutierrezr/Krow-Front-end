@@ -1,29 +1,28 @@
 import React, { useState } from "react";
 import { NavLink as Link, useHistory } from "react-router-dom";
+import Cookies from "js-cookie";
 import UserProfile from "./UserProfile";
-import Arrow from "./arrow+left.png";
 import { Content } from "./Styles";
 
-export const LogOut = () => {
-  const history = useHistory();
-  history.push("/");
-};
-
 const Profile = () => {
+  const history = useHistory();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
+  const LogOut = () => {
+    setIsLoggedIn(false);
+    history.push("/");
+  };
   return (
     <Content>
       <header>{isLoggedIn ? <UserProfile /> : <LogOut />}</header>
-      {/* show dropdown */}
       <div className="nav">
         <div className="multi-level">
           <div className="item">
-            <input type="checkbox" id="A"/>
+            <input type="checkbox" id="A" />
             <label className="label-top" htmlFor="A">
               Account Settings
+              <i className="arrow down"></i>
             </label>
-              <img src={Arrow} className="arrow" />
             <ul>
               <Link to="/profile/edit">
                 <li className="active">Edit Profile</li>
@@ -52,14 +51,15 @@ const Profile = () => {
           <Link to="/contact">
             <label className="label-bottom">Contact Us</label>
           </Link>
-        
-            <label
-              className="label-bottom"
-              type="button" onClick={() => setIsLoggedIn(!isLoggedIn)}
-            >
-              Log Out
-            </label>
-      
+          <label
+            className="label-bottom"
+            onClick={() => {
+              Cookies.remove("authToken");
+              history.push("/login");
+            }}
+          >
+            Log Out
+          </label>
         </div>
       </div>
     </Content>

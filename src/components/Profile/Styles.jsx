@@ -8,6 +8,12 @@ export const Content = styled.div`
     background: #1e847b;
     height: 80hv;
   }
+  h2{
+    font-size: 1em;
+    color: #fbbc05;
+    background: #1e847b;
+    height: 80hv;
+  }
 
   /*Func*/
 
@@ -23,19 +29,31 @@ export const Content = styled.div`
   /*Arrow*/
 
   .arrow {
-    width: 15px;
-    height: 15px;
-    color: #000;
-    margin-top: 15px;
-    // float: right;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
   }
-  .item input + label-top .arrow {
-    transform: rotate(90deg);
-    transition: 0.1s;
+  .arrowBack {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
-  .item input label-top:checked + .arrow {
-    transform: rotate(270deg);
-    transition: 0.1s;
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
   }
 
   /*Styles*/
