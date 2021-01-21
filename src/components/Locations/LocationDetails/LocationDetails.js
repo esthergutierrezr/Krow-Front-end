@@ -2,8 +2,11 @@ import React from "react";
 import LocationCarousel from "./LocationCarousel.js";
 import { Button } from "react-bootstrap";
 import LocationMap from "./LocationMap";
+import { LocationContext } from "../../../contexts/LocationContext.js";
 
-function LocationDetails(props) {
+function LocationDetails() {
+  const { location } = React.useContext(LocationContext);
+
   return (
     <div>
       <div>
@@ -20,11 +23,11 @@ function LocationDetails(props) {
       >
         <a href={`/locations/`}>Back</a>
         <div>
-          <h1>{props.name}</h1>
+          <h1>{location.selectedPlace.name}</h1>
           <p>icon + opening times</p>
           <p>Icon + Location</p>
           <h2>Overview</h2>
-          <p>{props.overview}</p>
+          <p>{location.selectedPlace.overview}</p>
 
           <div>
             <h2>Amenities</h2>
@@ -47,7 +50,7 @@ function LocationDetails(props) {
             <div>
               <LocationMap />
             </div>
-            <button onClick={props.checkIn}>Check In</button>
+            <button onClick={location.checkIn}>Check In</button>
           </div>
         </div>
       </div>

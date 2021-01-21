@@ -1,33 +1,41 @@
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-import React, { useState, Component } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ApiLocations from "./ApiLocations.json";
 import LocationsCard from "./LocationsCard/LocationsCard.js";
+import { LocationContext } from "../../contexts/LocationContext.js";
 
 function MapContainer(props) {
-  const [state, setState] = useState({
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {},
-    mapCenter: {
-      lat: 38.72493608746106,
-      lng: -9.14578853237358,
-    },
-  });
+  // const [location, setlocation] = uselocation({
+  //   showingInfoWindow: false,
+  //   activeMarker: {},
+  //   selectedPlace: {},
+  //   mapCenter: {
+  //     lat: 38.72493608746106,
+  //     lng: -9.14578853237358,
+  //   },
+  // });
 
-  const onMarkerClick = (location, marker, e) => {
-    console.log(location);
-    setState({
-      ...state,
-      selectedPlace: location,
+  const { location, setLocation } = useContext(LocationContext);
+
+  const onMarkerClick = (selectedLocation, marker, e) => {
+    console.log(selectedLocation);
+    setLocation({
+      ...location,
+      selectedPlace: selectedLocation,
       activeMarker: marker,
       showingInfoWindow: true,
     });
+    //console.log(`here: ${location.selectedPlace}`);
   };
 
   const onMapClicked = (props) => {
-    if (state.showingInfoWindow) {
-      setState({ ...state, activeMarker: null, showingInfoWindow: false });
+    if (location.showingInfoWindow) {
+      setLocation({
+        ...location,
+        activeMarker: null,
+        showingInfoWindow: false,
+      });
     }
   };
 
@@ -37,8 +45,8 @@ function MapContainer(props) {
       <Map
         defaultZoom={1}
         initialCenter={{
-          lat: state.mapCenter.lat,
-          lng: state.mapCenter.lng,
+          lat: location.mapCenter.lat,
+          lng: location.mapCenter.lng,
         }}
         google={props.google}
         onClick={onMapClicked}
@@ -57,11 +65,11 @@ function MapContainer(props) {
         ))}
 
         <InfoWindow
-          marker={state.activeMarker}
-          visible={state.showingInfoWindow}
+          marker={location.activeMarker}
+          visible={location.showingInfoWindow}
         >
           <div>
-            <LocationsCard {...state.selectedPlace} />
+            <LocationsCard {...location} />
           </div>
         </InfoWindow>
       </Map>

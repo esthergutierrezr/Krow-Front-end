@@ -1,25 +1,18 @@
 import React from "react";
 
 function LocationsCard(props) {
-  const [state, setState] = React.useState({
-    // showModal: false,
-  });
-
+  // const [state, setState] = React.useState({
+  //   // showModal: false,});
   // const checkoutClicked = () => console.log("checkedinn");
-
   // const openModal = () => {
-  //   setState({ ...state, showModal: true });
-  // };
-
+  //   setState({ ...state, showModal: true });};
   // const closeModal = () => {
-  //   setState({ ...state, showModal: false });
-  // };
-
+  //   setState({ ...state, showModal: false });};
+  // console.log(state.currentLocationId);
   console.log(props);
-  console.log(state.currentLocationId);
   return (
     <div>
-      <h1>{props.name}</h1>
+      <h1>{props.selectedPlace.name}</h1>
       {/* {state.showModal ? (
         <LocationDetails
           {...state}
@@ -27,13 +20,18 @@ function LocationsCard(props) {
           closeModal={closeModal}
         />
       ) : null} */}
-      <img src={props.image} alt="image" width="250" height="220" />
-      <a href={`/locations/${props.id}`}>Details</a>
+      <img
+        src={props.selectedPlace.image}
+        alt="image"
+        width="250"
+        height="220"
+      />
+      <a href={`/locations/${props.selectedPlace.id}`}>Details</a>
 
       <div>
         <p>Wifi Details</p>
-        <p>Network:{props.network}</p>
-        <p>Password:{props.password}</p>
+        <p>Network:{props.selectedPlace.network}</p>
+        <p>Password:{props.selectedPlace.password}</p>
       </div>
       <div>Closing at </div>
       <button>Check Out</button>
