@@ -15,17 +15,17 @@ export default function ResetPassword() {
   const [isConfirming, setIsConfirming] = useState(false);
   const [isSendingCode, setIsSendingCode] = useState(false);
 
-  function validateCodeForm() {
-    return fields.email.length > 0;
-  }
+//   function validateCodeForm() {
+//     return fields.email.length > 0;
+//   }
 
-  function validateResetForm() {
-    return (
-      fields.code.length > 0 &&
-      fields.password.length > 0 &&
-      fields.password === fields.confirmPassword
-    );
-  }
+//   function validateResetForm() {
+//     return (
+//       fields.code.length > 0 &&
+//       fields.password.length > 0 &&
+//       fields.password === fields.confirmPassword
+//     );
+//   }
 
   async function handleSendCodeClick(event) {
     event.preventDefault();
@@ -69,7 +69,7 @@ export default function ResetPassword() {
           block
           type="submit"
           isLoading={isSendingCode}
-          disabled={!validateCodeForm()}
+        //   disabled={!validateCodeForm()}
         >
           Send Confirmation
         </button>
@@ -113,7 +113,7 @@ export default function ResetPassword() {
           block
           type="submit"
           isLoading={isConfirming}
-          disabled={!validateResetForm()}
+        //   disabled={!validateResetForm()}
         >
           Confirm
         </button>

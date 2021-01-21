@@ -8,7 +8,7 @@
 // (How generate a link to reset password)
 
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 function ChangePassword() {
@@ -22,13 +22,13 @@ function ChangePassword() {
 
   const [isChanging, setIsChanging] = useState(false);
 
-  function validateForm() {
-    return (
-      fields.oldPassword.length > 0 &&
-      fields.password.length > 0 &&
-      fields.password === fields.confirmPassword
-    );
-  }
+  // function validateForm() {
+  //   return (
+  //     fields.oldPassword.length > 0 &&
+  //     fields.password.length > 0 &&
+  //     fields.password === fields.confirmPassword
+  //   );
+  // }
 
   async function handleChangeClick(event) {
     event.preventDefault();
@@ -79,15 +79,19 @@ function ChangePassword() {
           <button
             block
             type="submit"
-            disabled={!validateForm()}
+            // disabled={!validateForm()}
             isLoading={isChanging}
           >
             Change Password
           </button>
         </form>
-        <Link to="/profile/password/forget">
+        <br />
+        <br />
+        <Link to="/profile/forget_password">
           <p>Forget Password</p>
         </Link>
+        <br />
+        <br />
       </div>
     </div>
   );

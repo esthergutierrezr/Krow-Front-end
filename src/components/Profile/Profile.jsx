@@ -27,7 +27,7 @@ const Profile = () => {
               <Link to="/profile/edit">
                 <li className="active">Edit Profile</li>
               </Link>
-              <Link to="/profile/password">
+              <Link to="/profile/change_password">
                 <li className="active">Change Password</li>
               </Link>
             </ul>

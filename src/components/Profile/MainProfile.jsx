@@ -12,8 +12,8 @@ function MainProfile() {
     <Switch>
       <Route exact path="/profile" component={Profile} />
       <Route path="/profile/edit" component={EditProfile} />
-      <Route path="/profile/password" component={ChangePassword} />
-      <Route path="/profile/password/forget" component={ForgetPassword} />
+      <Route path="/profile/change_password" component={ChangePassword} />
+      <Route path="/profile/forget_password" component={ForgetPassword} />
       <Route path="/profile/notifications" component={Notification} />
       <Route path="/profile/historic" component={History} />
       <Redirect path="/profile" />
