@@ -23,6 +23,8 @@ const EditMode = (props) => {
     setEditedUser({ [name]: value });
   };
 
+  console.log(props)
+
   return (
     <Content>
       <Link to="/profile">
@@ -33,6 +35,7 @@ const EditMode = (props) => {
       <div>
         <form
           onSubmit={(e) => {
+            e.preventDefault()
             editUser(e, editedUser);
             setInEditMode(false);
           }}

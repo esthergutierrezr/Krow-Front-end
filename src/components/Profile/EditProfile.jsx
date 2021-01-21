@@ -8,6 +8,8 @@ const EditProfile = () => {
 
   const {user, setUser} = useContext(AuthContext)
 
+  console.log(user)
+
   const editUser = (e, editedUser) => {
     e.preventDefault();
 

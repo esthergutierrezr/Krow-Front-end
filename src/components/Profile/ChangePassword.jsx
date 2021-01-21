@@ -12,7 +12,7 @@ import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 function ChangePassword() {
-  const user = useContext(AuthContext);
+  const {user, setUser} = useContext(AuthContext);
   const history = useHistory();
   const [fields, handleFieldChange] = useState({
     password: "",
@@ -22,20 +22,11 @@ function ChangePassword() {
 
   const [isChanging, setIsChanging] = useState(false);
 
-  // function validateForm() {
-  //   return (
-  //     fields.oldPassword.length > 0 &&
-  //     fields.password.length > 0 &&
-  //     fields.password === fields.confirmPassword
-  //   );
-  // }
-
-  async function handleChangeClick(event) {
+function handleChangeClick(event) {
     event.preventDefault();
 
     setIsChanging(true);
 
-    await changePassword(fields.oldPassword, fields.password);
 
     history.push("/login");
   }
