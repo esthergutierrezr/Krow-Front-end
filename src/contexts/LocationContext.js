@@ -11,15 +11,22 @@ function LocationContextProvider(props) {
       lat: 38.72493608746106,
       lng: -9.14578853237358,
     },
-    checkIn: false,
   });
 
-  // useEffect(() => {
-  //   console.log(`here: ${location}`);
-  // }, [location]);
+  const [checked, setChecked] = useState(true);
+  const [searchValue, updateSearchValue] = React.useState("");
 
   return (
-    <LocationContext.Provider value={{ location, setLocation }}>
+    <LocationContext.Provider
+      value={{
+        location,
+        checked,
+        searchValue,
+        updateSearchValue,
+        setChecked,
+        setLocation,
+      }}
+    >
       {props.children}
     </LocationContext.Provider>
   );

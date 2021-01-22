@@ -6,16 +6,6 @@ import LocationsCard from "./LocationsCard/LocationsCard.js";
 import { LocationContext } from "../../contexts/LocationContext.js";
 
 function MapContainer(props) {
-  // const [location, setlocation] = uselocation({
-  //   showingInfoWindow: false,
-  //   activeMarker: {},
-  //   selectedPlace: {},
-  //   mapCenter: {
-  //     lat: 38.72493608746106,
-  //     lng: -9.14578853237358,
-  //   },
-  // });
-
   const { location, setLocation } = useContext(LocationContext);
 
   const onMarkerClick = (selectedLocation, marker, e) => {
