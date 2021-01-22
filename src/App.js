@@ -8,6 +8,7 @@ import Membership from "./components/Membership/Membership";
 import Profile from "./components/Profile/Profile";
 import AuthContextProvider, { AuthContext } from "./contexts/AuthContext";
 import Signup from "./components/Signup/Signup";
+import LocationContextProvider from './contexts/LocationContext'
 import "./App.css";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
@@ -26,16 +27,18 @@ function App() {
   return (
     <div className="App">
       <AuthContextProvider>
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/locations" component={Locations} />
-          <Route path="/membership" component={Membership} />
-          <Route path="/auth/login" component={Login} />
-          <Route path="/auth/signup" component={Signup} />
-          <ProtectedRoute path="/profile" component={Profile} />
-          {/* <Redirect to="/" /> */}
-        </Switch>
-        <BottomNav />
+        <LocationContextProvider>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/locations" component={Locations} />
+            <Route path="/membership" component={Membership} />
+            <Route path="/auth/login" component={Login} />
+            <Route path="/auth/signup" component={Signup} />
+            <ProtectedRoute path="/profile" component={Profile} />
+            {/* <Redirect to="/" /> */}
+          </Switch>
+          <BottomNav />
+        </LocationContextProvider>
       </AuthContextProvider>
     </div>
   );

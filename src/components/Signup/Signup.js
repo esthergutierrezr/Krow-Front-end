@@ -50,7 +50,7 @@ function Signup() {
             ref={register({
               minLength: 8,
               required: true,
-              // pattern: /^[A-Za-z]+$/i,
+              pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
             onChange={handleChange}
           />
