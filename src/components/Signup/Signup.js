@@ -8,25 +8,27 @@ import "./signup.css";
 
 function Signup() {
   const { register, errors, handleSubmit } = useForm();
-  const [userInfo, setUserInfo] = useState({});
   const history = useHistory();
+  const [state, setState] = useState({
+    phone: "",
+  })
 
-  const onSubmit = (userInfo, data) => {
+  const onSubmit = (data) => {
     console.log("data: ",data);
     axios
-      .post("/auth/signup", userInfo)
-      .then((response) => {
-        alert("User has been signed up successfully");
-        console.log(response);
-        history.push("/login");
+      .post("/auth/signup", data)
+      .then(response => {
+        alert(response.data.flash); 
+        console.log(response); 
       })
-      .catch((error) => console.error(error));
-  };
+      .catch(error => console.error(error))
+    };
 
-  const handleChange = (event) => {
-    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
-    // console.log(event.target.name, event.target.value);
-  };
+  const handlePhoneNumber=(event)=>{
+    // setPhoneNumber(event.target.value);
+    console.log(phoneNumber)
+  }
+
 
   return (
     <div>
@@ -39,13 +41,27 @@ function Signup() {
               !errors.fullName ? "Full Name is required" : "Full Name"
             }
             ref={register({ required: true, maxLength: 30 })}
-            onChange={handleChange}
           />
-          {/* <PhoneInput
+          <PhoneInput
+            value={state.phone}
+            onChange={phone => setState({ phone })}
+            type = "tel"
             country={"pt"}
             name ="phone"
-            // onChange={phone => setState({ phone })}
-          /> */}
+            placeholder={
+              !errors.phone ? "phone number" : "Your phone number is required"
+            }
+          />
+          <input
+            className = "hidden"
+            value={state.phone}
+            type="tel"
+            name="phone"
+            placeholder={
+              !errors.phone ? "phone number" : "Your phone number is required"
+            }
+            ref={register({ required: true, maxLength: 80 })}
+          />
           <input
             type="email"
             name="email"
@@ -53,7 +69,6 @@ function Signup() {
               !errors.email ? "email" : "Your email is required to login later"
             }
             ref={register({ required: true, maxLength: 80 })}
-            onChange={handleChange}
           />
           <input
             type="password"
@@ -68,7 +83,6 @@ function Signup() {
               required: true,
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
-            onChange={handleChange}
           />
           <input type="submit" />
         </form>
@@ -76,4 +90,5 @@ function Signup() {
     </div>
   );
 }
+
 export default Signup;
