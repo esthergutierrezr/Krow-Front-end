@@ -15,7 +15,7 @@ function Signup() {
       .post("/auth/signup", userInfo)
       .then((response) => {
         alert("User has been signed up successfully");
-        // console.log(response);
+        console.log(response);
         history.push("/login");
       })
       .catch((error) => console.error(error));
@@ -34,7 +34,7 @@ function Signup() {
             type="email"
             name="email"
             placeholder={
-              !errors.email ? "Your email is required to log-in later" : "email"
+              !errors.email ? "email" : "Your email is required to login later"
             }
             ref={register({ required: true, maxLength: 80 })}
             onChange={handleChange}
