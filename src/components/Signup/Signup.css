@@ -21,3 +21,8 @@
     margin-top: 3em;
     height: 40px;
   }
+
+  .form-control{
+    height: 100%;
+    width: 100%;
+  }

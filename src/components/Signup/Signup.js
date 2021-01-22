@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import "./Signup.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import "./signup.css";
 
 function Signup() {
   const { register, errors, handleSubmit } = useForm();
   const [userInfo, setUserInfo] = useState({});
   const history = useHistory();
 
-  const onSubmit = (userInfo) => {
-    console.log(userInfo);
+  const onSubmit = (userInfo, data) => {
+    console.log("data: ",data);
     axios
       .post("/auth/signup", userInfo)
       .then((response) => {
@@ -30,6 +32,20 @@ function Signup() {
     <div>
       <div className="form-container">
         <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            name="fullName"
+            placeholder={
+              !errors.fullName ? "Full Name is required" : "Full Name"
+            }
+            ref={register({ required: true, maxLength: 30 })}
+            onChange={handleChange}
+          />
+          {/* <PhoneInput
+            country={"pt"}
+            name ="phone"
+            // onChange={phone => setState({ phone })}
+          /> */}
           <input
             type="email"
             name="email"
@@ -52,25 +68,6 @@ function Signup() {
               required: true,
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
-            onChange={handleChange}
-          />
-          {/* <p>Country Code</p>
-          <input
-            type="number"
-            name="phoneNumber"
-            placeholder={
-              !errors.phoneNumber ? "Phone Number is required" : "Phone Number"
-            }
-            ref={register({ required: true, maxLength: 9 })}
-            onChange={handleChange}
-          /> */}
-          <input
-            type="text"
-            name="fullName"
-            placeholder={
-              !errors.fullName ? "Full Name is required" : "Full Name"
-            }
-            ref={register({ required: true, maxLength: 30 })}
             onChange={handleChange}
           />
           <input type="submit" />
