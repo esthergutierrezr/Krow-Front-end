@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // Styled component named StyledButton
 export const StyledButton = styled.button`
-  background: ${(props) => (props.dark ? "#000000" : "#f9c85f")};
+  background: ${(props) => (props.dark ? "#000000" : "#F8C861")};
   color: ${(props) => (props.dark ? "#FFFFFF" : "#65493e")};
   width: ${(props) => (props.dark ? "100px" : "140px")};
   border: none;
