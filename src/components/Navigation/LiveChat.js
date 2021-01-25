@@ -1,10 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import "./App.css";
 
 const LiveChat = () => {
   return (
-    <div id="chat">
+    <div>
       <Helmet>
         <script
           className="button"
