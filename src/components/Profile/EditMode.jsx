@@ -6,28 +6,39 @@ import { Content } from "./Styles";
 import UserProfile from "./UserProfile";
 
 const EditMode = (props) => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
-  const { editUser } = props;
+  // const { editUser, user } = props;
+
+  // console.log(props)
 
   const [editedUser, setEditedUser] = useState({
-    fullName: user.fullName,
-    email: user.email,
-    phoneNumber: user.phoneNumber,
+    // fullName: user.fullName,
+    // email: user.email,
+    // phoneNumber: user.phoneNumber,
+    // city: user.city,
+    // country: {},
   });
 
-  const [inEditMode, setInEditMode] = useState(false);
+  // const [inEditMode, setInEditMode] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedUser({ [name]: value });
   };
 
-  console.log(props)
+  const editUser = (e) => {
+    e.preventDefault();
+    setUser({ ...user }, editedUser);
+    console.log('editedUser', user)
+    // setEditedUser({})
+  };
+
+  console.log(props);
 
   return (
     <Content>
-      <Link to="/profile">
+      <Link to={`/profile/${user.id}`}>
         <i className="arrowBack left" />
       </Link>
       <h2>Edit Profile</h2>
@@ -35,9 +46,7 @@ const EditMode = (props) => {
       <div>
         <form
           onSubmit={(e) => {
-            e.preventDefault()
-            editUser(e, editedUser);
-            setInEditMode(false);
+            editUser(e);
           }}
         >
           <input

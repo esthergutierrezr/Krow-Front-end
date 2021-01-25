@@ -37,6 +37,8 @@ function App() {
             <Route path="/membership" component={Membership} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            {/* <Route path="/profile" component={MainProfile} /> */}
+
             <ProtectedRoute path="/profile" component={MainProfile} />
             {/* <Redirect to="/" /> */}
           </Switch>

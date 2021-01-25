@@ -24,7 +24,7 @@ const Profile = () => {
               <i className="arrow down"></i>
             </label>
             <ul>
-              <Link to="/profile/edit">
+              <Link to="/profile/:id/edit">
                 <li className="active">Edit Profile</li>
               </Link>
               <Link to="/profile/change_password">

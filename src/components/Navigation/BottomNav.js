@@ -7,7 +7,7 @@ const BottomNav = () => {
       <Link to="/locations">Map</Link>
       {/*<Link to="/chat?">Chat</Link>*/}
       <Link to="/">Homepage</Link>
-      <Link to="/profile">Profile</Link>
+      <Link to="/profile/:id">Profile</Link>
 
 
     </div>
