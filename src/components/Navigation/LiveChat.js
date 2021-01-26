@@ -1,17 +1,19 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
+import "./LiveChat.css";
+
 const LiveChat = () => {
   return (
     <div>
       <Helmet>
-        <script
-          className="button"
-          type="text/javascript"
-          async
-          defer
-          src="//js.hs-scripts.com/9197058.js"
-        ></script>
+          <script
+            className=""
+            type="text/javascript"
+            async
+            defer
+            src="//js.hs-scripts.com/9197058.js"
+          ></script>
       </Helmet>
     </div>
   );
