@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink as Link, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import UserProfile from "./UserProfile";
+import { AuthContext } from "../../contexts/AuthContext";
 import { Content } from "./Styles";
 
 const Profile = () => {
+  const { user, setUser } = useContext(AuthContext);
   const history = useHistory();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -24,7 +26,7 @@ const Profile = () => {
               <i className="arrow down"></i>
             </label>
             <ul>
-              <Link to="/profile/:id/edit">
+              <Link to={`/profile/${user.id}/edit`}>
                 <li className="active">Edit Profile</li>
               </Link>
               <Link to="/profile/change_password">

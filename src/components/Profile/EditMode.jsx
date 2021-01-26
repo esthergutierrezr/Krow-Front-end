@@ -1,44 +1,53 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect,useState, useContext } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Content } from "./Styles";
 
 import UserProfile from "./UserProfile";
 
-const EditMode = (props) => {
+const EditMode = () => {
   const { user, setUser } = useContext(AuthContext);
+  const id = Number(user.id);
+  const [editedUser, setEditedUser] = useState({})
 
-  // const { editUser, user } = props;
+  useEffect(()=> {
+    console.log('newUser', user)
+    setEditedUser(user)
+  },[user])
 
-  // console.log(props)
+  // console.log("userId", user.id)
 
-  const [editedUser, setEditedUser] = useState({
-    // fullName: user.fullName,
-    // email: user.email,
-    // phoneNumber: user.phoneNumber,
-    // city: user.city,
-    // country: {},
-  });
-
-  // const [inEditMode, setInEditMode] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEditedUser({ [name]: value });
+  const handleChange = (event) => {
+    setEditedUser({...editedUser, [event.target.name]:event.target.value
+    }) 
   };
-
+  
   const editUser = (e) => {
+    console.log("editedUser",editedUser)
     e.preventDefault();
-    setUser({ ...user }, editedUser);
-    console.log('editedUser', user)
+    setUser({...editedUser}, );
+    // console.log("editedUser", user);
     // setEditedUser({})
   };
 
-  console.log(props);
+  const handleSubmit = () => {
+    console.log("updated",editedUser);
+   
+    console.log("id", id)
+    axios
+      .put(`/profile/${id}/edit`, )
+      .then((response) => {
+        console.log("response",response);
+        alert("User has been successfully updated");
+        history.push(`/profile/${id}`);
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <Content>
-      <Link to={`/profile/${user.id}`}>
+      <Link to={`/profile/${id}`}>
         <i className="arrowBack left" />
       </Link>
       <h2>Edit Profile</h2>
@@ -51,62 +60,62 @@ const EditMode = (props) => {
         >
           <input
             onChange={handleChange}
-            defaultValue={user.fullName}
+            defaultValue={editedUser.fullName}
             name="fullName"
             placeholder="First and last name"
           />
           <br />
           <input
             onChange={handleChange}
-            defaultValue={user.email}
+            defaultValue={editedUser.email}
             name="email"
             placeholder="Email"
           />
           <br />
           <input
             onChange={handleChange}
-            defaultValue={user.phoneNumber}
+            defaultValue={editedUser.phoneNumber}
             name="phoneNumber"
             placeholder="Phone Number"
           />
           <br />
           <input
             onChange={handleChange}
-            defaultValue={user.country}
+            defaultValue={editedUser.country}
             name="country"
             placeholder="Country"
           />
           <br />
           <input
             onChange={handleChange}
-            defaultValue={user.city}
+            defaultValue={editedUser.city}
             name="city"
             placeholder="City"
           />
           <br />
           <input
             onChange={handleChange}
-            defaultValue={user.company}
+            defaultValue={editedUser.company}
             name="company"
             placeholder="Company"
           />
           <br />
           <input
             onChange={handleChange}
-            defaultValue={user.profession}
+            defaultValue={editedUser.profession}
             name="profession"
             placeholder="Profession"
           />
           <br />
           <input
             onChange={handleChange}
-            defaultValue={user.industry}
+            defaultValue={editedUser.industry}
             name="industry"
             placeholder="Industry"
           />
           <br />
           {/* <Link to="/profile"> */}
-          <button type="submit">Save changes</button>
+          <button onClick={()=>handleSubmit()} type="submit">Save changes</button>
           {/* </Link> */}
         </form>
       </div>
