@@ -1,69 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import Cookies from "js-cookie";
+import { AuthContext } from '../../contexts/AuthContext';
+import "react-phone-input-2/lib/style.css";
 import "./Signup.css";
 
 function Signup() {
   const { register, errors, handleSubmit } = useForm();
-  const [userInfo, setUserInfo] = useState({});
+  const { setUser, setAuth } = useContext(AuthContext)
   const history = useHistory();
+  const [state, setState] = useState({
+    phone: "",
+  })
 
-  const onSubmit = (userInfo) => {
-    console.log(userInfo);
+  const onSubmit = (data) => {
+    console.log("data: ",data);
     axios
-      .post("/auth/signup", userInfo)
-      .then((response) => {
-        alert("User has been signed up successfully");
-        // console.log(response);
-        history.push("/login");
-      })
-      .catch((error) => console.error(error));
-  };
+      .post("/auth/signup", data)
+      .then(() => {
+        const loginInfo = {email: data.email, password: data.password}
+        axios.post("/auth/login", loginInfo)
+        .then((response) => {
+          console.log(loginInfo);
+          console.log("on login: ", response);
+          setUser(response.data.foundUser);
+          setAuth(true);
+          Cookies.set("authToken", response.data.token);
+          history.push("/");
+        })
+      }
+      )
+      .catch(error => console.error(error))
+    };
 
-  const handleChange = (event) => {
-    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
-    // console.log(event.target.name, event.target.value);
-  };
 
   return (
     <div>
       <div className="form-container">
         <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="email"
-            name="email"
-            placeholder={
-              !errors.email ? "Your email is required to log-in later" : "email"
-            }
-            ref={register({ required: true, maxLength: 80 })}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder={
-              !errors.password
-                ? "Please enter your password"
-                : "repeat password"
-            }
-            ref={register({
-              minLength: 8,
-              required: true,
-              pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
-            })}
-            onChange={handleChange}
-          />
-          <p>Country Code</p>
-          <input
-            type="number"
-            name="phoneNumber"
-            placeholder={
-              !errors.phoneNumber ? "Phone Number is required" : "Phone Number"
-            }
-            ref={register({ required: true, maxLength: 9 })}
-            onChange={handleChange}
-          />
           <input
             type="text"
             name="fullName"
@@ -71,7 +48,48 @@ function Signup() {
               !errors.fullName ? "Full Name is required" : "Full Name"
             }
             ref={register({ required: true, maxLength: 30 })}
-            onChange={handleChange}
+          />
+          <PhoneInput
+            value={state.phone}
+            onChange={phone => setState({ phone })}
+            type="tel"
+            country={"pt"}
+            name="phone"
+            placeholder={
+              !errors.phone ? "phone number" : "Your phone number is required"
+            }
+          />
+          <input
+            className="hidden"
+            value={state.phone}
+            type="tel"
+            name="phoneNumber"
+            placeholder={
+              !errors.phone ? "phone number" : "Your phone number is required"
+            }
+            ref={register({ required: true, maxLength: 80 })}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder={
+              !errors.email ? "email" : "Your email is required to login later"
+            }
+            ref={register({ required: true, maxLength: 80 })}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder={
+              !errors.password
+                ? "Please enter your password"
+                : "Password is required"
+            }
+            ref={register({
+              minLength: 8,
+              required: true,
+              pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
+            })}
           />
           <input type="submit" />
         </form>
@@ -79,4 +97,5 @@ function Signup() {
     </div>
   );
 }
+
 export default Signup;
