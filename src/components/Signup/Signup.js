@@ -6,7 +6,7 @@ import PhoneInput from "react-phone-input-2";
 import Cookies from "js-cookie";
 import { AuthContext } from '../../contexts/AuthContext';
 import "react-phone-input-2/lib/style.css";
-import "./signup.css";
+import "./Signup.css";
 
 function Signup() {
   const { register, errors, handleSubmit } = useForm();
