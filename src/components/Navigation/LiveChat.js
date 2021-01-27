@@ -1,19 +1,25 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import "./LiveChat.css";
+//import "./LiveChat.css";
 
 const LiveChat = () => {
   return (
     <div>
       <Helmet>
-          <script
-            className=""
+        {/*<script
             type="text/javascript"
             async
             defer
             src="//js.hs-scripts.com/9197058.js"
-          ></script>
+          ></script>*/}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/9274349.js"
+        ></script>
       </Helmet>
     </div>
   );

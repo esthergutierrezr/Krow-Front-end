@@ -7,7 +7,7 @@ export const AuthContext = createContext(null);
 
 export default function AuthContextProvider(props) {
  const [auth, setAuth] = useState(true);
- const [user, setUser] = useState(false);
+ const [user, setUser] = useState({});
 
  useEffect(() => {
    axios

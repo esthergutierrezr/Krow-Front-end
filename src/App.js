@@ -25,25 +25,27 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 };
 
 function App() {
+  const { user } = React.useContext(AuthContext);
+
   return (
     <div className="App">
-      <AuthContextProvider>
-        {/* <UserContextProvider> */}
-        <LocationProvider>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/locations" component={Locations} />
-            <Route path="/login" component={Login} />
-            <Route path="/membership" component={Membership} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <ProtectedRoute path="/profile" component={MainProfile} />
-            {/* <Redirect to="/" /> */}
-          </Switch>
-          <BottomNav />
-        </LocationProvider>
-        {/* </UserContextProvider> */}
-      </AuthContextProvider>
+      {/* <UserContextProvider> */}
+      <LocationProvider>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/locations" component={Locations} />
+          <Route path="/login" component={Login} />
+          <Route path="/membership" component={Membership} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <ProtectedRoute path="/profile" component={MainProfile} />
+          {/* <Redirect to="/" /> */}
+          <ProtectedRoute exact path="/" component={BottomNav} />
+        </Switch>
+        {/* should be {user.length ? <BottomNav /> : null } */}
+        {user.length ? null : <BottomNav />}
+      </LocationProvider>
+      {/* </UserContextProvider> */}
     </div>
   );
 }
