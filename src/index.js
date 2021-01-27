@@ -4,13 +4,16 @@ import "./reset.css";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
+import AuthContextProvider from "./contexts/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
+    <AuthContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
@@ -19,4 +22,3 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
