@@ -23,6 +23,12 @@
   justify-content: center;
 }
 
+.item-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .disabled-link {
   color: lightgrey;
 }
@@ -32,9 +38,3 @@
 .active2 a:visited {
   color: orange !important;
 }
-/*
-  &__item-content {
-    display: flex;
-    flex-direction: column;
-  }
-}*/
