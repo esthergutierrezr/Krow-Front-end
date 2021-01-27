@@ -8,7 +8,7 @@ function GuestGreeting() {
   return (
     <div className="greeting-container">
       <span> 
-        <Link to="/register">Sign Up</Link>
+        <Link to="/signup">Sign Up</Link>
         {' | '}
         <Link to="/login">Log in</Link>
       </span>
