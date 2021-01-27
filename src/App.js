@@ -1,23 +1,48 @@
-import './App.css';
-import BottomNav from './components/Navigation/BottomNav';
-import Homepage from './components/Home/Homepage';
-import Locations from './components/Locations/Locations';
-import Login from './components/Login/Login';
-import Membership from './components/Membership/Membership';
-import Profile from './components/Profile/Profile';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import BottomNav from "./components/Navigation/BottomNav";
+import Homepage from "./components/Home/Homepage";
+import MainLocations from "./components/Locations/MainLocations";
+import Login from "./components/Login/Login";
+import Membership from "./components/Membership/Membership";
+import MainProfile from "./components/Profile/MainProfile";
+import { AuthContext } from "./contexts/AuthContext";
+import Signup from "./components/Signup/Signup";
+import LocationContextProvider from './contexts/LocationContext'
+import "./App.css";
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const { auth } = React.useContext(AuthContext);
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        auth ? <Component {...props} /> : <Redirect to="/auth/login" />
+      }
+    />
+  );
+};
 
 function App() {
+  const { user } = React.useContext(AuthContext);
+
   return (
     <div className="App">
+      <LocationContextProvider>
         <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/locations" component={Locations} />
-            <Route path="/login" component={Login} />
-            <Route path="/membership" component={Membership} />
-            <Route path="/profile" component={Profile} />
+          <Route exact path="/" component={Homepage} />
+          <Route path="/locations" component={MainLocations} />
+          <Route path="/login" component={Login} />
+          <Route path="/membership" component={Membership} />
+          <Route path="/auth/login" component={Login} />
+          <Route path="/auth/signup" component={Signup} />
+          <ProtectedRoute path="/profile" component={MainProfile} />
+          {/* <Redirect to="/" /> */}
+          <ProtectedRoute exact path="/" component={BottomNav} />
         </Switch>
-        <BottomNav />
+        {/* should be {user.length ? <BottomNav /> : null } */}
+        {user.length ? null : <BottomNav />}
+      </LocationContextProvider>
     </div>
   );
 }
