@@ -6,8 +6,8 @@ import Cookies from "js-cookie";
 export const AuthContext = createContext(null);
 
 export default function AuthContextProvider(props) {
- const [auth, setAuth] = useState(true);
- const [user, setUser] = useState({});
+  const [auth, setAuth] = useState(true);
+  const [user, setUser] = useState(false);
 
   useEffect(() => {
     axios

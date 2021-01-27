@@ -34,8 +34,8 @@ function App() {
           <Route path="/locations" component={Locations} />
           <Route path="/login" component={Login} />
           <Route path="/membership" component={Membership} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
+          <Route path="/auth/login" component={Login} />
+          <Route path="/auth/signup" component={Signup} />
           <ProtectedRoute path="/profile" component={MainProfile} />
           {/* <Redirect to="/" /> */}
           <ProtectedRoute exact path="/" component={BottomNav} />
