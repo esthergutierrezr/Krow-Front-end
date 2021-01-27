@@ -6,12 +6,15 @@ function ListLocationCard(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
 
   const checkIn = () => {
-    setChecked(!checked);
+    setChecked(props.id);
+  };
+  const checkOut = () => {
+    setChecked(null);
   };
 
   return (
     <div className="locationsCard">
-      {checked ? (
+      {checked !== props.id ? (
         <div className="checkin">
           <div>
             <h1>{props.name}</h1>
@@ -41,7 +44,7 @@ function ListLocationCard(props) {
           <div>
             <img src={props.image} alt="image" width="250" height="220" />
           </div>
-          <button onClick={checkIn}>Check Out</button>
+          <button onClick={checkOut}>Check Out</button>
         </div>
       )}
     </div>

@@ -13,7 +13,7 @@ function LocationContextProvider(props) {
     },
   });
 
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(null);
   const [searchValue, updateSearchValue] = React.useState("");
 
   return (

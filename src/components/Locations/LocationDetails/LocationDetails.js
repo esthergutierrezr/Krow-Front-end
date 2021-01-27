@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LocationCarousel from "./LocationCarousel.js";
 import { Button } from "react-bootstrap";
 import LocationMap from "./LocationMap";
-import { LocationContext } from "../../../contexts/LocationContext.js";
+import ApiLocations from "../ApiLocations.json";
 
-function LocationDetails() {
-  const { location } = React.useContext(LocationContext);
-  const [moreTextA, setMoreTextA] = React.useState(false);
-  const [moreTextB, setMoreTextB] = React.useState(false);
-  const [moreTextC, setMoreTextC] = React.useState(false);
-  const [moreTextD, setMoreTextD] = React.useState(false);
-  const [moreTextE, setMoreTextE] = React.useState(false);
+function LocationDetails(props) {
+  const [moreTextA, setMoreTextA] = useState(false);
+  const [moreTextB, setMoreTextB] = useState(false);
+  const [moreTextC, setMoreTextC] = useState(false);
+  const [moreTextD, setMoreTextD] = useState(false);
+  const [moreTextE, setMoreTextE] = useState(false);
+  const [location, setLocation] = useState({});
 
   const readMoreA = () => {
     setMoreTextA(!moreTextA);
@@ -27,6 +27,13 @@ function LocationDetails() {
   const readMoreE = () => {
     setMoreTextE(!moreTextE);
   };
+  useEffect(() => {
+    ApiLocations.map((apiLocation) => {
+      if (apiLocation.id == props.match.params.id) {
+        setLocation(apiLocation);
+      }
+    });
+  }, []);
 
   return (
     <div>
@@ -44,7 +51,7 @@ function LocationDetails() {
       >
         <a href={`/locations/`}>Back</a>
         <div>
-          <h1>{location.selectedPlace.name}</h1>
+          <h1>{location.name}</h1>
           <p>1 miembro aqui</p>
           <p>icon + opening times</p>
           <p>Icon + Location</p>
@@ -52,39 +59,28 @@ function LocationDetails() {
 
           <div>
             <h2>Description</h2>
-            <p>{location.selectedPlace.overview}</p>
+            <p>???</p>
             <button onClick={readMoreA}>Ler mais</button>
-            {moreTextA ? <p>Here is more info about the place</p> : null}
+            {moreTextA ? <p>{location.description}</p> : null}
             <div>
               <h2>Facilidades</h2>
               <button onClick={readMoreB}>more</button>
-              {moreTextB ? <p>Here is the important info </p> : null}
+              {moreTextB ? <p>{location.facilidades} </p> : null}
             </div>
             <div>
               <h2>Informacoes Importantes</h2>
               <button onClick={readMoreC}>more</button>
-              {moreTextC ? <p>Here is the important info </p> : null}
+              {moreTextC ? <p>{location.information} </p> : null}
             </div>
             <div>
               <h2>Beneficios Exclusivos</h2>
               <button onClick={readMoreD}>more</button>
-              {moreTextD ? <p>Here is the important info </p> : null}
+              {moreTextD ? <p>{location.beneficios} </p> : null}
             </div>
             <div>
               <h2>Horarios</h2>
               <button onClick={readMoreE}>more</button>
-              {moreTextE ? (
-                <div>
-                  {" "}
-                  <p>Segunda </p>
-                  <p>Terca </p>
-                  <p>Quarta </p>
-                  <p>Quinta </p>
-                  <p>Sexta </p>
-                  <p>Sabado </p>
-                  <p>Domingo </p>{" "}
-                </div>
-              ) : null}
+              {moreTextE ? <p>{location.horarios}</p> : null}
             </div>
 
             <div>
