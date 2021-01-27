@@ -1,69 +1,69 @@
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-import React, { useState, Component } from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import ApiLocations from "./ApiLocations.json";
 import LocationsCard from "./LocationsCard/LocationsCard.js";
+import { LocationContext } from "../../contexts/LocationContext.js";
 
 function MapContainer(props) {
-  const [state, setState] = useState({
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {
-      id: "",
-      name: "",
-      lat: "",
-      lng: "",
-      network: "",
-      password: "",
-      image: "",
-    },
-    mapCenter: {
-      lat: 38.72493608746106,
-      lng: -9.14578853237358,
-    },
-  });
+  const { location, setLocation } = useContext(LocationContext);
 
-  const onMarkerClick = (place, marker, e) => {
-    setState({
-      ...state,
-      selectedPlace: place,
+  const onMarkerClick = (selectedLocation, marker, e) => {
+    console.log(selectedLocation);
+    setLocation({
+      ...location,
+      selectedPlace: selectedLocation,
       activeMarker: marker,
       showingInfoWindow: true,
     });
+    //console.log(`here: ${location.selectedPlace}`);
   };
 
   const onMapClicked = (props) => {
-    if (state.showingInfoWindow) {
-      setState({ ...state, activeMarker: null, showingInfoWindow: false });
+    if (location.showingInfoWindow) {
+      setLocation({
+        ...location,
+        activeMarker: null,
+        showingInfoWindow: false,
+      });
     }
   };
 
   return (
-    <Map
-      defaultZoom={1}
-      initialCenter={{
-        lat: state.mapCenter.lat,
-        lng: state.mapCenter.lng,
-      }}
-      google={props.google}
-      onClick={onMapClicked}
-    >
-      {ApiLocations.map((location) => (
-        <Marker
-          key={location.id}
-          onClick={onMarkerClick}
-          name={location.name}
-          position={{
-            lat: location.lat,
-            lng: location.lng,
-          }}
-        />
-      ))}
-      <InfoWindow marker={state.activeMarker} visible={state.showingInfoWindow}>
-        <div>
-          <LocationsCard {...state.selectedPlace} />
-        </div>
-      </InfoWindow>
-    </Map>
+    <div>
+      <Link to="/">HomePage</Link>
+      <Map
+        defaultZoom={1}
+        initialCenter={{
+          lat: location.mapCenter.lat,
+          lng: location.mapCenter.lng,
+        }}
+        google={props.google}
+        onClick={onMapClicked}
+      >
+        {ApiLocations.map((location) => (
+          <Marker
+            {...location}
+            key={location.id}
+            onClick={onMarkerClick}
+            name={location.name}
+            position={{
+              lat: location.lat,
+              lng: location.lng,
+            }}
+          />
+        ))}
+
+        <InfoWindow
+          marker={location.activeMarker}
+          visible={location.showingInfoWindow}
+        >
+          <div>
+            <LocationsCard {...location} />
+          </div>
+        </InfoWindow>
+      </Map>
+    </div>
   );
 }
 

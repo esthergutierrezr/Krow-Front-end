@@ -8,11 +8,11 @@ function GuestGreeting() {
   return (
     <div className="greeting-container">
       <span> 
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/auth/signup">Sign Up</Link>
         {' | '}
-        <Link to="/login">Log in</Link>
+        <Link to="/auth/login">Log in</Link>
       </span>
-      <Link to="/login"><img className="profile-picture" src="https://via.placeholder.com/150" alt="" /></Link>
+      <Link to="/auth/login"><img className="profile-picture" src="https://via.placeholder.com/150" alt="" /></Link>
     </div>
   );
 }
