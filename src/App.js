@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import BottomNav from "./components/Navigation/BottomNav";
 import Homepage from "./components/Home/Homepage";
-import Locations from "./components/Locations/Locations";
+import MainLocations from "./components/Locations/MainLocations";
 import Login from "./components/Login/Login";
 import Membership from "./components/Membership/Membership";
 import MainProfile from "./components/Profile/MainProfile";
@@ -31,7 +31,7 @@ function App() {
       <LocationContextProvider>
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/locations" component={Locations} />
+          <Route path="/locations" component={MainLocations} />
           <Route path="/login" component={Login} />
           <Route path="/membership" component={Membership} />
           <Route path="/auth/login" component={Login} />
