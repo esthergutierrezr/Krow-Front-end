@@ -1,145 +1,123 @@
-import React, {useState, useContext} from 'react';
+import React, { useEffect, useState, useContext } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import UserProfileEdit from "./UserProfile"
+import { Content } from "./Styles";
+
+import UserProfile from "./UserProfile";
 
 const EditMode = () => {
-    
-  const { user } = useContext(AuthContext);
-  const { firstName, lastName, phoneNumber, country, company, email, city, profession, industry} = user;
+  const { user, setUser } = useContext(AuthContext);
+  const id = Number(user.id);
+  const [editedUser, setEditedUser] = useState({});
 
-  const [editedUser, setEditedUser] = useState({
-      firstName,
-      lastName,
-      email,
-      country,
-      company,
-      phoneNumber,
-      city,
-      profession,
-      industry,
-    });
+  useEffect(() => {
+    console.log("newUser", user);
+    setEditedUser(user);
+  }, [user]);
 
-    const [inEditMode, setInEditMode] = useState(false);
+  useEffect((editUser) => {
+    console.log("newUser", user);
+    setUser(user);
+  }, [editedUser]);
 
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setEditedUser({ [name]: value });
-    };
-    // const handleChange = (e) => {
-    //   const {name} = e.target;
-    //   const {value} = e.target;
-    //   setEditedUser({ ...editedUser, [name]: value });
-    // };
+  const handleChange = (event) => {
+    setEditedUser({ ...editedUser, [event.target.name]: event.target.value });
+  };
+
+  const editUser = (e) => {
+    console.log("editedUser", editedUser);
+    e.preventDefault();
+    setUser({ ...editedUser });
+  };
+
+  const handleSubmit = () => {
+    axios
+      .put(`/profile/${id}`, editedUser)
+      .then((response) => {
+        // console.log("response",response);
+        alert("User has been successfully updated");
+        history.push(`/profile/${id}`);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
-    <div>
-      <h1>Edit Profile</h1>
-      {/* {inEditMode ? ( */}
-      <UserProfileEdit />
-        <div>
-          <form
-            onSubmit={(e) => {
-              editUser(e, editedUser);
-              setInEditMode(false);
-            }}
-          >
-            <input
-              onChange={handleChange}
-              defaultValue={firstName}
-              name="firstName"
-              placeholder="Name"
-            />
-            <br />
-            <input
-              onChange={handleChange}
-              defaultValue={email}
-              name="email"
-              placeholder="Email"
-            />
-            <br />
-            <input
-              onChange={handleChange}
-              defaultValue={phoneNumber}
-              name="phoneNumber"
-              placeholder="Phone Number"
-            />
-            <br />
-            <input
-              onChange={handleChange}
-              defaultValue={country}
-              name="country"
-              placeholder="Country"
-            />
-            <br />
-            <input
-              onChange={handleChange}
-              defaultValue={city}
-              name="city"
-              placeholder="City"
-            />
-            <br />
-            <input
-              onChange={handleChange}
-              defaultValue={company}
-              name="company"
-              placeholder="Company"
-            />
-            <br />
-            <input
-              onChange={handleChange}
-              defaultValue={profession}
-              name="profession"
-              placeholder="Profession"
-            />
-            <br />
-            <input
-              onChange={handleChange}
-              defaultValue={industry}
-              name="industry"
-              placeholder="Industry"
-            />
-            <br />
-            <button type="submit">Save changes</button>
-          </form>
-        </div>
-      {/* ) : (
-        <div>
-          <h4>
-            Name:
-            {`${firstName} ${lastName}`}
-          </h4>
-          <h4>
-            Email:
-            {email}
-          </h4>
-          <h4>
-            Gender:
-            {gender}
-          </h4>
-          <h4>
-          Phone:
-            {phoneNumber}
-          </h4>
-          <h4>
-            City:
-            {city}
-          </h4>
-          <h4>
-            Profession:
-            {profession}
-          </h4>
-          <h4>
-            Industry:
-            {industry}
-          </h4>
-        </div>
-      )}
-      <button
-        onClick={() => setInEditMode(!inEditMode)}
-      >
-        {inEditMode ? "Cancel Edit" : "Edit Profile"}
-      </button> */}
-    </div>
-  )
-}
+    <Content>
+      <Link to={`/profile/${id}`}>
+        <i className="arrowBack left" />
+      </Link>
+      <h2>Edit Profile</h2>
+      <UserProfile />
+      <div>
+        <form
+          onSubmit={(e) => {
+            editUser(e);
+          }}
+        >
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.fullName}
+            name="fullName"
+            placeholder="First and last name"
+          />
+          <br />
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.email}
+            name="email"
+            placeholder="Email"
+          />
+          <br />
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.phoneNumber}
+            name="phoneNumber"
+            placeholder="Phone Number"
+          />
+          <br />
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.country}
+            name="country"
+            placeholder="Country"
+          />
+          <br />
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.city}
+            name="city"
+            placeholder="City"
+          />
+          <br />
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.company}
+            name="company"
+            placeholder="Company"
+          />
+          <br />
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.profession}
+            name="profession"
+            placeholder="Profession"
+          />
+          <br />
+          <input
+            onChange={handleChange}
+            defaultValue={editedUser.industry}
+            name="industry"
+            placeholder="Industry"
+          />
+          <br />
+          <button onClick={() => handleSubmit()} type="submit">
+            Save changes
+          </button>
+        </form>
+      </div>
+    </Content>
+  );
+};
 
 export default EditMode;

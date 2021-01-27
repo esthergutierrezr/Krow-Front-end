@@ -5,7 +5,7 @@ import Homepage from "./components/Home/Homepage";
 import MainLocations from "./components/Locations/MainLocations";
 import Login from "./components/Login/Login";
 import Membership from "./components/Membership/Membership";
-import MainProfile from "./components/Profile/MainProfile";
+import MainProfile from './components/Profile/MainProfile';
 import { AuthContext } from "./contexts/AuthContext";
 import Signup from "./components/Signup/Signup";
 import LocationContextProvider from './contexts/LocationContext'
