@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Profile = () => {
+export default function Notification() {
     return (
         <div>
-            Profile
+            <h1>Notification</h1>
         </div>
     )
 }
-
-export default Profile
