@@ -6,10 +6,9 @@ import Locations from "./components/Locations/Locations";
 import Login from "./components/Login/Login";
 import Membership from "./components/Membership/Membership";
 import MainProfile from "./components/Profile/MainProfile";
-// import UserContextProvider from "./contexts/UserContext";
-import AuthContextProvider, { AuthContext } from "./contexts/AuthContext";
-import LocationProvider from "./contexts/LocationContext";
+import { AuthContext } from "./contexts/AuthContext";
 import Signup from "./components/Signup/Signup";
+import LocationContextProvider from './contexts/LocationContext'
 import "./App.css";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
@@ -18,7 +17,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        auth ? <Component {...props} /> : <Redirect to="/login" />
+        auth ? <Component {...props} /> : <Redirect to="/auth/login" />
       }
     />
   );
@@ -29,23 +28,21 @@ function App() {
 
   return (
     <div className="App">
-      {/* <UserContextProvider> */}
-      <LocationProvider>
+      <LocationContextProvider>
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/locations" component={Locations} />
           <Route path="/login" component={Login} />
           <Route path="/membership" component={Membership} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
+          <Route path="/auth/login" component={Login} />
+          <Route path="/auth/signup" component={Signup} />
           <ProtectedRoute path="/profile" component={MainProfile} />
           {/* <Redirect to="/" /> */}
           <ProtectedRoute exact path="/" component={BottomNav} />
         </Switch>
         {/* should be {user.length ? <BottomNav /> : null } */}
         {user.length ? null : <BottomNav />}
-      </LocationProvider>
-      {/* </UserContextProvider> */}
+      </LocationContextProvider>
     </div>
   );
 }

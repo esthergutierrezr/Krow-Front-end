@@ -6,26 +6,26 @@ import Cookies from "js-cookie";
 export const AuthContext = createContext(null);
 
 export default function AuthContextProvider(props) {
- const [auth, setAuth] = useState(true);
- const [user, setUser] = useState({});
+  const [auth, setAuth] = useState(true);
+  const [user, setUser] = useState(false);
 
- useEffect(() => {
-   axios
-     .get("/auth/verify-token", config)
-     .then((response) => {
+  useEffect(() => {
+    axios
+      .get("/auth/verify-token", config)
+      .then((response) => {
       //  console.log(response.data)
-       setUser(response.data);
-       setAuth(true);
-     })
-     .catch(() => {
-       setAuth(false);
-       Cookies.remove("authToken");
-     });
- }, []);
+        setUser(response.data);
+        setAuth(true);
+      })
+      .catch(() => {
+        setAuth(false);
+        Cookies.remove("authToken");
+      });
+  }, []);
 
- return (
-   <AuthContext.Provider value={{ auth, setAuth, user, setUser }}>
-     {props.children}
-   </AuthContext.Provider>
- );
+  return (
+    <AuthContext.Provider value={{ auth, setAuth, user, setUser }}>
+      {props.children}
+    </AuthContext.Provider>
+  );
 }

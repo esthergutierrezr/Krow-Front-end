@@ -1,12 +1,11 @@
 import React, {useState, useContext} from 'react';
-import { UserContext } from "../../contexts/UserContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import UserProfileEdit from "./UserProfile"
 
-const EditMode = (props) => {
+const EditMode = () => {
     
-  const { firstName, lastName, phoneNumber, country, company, email, city, profession, industry} = useContext(UserContext)
-
-  const { user,  editUser } = props;
+  const { user } = useContext(AuthContext);
+  const { firstName, lastName, phoneNumber, country, company, email, city, profession, industry} = user;
 
   const [editedUser, setEditedUser] = useState({
       firstName,

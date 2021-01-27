@@ -1,14 +1,15 @@
-import React from 'react'
-import { Switch, Route, Link } from "react-router-dom";
+import React, { useContext } from 'react'
+import { Link } from "react-router-dom";
 import Greeting from "./greeting/Greeting";
 import CTAButtons from "./CTAButtons";
 import CommunityUpdates from "./communityUpdates/CommunityUpdates";
 import FeaturedLocations from "./featuredLocations/FeaturedLocations";
 import ImportantMessage from "./ImportantMessage";
+import { AuthContext } from '../../contexts/AuthContext'
 import './homepage.css'
 
 const Homepage = () => {
-  const [state, setState] = React.useState({});
+  const { user } = useContext(AuthContext)
     return (
       <div homepage>
         <Greeting />
