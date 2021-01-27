@@ -16,17 +16,12 @@ function Signup() {
     phone: "",
   })
 
-  const [loginInfo, setLoginInfo] = useState({})
-
   const onSubmit = (data) => {
     console.log("data: ",data);
     axios
       .post("/auth/signup", data)
-      .then(response => {
-        console.log("on reg.: ", response.data);
-        setLoginInfo({email: data.email, password: data.password})
-      })
-      .then(
+      .then(() => {
+        const loginInfo = {email: data.email, password: data.password}
         axios.post("/auth/login", loginInfo)
         .then((response) => {
           console.log(loginInfo);
@@ -36,6 +31,7 @@ function Signup() {
           Cookies.set("authToken", response.data.token);
           history.push("/");
         })
+      }
       )
       .catch(error => console.error(error))
     };
