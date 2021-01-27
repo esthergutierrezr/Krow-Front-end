@@ -32,13 +32,13 @@ const EditMode = () => {
   };
 
   const handleSubmit = () => {
-    console.log("updated",editedUser);
+    // console.log("updated",editedUser);
    
-    console.log("id", id)
+    // console.log("id", id)
     axios
-      .put(`/profile/${id}/edit`, )
+      .put(`/profile/${id}`, editedUser)
       .then((response) => {
-        console.log("response",response);
+        // console.log("response",response);
         alert("User has been successfully updated");
         history.push(`/profile/${id}`);
       })
