@@ -1,4 +1,4 @@
-import React, { useEffect,useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -9,32 +9,29 @@ import UserProfile from "./UserProfile";
 const EditMode = () => {
   const { user, setUser } = useContext(AuthContext);
   const id = Number(user.id);
-  const [editedUser, setEditedUser] = useState({})
+  const [editedUser, setEditedUser] = useState({});
 
-  useEffect(()=> {
-    console.log('newUser', user)
-    setEditedUser(user)
-  },[user])
+  useEffect(() => {
+    console.log("newUser", user);
+    setEditedUser(user);
+  }, [user]);
 
-  // console.log("userId", user.id)
+  useEffect((editUser) => {
+    console.log("newUser", user);
+    setUser(user);
+  }, [editedUser]);
 
   const handleChange = (event) => {
-    setEditedUser({...editedUser, [event.target.name]:event.target.value
-    }) 
+    setEditedUser({ ...editedUser, [event.target.name]: event.target.value });
   };
-  
+
   const editUser = (e) => {
-    console.log("editedUser",editedUser)
+    console.log("editedUser", editedUser);
     e.preventDefault();
-    setUser({...editedUser}, );
-    // console.log("editedUser", user);
-    // setEditedUser({})
+    setUser({ ...editedUser });
   };
 
   const handleSubmit = () => {
-    // console.log("updated",editedUser);
-   
-    // console.log("id", id)
     axios
       .put(`/profile/${id}`, editedUser)
       .then((response) => {
@@ -114,9 +111,9 @@ const EditMode = () => {
             placeholder="Industry"
           />
           <br />
-          {/* <Link to="/profile"> */}
-          <button onClick={()=>handleSubmit()} type="submit">Save changes</button>
-          {/* </Link> */}
+          <button onClick={() => handleSubmit()} type="submit">
+            Save changes
+          </button>
         </form>
       </div>
     </Content>

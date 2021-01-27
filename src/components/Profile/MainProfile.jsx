@@ -19,7 +19,7 @@ function MainProfile() {
   return (
     <Switch>
       <Route exact path={`/profile/${id}`} component={Profile} />
-      <Route path={`/profile/${id}/edit`} component={EditMode} />
+      <Route path={`/profile/${id}`} component={EditMode} />
       <Route path={`/profile/${id}/change_password`} component={ChangePassword} />
       <Route path={`/profile/${id}/forget_password`} component={ForgetPassword} />
       <Route path={`/profile/${id}/notifications`} component={Notification} />
