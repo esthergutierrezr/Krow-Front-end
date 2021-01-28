@@ -16,8 +16,9 @@ const Profile = () => {
   };
   return (
     <Content>
-      <header>{isLoggedIn ? <UserProfile /> : <LogOut />}</header>
-      <div className="nav">
+      {/* <header>{ user ? <UserProfile /> : <LogOut />}</header> */}
+        <h1>luis</h1>
+      <div>
         <div className="multi-level">
           <div className="item">
             <input type="checkbox" id="A" />
@@ -57,7 +58,7 @@ const Profile = () => {
             className="label-bottom"
             onClick={() => {
               Cookies.remove("authToken");
-              history.push("/login");
+              history.push("/auth/login");
             }}
           >
             Log Out

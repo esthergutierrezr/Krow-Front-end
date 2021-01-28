@@ -58,58 +58,59 @@ export const Content = styled.div`
 
   /*Styles*/
 
-  label:hover {
-    cursor: pointer;
-  }
-  .label-top {
-    width: auto;
-    display: block;
-    z-index: 3;
-    position: relative;
-    border-bottom: 1px solid #cfd8dc;
-  }
-  .label-bottom {
-    width: auto;
-    display: block;
-    z-index: 3;
-    position: relative;
-    color: #cfd8dc;
-  }
-  .active {
-    color: #fff;
-    background-color: #1e847b;
-  }
-  .nav {
-    text-decoration: none;
-    width: 100%;
-    background-color: white;
-    overflow-x: hidden;
-    margin: 0 2em 0 2em;
-  }
+  // label:hover {
+  //   cursor: pointer;
+  // }
+  // .label-top {
+  //   width: auto;
+  //   display: block;
+  //   z-index: 3;
+  //   position: relative;
+  //   border-bottom: 1px solid #cfd8dc;
+  // }
+  // .label-bottom {
+  //   width: auto;
+  //   display: block;
+  //   z-index: 3;
+  //   position: relative;
+  //   color: #cfd8dc;
+  // }
+  // .active {
+  //   color: #fff;
+  //   background-color: #1e847b;
+  // }
+  // .nav {
+  //   text-decoration: none;
+  //   width: 100%;
+  //   height: 80px;
+  //   background-color: white;
+  //   overflow-x: hidden;
+  //   margin: 0 2em 0 2em;
+  // }
 
-  .nav ul,
-  .nav li,
-  label {
-    line-height: 50px;
-    margin: 0;
-    padding: 0 2em;
-    list-style: none;
-    text-decoration: none;
-    font-weight: 100;
-    width: 100%;
-  }
-  .item ul {
-    padding: 0;
-  }
+  // .nav ul,
+  // .nav li,
+  // label {
+  //   line-height: 50px;
+  //   margin: 0;
+  //   padding: 0 2em;
+  //   list-style: none;
+  //   text-decoration: none;
+  //   font-weight: 100;
+  //   width: 100%;
+  // }
+  // .item ul {
+  //   padding: 0;
+  // }
 
-  a {
-    text-decoration: none;
-  }
+  // a {
+  //   text-decoration: none;
+  // }
 
-  label,
-  li {
-    border-bottom: 1px solid #cfd8dc;
-  }
+  // label,
+  // li {
+  //   border-bottom: 1px solid #cfd8dc;
+  // }
 `;
 
 export const Header = styled.div`
@@ -120,17 +121,5 @@ export const Header = styled.div`
     height: 40px;
     justify-content: center;
     align-items: center;
-  }
-
-  /*Arrow Left*/
-
-  .arrowleft {
-    width: 15px;
-    height: 15px;
-    color: gray;
-    vertical-align: middle;
-    float: left;
-    z-index: 0;
-    margin: 17px 1em 0 2em;
   }
 `;
