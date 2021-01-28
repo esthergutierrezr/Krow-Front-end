@@ -1,0 +1,1 @@
+export const Font_____ = `font-family: '_____', sans-serif;`
