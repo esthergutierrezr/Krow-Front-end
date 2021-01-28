@@ -32,7 +32,7 @@ function AppRoute() {
           <Route path="/locations" component={MainLocations} />
           <Route path="/membership" component={Membership} />
           {/* <ProtectedRoute path="/profile" component={MainProfile} /> */}
-          <Route path="/profile" component={MainProfile} />
+          <Route path={`/profile/${user.id}`} component={MainProfile} />
           {/* <Redirect to="/" /> */}
         </Switch>
         <BottomNav />
