@@ -3,9 +3,17 @@ import styled from "styled-components";
 import { GrayInput, Red } from "./Colors";
 
 export const Input = styled.input`
-  width: 303px;
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 285px;
   height: 54.9px;
   background-color: ${GrayInput};
+  font-family: Raleway;
+  font-size: 17.2px;
+  color: #898884;
+  padding: 0 18px;
+  // margin-top: 79.4px;
 `;
 
 export const Arrow = styled.div`
