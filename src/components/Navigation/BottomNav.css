@@ -11,7 +11,7 @@
   align-items: center;
   height: 60px;
   box-shadow: 0 -2px 5px -2px #333;
-  background-color: rgb(26, 26, 26);
+  background-color: #000000;
 }
 
 .item {
@@ -34,7 +34,7 @@
 }
 
 .active2,
-.active2 a:link,
+.active2 a:link img,
 .active2 a:visited {
   color: orange !important;
 }

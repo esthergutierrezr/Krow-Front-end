@@ -4,14 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CarouselCard from './CommunityUpdatesCard'
 import './community-updates-carousel.css';
+import CarouselImg from "../../Style/bg/carouselsImg.png"
 
 const cards = [
   {updateName: "Update 1",
-  img: "https://www.swift.com/sites/default/files/styles/cta_background/public/images/Event-banner-simple-map-EU_0.jpg?itok=VKwuCNJG"},
+  img: CarouselImg},
   {updateName: "Update 2",
-  img: "https://pixinal.com/wp-content/uploads/2019/12/update.jpg"},
+  img: CarouselImg},
   {updateName: "Update 31",
-  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDvqGLr28bOpc7STyhp4ObDSS7Qy4e1-vHhw&usqp=CAU"}
+  img: CarouselImg}
 ]
 
 const Carousel = () => {
