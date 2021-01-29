@@ -52,8 +52,32 @@ function Signup() {
             ref={register({ required: true, maxLength: 80 })}
           />
           <PhoneInput
-          // className="country-code"
-            style={{ width: "285px" }}
+            inputStyle={{
+              backgroundColor: "#323232",
+              border: "none",
+              color: '#898884',
+              borderRadius: "8px",
+              opacity: ".9",
+              maxWidth: "285px",
+              height: "54.2px"
+            }}
+            buttonStyle={{
+              backgroundColor: "#323232",
+              border: "none",
+              color: '#898884',
+              borderRadius: "8px",
+              opacity: ".9",
+            }}
+            dropdownStyle={{
+              backgroundColor: "#323232",
+              border: "none",
+              color: '#898884'
+            }}
+            inputProps= {{
+              name: 'phone',
+              required: true,
+              autoFocus: true
+            }}
             value={state.phone}
             onChange={(phone) => setState({ phone })}
             type="tel"
@@ -61,8 +85,8 @@ function Signup() {
             name="phone"
             placeholder={!errors.phone ? "Phone Number*" : "Your phone number"}
           />
-          <input
-            // className="phone"
+
+          <Input
             className="hidden"
             value={state.phone}
             type="tel"
