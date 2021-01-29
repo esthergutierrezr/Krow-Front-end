@@ -33,9 +33,11 @@
   }
 
 .bg{
-  position: relative;
+  position: absolute;
+  top:0;
   width: 100vw;
-  height: 90vh;
+  min-height: 100vh;
+  /* margin-top: -12vh; */
   align-self: center;
   background-size:cover;
   background-image: url("../Style/bg/computer-bg.png");

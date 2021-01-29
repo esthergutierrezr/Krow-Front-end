@@ -53,7 +53,7 @@ function Signup() {
           />
           <PhoneInput
           // className="country-code"
-            // style={{ width: "90px" }}
+            style={{ width: "285px" }}
             value={state.phone}
             onChange={(phone) => setState({ phone })}
             type="tel"
@@ -61,7 +61,7 @@ function Signup() {
             name="phone"
             placeholder={!errors.phone ? "Phone Number*" : "Your phone number"}
           />
-          <Input
+          <input
             // className="phone"
             className="hidden"
             value={state.phone}
