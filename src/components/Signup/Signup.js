@@ -79,6 +79,7 @@ function Signup() {
             name="phone"
             placeholder={!errors.phone ? "Phone Number*" : "Your phone number"}
           />
+
           <Input
             className="hidden"
             value={state.phone}
