@@ -1,13 +1,20 @@
 import React from "react";
 import "./LocationsCard.css";
 import { LocationContext } from "../../../contexts/LocationContext";
+import PopUp from "../LocationDetails/PopUp.js";
 
 function LocationsCard(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
   const { location, setLocation } = React.useContext(LocationContext);
+  const [popUp, setPopUp] = React.useState(false);
 
   const checkIn = () => {
     setChecked(props.id);
+    setPopUp(!popUp);
+  };
+
+  const togglePop = () => {
+    setPopUp(false);
   };
   const checkOut = () => {
     setChecked(null);
@@ -30,6 +37,7 @@ function LocationsCard(props) {
         <div className="checkin">
           <div>
             <h1>{props.name}</h1>
+
             <p>1 miembro aqui</p>
 
             <div>09:00 - 17:00 </div>
@@ -46,6 +54,7 @@ function LocationsCard(props) {
         <div className="checkout">
           <div>
             <h1>{props.name}</h1>
+            {popUp ? <PopUp toggle={togglePop} /> : null}
             <p>6 miembro(s) aqui</p>
             <div>Aberto ate as 22:00 </div>
             <p>wifi:{props.network}</p>
