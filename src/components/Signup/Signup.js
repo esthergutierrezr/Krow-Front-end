@@ -55,7 +55,7 @@ function Signup() {
             inputStyle={{
               backgroundColor: "#323232",
               border: "none",
-              color: "#888",
+              color: '#898884',
               borderRadius: "8px",
               opacity: ".9",
               maxWidth: "285px",
@@ -64,13 +64,14 @@ function Signup() {
             buttonStyle={{
               backgroundColor: "#323232",
               border: "none",
-              color: "#888",
-              borderRadius: "8px"
+              color: '#898884',
+              borderRadius: "8px",
+              opacity: ".9",
             }}
             dropdownStyle={{
               backgroundColor: "#323232",
               border: "none",
-              color: "#888"
+              color: '#898884'
             }}
             inputProps= {{
               name: 'phone',
