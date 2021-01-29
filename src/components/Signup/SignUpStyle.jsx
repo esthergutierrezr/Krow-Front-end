@@ -16,11 +16,11 @@ export const Register = styled.input`
   background-color: ${YellowButton};
   margin-left: auto;
   margin-right: auto;
-  width: 323px;
+  width: 285px;
   color: ${Black};
   justify-content: center;
   align-items: center;
   font-family: Raleway;
   font-size: 17.2px;
- 
+  padding: 0 18px;
 `;

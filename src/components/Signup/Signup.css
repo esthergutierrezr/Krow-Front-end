@@ -32,7 +32,7 @@
     display: none;
   }
 
-body{
+.bg{
   position: relative;
   width: 100vw;
   height: 90vh;

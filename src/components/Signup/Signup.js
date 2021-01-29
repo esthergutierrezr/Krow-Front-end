@@ -39,7 +39,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="bg">
       <Logo src={KrowLogo} alt="Krow-logo" />
       <div className="form-container">
         <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
@@ -53,7 +53,7 @@ function Signup() {
           />
           <PhoneInput
           // className="country-code"
-            style={{ width: "90px" }}
+            // style={{ width: "90px" }}
             value={state.phone}
             onChange={(phone) => setState({ phone })}
             type="tel"
@@ -62,6 +62,7 @@ function Signup() {
             placeholder={!errors.phone ? "Phone Number*" : "Your phone number"}
           />
           <Input
+            // className="phone"
             className="hidden"
             value={state.phone}
             type="tel"
