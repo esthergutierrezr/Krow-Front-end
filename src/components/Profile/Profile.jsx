@@ -16,8 +16,8 @@ const Profile = () => {
   };
   return (
     <Content>
-      {/* <header>{ user ? <UserProfile /> : <LogOut />}</header> */}
-        <h1>luis</h1>
+      <h1>luis</h1>
+      <header>{ user ? <UserProfile /> : <LogOut />}</header>
       <div>
         <div className="multi-level">
           <div className="item">
