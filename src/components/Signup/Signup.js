@@ -72,6 +72,11 @@ function Signup() {
               border: "none",
               color: "#888"
             }}
+            inputProps= {{
+              name: 'phone',
+              required: true,
+              autoFocus: true
+            }}
             value={state.phone}
             onChange={(phone) => setState({ phone })}
             type="tel"
