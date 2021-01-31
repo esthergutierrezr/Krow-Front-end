@@ -15,8 +15,9 @@ const Profile = () => {
     history.push("/");
   };
   return (
-    <Content>
+    <>
       <h1>luis</h1>
+    <Content>
       <header>{ user ? <UserProfile /> : <LogOut />}</header>
       <div>
         <div className="multi-level">
@@ -66,6 +67,7 @@ const Profile = () => {
         </div>
       </div>
     </Content>
+    </>
   );
 };
 
