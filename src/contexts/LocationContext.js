@@ -4,10 +4,8 @@ export const LocationContext = createContext();
 
 function LocationContextProvider(props) {
   const [location, setLocation] = useState({
-    showingInfoWindow: false,
-    activeMarker: {},
     selectedPlace: {},
-    mapCenter: {
+    center: {
       lat: 38.72493608746106,
       lng: -9.14578853237358,
     },
