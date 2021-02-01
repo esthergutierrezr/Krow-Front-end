@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import LiveChat from "./LiveChat";
 // import laptop from "./nav-icons/computer-laptop.svg";
@@ -15,9 +15,25 @@ import OrangeProfile from "../Style/SVG/Nav/SVG_Screen Registar-09.svg";
 import "./BottomNav.css";
 
 const BottomNav = () => {
+  const [activeLink, setActiveLink] = useState({
+    locationsSrc: GreyLaptop,
+    inviteSrc: GreyInvite,
+    homeSrc: OrangeKrow,
+    profileSrc: GreyProfile,
+  });
   return (
     <div className="nav">
-      <div className="item">
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: OrangeLaptop,
+            inviteSrc: GreyInvite,
+            homeSrc: GreyKrow,
+            profileSrc: GreyProfile,
+          })
+        }
+      >
         <NavLink
           to="/locations"
           className="disabled-link"
@@ -25,10 +41,8 @@ const BottomNav = () => {
         >
           <div className="item-elements">
             <img
-              name="locations"
-              //  onClick={(e) => handleActivation(e)}
               className="item-elements-icon"
-              src={"active-link" ? GreyLaptop : OrangeLaptop}
+              src={activeLink.locationsSrc}
               alt="Locations"
               height="36.7px"
               width="52.3px"
@@ -37,7 +51,17 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div className="item">
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: GreyLaptop,
+            inviteSrc: OrangeInvite,
+            homeSrc: GreyKrow,
+            profileSrc: GreyProfile,
+          })
+        }
+      >
         <NavLink
           to="/invite"
           className="disabled-link"
@@ -46,7 +70,7 @@ const BottomNav = () => {
           <div className="item-elements">
             <img
               className="item-elements-icon"
-              src={"active-link" ? GreyInvite : OrangeInvite}
+              src={activeLink.inviteSrc}
               alt="Refer a friend"
               height="36.7px"
               width="42.9px"
@@ -55,7 +79,17 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div className="item">
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: GreyLaptop,
+            inviteSrc: GreyInvite,
+            homeSrc: OrangeKrow,
+            profileSrc: GreyProfile,
+          })
+        }
+      >
         <NavLink
           exact
           to="/"
@@ -65,7 +99,7 @@ const BottomNav = () => {
           <div className="item-elements">
             <img
               className="item-elements-icon"
-              src={"active-link" ? OrangeKrow : GreyKrow}
+              src={activeLink.homeSrc}
               alt="Home"
               height="36.7px"
               width="36.7px"
@@ -74,7 +108,17 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div className="item">
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: GreyLaptop,
+            inviteSrc: GreyInvite,
+            homeSrc: GreyKrow,
+            profileSrc: OrangeProfile,
+          })
+        }
+      >
         <NavLink
           to="/profile/:id"
           className="disabled-link"
@@ -83,7 +127,7 @@ const BottomNav = () => {
           <div className="item-elements">
             <img
               className="item-elements-icon"
-              src={"active-link" ? GreyProfile : OrangeProfile}
+              src={activeLink.profileSrc}
               alt="Profile"
               height="36.7px"
               width="36.7px"
