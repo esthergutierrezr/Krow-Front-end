@@ -1,7 +1,7 @@
 import React from "react";
 import "./LocationsCard.css";
 import { LocationContext } from "../../../contexts/LocationContext";
-import PopUp from "../LocationDetails/PopUp.js";
+import PopUp from "../LocationDetails/PopUpA.js";
 
 function LocationsCard(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
@@ -19,7 +19,9 @@ function LocationsCard(props) {
   const checkOut = () => {
     setChecked(null);
   };
-
+  const message = () => {
+    alert.show("please check out first!");
+  };
   const onCardClick = () => {
     console.log(props);
     setLocation({
@@ -48,7 +50,7 @@ function LocationsCard(props) {
           <button onClick={onCardClick}>
             <img src={props.image} alt="image" width="150" height="150" />
           </button>
-          <button onClick={checkIn}>Check In</button>
+          <button onClick={checked ? message : checkIn}>Check In</button>
         </div>
       ) : (
         <div className="checkout">

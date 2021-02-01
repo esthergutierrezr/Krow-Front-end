@@ -5,7 +5,7 @@ import LocationMap from "./LocationMap";
 import ApiLocations from "../ApiLocations.json";
 import { LocationContext } from "../../../contexts/LocationContext";
 import "./LocationDetails.css";
-import PopUp from "./PopUp";
+import PopUpA from "./PopUpA";
 
 function LocationDetails(props) {
   const [moreTextA, setMoreTextA] = useState(false);
@@ -14,17 +14,17 @@ function LocationDetails(props) {
   const [moreTextD, setMoreTextD] = useState(false);
   const [moreTextE, setMoreTextE] = useState(false);
   const [location, setLocation] = useState({});
-  const [popUp, setPopUp] = useState(false);
+  const [PopUpA, setPopUpA] = useState(false);
 
   const { checked, setChecked } = React.useContext(LocationContext);
 
   const checkIn = () => {
     // console.log(props.match.params.id);
     setChecked(props.match.params.id);
-    setPopUp(!popUp);
+    setPopUpA(!PopUpA);
   };
   const togglePop = () => {
-    setPopUp(false);
+    setPopUpA(false);
   };
 
   const checkOut = () => {
@@ -132,7 +132,7 @@ function LocationDetails(props) {
               <a href={`/locations/`}>Back</a>
               <div>
                 <h1>{location.name}</h1>
-                {popUp ? <PopUp toggle={togglePop} /> : null}
+                {PopUpA ? <PopUpA toggle={togglePop} /> : null}
                 <button onClick={checkOut}>Check Out</button>
                 <p>1 miembro aqui</p>
                 <p>icon + opening times</p>

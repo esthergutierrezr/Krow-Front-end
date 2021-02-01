@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopUp.css";
+import "./PopUpA.css";
 
 export default function PopUp(props) {
   return (

@@ -4,11 +4,50 @@ import { Link } from "react-router-dom";
 import ApiLocations from "./ApiLocations.json";
 import LocationsCard from "./LocationsCard/LocationsCard.js";
 import { LocationContext } from "../../contexts/LocationContext.js";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./MapContainer.css";
 
 function MapContainer(props) {
   const { location, setLocation } = useContext(LocationContext);
   // const { locations, setLocations } = React.useState({});
-
+  const settings = {
+    className: "slides",
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2.3,
+    // slidesToScroll: 4,
+    initialSlide: 0,
+    padding: "30px",
+    swipeToSlide: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3.3,
+          infinite: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2.3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <div>
       <Link to="/">HomePage</Link>
@@ -41,12 +80,14 @@ function MapContainer(props) {
           ))}
         </Map>
       </div>
-      <div style={{ display: "flex" }}>
-        {ApiLocations.map((location) => (
-          <div>
-            <LocationsCard {...location} />{" "}
-          </div>
-        ))}
+      <div class="carousel-locations">
+        <Slider {...settings}>
+          {ApiLocations.map((location) => (
+            <div>
+              <LocationsCard {...location} />{" "}
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );
