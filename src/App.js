@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import { AuthContext } from "./contexts/AuthContext";
 import AppRoute from "./AppRoute.jsx";
 import Signup from "./components/Signup/Signup";
+import AuthContextProvider from "./contexts/AuthContext";
 // import LocationContextProvider from './contexts/LocationContext'
 import "./App.css";
 
@@ -29,21 +30,23 @@ function App() {
 
   return (
     <div className="App">
-      {/* <LocationContextProvider> */}
-      <Switch>
-        <Route path="/auth/login" component={Login} />
-        <Route path="/auth/signup" component={Signup} />
-        <Route path="/" component={AppRoute} />
-        {/* <Route exact path="/" component={Homepage} />
+      <AuthContextProvider>
+        {/* <LocationContextProvider> */}
+        <Switch>
+          <Route path="/auth/login" component={Login} />
+          <Route path="/auth/signup" component={Signup} />
+          <Route path="/" component={AppRoute} />
+          {/* <Route exact path="/" component={Homepage} />
           <Route path="/locations" component={MainLocations} />
           <Route path="/membership" component={Membership} />
           <ProtectedRoute path="/profile" component={MainProfile} />
           <ProtectedRoute exact path="/" component={BottomNav} /> */}
-        {/* <Redirect to="/" /> */}
-      </Switch>
-      {/* should be {user.length ? <BottomNav /> : null } */}
-      {/* {user.length ? null : <BottomNav />} */}
-      {/* </LocationContextProvider> */}
+          {/* <Redirect to="/" /> */}
+        </Switch>
+        {/* should be {user.length ? <BottomNav /> : null } */}
+        {/* {user.length ? null : <BottomNav />} */}
+        {/* </LocationContextProvider> */}
+      </AuthContextProvider>
     </div>
   );
 }
