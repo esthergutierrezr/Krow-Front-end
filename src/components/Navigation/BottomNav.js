@@ -1,87 +1,150 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import LiveChat from "./LiveChat";
 // import laptop from "./nav-icons/computer-laptop.svg";
-import Laptop from "../Style/SVG/Nav/SVG_Screen Registar-14.svg";
-import Invite from "../Style/SVG/Nav/SVG_Screen Registar-13.svg"
-import Krow from "../Style/SVG/Nav/SVG_Screen Registar-12.svg"
-import Profile from "../Style/SVG/Nav/SVG_Screen Registar-10.svg";
+import GreyLaptop from "../Style/SVG/Nav/SVG_Screen Registar-14.svg";
+import GreyInvite from "../Style/SVG/Nav/SVG_Screen Registar-13.svg";
+import GreyKrow from "../Style/SVG/Nav/SVG_Screen Registar-12.svg";
+import GreyProfile from "../Style/SVG/Nav/SVG_Screen Registar-10.svg";
+import OrangeLaptop from "../Style/SVG/Nav/SVG_Screen Registar-05.svg";
+import OrangeInvite from "../Style/SVG/Nav/SVG_Screen Registar-06.svg";
+import OrangeKrow from "../Style/SVG/Nav/SVG_Screen Registar-07.svg";
+import OrangeProfile from "../Style/SVG/Nav/SVG_Screen Registar-09.svg";
 // import {NavStyle} from "./NavStyle"
 
 import "./BottomNav.css";
 
-const BottomNav = () => (
-  <div className="nav">
-    <div className="item">
-      <NavLink
-        to="/locations"
-        className="disabled-link"
-        activeClassName="active-link active2"
+const BottomNav = () => {
+  const [activeLink, setActiveLink] = useState({
+    locationsSrc: GreyLaptop,
+    inviteSrc: GreyInvite,
+    homeSrc: OrangeKrow,
+    profileSrc: GreyProfile,
+  });
+  return (
+    <div className="nav">
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: OrangeLaptop,
+            inviteSrc: GreyInvite,
+            homeSrc: GreyKrow,
+            profileSrc: GreyProfile,
+          })
+        }
       >
-        <div className="item-elements">
-          <img className="laptop" src={Laptop} alt="Locations" height="40px" width="40px" />
-          Work
-        </div>
-      </NavLink>
-    </div>
-    <div className="item">
-      <NavLink
-        to="/invite"
-        className="disabled-link"
-        activeClassName="active-link active2"
+        <NavLink
+          to="/locations"
+          className="disabled-link"
+          activeClassName="active-link active2"
+        >
+          <div className="item-elements">
+            <img
+              className="item-elements-icon"
+              src={activeLink.locationsSrc}
+              alt="Locations"
+              height="36.7px"
+              width="52.3px"
+            />
+            <span>Work</span>
+          </div>
+        </NavLink>
+      </div>
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: GreyLaptop,
+            inviteSrc: OrangeInvite,
+            homeSrc: GreyKrow,
+            profileSrc: GreyProfile,
+          })
+        }
       >
-        <div className="item-elements">
-          <img
-            src={Invite}
-            alt="Refer a friend"
-            height="40px"
-            width="40px"
-          />
-          Invite
-        </div>
-      </NavLink>
-    </div>
-    <div className="item">
-      <NavLink
-        exact
-        to="/"
-        className="disabled-link"
-        activeClassName="active-link active2"
+        <NavLink
+          to="/invite"
+          className="disabled-link"
+          activeClassName="active-link active2"
+        >
+          <div className="item-elements">
+            <img
+              className="item-elements-icon"
+              src={activeLink.inviteSrc}
+              alt="Refer a friend"
+              height="36.7px"
+              width="42.9px"
+            />
+            <span>Invite</span>
+          </div>
+        </NavLink>
+      </div>
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: GreyLaptop,
+            inviteSrc: GreyInvite,
+            homeSrc: OrangeKrow,
+            profileSrc: GreyProfile,
+          })
+        }
       >
-        <div className="item-elements">
-          <img
-            src={Krow}
-            alt="Home"
-            height="40px"
-            width="40px"
-          />
-          Home
-        </div>
-      </NavLink>
-    </div>
-    <div className="item">
-      <NavLink
-        to="/profile/:id"
-        className="disabled-link"
-        activeClassName="active-link active2"
+        <NavLink
+          exact
+          to="/"
+          className="disabled-link"
+          activeClassName="active-link active2"
+        >
+          <div className="item-elements">
+            <img
+              className="item-elements-icon"
+              src={activeLink.homeSrc}
+              alt="Home"
+              height="36.7px"
+              width="36.7px"
+            />
+            <span>Home</span>
+          </div>
+        </NavLink>
+      </div>
+      <div
+        className="item"
+        onClick={(e) =>
+          setActiveLink({
+            locationsSrc: GreyLaptop,
+            inviteSrc: GreyInvite,
+            homeSrc: GreyKrow,
+            profileSrc: OrangeProfile,
+          })
+        }
       >
-        <div className="item-elements">
-          <img
-            src={Profile}
-            alt="Profile"
-            height="40px"
-            width="40px"
-          />
-          Profile
+        <NavLink
+          to="/profile/:id"
+          className="disabled-link"
+          activeClassName="active-link active2"
+        >
+          <div className="item-elements">
+            <img
+              className="item-elements-icon"
+              src={activeLink.profileSrc}
+              alt="Profile"
+              height="36.7px"
+              width="36.7px"
+            />
+            <span>Profile</span>
+          </div>
+        </NavLink>
+      </div>
+      <div className="item">
+        <div>
+          <div style={{ color: "#000000" }}>
+            <span>............</span>
+          </div>
+          <LiveChat />
         </div>
-      </NavLink>
-    </div>
-    <div className="item">
-      <div style={{ height: "40px", width: "80px" }}>
-        <div style={{ color: "rgb(26, 26, 26)" }}>............</div>
-        <LiveChat />
       </div>
     </div>
-  </div>
   );
+};
 export default BottomNav;
