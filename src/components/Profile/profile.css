@@ -1,0 +1,10 @@
+.bgwhite {
+  /* position: absolute;
+  top: 0;
+  width: 100vw;
+  min-height: 100vh; */
+  /* margin-top: -12vh; */
+  align-self: center;
+  background-size: cover;
+  background-image: url("../Style/bg/white_wall.png");
+}

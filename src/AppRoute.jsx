@@ -10,6 +10,8 @@ import LocationContextProvider from "./contexts/LocationContext";
 import AuthContextProvider from "./contexts/LocationContext";
 import "./App.css";
 
+import ReferFriend from "./components/Profile/ReferFriend"
+
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const { auth } = React.useContext(AuthContext);
   return (
@@ -33,6 +35,7 @@ function AppRoute() {
             <Route exact path="/" component={Homepage} />
             <Route path="/locations" component={MainLocations} />
             <Route path="/membership" component={Membership} />
+            <Route path="/referfriend" component={ReferFriend} />
             {/* <ProtectedRoute path="/profile" component={MainProfile} /> */}
             <Route path="/profile" component={MainProfile} />
             {/* <Redirect to="/" /> */}
