@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import ProfilePicture from "../../Style/SVG/HomePage/SVG_Screen Registar-01.svg"
 
 function GuestGreeting() {
 
@@ -8,11 +9,11 @@ function GuestGreeting() {
   return (
     <div className="greeting-container">
       <span> 
-        <Link to="/auth/signup">Sign Up</Link>
+        <Link className="register" to="/auth/signup">Sign Up</Link>
         {' | '}
-        <Link to="/auth/login">Log in</Link>
+        <Link  to="/auth/login"className="yellow-bg">Log in</Link>
       </span>
-      <Link to="/auth/login"><img className="profile-picture" src="https://via.placeholder.com/150" alt="" /></Link>
+      <Link to="/auth/login"><img className="profile-picture" src={ProfilePicture} alt="" /></Link>
     </div>
   );
 }

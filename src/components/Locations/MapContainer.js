@@ -1,4 +1,4 @@
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ApiLocations from "./ApiLocations.json";
@@ -7,62 +7,47 @@ import { LocationContext } from "../../contexts/LocationContext.js";
 
 function MapContainer(props) {
   const { location, setLocation } = useContext(LocationContext);
-
-  const onMarkerClick = (selectedLocation, marker, e) => {
-    console.log(selectedLocation);
-    setLocation({
-      ...location,
-      selectedPlace: selectedLocation,
-      activeMarker: marker,
-      showingInfoWindow: true,
-    });
-    //console.log(`here: ${location.selectedPlace}`);
-  };
-
-  const onMapClicked = (props) => {
-    if (location.showingInfoWindow) {
-      setLocation({
-        ...location,
-        activeMarker: null,
-        showingInfoWindow: false,
-      });
-    }
-  };
+  // const { locations, setLocations } = React.useState({});
 
   return (
     <div>
       <Link to="/">HomePage</Link>
-      <Map
-        defaultZoom={1}
-        initialCenter={{
-          lat: location.mapCenter.lat,
-          lng: location.mapCenter.lng,
-        }}
-        google={props.google}
-        onClick={onMapClicked}
-      >
-        {ApiLocations.map((location) => (
-          <Marker
-            {...location}
-            key={location.id}
-            onClick={onMarkerClick}
-            name={location.name}
-            position={{
-              lat: location.lat,
-              lng: location.lng,
-            }}
-          />
-        ))}
-
-        <InfoWindow
-          marker={location.activeMarker}
-          visible={location.showingInfoWindow}
+      <div style={{ height: "350px", width: "100vw" }}>
+        <Map
+          style={{ height: "350px", width: "100vw" }}
+          containerStyle={{ height: "350px", width: "100vw" }}
+          zoom={16}
+          center={{
+            lat: location.center.lat,
+            lng: location.center.lng,
+          }}
+          initialCenter={{
+            lat: 38.72493608746106,
+            lng: -9.14578853237358,
+          }}
+          google={props.google}
         >
+          {ApiLocations.map((locationApi) => (
+            <Marker
+              {...locationApi}
+              key={locationApi.id}
+              // onClick={onMarkerClick}
+              name={locationApi.name}
+              position={{
+                lat: locationApi.lat,
+                lng: locationApi.lng,
+              }}
+            />
+          ))}
+        </Map>
+      </div>
+      <div style={{ display: "flex" }}>
+        {ApiLocations.map((location) => (
           <div>
-            <LocationsCard {...location} />
+            <LocationsCard {...location} />{" "}
           </div>
-        </InfoWindow>
-      </Map>
+        ))}
+      </div>
     </div>
   );
 }

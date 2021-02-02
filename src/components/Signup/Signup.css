@@ -17,8 +17,8 @@
     width: 400px;
     border-radius: 10px;
     border: hidden;
-    box-shadow: 1px 1px 2px 2px #aaaaaa;
-    margin-top: 3em;
+    /* box-shadow: 1px 1px 2px 2px #aaaaaa; */
+    margin-top: 2em;
     height: 50px;
   }
 
@@ -29,5 +29,16 @@
   }
 
   .hidden{
-    display: none;
+    display: none !important;
   }
+
+.bg{
+  position: absolute;
+  top:0;
+  width: 100vw;
+  min-height: 100vh;
+  /* margin-top: -12vh; */
+  align-self: center;
+  background-size:cover;
+  background-image: url("../Style/bg/computer-bg.png");
+}
