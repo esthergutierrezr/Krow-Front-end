@@ -4,9 +4,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // import Homepage from "./components/Home/Homepage";
 // import MainLocations from "./components/Locations/MainLocations";
 import Login from "./components/Login/Login";
+import ChooseLanguage from './components/ChooseLanguage/ChooseLanguage';
 // import Membership from "./components/Membership/Membership";
 // import MainProfile from './components/Profile/MainProfile';
-import { AuthContext } from "./contexts/AuthContext";
+//import { AuthContext } from "./contexts/AuthContext";
 import AppRoute from "./AppRoute.jsx";
 import Signup from "./components/Signup/Signup";
 import AuthContextProvider from "./contexts/AuthContext";
@@ -33,6 +34,7 @@ function App() {
       <AuthContextProvider>
         {/* <LocationContextProvider> */}
         <Switch>
+          <Route path="/choose-language" component={ChooseLanguage} />
           <Route path="/auth/login" component={Login} />
           <Route path="/auth/signup" component={Signup} />
           <Route path="/" component={AppRoute} />
