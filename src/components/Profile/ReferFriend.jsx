@@ -6,12 +6,9 @@ import "./profile.css";
 
 // import { AuthContext } from "../../contexts/AuthContext";
 const Header = styled.div`
-display:block;
-position:relative;
-height:130.3px;
-background-image: src={WhiteBg}
-align-self: center;
-background-size:cover;
+  display: block;
+  position: relative;
+  height: 130.3px;
 `;
 export const Logo = styled.img`
   height: 200px;
@@ -69,12 +66,6 @@ const Content = styled.div`
   }
 `;
 
-const Background = styled.div`
-  .bgRed {
-    background-color: ${Red};
-    height: 90vh;
-  }
-`;
 export const ButtonCopy = styled.button`
   background-color: ${YellowButton};
   border-radius: 10px;
@@ -151,7 +142,7 @@ const ReferFriend = () => {
   return (
     <Content>
       <Header className="bgwhite" />
-      <Background className="bgRed">
+      <div className="bgRed">
         <Logo src={ReferLogo} alt="Krow-logo" />
         {/* image of refer friend */}
         <div className="text-refer">
@@ -179,7 +170,7 @@ const ReferFriend = () => {
         <ButtonShare type="button" onClick={() => Share()}>
           Share
         </ButtonShare>
-      </Background>
+      </div>
     </Content>
   );
 };

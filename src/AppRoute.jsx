@@ -35,7 +35,7 @@ function AppRoute() {
             <Route exact path="/" component={Homepage} />
             <Route path="/locations" component={MainLocations} />
             <Route path="/membership" component={Membership} />
-            <Route path="/referfriend" component={ReferFriend} />
+            <Route path="/invite" component={ReferFriend} />
             {/* <ProtectedRoute path="/profile" component={MainProfile} /> */}
             <Route path="/profile" component={MainProfile} />
             {/* <Redirect to="/" /> */}
