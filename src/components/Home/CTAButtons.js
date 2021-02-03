@@ -12,7 +12,7 @@ function CTAButtons() {
         <p>Subscribe</p>
         </div>
         </Link>
-      <Link to="/referafriend">
+      <Link to="/invite">
         <div className="invite">
           <img className="ctabuttons__button" src={Invite} alt="refer a friend" />
         <p>Invite</p>

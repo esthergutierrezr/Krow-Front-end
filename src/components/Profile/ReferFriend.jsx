@@ -20,14 +20,11 @@ export const LogoInvite = styled.img`
 `;
 
 export const LogoShare = styled.img`
-  width: 30px;
-  height: 30px;
-  // margin-top: 83px;
-  margin: auto;
+  width: 35px;
+  height: 35px;
   display: inline-block;
   padding-right:18.9px;
-  // margin-left: auto;
-  // margin-right: auto;
+
 `;
 const Content = styled.div`
   width: 100%;
@@ -72,9 +69,6 @@ const Content = styled.div`
     font-weight: bold;
   }
   .share{
-    // align-items: center;
-    // justify-content: center
-    // text-align: center;
     font-family: Raleway;
     font-size: 18.3px;
     font-weight: normal;
@@ -143,15 +137,9 @@ export const ButtonShare = styled.button`
   width: 237.7px;
   height:58.5px;
   color: ${White};
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-family: Raleway;
-  font-size: 16.2px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
   }
 `;
 
@@ -228,7 +216,9 @@ const ReferFriend = () => {
         {/* img for sharing */}
         <ButtonShare type="button" onClick={() => Share()}>
           <LogoShare src={ShareCode} alt="share-code" />
-          <span className="share">Share</span>
+          <div className="share">
+          <span>Share</span>
+          </div>
         </ButtonShare>
       </div>
     </Content>
