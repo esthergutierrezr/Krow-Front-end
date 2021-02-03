@@ -39,7 +39,7 @@ const BottomNav = () => {
         profileSrc: GreyProfile,
       });
       //  console.log("location pathname:", location.pathname);
-    } else if (location.pathname === "/invite") {
+    } else if (location.pathname === "/referafriend") {
       setActiveLink({
         locationsSrc: GreyLaptop,
         inviteSrc: OrangeInvite,
@@ -88,7 +88,7 @@ const BottomNav = () => {
       </div>
       <div className="item">
         <NavLink
-          to="/invite"
+          to="/referafriend"
           className="disabled-link"
           activeClassName="active-link active2"
         >
