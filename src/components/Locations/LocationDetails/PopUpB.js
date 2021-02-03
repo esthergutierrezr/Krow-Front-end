@@ -7,7 +7,7 @@ export default function PopUpB(props) {
       <div className=".popup_inner">
         <p>CHECK-IN ACTIVO</p>
         <p>Para fazer check-in aqui, precisa fazer check-out primeiro </p>
-        <button onClick={props.toggleB}>OK</button>
+        <button onClick={props.toggle}>OK</button>
       </div>
     </div>
   );

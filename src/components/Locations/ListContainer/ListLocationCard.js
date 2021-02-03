@@ -5,6 +5,7 @@ import PopUpA from "../LocationDetails/PopUpA";
 import PopUpB from "../LocationDetails/PopUpB";
 import PopUpC from "../LocationDetails/PopUpC";
 import PopUpD from "../LocationDetails/PopUpD";
+import LocationsRating from "../LocationsRating";
 
 function ListLocationCard(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
@@ -56,14 +57,14 @@ function ListLocationCard(props) {
 
             <div>09:00 - 17:00 </div>
             <div> Sintra | Obtener direccoes </div>
-            <div> * * * * 4.9</div>
+            <LocationsRating rating={props.rating} />
             <a href={`/locations/${props.id}`}>Details</a>
           </div>
           <div>
             <img src={props.image} alt="image" width="250" height="220" />
           </div>
           <button onClick={checked === null ? checkIn : message}>
-            {popUpB ? <PopUpB toggleB={togglePopB} /> : null}
+            {popUpB ? <PopUpB toggle={togglePopB} /> : null}
             Check In
           </button>
         </div>

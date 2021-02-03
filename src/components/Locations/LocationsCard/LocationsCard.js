@@ -1,26 +1,53 @@
 import React from "react";
 import "./LocationsCard.css";
 import { LocationContext } from "../../../contexts/LocationContext";
-import PopUp from "../LocationDetails/PopUpA.js";
+
+import PopUpA from "../LocationDetails/PopUpA";
+import PopUpB from "../LocationDetails/PopUpB";
+import PopUpC from "../LocationDetails/PopUpC";
+import PopUpD from "../LocationDetails/PopUpD";
+import LocationsRating from "../LocationsRating";
 
 function LocationsCard(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
   const { location, setLocation } = React.useContext(LocationContext);
-  const [popUp, setPopUp] = React.useState(false);
+  const [popUpA, setPopUpA] = React.useState(false);
+  const [popUpB, setPopUpB] = React.useState(false);
+  const [popUpC, setPopUpC] = React.useState(false);
+  const [popUpD, setPopUpD] = React.useState(false);
 
   const checkIn = () => {
     setChecked(props.id);
-    setPopUp(!popUp);
-  };
-
-  const togglePop = () => {
-    setPopUp(false);
+    setPopUpA(!popUpA);
   };
   const checkOut = () => {
-    setChecked(null);
+    setPopUpC(!popUpC);
   };
+
   const message = () => {
-    alert.show("please check out first!");
+    console.log("please checkout first");
+    setPopUpB(!popUpB);
+  };
+  const togglePopA = () => {
+    setPopUpA(false);
+  };
+  const togglePopB = () => {
+    setPopUpB(false);
+  };
+  const togglePopC = () => {
+    setPopUpC(false);
+
+    setPopUpD(!popUpD);
+  };
+  const cancelTogglePopC = () => {
+    setPopUpC(false);
+  };
+  const cancelTogglePopD = () => {
+    setPopUpD(false);
+  };
+  const togglePopD = () => {
+    setPopUpD(false);
+    setChecked(null);
   };
   const onCardClick = () => {
     console.log(props);
@@ -44,19 +71,24 @@ function LocationsCard(props) {
 
             <div>09:00 - 17:00 </div>
             <div> Sintra | Obtener direccoes </div>
-            <div> * * * * 4.9</div>
+            <div>
+              <LocationsRating rating={props.rating} />
+            </div>
             <a href={`/locations/${props.id}`}>Details</a>
           </div>
           <button onClick={onCardClick}>
             <img src={props.image} alt="image" width="150" height="150" />
           </button>
-          <button onClick={checked ? message : checkIn}>Check In</button>
+          <button onClick={checked === null ? checkIn : message}>
+            Check In
+          </button>
+          {popUpB ? <PopUpB toggleB={togglePopB} /> : null}
         </div>
       ) : (
         <div className="checkout">
           <div>
             <h1>{props.name}</h1>
-            {popUp ? <PopUp toggle={togglePop} /> : null}
+            {popUpA ? <PopUpA toggle={togglePopA} /> : null}
             <p>6 miembro(s) aqui</p>
             <div>Aberto ate as 22:00 </div>
             <p>wifi:{props.network}</p>
@@ -68,6 +100,12 @@ function LocationsCard(props) {
             <img src={props.image} alt="image" width="250" height="220" />
           </div>
           <button onClick={checkOut}>Check Out</button>
+          {popUpC ? (
+            <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />
+          ) : null}
+          {popUpD ? (
+            <PopUpD cancel={cancelTogglePopD} toggle={togglePopD} />
+          ) : null}
         </div>
       )}
     </div>

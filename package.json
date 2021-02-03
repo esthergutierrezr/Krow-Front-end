@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "@react-google-maps/api": "^2.0.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -22,6 +23,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-slick": "^0.27.13",
+    "react-star-ratings": "^2.3.0",
     "reactjs-popup": "^2.0.4",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",

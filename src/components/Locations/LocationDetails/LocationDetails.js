@@ -6,6 +6,10 @@ import ApiLocations from "../ApiLocations.json";
 import { LocationContext } from "../../../contexts/LocationContext";
 import "./LocationDetails.css";
 import PopUpA from "./PopUpA";
+import PopUpB from "./PopUpB";
+import PopUpC from "./PopUpC";
+import PopUpD from "./PopUpD";
+import LocationsRating from "../LocationsRating";
 
 function LocationDetails(props) {
   const [moreTextA, setMoreTextA] = useState(false);
@@ -14,22 +18,48 @@ function LocationDetails(props) {
   const [moreTextD, setMoreTextD] = useState(false);
   const [moreTextE, setMoreTextE] = useState(false);
   const [location, setLocation] = useState({});
-  const [PopUpA, setPopUpA] = useState(false);
+  const [popUpA, setPopUpA] = useState(false);
+  const [popUpB, setPopUpB] = useState(false);
+  const [popUpC, setPopUpC] = useState(false);
+  const [popUpD, setPopUpD] = useState(false);
 
   const { checked, setChecked } = React.useContext(LocationContext);
 
   const checkIn = () => {
     // console.log(props.match.params.id);
     setChecked(props.match.params.id);
-    setPopUpA(!PopUpA);
+    setPopUpA(!popUpA);
   };
-  const togglePop = () => {
-    setPopUpA(false);
+  const checkOut = () => {
+    setPopUpC(!popUpC);
   };
 
-  const checkOut = () => {
+  const message = () => {
+    console.log("please checkout first");
+    setPopUpB(!popUpB);
+  };
+  const togglePopA = () => {
+    setPopUpA(false);
+  };
+  const togglePopB = () => {
+    setPopUpB(false);
+  };
+  const togglePopC = () => {
+    setPopUpC(false);
+
+    setPopUpD(!popUpD);
+  };
+  const cancelTogglePopC = () => {
+    setPopUpC(false);
+  };
+  const cancelTogglePopD = () => {
+    setPopUpD(false);
+  };
+  const togglePopD = () => {
+    setPopUpD(false);
     setChecked(null);
   };
+
   const readMoreA = () => {
     setMoreTextA(!moreTextA);
   };
@@ -73,11 +103,14 @@ function LocationDetails(props) {
             <a href={`/locations/`}>Back</a>
             <div>
               <h1>{location.name}</h1>
-              <button onClick={checkIn}>Check In</button>
+              <button onClick={checked === null ? checkIn : message}>
+                Check In
+              </button>
+              {popUpB ? <PopUpB toggle={togglePopB} /> : null}
               <p>1 miembro aqui</p>
               <p>icon + opening times</p>
               <p>Icon + Location</p>
-              <div> * * * * 4.9</div>
+              <LocationsRating rating={location.rating} />
 
               <div>
                 <h2>Description</h2>
@@ -132,12 +165,18 @@ function LocationDetails(props) {
               <a href={`/locations/`}>Back</a>
               <div>
                 <h1>{location.name}</h1>
-                {PopUpA ? <PopUpA toggle={togglePop} /> : null}
+                {popUpA ? <PopUpA toggle={togglePopA} /> : null}
                 <button onClick={checkOut}>Check Out</button>
+                {popUpC ? (
+                  <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />
+                ) : null}
+                {popUpD ? (
+                  <PopUpD cancel={cancelTogglePopD} toggle={togglePopD} />
+                ) : null}
                 <p>1 miembro aqui</p>
                 <p>icon + opening times</p>
                 <p>Icon + Location</p>
-                <div> * * * * 4.9</div>
+                <LocationsRating rating={location.rating} />
                 <div>
                   <p>WifiIcon: {location.network}</p>
                   <p>Password: {location.password}</p>
