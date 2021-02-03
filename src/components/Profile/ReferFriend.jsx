@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Black, Red, White, YellowButton, BlackButton } from "../Style/Colors";
 import styled from "styled-components";
 import ReferLogo from "../Style/SVG/Invite/SVG_Screen Registar-01.svg";
@@ -87,18 +87,19 @@ export const ButtonCopy = styled.button`
   letter-spacing: normal;
   }
 `;
-export const ButtonCode = styled.button`
+export const ButtonCode = styled.input`
+  justify-content: center;
+  align-items: center;
   background-color: ${White};
   border-radius: 10px;
   border: hidden;
   margin-left: 121.9px;
   margin-right: auto;
   margin-top: 17.4px;
-  width: 151.2px;
-  height:41.9px;
+  padding-left:38px;
+  width: 109.2px;
+  height:39.9px;
   color: ${Black};
-  justify-content: center;
-  align-items: center;
   font-family: Raleway;
   font-size: 16.2px;
   font-weight: bold;
@@ -134,8 +135,37 @@ export const ButtonShare = styled.button`
 const ReferFriend = () => {
   // const { user } = useContext(AuthContext);
   // should be the membership context, when created we should be able to get the info for generate the code of Stripe!!!!!!
+  const [copySuccess, setCopySuccess] = useState("");
+  const textAreaRef = useRef(null);
 
-  const Copy = () => {};
+  const copyToClipboard = (event) => {
+    textAreaRef.current.select();
+    document.execCommand("copy");
+    event.target.focus();
+    // console.log(textAreaRef);
+    // console.log(event.target)
+    // console.log(copySuccess)
+    setCopySuccess("Copied!");
+  };
+
+  {
+    /*******1*******
+  import {Share} from 'react-native'
+  Share.share({
+  message: this.state.inputValue.toString(),
+})
+.then(result => console.log(result))
+.catch(errorMsg => console.log(errorMsg));
+
+******2*******
+  <intent-filter >
+    <action android:name="com.example.project.SHOW_CURRENT" />
+    <action android:name="com.example.project.SHOW_RECENT" />
+    <action android:name="com.example.project.SHOW_PENDING" />
+ 
+</intent-filter> 
+*/
+  }
 
   const Share = () => {};
 
@@ -149,22 +179,28 @@ const ReferFriend = () => {
           <h1>Refer a Friend</h1>
           <h3>Offer a discount of 25%</h3>
           <p>
-            Partilhe o código abaixo com um amigo e à primeira subscrição do
-            mesmo será aplicado um desconto de 25%.
+            Share the code below with a friend and the first subscription to a
+            25% discount will be applied.
           </p>
           <p>
-            No seu caso, por cada amigo que convidar e que subscreva, irá ganhar
-            1 ponto.
+            In your case, for every friend you invite and subscribe, you will
+            earn 1 point.
           </p>
           <p>
-            Quando atingir 5 pontos, e por participar ativamente na comunidade,
-            teremos algo (mesmo) muito especial para si.
+            When you reach 5 points, and for actively participating in the
+            community, we will have something (really) very special for you.
           </p>
         </div>
-        <ButtonCode type="button">Code</ButtonCode>
-        <ButtonCopy type="button" onClick={() => Copy()}>
+        <ButtonCode ref={textAreaRef} type="text" value="Code12" />
+        <ButtonCopy type="button" onClick={copyToClipboard}>
           Copy
         </ButtonCopy>
+        {/* {
+            copySuccess ?
+            <div style={{"color": "green"}}>
+              Success!
+            </div> : null
+          } */}
         <br />
         {/* img for sharing */}
         <ButtonShare type="button" onClick={() => Share()}>
