@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import LiveChat from "./LiveChat";
 // import laptop from "./nav-icons/computer-laptop.svg";
 import GreyLaptop from "../Style/SVG/Nav/SVG_Screen Registar-14.svg";
@@ -21,19 +21,52 @@ const BottomNav = () => {
     homeSrc: OrangeKrow,
     profileSrc: GreyProfile,
   });
+
+  const location = useLocation();
+
+  useEffect(() => {
+    currentLocation();
+  }, [location]);
+
+  const currentLocation = () => {
+    if (location.pathname === "/") {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: OrangeKrow,
+        profileSrc: GreyProfile,
+      });
+      console.log("location pathname:", location.pathname);
+    } else if (location.pathname === "/invite") {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: OrangeInvite,
+        homeSrc: GreyKrow,
+        profileSrc: GreyProfile,
+      });
+      console.log("location pathname:", location.pathname);
+    } else if (location.pathname === "/locations") {
+      setActiveLink({
+        locationsSrc: OrangeLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: GreyKrow,
+        profileSrc: GreyProfile,
+      });
+      console.log("location pathname:", location.pathname);
+    } else if (location.pathname === "/profile/") {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: GreyKrow,
+        profileSrc: OrangeProfile,
+      });
+      console.log("location pathname:", location.pathname);
+    }
+  };
+
   return (
     <div className="nav">
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: OrangeLaptop,
-            inviteSrc: GreyInvite,
-            homeSrc: GreyKrow,
-            profileSrc: GreyProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
           to="/locations"
           className="disabled-link"
@@ -51,17 +84,7 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: GreyLaptop,
-            inviteSrc: OrangeInvite,
-            homeSrc: GreyKrow,
-            profileSrc: GreyProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
           to="/invite"
           className="disabled-link"
@@ -79,17 +102,7 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: GreyLaptop,
-            inviteSrc: GreyInvite,
-            homeSrc: OrangeKrow,
-            profileSrc: GreyProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
           exact
           to="/"
@@ -108,17 +121,7 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: GreyLaptop,
-            inviteSrc: GreyInvite,
-            homeSrc: GreyKrow,
-            profileSrc: OrangeProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
           to="/profile/:id"
           className="disabled-link"

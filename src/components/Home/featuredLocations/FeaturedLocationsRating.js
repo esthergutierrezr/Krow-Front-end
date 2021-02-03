@@ -2,7 +2,7 @@ import React from 'react';
 
 function FeaturedLocationsRating(props) {
   const {rating} = props;
-  console.log("rating: ",rating);
+//  console.log("rating: ",rating);
 
 
   return (
