@@ -15,6 +15,7 @@ import OrangeProfile from "../Style/SVG/Nav/SVG_Screen Registar-09.svg";
 import "./BottomNav.css";
 
 const BottomNav = () => {
+  const { t } = useTranslation(["navbar"]);
   const [activeLink, setActiveLink] = useState({
     locationsSrc: GreyLaptop,
     inviteSrc: GreyInvite,
@@ -36,7 +37,7 @@ const BottomNav = () => {
         homeSrc: OrangeKrow,
         profileSrc: GreyProfile,
       });
-      console.log("location pathname:", location.pathname);
+    //  console.log("location pathname:", location.pathname);
     } else if (location.pathname === "/invite") {
       setActiveLink({
         locationsSrc: GreyLaptop,
@@ -44,7 +45,7 @@ const BottomNav = () => {
         homeSrc: GreyKrow,
         profileSrc: GreyProfile,
       });
-      console.log("location pathname:", location.pathname);
+    //  console.log("location pathname:", location.pathname);
     } else if (location.pathname === "/locations") {
       setActiveLink({
         locationsSrc: OrangeLaptop,
@@ -52,7 +53,7 @@ const BottomNav = () => {
         homeSrc: GreyKrow,
         profileSrc: GreyProfile,
       });
-      console.log("location pathname:", location.pathname);
+    //  console.log("location pathname:", location.pathname);
     } else if (location.pathname === "/profile/") {
       setActiveLink({
         locationsSrc: GreyLaptop,
@@ -60,7 +61,7 @@ const BottomNav = () => {
         homeSrc: GreyKrow,
         profileSrc: OrangeProfile,
       });
-      console.log("location pathname:", location.pathname);
+    //  console.log("location pathname:", location.pathname);
     }
   };
 
@@ -80,7 +81,7 @@ const BottomNav = () => {
               height="36.7px"
               width="52.3px"
             />
-            <span>Work</span>
+            <span>{t("navbar:Work")}</span>
           </div>
         </NavLink>
       </div>
@@ -98,7 +99,7 @@ const BottomNav = () => {
               height="36.7px"
               width="42.9px"
             />
-            <span>Invite</span>
+            <span>{t("navbar:Invite")}</span>
           </div>
         </NavLink>
       </div>
@@ -135,7 +136,7 @@ const BottomNav = () => {
               height="36.7px"
               width="36.7px"
             />
-            <span>Profile</span>
+            <span>{t("navbar:Profile")}</span>
           </div>
         </NavLink>
       </div>

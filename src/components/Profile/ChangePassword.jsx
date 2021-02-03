@@ -8,11 +8,13 @@
 // (How generate a link to reset password)
 
 import React, { useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 function ChangePassword() {
-  const {user, setUser} = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
+  const { t } = useTranslation(["profile"]);
   const history = useHistory();
   const [fields, handleFieldChange] = useState({
     password: "",
@@ -22,23 +24,22 @@ function ChangePassword() {
 
   const [isChanging, setIsChanging] = useState(false);
 
-function handleChangeClick(event) {
+  function handleChangeClick(event) {
     event.preventDefault();
 
     setIsChanging(true);
-
 
     history.push("/login");
   }
 
   return (
     <div>
-      <h1>Change Password</h1>
+      <h1>{t("profile:changePassword.change")}</h1>
       <div className="ChangePassword">
         <form onSubmit={handleChangeClick}>
           <label id="oldPassword">
             <br />
-            <p>Old Password</p>
+            <p>{t("profile:changePassword.old")}</p>
             <input
               type="password"
               onChange={handleFieldChange}
@@ -48,7 +49,7 @@ function handleChangeClick(event) {
           <br />
           <br />
           <label id="password">
-            <p>New Password</p>
+            <p>{t("profile:changePassword.new")}</p>
             <input
               type="password"
               onChange={handleFieldChange}
@@ -58,7 +59,7 @@ function handleChangeClick(event) {
           <br />
           <br />
           <label id="confirmPassword">
-            <p>Confirm Password</p>
+            <p>{t("profile:changePassword.confirm")}</p>
             <input
               type="password"
               onChange={handleFieldChange}
@@ -73,13 +74,13 @@ function handleChangeClick(event) {
             // disabled={!validateForm()}
             isLoading={isChanging}
           >
-            Change Password
+            {t("profile:changePassword.change")}
           </button>
         </form>
         <br />
         <br />
         <Link to="/profile/forget_password">
-          <p>Forget Password</p>
+          <p>{t("profile:changePassword.forget")}?</p>
         </Link>
         <br />
         <br />

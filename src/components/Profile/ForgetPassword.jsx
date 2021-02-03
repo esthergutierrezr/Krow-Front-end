@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export default function ResetPassword() {
   const user = useContext(AuthContext);
+  const { t } = useTranslation(["profile"]);
   const [fields, handleFieldChange] = useState({
     code: "",
     email: "",
@@ -15,17 +17,17 @@ export default function ResetPassword() {
   const [isConfirming, setIsConfirming] = useState(false);
   const [isSendingCode, setIsSendingCode] = useState(false);
 
-//   function validateCodeForm() {
-//     return fields.email.length > 0;
-//   }
+  //   function validateCodeForm() {
+  //     return fields.email.length > 0;
+  //   }
 
-//   function validateResetForm() {
-//     return (
-//       fields.code.length > 0 &&
-//       fields.password.length > 0 &&
-//       fields.password === fields.confirmPassword
-//     );
-//   }
+  //   function validateResetForm() {
+  //     return (
+  //       fields.code.length > 0 &&
+  //       fields.password.length > 0 &&
+  //       fields.password === fields.confirmPassword
+  //     );
+  //   }
 
   async function handleSendCodeClick(event) {
     event.preventDefault();
@@ -69,9 +71,9 @@ export default function ResetPassword() {
           block
           type="submit"
           isLoading={isSendingCode}
-        //   disabled={!validateCodeForm()}
+          //   disabled={!validateCodeForm()}
         >
-          Send Confirmation
+          {t("profile:forgetPassword.sendConfirmation")}
         </button>
       </form>
     );
@@ -81,7 +83,7 @@ export default function ResetPassword() {
     return (
       <form onSubmit={handleConfirmClick}>
         <label id="code">
-          <p>Confirmation Code</p>
+          <p>{t("profile:forgetPassword.confirmationCode")}</p>
           <input
             autoFocus
             type="tel"
@@ -89,12 +91,13 @@ export default function ResetPassword() {
             onChange={handleFieldChange}
           />
           <p>
-            Please check your email ({fields.email}) for the confirmation code.
+            {t("profile:forgetPassword.pleaseCheckEmail")} ({fields.email}){" "}
+            {t("profile:forgetPassword.forConfCode")}.
           </p>
         </label>
         <hr />
         <label id="password">
-          <p>New Password</p>
+          <p>{t("profile:forgetPassword.new")}</p>
           <input
             type="password"
             value={fields.password}
@@ -102,7 +105,7 @@ export default function ResetPassword() {
           />
         </label>
         <label bsSize="large" controlId="confirmPassword">
-          <p>Confirm Password</p>
+          <p>{t("profile:forgetPassword.confirm")}</p>
           <input
             type="password"
             value={fields.confirmPassword}
@@ -113,9 +116,9 @@ export default function ResetPassword() {
           block
           type="submit"
           isLoading={isConfirming}
-        //   disabled={!validateResetForm()}
+          //   disabled={!validateResetForm()}
         >
-          Confirm
+          {t("profile:forgetPassword.submit")}
         </button>
       </form>
     );
@@ -124,11 +127,9 @@ export default function ResetPassword() {
   function renderSuccessMessage() {
     return (
       <div className="success">
-        <p>Your password has been reset.</p>
+        <p>{t("profile:forgetPassword.confMessage")}</p>
         <p>
-          <Link to="/login">
-            Click here to login with your new credentials.
-          </Link>
+          <Link to="/login">{t("profile:forgetPassword.loginWithNewPW")}.</Link>
         </p>
       </div>
     );

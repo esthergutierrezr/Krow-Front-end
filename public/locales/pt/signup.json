@@ -1,0 +1,11 @@
+{
+  "Email": "Email",
+  "EmailReq": "O teu email é necessário.",
+  "PhoneNumber": "Número Móvel",
+  "PhoneNumberReq": "O teu número móvel",
+  "FullName": "Nome Completo",
+  "FullNameReq": "O Teu Nome Completo",
+  "CreatePassword": "Criar Password",
+  "CreatePasswordReq": "A Password é necessária",
+  "Register": "Registar"
+}
