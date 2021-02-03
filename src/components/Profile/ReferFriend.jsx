@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Black, Red, White, YellowButton, BlackButton } from "../Style/Colors";
 import styled from "styled-components";
 import ReferLogo from "../Style/SVG/Invite/SVG_Screen Registar-01.svg";
+import ShareCode from "../Style/SVG/Invite/SVG_Screen Registar_Icon Partilhar-01.svg";
 import "./profile.css";
 
 // import { AuthContext } from "../../contexts/AuthContext";
@@ -10,12 +11,23 @@ const Header = styled.div`
   position: relative;
   height: 130.3px;
 `;
-export const Logo = styled.img`
+export const LogoInvite = styled.img`
   height: 200px;
   width: 250px;
   display: block;
   position: absolute;
   margin: -47px auto 35.9px 120px;
+`;
+
+export const LogoShare = styled.img`
+  width: 30px;
+  height: 30px;
+  // margin-top: 83px;
+  margin: auto;
+  display: inline-block;
+  padding-right:18.9px;
+  // margin-left: auto;
+  // margin-right: auto;
 `;
 const Content = styled.div`
   width: 100%;
@@ -59,7 +71,18 @@ const Content = styled.div`
     font-size: 14.4px;
     font-weight: bold;
   }
-
+  .share{
+    // align-items: center;
+    // justify-content: center
+    // text-align: center;
+    font-family: Raleway;
+    font-size: 18.3px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+  }
   .bgRed {
     background-color: ${Red};
     height: 90vh;
@@ -173,7 +196,7 @@ const ReferFriend = () => {
     <Content>
       <Header className="bgwhite" />
       <div className="bgRed">
-        <Logo src={ReferLogo} alt="Krow-logo" />
+        <LogoInvite src={ReferLogo} alt="Krow-logo" />
         {/* image of refer friend */}
         <div className="text-refer">
           <h1>Refer a Friend</h1>
@@ -204,7 +227,8 @@ const ReferFriend = () => {
         <br />
         {/* img for sharing */}
         <ButtonShare type="button" onClick={() => Share()}>
-          Share
+          <LogoShare src={ShareCode} alt="share-code" />
+          <span className="share">Share</span>
         </ButtonShare>
       </div>
     </Content>
