@@ -1,44 +1,44 @@
-.form-container{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .register-form{
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    margin-top: 3em;
-  }
-  
-  .register-form > *{
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    width: 400px;
-    border-radius: 10px;
-    border: hidden;
-    /* box-shadow: 1px 1px 2px 2px #aaaaaa; */
-    margin-top: 2em;
-    height: 50px;
-  }
+.form-container {
+  display: flex;
+  justify-content: center;
+}
 
-  .form-control{
-    height: 100% !important;
-    width: 100% !important;
-    box-shadow: none !important;
-  }
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-top: 3em;
+}
 
-  .hidden{
-    display: none !important;
-  }
+.register-form > * {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 400px;
+  border-radius: 10px;
+  border: hidden;
+  /* box-shadow: 1px 1px 2px 2px #aaaaaa; */
+  margin-top: 2em;
+  height: 50px;
+}
 
-.bg{
+.form-control {
+  height: 100% !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.bg {
   position: absolute;
-  top:0;
+  top: 0;
   width: 100vw;
   min-height: 100vh;
   /* margin-top: -12vh; */
   align-self: center;
-  background-size:cover;
+  background-size: cover;
   background-image: url("../Style/bg/computer-bg.png");
 }

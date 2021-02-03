@@ -7,7 +7,6 @@ function ListContainer() {
   const { searchValue } = React.useContext(LocationContext);
   return (
     <div>
-      <h1>ListContainer</h1>
       <div>
         {ApiLocations.filter((location) =>
           location.name.toLowerCase().includes(searchValue.toLowerCase())
