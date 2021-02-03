@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router-dom";
 import LiveChat from "./LiveChat";
 // import laptop from "./nav-icons/computer-laptop.svg";
@@ -37,7 +38,7 @@ const BottomNav = () => {
         homeSrc: OrangeKrow,
         profileSrc: GreyProfile,
       });
-    //  console.log("location pathname:", location.pathname);
+      //  console.log("location pathname:", location.pathname);
     } else if (location.pathname === "/invite") {
       setActiveLink({
         locationsSrc: GreyLaptop,
@@ -45,7 +46,7 @@ const BottomNav = () => {
         homeSrc: GreyKrow,
         profileSrc: GreyProfile,
       });
-    //  console.log("location pathname:", location.pathname);
+      //  console.log("location pathname:", location.pathname);
     } else if (location.pathname === "/locations") {
       setActiveLink({
         locationsSrc: OrangeLaptop,
@@ -53,7 +54,7 @@ const BottomNav = () => {
         homeSrc: GreyKrow,
         profileSrc: GreyProfile,
       });
-    //  console.log("location pathname:", location.pathname);
+      //  console.log("location pathname:", location.pathname);
     } else if (location.pathname === "/profile/") {
       setActiveLink({
         locationsSrc: GreyLaptop,
@@ -61,7 +62,7 @@ const BottomNav = () => {
         homeSrc: GreyKrow,
         profileSrc: OrangeProfile,
       });
-    //  console.log("location pathname:", location.pathname);
+      //  console.log("location pathname:", location.pathname);
     }
   };
 
