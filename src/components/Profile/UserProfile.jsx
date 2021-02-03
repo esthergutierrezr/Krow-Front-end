@@ -1,17 +1,25 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { AuthContext } from "../../contexts/AuthContext";
 
 function UserProfile() {
-  const { firstName, lastName, isMember, image } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const { t } = useTranslation(["profile"]);
 
-  const initialGreeting = `Hi, ${firstName} ${lastName}`;
+  const initialGreeting = `Welcome, ${user.fullName}`;
 
   return (
     <div className="greeting">
       <h1>{initialGreeting}</h1>
+      <img
+        className="profile-picture"
+        src={user.image}
+        alt={`${user.fullName}`}
+      />
       <br />
-      {isMember ? (
+      {/* {isMember ? (
         <>
           <p>Active Membership</p>
           <p>
@@ -19,20 +27,24 @@ function UserProfile() {
             (time to expire membership)
           </p>
         </>
-      ) : (
-        <>
-          <p className="no-membership">No Active Membership</p>
-          <br />
-          <Link to="/membership">
-            <p className="add-membership">Add a Membership</p>
-          </Link>
-        </>
-      )}
-      <img
-        className="profile-picture"
-        src={image}
-        alt={`${firstName}_${lastName}`}
-      />
+      ) : ( */}
+      <>
+        <br />
+        <p>{t("profile:userProfile.activeMembership")}</p>
+        <br />
+        <p>{t("profile:userProfile.expiry")} (time to expire membership)</p>
+      </>
+      <br />
+      <>
+        <p className="no-membership">{t("profile:userProfile.noMembership")}</p>
+        <br />
+        <Link to="/membership">
+          <p className="add-membership">
+            {t("profile:userProfile.buyMembership")}
+          </p>
+        </Link>
+      </>
+      {/* )} */}
     </div>
   );
 }
