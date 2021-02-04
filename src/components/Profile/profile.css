@@ -1,18 +1,32 @@
-.bgwhite {
+@font-face {
+  font-family: Calibrib;
+  src: local("calibrib"),
+    url("../Style/calibrib.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+@font-face {
+  font-family: Calibril;
+  src: local("calibril"),
+    url("../Style/calibril.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+.bg-white-profile {
   position: absolute;
   /* margin-top: -50px; */
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
+  height:745px;
   align-self: center;
   background-size:cover;
   background-image: url("../Style/bg/white_wall.png");
 }
 
-.profile-picture{
-  display: block;
-  width: 125px;
-  height: 125px;
-  position: relative;
-  /* margin: -55px 0 0 -150px; */
-  padding: 7.7px 7.7px 7.7px 7.7px;
-}

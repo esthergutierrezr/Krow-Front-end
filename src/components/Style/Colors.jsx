@@ -5,6 +5,8 @@ export const Black = '#000000';
 
 export const White = '#FFFFFF';
 
+export const Yellow = '#F8C861';
+
 // Button | Nav Selected Icon
 export const YellowButton = '#F8C861';
 
@@ -21,10 +23,10 @@ export const GrayInput = '#323232';
 export const TextInput = '#898884';
 
 // Headers
-export const HeaderBg = "#F1F0F0";
+export const HeaderGrey = "#F1F0F0";
 
 // HomePage Buttons
-    // Subscribe
+    // Subscribe and Profile Header
     export const Blue = '#08726C';
 
     // Invite Friend
