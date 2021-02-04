@@ -17,7 +17,7 @@ import {
 function UserEdit() {
   const { user } = useContext(AuthContext);
 
-  const initialGreeting = `Welcome, ${user.fullName}`;
+  const initialGreeting = `Hey, ${user.fullName}`;
 
   return (
     <HeaderEdit>
@@ -35,18 +35,18 @@ function UserEdit() {
           alt={`${user.fullName}`}
         />
       </div>
-      <div>
+      {/* <div>
         <div>
           <p>Active Membership</p>
           <p>Expire in (time to expire membership)</p>
         </div>
-        <>
+        <div>
           <p>No Active Membership</p>
           <Link to="/membership">
             <p>Add a Membership</p>
           </Link>
-        </>
-      </div>
+        </div>
+      </div> */}
     </HeaderEdit>
   );
 }

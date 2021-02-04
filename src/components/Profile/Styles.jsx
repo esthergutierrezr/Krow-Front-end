@@ -37,12 +37,12 @@ export const Greeting = styled.h1`
   margin: 79.8px 0 0 0;
 `;
 export const BlackBox = styled.div`
-  margin: -35px 0 10px 0;
+  margin: -47.5px 0 10px 16px;
   width: 165.8px;
   justify-content: center;
   align-items: center;
   height: 31.3px;
-  padding: 5px 6.2px 0 8.6px;
+  padding: 8px 0 0 15px;
   background-color: #000;
   font-family: Calibril;
   font-size: 19.3px;
@@ -67,41 +67,46 @@ export const Content = styled.div`
   .drop-item input:checked ~ ul {
     display: block;
   }
-  /*Arrow*/
-
-  //   .arrow {
-  //     border: solid black;
-  //     border-width: 0 3px 3px 0;
-  //     display: inline-block;
-  //     padding: 3px;
-  //     float: right;
-  //     margin-top: 20px;
-  //     margin-right: 20px;
-  //   }
-  //   .arrowBack {
-  //     border: solid black;
-  //     border-width: 0 3px 3px 0;
-  //     display: inline-block;
-  //     padding: 3px;
-  //     float: left;
-  //     margin-top: 20px;
-  //     margin-left: 10px;
-  //     margin-right: 10px;
-  //   }
-  //   .left {
-  //     transform: rotate(135deg);
-  //     -webkit-transform: rotate(135deg);
-  //   }
-  //   .down {
-  //     transform: rotate(45deg);
-  //     -webkit-transform: rotate(45deg);
-  //   }
 `;
+export const Menu = styled.div`
+  margin-top: 50px;
+  height: 541px;
+  label {
+    padding-left: 75.9px;
+    margin-top: 23.9px;
+  }
+  hr {
+    width: 360.3px;
+    border-bottom: solid 1px #606060;
+  }
+`;
+export const DropMenu = styled.ul`
+  margin-top: -13px;
+  margin-left: 58.5px;
+  padding-top: 10px;
+  background-color: ${Blue};
+  width: 362.3px;
+  height: 116px;
 
+  // height:133.2px;
+
+  li {
+    color: #fff;
+    padding-left: 55.4px;
+    padding: 10.2px 0 0 55.4px;
+  }
+  hr {
+    width: 360.3px;
+    border-bottom: solid 1px #fff;
+  }
+  hr:last-child {
+    margin-bottom: 17.2px;
+  }
+`;
 export const ArrowD = styled.img`
   width: 18.5px;
   height: 11.6px;
-  padding-left: 70.6px;
+  padding-left: 80.6px;
 `;
 export const ArrowL = styled.img`
   width: 14.5px;
@@ -112,9 +117,38 @@ export const WheelIcon = styled.img`
   width: 21.2px;
   height: 21.2px;
   padding-left: 123.3px;
-  color:#fff;
+  // color:#fff;
+`;
+export const WheelProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
 `;
 
+export const CartProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
+export const NotificationProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
+export const HistoricProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
+export const InviteProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
 
 export const HeaderEdit = styled.div`
   width: 100%;
@@ -125,17 +159,23 @@ export const HeaderEdit = styled.div`
 `;
 
 export const EditTitle = styled.div`
-    font-family: Calibril;
-    font-size: 26.6px;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.24;
-    letter-spacing: 0.32px;
-    color: #fff;
-    margin-top: 34px;
+  font-family: Calibril;
+  font-size: 26.6px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: 0.32px;
+  color: #fff;
+  margin-top: 34px;
 `;
-
+export const LabelBottom = styled.div`
+  color: #878787;
+  font-size: 19.8px;
+  label {
+    margin-bottom: 10.7px;
+  }
+`;
 /*Styles*/
 
 //   label:hover {

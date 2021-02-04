@@ -9,7 +9,7 @@ import { ProfilePhoto, Greeting, BlackBox } from "./Styles";
 function UserProfile() {
   const { user } = useContext(AuthContext);
 
-  const initialGreeting = `Welcome, ${user.fullName}`;
+  const initialGreeting = `Hey, ${user.fullName}`;
 
   return (
     <HeadersProfile>
@@ -23,18 +23,18 @@ function UserProfile() {
       <BlackBox>
         <h2>Welcome to Krow</h2>
       </BlackBox>
-      <div>
+      {/* <div>
         <div>
           <p>Active Membership</p>
           <p>Expire in (time to expire membership)</p>
         </div>
-        <>
+        <div>
           <p>No Active Membership</p>
           <Link to="/membership">
             <p>Add a Membership</p>
           </Link>
-        </>
-      </div>
+        </div>
+      </div> */}
     </HeadersProfile>
   );
 }

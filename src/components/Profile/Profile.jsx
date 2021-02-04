@@ -4,10 +4,26 @@ import { NavLink as Link, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import UserProfile from "./UserProfile";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Content, ArrowD } from "./Styles";
+import {
+  Menu,
+  Content,
+  ArrowD,
+  WheelProfile,
+  CartProfile,
+  NotificationProfile,
+  HistoricProfile,
+  InviteProfile,
+  DropMenu,
+  LabelBottom,
+} from "./Styles";
 import "./profile.css";
 import ArrowDown from "../Style/SVG/Profile/SVG_Screen Perfil-07_seta ver mais.svg";
-import { HeadersProfile } from "../Style/Backgrounds";
+import Wheel from "../Style/SVG/Profile/SVG_Screen Perfil-01_icon.svg";
+import Cart from "../Style/SVG/Profile/SVG_Screen Perfil-02_icon.svg";
+import Historic from "../Style/SVG/Profile/SVG_Screen Perfil-04_icon.svg";
+import Notification from "../Style/SVG/Profile/SVG_Screen Perfil-03_icon.svg";
+import Invite from "../Style/SVG/Profile/SVG_Screen Perfil-05_icon.svg";
+// import { HeadersProfile } from "../Style/Backgrounds";
 
 const Profile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -19,52 +35,68 @@ const Profile = () => {
       <Content>
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div>
+        <Menu>
           <div className="multi-level">
             <div className="drop-item">
               <input type="checkbox" id="A" />
               <label className="label-top" htmlFor="A">
+                <WheelProfile src={Wheel} alt="settings-wheel" />
                 Account Settings
                 <ArrowD src={ArrowDown} alt="arrow drop-menu" />
               </label>
-              <ul>
+              <hr />
+              <DropMenu>
                 <Link to={`/profile/${user.id}/edit`}>
                   <li className="active">Edit Profile</li>
                 </Link>
+                <hr />
                 <Link to="/profjile/change_password">
                   <li className="active">Change Password</li>
                 </Link>
-              </ul>
+                <hr />
+              </DropMenu>
             </div>
           </div>
           <Link to="/membership">
-            <label className="label-top">Add a Membership</label>
+            <label className="label-top">
+              <CartProfile src={Cart} alt="settings-wheel" />
+              Add a Membership
+            </label>
           </Link>
-          <br />
+          <hr />
+
           <Link to="/profile/notifications">
-            <label className="label-top">Notifications</label>
+            <label className="label-top">
+              <NotificationProfile src={Notification} alt="settings-wheel" />
+              Notifications
+            </label>
           </Link>
-          <br />
+          <hr />
+
           <Link to="/profile/historic">
-            <label className="label-top">Historic</label>
+            <label className="label-top">
+              <HistoricProfile src={Historic} alt="settings-wheel" />
+              Historic
+            </label>
           </Link>
-          <br />
+          <hr />
+
           <Link to="/invite">
-            <label className="label-top">Invite a Friend</label>
+            <label className="label-top">
+              {" "}
+              <InviteProfile src={Invite} alt="settings-wheel" />
+              Invite a Friend
+            </label>
           </Link>
-          <div>
-            <br />
-            <Link to="/contact">
+          <hr />
+          <LabelBottom>
+            {/* <Link to="/contact">
               <label className="label-bottom">Contact Us</label>
             </Link>
+           <br/> */}
             <br />
-            {/* <Link to="/contact"> */}
             <label className="label-bottom">Mudar para Português</label>
-            {/* </Link> */}
+            <br />
             <br />
             <label
               className="label-bottom"
@@ -75,8 +107,8 @@ const Profile = () => {
             >
               Log Out
             </label>
-          </div>
-        </div>
+          </LabelBottom>
+        </Menu>
       </Content>
     </div>
   );
