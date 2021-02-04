@@ -8,12 +8,17 @@ import ImportantMessage from "./ImportantMessage";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./homepage.css";
 import { HeadersBg } from "../Style/Backgrounds.jsx";
+import StarRating from "../Reusable/StarRating";
 
 const Homepage = () => {
+
+  const amountVotes = 10;
+  const ratingAVG = 4;
+
   const { user } = useContext(AuthContext);
   return (
     <div homepage>
-      <HeadersBg>
+      {/* <HeadersBg>
       <h2 className="welcome">Welcome to Krow</h2>
       <Greeting />
       </HeadersBg>
@@ -29,7 +34,8 @@ const Homepage = () => {
         </p>
         <FeaturedLocations />
         <ImportantMessage />
-      </div>
+      </div> */}
+      <StarRating amountVotes={amountVotes} ratingAVG={ratingAVG} />
     </div>
   );
 };
