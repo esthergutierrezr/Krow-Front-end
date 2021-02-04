@@ -4,21 +4,19 @@ import Cookies from "js-cookie";
 import UserProfile from "./UserProfile";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Content } from "./Styles";
+import "./profile.css";
 
 const Profile = () => {
   const { user, setUser } = useContext(AuthContext);
+  // console.log(user);
   const history = useHistory();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const LogOut = () => {
-    setIsLoggedIn(false);
-    history.push("/");
-  };
   return (
-    <>
-      <h1>luis</h1>
-    <Content>
-      <header>{ user ? <UserProfile /> : <LogOut />}</header>
+    <Content className="bgwhite">
+      <header>
+        {" "}
+        <UserProfile />
+      </header>
       <div>
         <div className="multi-level">
           <div className="item">
@@ -52,9 +50,9 @@ const Profile = () => {
         <br />
         <br />
         <div>
-          <Link to="/contact">
-            <label className="label-bottom">Contact Us</label>
-          </Link>
+          {/* <Link to="/contact"> */}
+          <label className="label-bottom">Switch Language</label>
+          {/* </Link> */}
           <label
             className="label-bottom"
             onClick={() => {
@@ -67,7 +65,6 @@ const Profile = () => {
         </div>
       </div>
     </Content>
-    </>
   );
 };
 

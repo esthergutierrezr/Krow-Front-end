@@ -175,6 +175,18 @@ const ReferFriend = () => {
     <action android:name="com.example.project.SHOW_PENDING" />
  
 </intent-filter> 
+
+*******3*******
+npm i react-native-share --save
+import Share from 'react-native-share';
+
+Share.open(options)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    err && console.log(err);
+  });
 */
   }
 
