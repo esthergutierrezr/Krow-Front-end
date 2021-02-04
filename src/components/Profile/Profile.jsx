@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useContext } from "react";
 import { NavLink as Link, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import UserProfile from "./UserProfile";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Content } from "./Styles";
+import { Content, ArrowD } from "./Styles";
 import "./profile.css";
+import ArrowDown from "../Style/SVG/Profile/SVG_Screen Perfil-07_seta ver mais.svg";
+import { HeadersProfile } from "../Style/Backgrounds";
 
 const Profile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -12,10 +15,7 @@ const Profile = () => {
 
   return (
     <div className="bg-white-profile">
-      <header>
-        {" "}
-        <UserProfile />
-      </header>
+      <UserProfile />
       <Content>
         <br />
         <br />
@@ -29,13 +29,13 @@ const Profile = () => {
               <input type="checkbox" id="A" />
               <label className="label-top" htmlFor="A">
                 Account Settings
-                <i className="arrow down"></i>
+                <ArrowD src={ArrowDown} alt="arrow drop-menu" />
               </label>
               <ul>
                 <Link to={`/profile/${user.id}/edit`}>
                   <li className="active">Edit Profile</li>
                 </Link>
-                <Link to="/profile/change_password">
+                <Link to="/profjile/change_password">
                   <li className="active">Change Password</li>
                 </Link>
               </ul>

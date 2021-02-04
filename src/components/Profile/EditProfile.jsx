@@ -2,9 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Content } from "./Styles";
+import { Content, HeaderEdit } from "./Styles";
 
-import UserProfile from "./UserProfile";
+import UserEdit from "./UserEdit";
 
 const EditProfile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -44,11 +44,10 @@ const EditProfile = () => {
 
   return (
     <Content>
-      <Link to={`/profile/${id}`}>
+      {/* <Link to={`/profile/${id}`}>
         <i className="arrowBack left" />
-      </Link>
-      <h2>Edit Profile</h2>
-      <UserProfile />
+      </Link> */}
+      <UserEdit />
       <div>
         <form
           onSubmit={(e) => {

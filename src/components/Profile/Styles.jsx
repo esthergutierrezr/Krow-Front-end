@@ -2,15 +2,24 @@
 
 import styled from "styled-components";
 
-import { Yellow } from "../Style/Colors";
+import { Yellow, Blue } from "../Style/Colors";
 
 export const ProfilePhoto = styled.img`
   height: 104px;
   width: 104px;
   margin-top: -25px;
-  display: block;
+  //   display: block;
   margin-right: 50.5px;
   margin-left: 275.5px;
+`;
+
+export const EditPhoto = styled.img`
+  height: 104px;
+  width: 104px;
+  margin-top: -90px;
+  display: block;
+  margin-right: auto;
+  margin-left: 150px;
 `;
 export const Greeting = styled.h1`
   display: block;
@@ -27,10 +36,26 @@ export const Greeting = styled.h1`
   letter-spacing: 0.3px;
   margin: 79.8px 0 0 0;
 `;
+export const BlackBox = styled.div`
+  margin: -35px 0 10px 0;
+  width: 165.8px;
+  justify-content: center;
+  align-items: center;
+  height: 31.3px;
+  padding: 5px 6.2px 0 8.6px;
+  background-color: #000;
+  font-family: Calibril;
+  font-size: 19.3px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.23px;
+  color: #f8c861;
+`;
 export const Content = styled.div`
   font-family: Calibril;
   font-size: 26.6px;
-
 
   /*Func of dropdown menu*/
 
@@ -42,36 +67,74 @@ export const Content = styled.div`
   .drop-item input:checked ~ ul {
     display: block;
   }
-`;
-/*Arrow*/
+  /*Arrow*/
 
-//   .arrow {
-//     border: solid black;
-//     border-width: 0 3px 3px 0;
-//     display: inline-block;
-//     padding: 3px;
-//     float: right;
-//     margin-top: 20px;
-//     margin-right: 20px;
-//   }
-//   .arrowBack {
-//     border: solid black;
-//     border-width: 0 3px 3px 0;
-//     display: inline-block;
-//     padding: 3px;
-//     float: left;
-//     margin-top: 20px;
-//     margin-left: 10px;
-//     margin-right: 10px;
-//   }
-//   .left {
-//     transform: rotate(135deg);
-//     -webkit-transform: rotate(135deg);
-//   }
-//   .down {
-//     transform: rotate(45deg);
-//     -webkit-transform: rotate(45deg);
-//   }
+  //   .arrow {
+  //     border: solid black;
+  //     border-width: 0 3px 3px 0;
+  //     display: inline-block;
+  //     padding: 3px;
+  //     float: right;
+  //     margin-top: 20px;
+  //     margin-right: 20px;
+  //   }
+  //   .arrowBack {
+  //     border: solid black;
+  //     border-width: 0 3px 3px 0;
+  //     display: inline-block;
+  //     padding: 3px;
+  //     float: left;
+  //     margin-top: 20px;
+  //     margin-left: 10px;
+  //     margin-right: 10px;
+  //   }
+  //   .left {
+  //     transform: rotate(135deg);
+  //     -webkit-transform: rotate(135deg);
+  //   }
+  //   .down {
+  //     transform: rotate(45deg);
+  //     -webkit-transform: rotate(45deg);
+  //   }
+`;
+
+export const ArrowD = styled.img`
+  width: 18.5px;
+  height: 11.6px;
+  padding-left: 70.6px;
+`;
+export const ArrowL = styled.img`
+  width: 14.5px;
+  height: 23.2px;
+  padding-right: 124.4px;
+`;
+export const WheelIcon = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-left: 123.3px;
+  color:#fff;
+`;
+
+
+export const HeaderEdit = styled.div`
+  width: 100%;
+  height: 112.2px;
+  margin: 0 0 43.8px;
+  padding: 22px 41.3px 21.5px 41px;
+  background-color: ${Blue};
+`;
+
+export const EditTitle = styled.div`
+    font-family: Calibril;
+    font-size: 26.6px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.24;
+    letter-spacing: 0.32px;
+    color: #fff;
+    margin-top: 34px;
+`;
 
 /*Styles*/
 
