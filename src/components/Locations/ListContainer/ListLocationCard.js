@@ -47,6 +47,7 @@ function ListLocationCard(props) {
     setPopUpD(false);
     setChecked(null);
   };
+
   return (
     <div className="locationsCard">
       {checked !== props.id ? (
@@ -56,7 +57,8 @@ function ListLocationCard(props) {
             <p>1 miembro aqui</p>
 
             <div>09:00 - 17:00 </div>
-            <div> Sintra | Obtener direccoes </div>
+            <div> Sintra </div>
+            <a href="https://google.com"> Obtener direccoes </a>
             <LocationsRating rating={props.rating} />
             <a href={`/locations/${props.id}`}>Details</a>
           </div>

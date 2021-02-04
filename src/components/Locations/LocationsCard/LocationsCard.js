@@ -70,7 +70,9 @@ function LocationsCard(props) {
             <p>1 miembro aqui</p>
 
             <div>09:00 - 17:00 </div>
-            <div> Sintra | Obtener direccoes </div>
+
+            <div> Sintra | </div>
+            <a href="https://google.com"> Obtener direccoes </a>
             <div>
               <LocationsRating rating={props.rating} />
             </div>
