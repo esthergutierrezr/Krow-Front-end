@@ -1,0 +1,48 @@
+{
+  "changePassword": {
+    "change": "Alterar Password",
+    "old": "Password Antiga",
+    "new": "Password Nova",
+    "confirm": "Confirmar Password Nova",
+    "forget": "Esqueceu-se da sua Password"
+  },
+  "editProfile": {
+    "edit": "Editar Perfil",
+    "firstLastName": "Primeiro e último nome",
+    "phoneNumber": "Número Móvel",
+    "country": "Country",
+    "city": "Cidade",
+    "company": "Empresa",
+    "profession": "Profissão",
+    "industry": "Indústria",
+    "save": "Salvar alterações"
+  },
+  "forgetPassword": {
+    "sendConfirmation": "Enviar Confirmação",
+    "confirmationCode": "Código de Confirmação",
+    "pleaseCheckEmail": "Por-favor confirme o email",
+    "forConfCode": "para verificar o código de confirmação",
+    "new": "Password Nova",
+    "confirm": "Confirmar Password NovaF",
+    "submit": "Confirmar",
+    "confMessage": "A sua password foi alterada",
+    "loginWithNewPW": "Clique aqui para fazer login com as suas credenciais atualizadas."
+  },
+  "profile": {
+    "accountSettings": "Definições de conta",
+    "editProfile": "Editar Conta",
+    "changePassword": "Alterar Password",
+    "addMembership": "Adicionar Subscrição",
+    "notifications": "Mensagens",
+    "historic": "Histórico",
+    "inviteAFriend": "Convidar Amigo",
+    "contactUs": "Contacte-nos",
+    "logout": "Terminar Sessão"
+  },
+  "userProfile": {
+    "activeMembership": "Subscrição Ativa",
+    "expiry": "Expira em",
+    "noMembership": "Nenhuma Subscrição Ativa",
+    "buyMembership": "Subscrever"
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Greeting from "./greeting/Greeting";
 import CTAButtons from "./CTAButtons";
@@ -11,20 +12,21 @@ import { HeadersBg } from "../Style/Backgrounds.jsx";
 
 const Homepage = () => {
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation(["homepage"]);
   return (
     <div homepage>
       <HeadersBg>
-      <h2 className="welcome">Welcome to Krow</h2>
+      <h2 className="welcome">{t("homepage:homePage.WelcomeToKrow")}</h2>
       <Greeting />
       </HeadersBg>
       <div className="bg-white">
         <CTAButtons />
-        <h2>Community updates</h2>
+        <h2>{t("homepage:homePage.CommunityUpdates")}</h2>
         <CommunityUpdates />
         <p className="home__featured-locations">
-          <h2>Featured Locations</h2>
+          <h2>{t("homepage:FeaturedLocations")}</h2>
           <Link id="home__view-all-locations" to="/locations">
-            view all
+          {t("homepage:homePage.viewAll")}
           </Link>
         </p>
         <FeaturedLocations />

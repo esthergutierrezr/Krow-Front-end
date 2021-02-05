@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -8,6 +9,7 @@ import UserProfile from "./UserProfile";
 
 const EditProfile = () => {
   const { user, setUser } = useContext(AuthContext);
+  const { t } = useTranslation(["profile"]);
   const id = Number(user.id);
   const [editedUser, setEditedUser] = useState({});
 
@@ -16,10 +18,13 @@ const EditProfile = () => {
     setEditedUser(user);
   }, [user]);
 
-  useEffect((editUser) => {
-    console.log("newUser", user);
-    setUser(user);
-  }, [editedUser]);
+  useEffect(
+    (editUser) => {
+      console.log("newUser", user);
+      setUser(user);
+    },
+    [editedUser]
+  );
 
   const handleChange = (event) => {
     setEditedUser({ ...editedUser, [event.target.name]: event.target.value });
@@ -47,7 +52,7 @@ const EditProfile = () => {
       <Link to={`/profile/${id}`}>
         <i className="arrowBack left" />
       </Link>
-      <h2>Edit Profile</h2>
+      <h2>{t("profile:editProfile.edit")}</h2>
       <UserProfile />
       <div>
         <form
@@ -59,7 +64,7 @@ const EditProfile = () => {
             onChange={handleChange}
             defaultValue={editedUser.fullName}
             name="fullName"
-            placeholder="First and last name"
+            placeholder={t("profile:editProfile.firstLastName")}
           />
           <br />
           <input
@@ -73,46 +78,46 @@ const EditProfile = () => {
             onChange={handleChange}
             defaultValue={editedUser.phoneNumber}
             name="phoneNumber"
-            placeholder="Phone Number"
+            placeholder={t("profile:editProfile.phoneNumber")}
           />
           <br />
           <input
             onChange={handleChange}
             defaultValue={editedUser.country}
             name="country"
-            placeholder="Country"
+            placeholder={t("profile:editProfile.country")}
           />
           <br />
           <input
             onChange={handleChange}
             defaultValue={editedUser.city}
             name="city"
-            placeholder="City"
+            placeholder={t("profile:editProfile.city")}
           />
           <br />
           <input
             onChange={handleChange}
             defaultValue={editedUser.company}
             name="company"
-            placeholder="Company"
+            placeholder={t("profile:editProfile.company")}
           />
           <br />
           <input
             onChange={handleChange}
             defaultValue={editedUser.profession}
             name="profession"
-            placeholder="Profession"
+            placeholder={t("profile:editProfile.profession")}
           />
           <br />
           <input
             onChange={handleChange}
             defaultValue={editedUser.industry}
             name="industry"
-            placeholder="Industry"
+            placeholder={t("profile:editProfile.industry")}
           />
           <br />
           <button onClick={() => handleSubmit()} type="submit">
-            Save changes
+          {t("profile:editProfile.save")}
           </button>
         </form>
       </div>

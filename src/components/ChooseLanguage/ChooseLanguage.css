@@ -1,0 +1,55 @@
+.choose-lng-bg {
+  width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-image: url("../Style/bg/computer-bg.png");
+  opacity: 99.1%;
+  filter: contrast(1.3);
+}
+.krow-logo {
+  display: flex;
+  justify-content: center;
+  padding-top: 83px;
+}
+.choose-lng-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-image: url("../Style/bg/computer-bg.png");
+  background-position: 35%;
+  display: flex;
+  flex-direction: column;
+}
+.flag-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flag-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 148px;
+  height: 53px;
+  margin-top: 24px;
+  font-family: Raleway;
+  font-size: 22.7px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+.flag-text span {
+    margin-top: 24px;
+}
+.pt {
+  margin-top: 134px;
+}
+.en {
+  margin-top: 184px;
+}
