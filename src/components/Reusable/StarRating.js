@@ -4,32 +4,27 @@ import axios from 'axios';
 
 function StarRating(props) {
 
-  const  user_id = 2;       // Will come from context later
-  // const  rating =  ;         // Will come from context later
-  const  location_id = 24;  // Will come from context later
-
-  const { locationId } = props
-  const [ratingOnHover, setRatingOnHover] = useState(null);
-  const [CurrentRatingValues, setCurrentRatingValues] = useState({});
-  const [newRatingValues, setNewRatingValues] = useState({});
+  const  user_id = 2;             // Will come from UserContext later
+  const { locationId } = props    // locationId will have to be passed down by parent.
   
-
+  
+  // colors all stars on the left of the hovered stars and the hovered star itself.
+  const [ratingOnHover, setRatingOnHover] = useState(null);
   const handleHover = (starValue) => {
     const hoverRating = (starValue);
     setRatingOnHover(hoverRating)
-    console.log(hoverRating)
   } 
 
-  const handleClick = (starValue) => {
-    user_id, location_id, rating
-    console.log(newRatingValues) 
-    axios.post(`/locations/${location_id}rating`)
-    .then(response => console.log(response))
+  // When start is clicked, the rating gets added to the rating table in the backend. Results logged to console for now.
+  const handleClick = (rating) => {
+    axios.post(`/locations/${locationId}/rating`, {rating, user_id, location_id})
+    .then(response => console.log(response.data[0].averageRating))
   }
 
+  // On render, the average rating for the current location wil be fetched. Results logged to console for now.
   useEffect(() => {
     axios.get(`/locations/${locationId}/average-rating`)
-    .then(response => console.log("get rating: ", response))
+    .then(response => console.log("get average rating: ", response.data[0].averageRating))
   }, [])
 
   return (
