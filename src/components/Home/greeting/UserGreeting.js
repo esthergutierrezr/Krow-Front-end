@@ -1,14 +1,15 @@
-import React, {useContext} from 'react';
+import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 // import { Link } from "react-router-dom";
-import {AuthContext} from '../../../contexts/AuthContext'
+import { AuthContext } from "../../../contexts/AuthContext";
 
 function UserGreeting() {
+  const { t } = useTranslation(["homepage"]);
 
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
-  const initialGreeting = `Hi, ${user.fullName}`;
+  const initialGreeting = `${t("homepage:userGreeting.Hi")} ${user.fullName}`;
 
-  
   return (
     <div className="greeting-container">
       <span>
