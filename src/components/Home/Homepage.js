@@ -12,6 +12,7 @@ import StarRating from "../Reusable/StarRating";
 
 const Homepage = () => {
 
+  const locationId = 24;
   const amountVotes = 10;
   const ratingAVG = 4;
 
@@ -35,7 +36,7 @@ const Homepage = () => {
         <FeaturedLocations />
         <ImportantMessage />
       </div> */}
-      <StarRating amountVotes={amountVotes} ratingAVG={ratingAVG} />
+      <StarRating amountVotes={amountVotes} ratingAVG={ratingAVG} locationId={locationId} />
     </div>
   );
 };
