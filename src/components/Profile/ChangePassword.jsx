@@ -1,91 +1,53 @@
-// change password
-// old password
-// new password
-// confirm password
-// forget password (different component????)
-// insert email
-// Button Send Reset Link
-// (How generate a link to reset password)
-
 import React, { useState, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
-function ChangePassword() {
-  const {user, setUser} = useContext(AuthContext);
-  const history = useHistory();
-  const [fields, handleFieldChange] = useState({
-    password: "",
-    oldPassword: user.password,
-    confirmPassword: "",
-  });
-
-  const [isChanging, setIsChanging] = useState(false);
-
-function handleChangeClick(event) {
-    event.preventDefault();
-
-    setIsChanging(true);
-
-
-    history.push("/login");
-  }
+const ChangePassword = () => {
+  const { user, setUser } = useContext(AuthContext);
+  const id = Number(user.id);
+  // const handleSubmit = () => {
+  //   axios
+  //     .post(`/profile/${id}`, newPassword)
+  //     .then((response) => {
+  //       // console.log("response",response);
+  //       alert("User has been successfully updated");
+  //       history.push(`/profile/${id}`);
+  //     })
+  //     .catch((error) => console.error(error));
+  // };
 
   return (
-    <div>
+    <div className="bg-white-profile">
       <h1>Change Password</h1>
-      <div className="ChangePassword">
-        <form onSubmit={handleChangeClick}>
+      <p>{user.fullName}</p>
+      <div>
+        {/* <form onSubmit={handleChangeClick}> */}
+        <form>
           <label id="oldPassword">
             <br />
-            <p>Old Password</p>
-            <input
-              type="password"
-              onChange={handleFieldChange}
-              value={fields.oldPassword}
-            />
+            <input type="password" placeholder="Old Password" />
           </label>
           <br />
           <br />
           <label id="password">
-            <p>New Password</p>
-            <input
-              type="password"
-              onChange={handleFieldChange}
-              value={fields.password}
-            />
+            <input type="password" placeholder="New Password" />
           </label>
           <br />
           <br />
           <label id="confirmPassword">
-            <p>Confirm Password</p>
-            <input
-              type="password"
-              onChange={handleFieldChange}
-              value={fields.confirmPassword}
-            />
+            <input type="password" placeholder="Confirm New Password" />
           </label>
           <br />
           <br />
-          <button
-            block
-            type="submit"
-            // disabled={!validateForm()}
-            isLoading={isChanging}
-          >
-            Change Password
-          </button>
+          <Link to="/password/reset">
+            <p>Forget Password</p>
+          </Link>
+          <br />
+          <button type="submit">Change Password</button>
         </form>
-        <br />
-        <br />
-        <Link to="/profile/forget_password">
-          <p>Forget Password</p>
-        </Link>
-        <br />
-        <br />
       </div>
     </div>
   );
-}
+};
 
 export default ChangePassword;

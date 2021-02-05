@@ -68,14 +68,35 @@ export const BlackBox = styled.div`
   letter-spacing: 0.23px;
   color: #f8c861;
 `;
-// export const ProfileMember = styled.div`
-//   p {
-//     padding-left: 18.5px;
-//   }
-//   // padding-bottom:80px;
-// `;
-export const IsMember = styled.p``;
-export const ExpireTime = styled.p``;
+export const Circle = styled.div`
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color:#f8c861;
+  margin: 4px 5.3px 7.4px 0;
+  display:inline-flex;
+`;
+export const IsMember = styled.p`
+  margin: -30px 65.6px 2px -10px;
+  font-family: Raleway;
+  font-size: 16.4px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  display: inline-flex;
+`;
+export const ExpireTime = styled.p`
+  margin: 4.3px 0 0 5.3px;
+  font-family: Raleway;
+  font-size: 16.4px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+`;
 export const NotMember = styled.p`
   font-family: Calibril;
   font-size: 16.5px;

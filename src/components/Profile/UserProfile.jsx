@@ -8,17 +8,17 @@ import {
   ProfilePhoto,
   Greeting,
   BlackBox,
-  ProfileMember,
   IsMember,
   NotMember,
   BuyMember,
+  ExpireTime,
+  Circle,
 } from "./Styles";
 
 function UserProfile() {
   const { user } = useContext(AuthContext);
   // const { member, setMember } = useState(false);
   const { member, setMember } = useState(true);
-
 
   const initialGreeting = `Hey, ${user.fullName}`;
 
@@ -34,10 +34,14 @@ function UserProfile() {
       <>
         <div>
           {!member ? (
-            <IsMember>
-              <p>Active Subscription</p>
-              <p>Expire in (date to expire membership)</p>
-            </IsMember>
+            <div>
+              <IsMember>
+                {" "}
+                <Circle />
+                Active Subscription
+              </IsMember>
+              <ExpireTime>Expire in (date to expire membership)</ExpireTime>
+            </div>
           ) : (
             <div>
               <BlackBox>

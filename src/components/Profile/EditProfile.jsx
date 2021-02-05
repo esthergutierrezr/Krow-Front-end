@@ -16,10 +16,13 @@ const EditProfile = () => {
     setEditedUser(user);
   }, [user]);
 
-  useEffect((editUser) => {
-    console.log("newUser", user);
-    setUser(user);
-  }, [editedUser]);
+  useEffect(
+    (editUser) => {
+      console.log("newUser", user);
+      setUser(user);
+    },
+    [editedUser]
+  );
 
   const handleChange = (event) => {
     setEditedUser({ ...editedUser, [event.target.name]: event.target.value });
@@ -43,79 +46,81 @@ const EditProfile = () => {
   };
 
   return (
-    <Content>
-      {/* <Link to={`/profile/${id}`}>
+    <div className="bg-white-profile">
+      <Content>
+        {/* <Link to={`/profile/${id}`}>
         <i className="arrowBack left" />
       </Link> */}
-      <UserEdit />
-      <div>
-        <form
-          onSubmit={(e) => {
-            editUser(e);
-          }}
-        >
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.fullName}
-            name="fullName"
-            placeholder="First and last name"
-          />
-          <br />
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.email}
-            name="email"
-            placeholder="Email"
-          />
-          <br />
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.phoneNumber}
-            name="phoneNumber"
-            placeholder="Phone Number"
-          />
-          <br />
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.country}
-            name="country"
-            placeholder="Country"
-          />
-          <br />
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.city}
-            name="city"
-            placeholder="City"
-          />
-          <br />
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.company}
-            name="company"
-            placeholder="Company"
-          />
-          <br />
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.profession}
-            name="profession"
-            placeholder="Profession"
-          />
-          <br />
-          <input
-            onChange={handleChange}
-            defaultValue={editedUser.industry}
-            name="industry"
-            placeholder="Industry"
-          />
-          <br />
-          <button onClick={() => handleSubmit()} type="submit">
-            Save changes
-          </button>
-        </form>
-      </div>
-    </Content>
+        <UserEdit />
+        <div>
+          <form
+            onSubmit={(e) => {
+              editUser(e);
+            }}
+          >
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.fullName}
+              name="fullName"
+              placeholder="First and last name"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.email}
+              name="email"
+              placeholder="Email"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.phoneNumber}
+              name="phoneNumber"
+              placeholder="Phone Number"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.country}
+              name="country"
+              placeholder="Country"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.city}
+              name="city"
+              placeholder="City"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.company}
+              name="company"
+              placeholder="Company"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.profession}
+              name="profession"
+              placeholder="Profession"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              defaultValue={editedUser.industry}
+              name="industry"
+              placeholder="Industry"
+            />
+            <br />
+            <button onClick={() => handleSubmit()} type="submit">
+              Save changes
+            </button>
+          </form>
+        </div>
+      </Content>
+    </div>
   );
 };
 
