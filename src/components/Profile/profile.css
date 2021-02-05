@@ -22,7 +22,7 @@
 .bg-white-profile {
   position: absolute;
   /* margin-top: -50px; */
-  width: 100%;
+  width: auto;
   height:130vh;
   min-height: 100vh;
   align-self: center;

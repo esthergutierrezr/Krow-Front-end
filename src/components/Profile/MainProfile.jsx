@@ -21,7 +21,7 @@ function MainProfile() {
     <Switch>
       <Route exact path={`/profile/${id}`} component={Profile} />
       <Route path={`/profile/${id}/edit`} component={EditProfile} />
-      <Route path={`/profile/${id}/password/change`} component={ChangePassword} />
+      {/* <Route path='/password/change' component={ChangePassword} /> */}
       {/* <Route path={`/profile/${id}/password/reset`} component={ResetPassword} /> */}
       <Route path={`/profile/${id}/notifications`} component={Notification} />
       <Route path={`/profile/${id}/historic`} component={History} />

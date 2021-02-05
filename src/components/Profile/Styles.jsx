@@ -151,18 +151,15 @@ export const Menu = styled.div`
 `;
 export const DropMenu = styled.ul`
   margin-top: -13px;
-  margin-left: 58.5px;
+  margin-left: 74.5px;
   padding-top: 10px;
   background-color: ${Blue};
   width: 362.3px;
   height: 116px;
 
-  // height:133.2px;
-
   li {
     color: #fff;
-    padding-left: 55.4px;
-    padding: 10.2px 0 0 55.4px;
+    padding: 10.2px 0 0 38.4px;
   }
   hr {
     width: 360.3px;
