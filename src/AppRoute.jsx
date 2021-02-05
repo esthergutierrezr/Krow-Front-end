@@ -6,6 +6,7 @@ import MainLocations from "./components/Locations/MainLocations";
 import Membership from "./components/Membership/Membership";
 import MainProfile from "./components/Profile/MainProfile";
 import ChangePassword from "./components/Profile/ChangePassword";
+import ResetPassword from "./components/Profile/ResetPassword";
 import ReferFriend from "./components/Profile/ReferFriend";
 // import { AuthContext } from "./contexts/AuthContext";
 
@@ -32,6 +33,7 @@ function AppRoute() {
         <Route path="/invite" component={ReferFriend} />
         <Route path="/profile" component={MainProfile} />
         <Route path='/password/change' component={ChangePassword} />
+        <Route path='/password/reset' component={ResetPassword} />
         {/* <ProtectedRoute path="/profile" component={MainProfile} /> */}
         <Redirect to="/" />
       </Switch>

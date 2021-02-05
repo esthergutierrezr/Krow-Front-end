@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import LiveChat from "./LiveChat";
 // import laptop from "./nav-icons/computer-laptop.svg";
@@ -11,6 +11,8 @@ import OrangeInvite from "../Style/SVG/Nav/SVG_Screen Registar-06.svg";
 import OrangeKrow from "../Style/SVG/Nav/SVG_Screen Registar-07.svg";
 import OrangeProfile from "../Style/SVG/Nav/SVG_Screen Registar-09.svg";
 // import {NavStyle} from "./NavStyle"
+import { AuthContext } from "../../contexts/AuthContext";
+
 
 import "./BottomNav.css";
 
@@ -21,6 +23,8 @@ const BottomNav = () => {
     homeSrc: OrangeKrow,
     profileSrc: GreyProfile,
   });
+  const { user, setUser } = useContext(AuthContext);
+
   return (
     <div className="nav">
       <div
@@ -120,7 +124,7 @@ const BottomNav = () => {
         }
       >
         <NavLink
-          to="/profile/:id"
+          to={`/profile/${user.id}`}
           className="disabled-link"
           activeClassName="active-link active2"
         >
