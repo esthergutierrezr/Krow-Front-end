@@ -9,8 +9,14 @@ import ImportantMessage from "./ImportantMessage";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./homepage.css";
 import { HeadersBg } from "../Style/Backgrounds.jsx";
+import StarRating from "../Reusable/StarRating";
 
 const Homepage = () => {
+
+  const locationId = 24;
+  const amountVotes = 10;
+  const ratingAVG = 4;
+
   const { user } = useContext(AuthContext);
   const { t } = useTranslation(["homepage"]);
   return (
@@ -31,7 +37,8 @@ const Homepage = () => {
         </p>
         <FeaturedLocations />
         <ImportantMessage />
-      </div>
+      </div> 
+      <StarRating amountVotes={amountVotes} ratingAVG={ratingAVG} location_id={locationId} />
     </div>
   );
 };
