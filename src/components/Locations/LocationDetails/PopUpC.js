@@ -22,7 +22,7 @@ export default function PopUpC(props) {
         <StarRatingComponent
           name="rate"
           starCount={5}
-          value={FinalRating}
+          //value={FinalRating}
           onStarClick={changeRating}
           starColor="#ffd700"
           emptyStarColor="gray"
