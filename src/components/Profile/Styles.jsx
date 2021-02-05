@@ -16,7 +16,7 @@ export const ProfilePhoto = styled.img`
 export const EditPhoto = styled.img`
   height: 104px;
   width: 104px;
-  margin-top: -90px;
+  margin-top: 20px;
   display: block;
   margin-right: auto;
   margin-left: 150px;
@@ -36,6 +36,21 @@ export const Greeting = styled.h1`
   letter-spacing: 0.3px;
   margin: 79.8px 0 0 0;
 `;
+export const GreetingEdit = styled.h1`
+  display: block;
+  z-index: 3;
+  color: ${Blue};
+  width: 200px;
+  height: 31px;
+  font-family: Calibrib;
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  margin: 79.8px 139.6px 10.3px 160.3px;
+`;
 export const BlackBox = styled.div`
   margin: -47.5px 0 10px 16px;
   width: 165.8px;
@@ -53,6 +68,39 @@ export const BlackBox = styled.div`
   letter-spacing: 0.23px;
   color: #f8c861;
 `;
+// export const ProfileMember = styled.div`
+//   p {
+//     padding-left: 18.5px;
+//   }
+//   // padding-bottom:80px;
+// `;
+export const IsMember = styled.p``;
+export const ExpireTime = styled.p``;
+export const NotMember = styled.p`
+  font-family: Calibril;
+  font-size: 16.5px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  color: #878787;
+  padding-left: 18.5px;
+  margin: 10px 0;
+`;
+export const BuyMember = styled.p`
+  font-family: Calibril;
+  font-size: 16.5px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  color: #0d726c;
+  border-bottom: solid 1px #0d726c;
+  width: 155.5px;
+  margin-left: 20px;
+`;
 export const Content = styled.div`
   font-family: Calibril;
   font-size: 26.6px;
@@ -69,7 +117,7 @@ export const Content = styled.div`
   }
 `;
 export const Menu = styled.div`
-  margin-top: 50px;
+  margin-top: 90.4px;
   height: 541px;
   label {
     padding-left: 75.9px;

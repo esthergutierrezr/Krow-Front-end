@@ -11,7 +11,7 @@ import {
   HeaderEdit,
   EditTitle,
   EditPhoto,
-  Greeting,
+  GreetingEdit,
 } from "./Styles";
 
 function UserEdit() {
@@ -20,34 +20,36 @@ function UserEdit() {
   const initialGreeting = `Hey, ${user.fullName}`;
 
   return (
-    <HeaderEdit>
-      <div>
-        <EditTitle>
-          <Link to={`/profile/${user.id}`}>
-            <ArrowL src={ArrowLeft} alt="arrow-back" />
-          </Link>
-          Edit Profile
-          <WheelIcon src={Wheel} alt="wheel-icon" />
-        </EditTitle>
-        <Greeting>{initialGreeting}</Greeting>
-        <EditPhoto
-          src={!user.image ? picture : user.image}
-          alt={`${user.fullName}`}
-        />
-      </div>
+    <>
+      <HeaderEdit>
+        <div>
+          <EditTitle>
+            <Link to={`/profile/${user.id}`}>
+              <ArrowL src={ArrowLeft} alt="arrow-back" />
+            </Link>
+            Edit Profile
+            <WheelIcon src={Wheel} alt="wheel-icon" />
+          </EditTitle>
+          <EditPhoto
+            src={!user.image ? picture : user.image}
+            alt={`${user.fullName}`}
+          />
+        </div>
+      </HeaderEdit>
+      <GreetingEdit>{initialGreeting}</GreetingEdit>
       {/* <div>
         <div>
-          <p>Active Membership</p>
-          <p>Expire in (time to expire membership)</p>
+        <p>Active Membership</p>
+        <p>Expire in (time to expire membership)</p>
         </div>
         <div>
-          <p>No Active Membership</p>
-          <Link to="/membership">
-            <p>Add a Membership</p>
-          </Link>
+        <p>No Active Membership</p>
+        <Link to="/membership">
+        <p>Add a Membership</p>
+        </Link>
         </div>
       </div> */}
-    </HeaderEdit>
+    </>
   );
 }
 
