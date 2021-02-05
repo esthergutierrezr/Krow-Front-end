@@ -165,9 +165,7 @@ function LocationDetails(props) {
               <a href={`/locations/`}>Back</a>
               <div>
                 <h1>{location.name}</h1>
-                {popUpA && checked !== props.match.params.id ? (
-                  <PopUpA toggle={togglePopA} />
-                ) : null}
+                {popUpA ? <PopUpA toggle={togglePopA} /> : null}
                 <button onClick={checkOut}>Check Out</button>
                 {popUpC ? (
                   <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />

@@ -8,10 +8,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./MapContainer.css";
+import AutoComplete from "./Autocomplete";
 
 function MapContainer(props) {
   const { location, setLocation } = useContext(LocationContext);
-  // const { locations, setLocations } = React.useState({});
+  const { state, setState } = React.useState({
+    mapApiLoaded: false,
+    mapInstance: null,
+    mapApi: null,
+    geoCoder: null,
+    places: [],
+    center: [],
+    zoom: 9,
+    address: "",
+    draggable: true,
+    lat: null,
+    lng: null,
+  });
   const settings = {
     className: "slides",
     dots: false,
@@ -48,9 +61,45 @@ function MapContainer(props) {
       },
     ],
   };
+
+  // const addPlace = (place) => {
+  //   setState({
+  //     ...state,
+  //     places: [place],
+  //     lat: place.geometry.location.lat(),
+  //     lng: place.geometry.location.lng(),
+  //   });
+  //   _generateAddress;
+  // };
+
+  // const _generateAddress = () => {
+  //   const { mapApi } = state;
+
+  //   const geocoder = new mapApi.Geocoder();
+
+  //   geocoder.geocode(
+  //     { location: { lat: this.state.lat, lng: this.state.lng } },
+  //     (results, status) => {
+  //       console.log(results);
+  //       console.log(status);
+  //       if (status === "OK") {
+  //         if (results[0]) {
+  //           setState({ address: results[0].formatted_address });
+  //         } else {
+  //           window.alert("No results found");
+  //         }
+  //       } else {
+  //         window.alert("Geocoder failed due to: " + status);
+  //       }
+  //     }
+  //   );
+  // };
   return (
     <div>
       <Link to="/">HomePage</Link>
+      {/* <div>
+        <AutoComplete map={mapInstance} mapApi={mapApi} addplace={addPlace} />
+      </div> */}
       <div style={{ height: "350px", width: "100vw" }}>
         <Map
           style={{ height: "350px", width: "100vw" }}

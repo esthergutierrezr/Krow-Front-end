@@ -90,9 +90,7 @@ function LocationsCard(props) {
         <div className="checkout">
           <div>
             <h1>{props.name}</h1>
-            {popUpA && checked !== props.id ? (
-              <PopUpA toggle={togglePopA} />
-            ) : null}
+            {popUpA ? <PopUpA toggle={togglePopA} /> : null}
             <p>6 miembro(s) aqui</p>
             <div>Aberto ate as 22:00 </div>
             <p>wifi:{props.network}</p>
