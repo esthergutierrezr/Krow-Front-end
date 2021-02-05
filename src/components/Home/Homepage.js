@@ -36,7 +36,7 @@ const Homepage = () => {
         <FeaturedLocations />
         <ImportantMessage />
       </div> */}
-      <StarRating amountVotes={amountVotes} ratingAVG={ratingAVG} locationId={locationId} />
+      <StarRating amountVotes={amountVotes} ratingAVG={ratingAVG} location_id={locationId} />
     </div>
   );
 };
