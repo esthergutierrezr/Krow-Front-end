@@ -6,24 +6,26 @@ import Wheel from "../Style/SVG/Profile/SVG_Screen Perfil-01_icon white.svg";
 import ArrowLeft from "../Style/SVG/Profile/SVG_Screen Perfil-06_seta branca-01.svg";
 import "./profile.css";
 import {
-  ArrowL,
-  WheelIcon,
-  HeaderEdit,
-  EditTitle,
-  EditPhoto,
-  GreetingEdit,
-  IsMember,
-  NotMember,
-  BuyMember,
-  ExpireTime,
-  Circle,
-  CenterDiv,
+    ArrowL,
+    WheelIcon,
+    HeaderEdit,
+    EditPhoto,
+    ChangeTitle,
+    GreetingEdit,
+    IsMember,
+    NotMember,
+    BuyMember,
+    ExpireTime,
+    Circle,
+    CenterDivChange,
+    ActiveMember,
 } from "./Styles";
 
-function UserEdit() {
+function UserChange() {
   const { user } = useContext(AuthContext);
-  const { member } = useState(false);
+  const id = Number(user.id);
 
+  const { member } = useState(false);
 
   const initialGreeting = `Hey, ${user.fullName}`;
 
@@ -31,13 +33,13 @@ function UserEdit() {
     <>
       <HeaderEdit>
         <div>
-          <EditTitle>
-            <Link to={`/profile/${user.id}`}>
+          <ChangeTitle>
+            <Link to={`/profile/${id}`}>
               <ArrowL src={ArrowLeft} alt="arrow-back" />
             </Link>
-            Edit Profile
+            Change Password
             <WheelIcon src={Wheel} alt="wheel-icon" />
-          </EditTitle>
+          </ChangeTitle>
           <EditPhoto
             src={!user.image ? picture : user.image}
             alt={`${user.fullName}`}
@@ -45,32 +47,29 @@ function UserEdit() {
         </div>
       </HeaderEdit>
       <GreetingEdit>{initialGreeting}</GreetingEdit>
-      <CenterDiv>
-        <br/>
-        <br/>
-        {member ? (
-          <div>
+      <CenterDivChange>
+        <br />
+        <br />
+        {!member ? (
+          <ActiveMember>
             <IsMember>
               {" "}
               <Circle />
               Active Subscription
             </IsMember>
-            <ExpireTime>Expire in (date to expire membership)</ExpireTime>
-          </div>
+            <ExpireTime>Expire in 14 April 2021</ExpireTime>
+          </ActiveMember>
         ) : (
           <div>
-            {/* <BlackBox>
-              <h2>Welcome to Krow</h2>
-            </BlackBox> */}
             <NotMember>No Active Membership</NotMember>
             <Link to="/membership">
               <BuyMember>Add a Membership</BuyMember>
             </Link>
           </div>
         )}
-      </CenterDiv>
+      </CenterDivChange>
     </>
   );
 }
 
-export default UserEdit;
+export default UserChange;

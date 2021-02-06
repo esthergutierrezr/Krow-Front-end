@@ -136,6 +136,18 @@ export const FormChange = styled.form`
     margin-bottom: 21.1px;
     color: ${Blue};
   }
+  h2{
+    font-family: Calibril;
+    font-size: 19.8px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: 0.31px;
+    text-align: center;
+    // margin-bottom: 29.7px;
+    color: ${Blue};
+  }
   input {
     background: transparent;
     width: 354px;
@@ -154,6 +166,22 @@ export const FormChange = styled.form`
     letter-spacing: normal;
   }
 `;
+export const Save = styled.button`
+background-color: ${YellowButton};
+width: 174.3px;
+height: 54.6px;
+color: ${Black};
+font-family: Raleway;
+font-size: 16.5px;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.2;
+letter-spacing: normal;
+// padding: 0 18px;
+margin: auto auto 100.4px 90px;
+border-radius: 11.9px;
+`
 export const BlackBox = styled.div`
   margin: -47.5px 0 10px 16px;
   width: 165.8px;
