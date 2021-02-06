@@ -50,7 +50,7 @@ const Profile = () => {
                   <li className="active">Edit Profile</li>
                 </Link>
                 <hr />
-                <Link to={`/profile/${user.id}/password/change`}>
+                <Link to="/password/change">
                   <li className="active">Change Password</li>
                 </Link>
                 <hr />

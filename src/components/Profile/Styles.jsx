@@ -108,7 +108,7 @@ export const SaveChanges = styled.button`
   line-height: 1.2;
   letter-spacing: normal;
   // padding: 0 18px;
-  margin: 17.4px auto 17.2px 90px;
+  margin: 17.4px auto 100.4px 90px;
   border-radius: 11.9px;
 `;
 export const BlackBox = styled.div`
@@ -199,6 +199,7 @@ export const Content = styled.div`
 `;
 export const Menu = styled.div`
   margin-top: 90.4px;
+  margin-bottom: 111.8px;
   height: 541px;
   label {
     padding-left: 75.9px;

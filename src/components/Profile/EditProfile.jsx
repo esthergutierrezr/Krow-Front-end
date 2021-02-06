@@ -10,7 +10,7 @@ const EditProfile = () => {
   const { user, setUser } = useContext(AuthContext);
   const id = Number(user.id);
   const [editedUser, setEditedUser] = useState({});
-  // const history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
     console.log("newUser", user);
@@ -38,12 +38,13 @@ const EditProfile = () => {
   const handleSubmit = () => {
     axios
       .put(`/profile/${id}/edit`, editedUser)
-      .then((response) => {
-        console.log("response", response);
-      })
+      // .then((response) => {
+      //   console.log("response", response);
+      // })
       .catch((error) => console.error(error));
     alert("Profile Successfully Updated");
     history.push(`/profile/${id}`);
+
   };
 
   return (

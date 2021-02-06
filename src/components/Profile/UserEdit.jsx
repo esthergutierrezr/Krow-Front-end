@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import picture from "../Style/SVG/HomePage/SVG_Screen Registar-01.svg";
-import Wheel from "../Style/SVG/Profile/SVG_Screen Perfil-01_icon.svg";
+import Wheel from "../Style/SVG/Profile/SVG_Screen Perfil-01_icon white.svg";
 import { AuthContext } from "../../contexts/AuthContext";
 import ArrowLeft from "../Style/SVG//Profile/SVG_Screen Perfil-06_seta branca-01.svg";
 import "./profile.css";

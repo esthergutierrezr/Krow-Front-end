@@ -6,16 +6,18 @@ import { Content } from "./Styles";
 const ChangePassword = () => {
   const { user, setUser } = useContext(AuthContext);
   const id = Number(user.id);
+  const history = useHistory();
+
 
   // const handleSubmit = () => {
   //   axios
   //     .post(`/password/change`, newPassword)
   //     .then((response) => {
   //       // console.log("response",response);
-  //       alert("Password has been successfully updated");
-  //       //history.push(`/`);
   //     })
   //     .catch((error) => console.error(error));
+  //       alert("Password has been Changed Successfully");
+  //       history.push(`/profile/${id}`);
   // };
 
   return (
@@ -48,7 +50,9 @@ const ChangePassword = () => {
               <p>Forget Password</p>
             </Link>
             <br />
-            <button type="submit">Change Password</button>
+            <button type="submit"
+            // onClick={() => handleSubmit()}
+            >Change Password</button>
           </form>
         </div>
       </div>
