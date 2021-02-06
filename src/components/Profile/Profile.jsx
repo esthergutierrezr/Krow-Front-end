@@ -39,7 +39,7 @@ const Profile = () => {
           <div className="multi-level">
             <div className="drop-item">
               <input type="checkbox" id="A" />
-              <label className="label-top" htmlFor="A">
+              <label htmlFor="A">
                 <WheelProfile src={Wheel} alt="settings-wheel" />
                 Account Settings
                 <ArrowD src={ArrowDown} alt="arrow drop-menu" />
@@ -58,7 +58,7 @@ const Profile = () => {
             </div>
           </div>
           <Link to="/membership">
-            <label className="label-top">
+            <label>
               <CartProfile src={Cart} alt="settings-wheel" />
               Add a Membership
             </label>
@@ -66,7 +66,7 @@ const Profile = () => {
           <hr />
 
           <Link to="/profile/notifications">
-            <label className="label-top">
+            <label>
               <NotificationProfile src={Notification} alt="settings-wheel" />
               Notifications
             </label>
@@ -74,7 +74,7 @@ const Profile = () => {
           <hr />
 
           <Link to="/profile/historic">
-            <label className="label-top">
+            <label>
               <HistoricProfile src={Historic} alt="settings-wheel" />
               Historic
             </label>
@@ -82,7 +82,7 @@ const Profile = () => {
           <hr />
 
           <Link to="/invite">
-            <label className="label-top">
+            <label>
               {" "}
               <InviteProfile src={Invite} alt="settings-wheel" />
               Invite a Friend
@@ -95,11 +95,12 @@ const Profile = () => {
             </Link>
            <br/> */}
             <br />
-            <label className="label-bottom">Mudar para Português</label>
+            <Link to="/choose-language">
+              <label>Mudar para Português</label>
+            </Link>
             <br />
             <br />
             <label
-              className="label-bottom"
               onClick={() => {
                 Cookies.remove("authToken");
                 history.push("/auth/login");
