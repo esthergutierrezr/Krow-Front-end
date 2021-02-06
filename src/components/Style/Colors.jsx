@@ -15,9 +15,18 @@ export const BlackButton = '#181812';
 // Nav unselected Icon
 export const Icon = '#787878';
 
+// Profile
 // Inputs
-export const GrayInput = '#323232';
+export const GrayBorder = '#323232';
 
+// Normal Gray Text
+export const GrayText = '#878787';
+
+// Buy Membership
+export const BlueMembership = '#0d726c';
+
+// BorderBottom Menu Profile
+export const WhiteBorder = '#606060'
 
 // Text Inputs
 export const TextInput = '#898884';
@@ -25,12 +34,12 @@ export const TextInput = '#898884';
 // Headers
 export const HeaderGrey = "#F1F0F0";
 
-// HomePage Buttons
-    // Subscribe and Profile Header
-    export const Blue = '#08726C';
+// HomePage
+// Subscribe and Profile Header
+export const Blue = '#08726C';
 
-    // Invite Friend
-    export const Red = '#A73F25';
+// Invite Friend
+export const Red = '#A73F25';
 
-    // Button Shadow
-    export const Shadow = 'box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);'
+// Button Shadow
+export const Shadow = 'box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);'

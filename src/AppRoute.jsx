@@ -34,7 +34,12 @@ function AppRoute() {
         <Route path="/profile" component={MainProfile} />
         <Route path='/password/change' component={ChangePassword} />
         <Route path='/password/reset' component={ResetPassword} />
-        {/* <ProtectedRoute path="/profile" component={MainProfile} /> */}
+        {/* 
+        <ProtectedRoute path="/invite" component={ReferFriend} /> 
+        <ProtectedRoute path="/profile" component={MainProfile} /> 
+        <ProtectedRoute path="/password/change" component={ChangePassword} /> 
+        <ProtectedRoute path="/password/reset" component={ResetPassword} /> 
+        */}
         <Redirect to="/" />
       </Switch>
       <BottomNav />

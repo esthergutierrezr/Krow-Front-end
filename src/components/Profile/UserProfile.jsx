@@ -17,7 +17,7 @@ import {
 
 function UserProfile() {
   const { user } = useContext(AuthContext);
-  const { member, setMember } = useState(false);
+  const { member } = useState(false);
   // const { member, setMember } = useState(true);
 
   const initialGreeting = `Hey, ${user.fullName}`;

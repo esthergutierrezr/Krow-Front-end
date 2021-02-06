@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import picture from "../Style/SVG/HomePage/SVG_Screen Registar-01.svg";
 import Wheel from "../Style/SVG/Profile/SVG_Screen Perfil-01_icon.svg";
@@ -12,10 +12,19 @@ import {
   EditTitle,
   EditPhoto,
   GreetingEdit,
+  BlackBox,
+  IsMember,
+  NotMember,
+  BuyMember,
+  ExpireTime,
+  Circle,
+  CenterDiv,
 } from "./Styles";
 
 function UserEdit() {
   const { user } = useContext(AuthContext);
+  const { member } = useState(false);
+
 
   const initialGreeting = `Hey, ${user.fullName}`;
 
@@ -37,18 +46,30 @@ function UserEdit() {
         </div>
       </HeaderEdit>
       <GreetingEdit>{initialGreeting}</GreetingEdit>
-      {/* <div>
-        <div>
-        <p>Active Membership</p>
-        <p>Expire in (time to expire membership)</p>
-        </div>
-        <div>
-        <p>No Active Membership</p>
-        <Link to="/membership">
-        <p>Add a Membership</p>
-        </Link>
-        </div>
-      </div> */}
+      <CenterDiv>
+        <br/>
+        <br/>
+        {member ? (
+          <div>
+            <IsMember>
+              {" "}
+              <Circle />
+              Active Subscription
+            </IsMember>
+            <ExpireTime>Expire in (date to expire membership)</ExpireTime>
+          </div>
+        ) : (
+          <div>
+            <BlackBox>
+              <h2>Welcome to Krow</h2>
+            </BlackBox>
+            <NotMember>No Active Membership</NotMember>
+            <Link to="/membership">
+              <BuyMember>Add a Membership</BuyMember>
+            </Link>
+          </div>
+        )}
+      </CenterDiv>
     </>
   );
 }

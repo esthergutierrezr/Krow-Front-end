@@ -1,8 +1,17 @@
 /* eslint-disable import/prefer-default-export */
-
 import styled from "styled-components";
 
-import { Yellow, Blue } from "../Style/Colors";
+import {
+  White,
+  Yellow,
+  Blue,
+  YellowButton,
+  Black,
+  GrayText,
+  GrayBorder,
+  BlueMembership,
+  WhiteBorder,
+} from "../Style/Colors";
 
 export const ProfilePhoto = styled.img`
   height: 104px;
@@ -49,7 +58,58 @@ export const GreetingEdit = styled.h1`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0.3px;
-  margin: 79.8px 139.6px 10.3px 160.3px;
+  margin: 79.8px 139.6px 10.3px 170.3px;
+`;
+export const CenterDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 126.5px 0px;
+`;
+export const DivEdit = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+`;
+export const FormEdit = styled.form`
+  width: 354px;
+  height: 100%;
+  margin: 0px 70px 15.1px 60px;
+
+  input {
+    background: transparent;
+    width: 354px;
+    height: 54.9px;
+    margin: 0 0 15.1px;
+    border-radius: 10px;
+    border: solid 1px ${GrayBorder};
+    text-align: center;
+    color: ${Blue};
+    font-family: Raleway;
+    font-size: 19.8px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+  }
+`;
+export const SaveChanges = styled.button`
+  background-color: ${YellowButton};
+  width: 174.3px;
+  height: 54.6px;
+  color: ${Black};
+  font-family: Raleway;
+  font-size: 16.5px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  // padding: 0 18px;
+  margin: 17.4px auto 17.2px 90px;
+  border-radius: 11.9px;
 `;
 export const BlackBox = styled.div`
   margin: -47.5px 0 10px 16px;
@@ -58,7 +118,7 @@ export const BlackBox = styled.div`
   align-items: center;
   height: 31.3px;
   padding: 8px 0 0 15px;
-  background-color: #000;
+  background-color: ${Black};
   font-family: Calibril;
   font-size: 19.3px;
   font-weight: bold;
@@ -66,15 +126,15 @@ export const BlackBox = styled.div`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0.23px;
-  color: #f8c861;
+  color: ${Yellow};
 `;
 export const Circle = styled.div`
   border-radius: 50%;
   width: 12px;
   height: 12px;
-  background-color:#f8c861;
+  background-color: ${Yellow};
   margin: 4px 5.3px 7.4px 0;
-  display:inline-flex;
+  display: inline-flex;
 `;
 export const IsMember = styled.p`
   margin: -30px 65.6px 2px -10px;
@@ -105,7 +165,7 @@ export const NotMember = styled.p`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0.2px;
-  color: #878787;
+  color: ${GrayText};
   padding-left: 18.5px;
   margin: 10px 0;
 `;
@@ -117,8 +177,8 @@ export const BuyMember = styled.p`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0.2px;
-  color: #0d726c;
-  border-bottom: solid 1px #0d726c;
+  color: ${BlueMembership};
+  border-bottom: solid 1px ${BlueMembership};
   width: 155.5px;
   margin-left: 20px;
 `;
@@ -146,7 +206,7 @@ export const Menu = styled.div`
   }
   hr {
     width: 360.3px;
-    border-bottom: solid 1px #606060;
+    border-bottom: solid 1px ${WhiteBorder};
   }
 `;
 export const DropMenu = styled.ul`
@@ -158,12 +218,12 @@ export const DropMenu = styled.ul`
   height: 116px;
 
   li {
-    color: #fff;
+    color: ${White};
     padding: 10.2px 0 0 38.4px;
   }
   hr {
     width: 360.3px;
-    border-bottom: solid 1px #fff;
+    border-bottom: solid 1px ${White};
   }
   hr:last-child {
     margin-bottom: 17.2px;
@@ -183,7 +243,6 @@ export const WheelIcon = styled.img`
   width: 21.2px;
   height: 21.2px;
   padding-left: 123.3px;
-  // color:#fff;
 `;
 export const WheelProfile = styled.img`
   width: 21.2px;
@@ -232,80 +291,13 @@ export const EditTitle = styled.div`
   font-style: normal;
   line-height: 1.24;
   letter-spacing: 0.32px;
-  color: #fff;
+  color: ${White};
   margin-top: 34px;
 `;
 export const LabelBottom = styled.div`
-  color: #878787;
+  color: ${GrayText};
   font-size: 19.8px;
   label {
     margin-bottom: 10.7px;
   }
 `;
-/*Styles*/
-
-//   label:hover {
-//     cursor: pointer;
-//   }
-//   .label-top {
-//     width: auto;
-//     display: block;
-//     // z-index: 3;
-//     position: relative;
-//     border-bottom: 1px solid #cfd8dc;
-//   }
-//   .label-bottom {
-//     width: auto;
-//     display: block;
-//     // z-index: 3;
-//     position: relative;
-//     color: #cfd8dc;
-//   }
-//   .active {
-//     color: #fff;
-//     background-color: #1e847b;
-//   }
-//   .nav {
-//     text-decoration: none;
-//     width: 100%;
-//     height: 80px;
-//     background-color: white;
-//     overflow-x: hidden;
-//     margin: 0 2em 0 2em;
-//   }
-
-//   .nav ul,
-//   .nav li,
-//   label {
-//     line-height: 50px;
-//     margin: 0;
-//     padding: 0 2em;
-//     list-style: none;
-//     text-decoration: none;
-//     font-weight: 100;
-//     width: 100%;
-//   }
-//   .item ul {
-//     padding: 0;
-//   }
-
-//   a {
-//     text-decoration: none;
-//   }
-
-//   label,
-//   li {
-//     border-bottom: 1px solid #cfd8dc;
-//   }
-// `;
-
-// // export const Header = styled.div`
-//   h1 {
-//     font-size: 1.5em;
-//     color: #fff;
-//     background: #3d8fff;
-//     height: 40px;
-//     justify-content: center;
-//     align-items: center;
-//   }
-// `;

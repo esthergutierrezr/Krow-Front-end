@@ -1,15 +1,16 @@
+/* eslint-disable no-alert */
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Content, HeaderEdit } from "./Styles";
-
+import { Content, FormEdit, DivEdit, SaveChanges } from "./Styles";
 import UserEdit from "./UserEdit";
 
 const EditProfile = () => {
   const { user, setUser } = useContext(AuthContext);
   const id = Number(user.id);
   const [editedUser, setEditedUser] = useState({});
+  // const history = useHistory();
 
   useEffect(() => {
     console.log("newUser", user);
@@ -18,7 +19,7 @@ const EditProfile = () => {
 
   useEffect(
     (editUser) => {
-      console.log("newUser", user);
+      console.log("editedUser", user);
       setUser(user);
     },
     [editedUser]
@@ -36,24 +37,21 @@ const EditProfile = () => {
 
   const handleSubmit = () => {
     axios
-      .put(`/profile/${id}`, editedUser)
+      .put(`/profile/${id}/edit`, editedUser)
       .then((response) => {
-        // console.log("response",response);
-        alert("User has been successfully updated");
-        history.push(`/profile/${id}`);
+        console.log("response", response);
       })
       .catch((error) => console.error(error));
+    alert("Profile Successfully Updated");
+    history.push(`/profile/${id}`);
   };
 
   return (
-    <div className="bg-white-profile">
+    <div className="bg-white-edit">
       <Content>
-        {/* <Link to={`/profile/${id}`}>
-        <i className="arrowBack left" />
-      </Link> */}
         <UserEdit />
-        <div>
-          <form
+        <DivEdit>
+          <FormEdit
             onSubmit={(e) => {
               editUser(e);
             }}
@@ -114,11 +112,11 @@ const EditProfile = () => {
               placeholder="Industry"
             />
             <br />
-            <button onClick={() => handleSubmit()} type="submit">
+            <SaveChanges onClick={() => handleSubmit()} type="submit">
               Save changes
-            </button>
-          </form>
-        </div>
+            </SaveChanges>
+          </FormEdit>
+        </DivEdit>
       </Content>
     </div>
   );

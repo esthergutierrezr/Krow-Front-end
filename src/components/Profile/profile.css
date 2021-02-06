@@ -21,7 +21,6 @@
 
 .bg-white-profile {
   position: absolute;
-  /* margin-top: -50px; */
   width: auto;
   height:130vh;
   min-height: 100vh;
@@ -30,3 +29,12 @@
   background-image: url("../Style/bg/white_wall.png");
 }
 
+.bg-white-edit {
+  position: absolute;
+  width: auto;
+  height:157vh;
+  min-height: 100vh;
+  align-self: center;
+  background-size:cover;
+  background-image: url("../Style/bg/white_wall.png");
+}
