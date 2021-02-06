@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 import picture from "../Style/SVG/HomePage/SVG_Screen Registar-01.svg";
 import Wheel from "../Style/SVG/Profile/SVG_Screen Perfil-01_icon white.svg";
-import { AuthContext } from "../../contexts/AuthContext";
 import ArrowLeft from "../Style/SVG//Profile/SVG_Screen Perfil-06_seta branca-01.svg";
 import "./profile.css";
 import {
@@ -12,7 +12,6 @@ import {
   EditTitle,
   EditPhoto,
   GreetingEdit,
-  BlackBox,
   IsMember,
   NotMember,
   BuyMember,
@@ -60,9 +59,9 @@ function UserEdit() {
           </div>
         ) : (
           <div>
-            <BlackBox>
+            {/* <BlackBox>
               <h2>Welcome to Krow</h2>
-            </BlackBox>
+            </BlackBox> */}
             <NotMember>No Active Membership</NotMember>
             <Link to="/membership">
               <BuyMember>Add a Membership</BuyMember>

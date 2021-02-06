@@ -49,7 +49,7 @@ export const GreetingEdit = styled.h1`
   display: block;
   z-index: 3;
   color: ${Blue};
-  width: 200px;
+  width: 300px;
   height: 31px;
   font-family: Calibrib;
   font-size: 25px;
@@ -58,13 +58,22 @@ export const GreetingEdit = styled.h1`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0.3px;
-  margin: 79.8px 139.6px 10.3px 170.3px;
+  margin: 79.8px auto 10.3px 140.3px;
 `;
 export const CenterDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 0 126.5px 0px;
+  margin: auto auto 126.5px auto;
+`;
+export const CenterDivChange = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto 33.4px auto;
+`;
+export const ActiveMember = styled.div`
+  margin-left: 80px;
 `;
 export const DivEdit = styled.div`
   display: flex;
@@ -73,7 +82,6 @@ export const DivEdit = styled.div`
   align-self: center;
 `;
 export const FormEdit = styled.form`
-  width: 354px;
   height: 100%;
   margin: 0px 70px 15.1px 60px;
 
@@ -95,6 +103,7 @@ export const FormEdit = styled.form`
     letter-spacing: normal;
   }
 `;
+
 export const SaveChanges = styled.button`
   background-color: ${YellowButton};
   width: 174.3px;
@@ -110,6 +119,40 @@ export const SaveChanges = styled.button`
   // padding: 0 18px;
   margin: 17.4px auto 100.4px 90px;
   border-radius: 11.9px;
+`;
+export const FormChange = styled.form`
+  height: 100%;
+  margin: 0px 70px 15.1px 60px;
+
+  h1 {
+    font-family: Calibril;
+    font-size: 26.2px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: 0.31px;
+    text-align: center;
+    margin-bottom: 21.1px;
+    color: ${Blue};
+  }
+  input {
+    background: transparent;
+    width: 354px;
+    height: 54.9px;
+    margin: 0 0 15.1px;
+    border-radius: 10px;
+    border: solid 1px ${GrayBorder};
+    text-align: center;
+    color: ${Blue};
+    font-family: Raleway;
+    font-size: 19.8px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+  }
 `;
 export const BlackBox = styled.div`
   margin: -47.5px 0 10px 16px;
@@ -236,14 +279,14 @@ export const ArrowD = styled.img`
   padding-left: 80.6px;
 `;
 export const ArrowL = styled.img`
+  display: flex;
   width: 14.5px;
   height: 23.2px;
-  padding-right: 124.4px;
 `;
 export const WheelIcon = styled.img`
   width: 21.2px;
   height: 21.2px;
-  padding-left: 123.3px;
+  display: flex;
 `;
 export const WheelProfile = styled.img`
   width: 21.2px;
@@ -285,6 +328,24 @@ export const HeaderEdit = styled.div`
 `;
 
 export const EditTitle = styled.div`
+  width: 414.2px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Calibril;
+  font-size: 26.6px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: 0.32px;
+  color: ${White};
+  margin-top: 34px;
+`;
+
+export const ChangeTitle = styled.div`
+  width: 414.2px;
+  display: flex;
+  justify-content: space-between;
   font-family: Calibril;
   font-size: 26.6px;
   font-weight: 300;
