@@ -67,7 +67,7 @@ export const Menu = styled.div`
 `;
 export const DropMenu = styled.ul`
   margin-top: -13px;
-  margin-left: 74.5px;
+  margin-left: 58.5px;
   padding-top: 10px;
   background-color: ${Blue};
   width: 362.3px;
@@ -236,7 +236,7 @@ export const FormChange = styled.form`
     margin-bottom: 21.1px;
     color: ${Blue};
   }
-  h2{
+  h2 {
     font-family: Calibril;
     font-size: 19.8px;
     font-weight: normal;
@@ -394,7 +394,6 @@ export const WheelIcon = styled.img`
   display: flex;
 `;
 
-
 //************RESET PASSWORD */
 export const ArrowBlue = styled.img`
   display: flex;
@@ -410,4 +409,66 @@ export const Logo = styled.img`
   margin-left: 146.6px;
   margin-right: auto;
 `;
+export const ResetDiv = styled.div`
+  height: 100%;
+  margin: 0px 70px 151.1px 60px;
+  text-align: center;
 
+  h1 {
+    margin: 111px 6.5px 21.6px 11.1px;
+    font-family: Calibril;
+    font-size: 26.2px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: 0.31px;
+    text-align: center;
+    color: ${Blue};
+  }
+  p {
+    width: 210px;
+    height: 39px;
+    font-family: Raleway;
+    font-size: 16.4px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    margin: 21.6px 72.4px 48.5px 77.2px;
+  }
+  input {
+    background: transparent;
+    width: 354px;
+    height: 54.9px;
+    margin: 0 0 15.1px;
+    border-radius: 10px;
+    border: solid 1px ${GrayBorder};
+    text-align: center;
+    color: ${Blue};
+    font-family: Raleway;
+    font-size: 19.8px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+  }
+`;
+export const SendEmail = styled.button`
+  background-color: ${YellowButton};
+  width: 360px;
+  height: 54.9px;
+  color: ${Black};
+  font-family: Raleway;
+  font-size: 16.5px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  margin: 30px 0 0px 0;
+  border-radius: 11.9px;
+`;
