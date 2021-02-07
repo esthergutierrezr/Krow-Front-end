@@ -14,7 +14,7 @@ function CTAButtons() {
         <p>{t("homepage:CTAButtons.Subscribe")}</p>
         </div>
         </Link>
-      <Link to="/referafriend">
+      <Link to="/invite">
         <div className="invite">
           <img className="ctabuttons__button" src={Invite} alt="refer a friend" />
         <p>{t("homepage:CTAButtons.Invite")}</p>

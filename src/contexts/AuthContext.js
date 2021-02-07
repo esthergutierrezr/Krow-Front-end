@@ -1,7 +1,7 @@
 import React,{createContext, useState, useEffect} from "react";
 import axios from "axios";
-import { config } from "../helpers/auth";
 import Cookies from "js-cookie";
+import { config } from "../helpers/auth";
 
 export const AuthContext = createContext(null);
 

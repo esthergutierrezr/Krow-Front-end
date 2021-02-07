@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router-dom";
 import LiveChat from "./LiveChat";
@@ -12,6 +12,8 @@ import OrangeInvite from "../Style/SVG/Nav/SVG_Screen Registar-06.svg";
 import OrangeKrow from "../Style/SVG/Nav/SVG_Screen Registar-07.svg";
 import OrangeProfile from "../Style/SVG/Nav/SVG_Screen Registar-09.svg";
 // import {NavStyle} from "./NavStyle"
+import { AuthContext } from "../../contexts/AuthContext";
+
 
 import "./BottomNav.css";
 
@@ -23,6 +25,7 @@ const BottomNav = () => {
     homeSrc: OrangeKrow,
     profileSrc: GreyProfile,
   });
+  const { user } = useContext(AuthContext);
 
   const location = useLocation();
 
@@ -39,7 +42,7 @@ const BottomNav = () => {
         profileSrc: GreyProfile,
       });
       //  console.log("location pathname:", location.pathname);
-    } else if (location.pathname === "/referafriend") {
+    } else if (location.pathname === "/invite") {
       setActiveLink({
         locationsSrc: GreyLaptop,
         inviteSrc: OrangeInvite,
@@ -55,7 +58,7 @@ const BottomNav = () => {
         profileSrc: GreyProfile,
       });
       //  console.log("location pathname:", location.pathname);
-    } else if (location.pathname === "/profile/") {
+    } else if (location.pathname === `/profile/${user.id}`) {
       setActiveLink({
         locationsSrc: GreyLaptop,
         inviteSrc: GreyInvite,
@@ -125,7 +128,7 @@ const BottomNav = () => {
       </div>
       <div className="item">
         <NavLink
-          to="/profile/:id"
+          to={`/profile/${user.id}`}
           className="disabled-link"
           activeClassName="active-link active2"
         >

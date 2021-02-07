@@ -1,92 +1,107 @@
-// change password
-// old password
-// new password
-// confirm password
-// forget password (different component????)
-// insert email
-// Button Send Reset Link
-// (How generate a link to reset password)
-
+/* eslint-disable no-alert */
 import React, { useState, useContext } from "react";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import { Content, DivEdit, FormChange, Save } from "./Styles";
+import UserChange from "./UserChange";
+import "./profile.css";
 
-function ChangePassword() {
+// body of backend current_password, new_password, user_id
+
+const ChangePassword = () => {
   const { user, setUser } = useContext(AuthContext);
+  // const [new_password, setPassword] = useState({});
   const { t } = useTranslation(["profile"]);
-  const history = useHistory();
-  const [fields, handleFieldChange] = useState({
+  const [fields, setFieldChange] = useState({
     password: "",
     oldPassword: user.password,
     confirmPassword: "",
   });
+  const id = Number(user.id);
+  const history = useHistory();
 
-  const [isChanging, setIsChanging] = useState(false);
+  const handleChange = (event) => {
+    setFieldChange({ [event.target.name]: event.target.value });
+  };
 
-  function handleChangeClick(event) {
-    event.preventDefault();
+  const changePassword = (event) => {
+      event.preventDefault();
+      setFieldChange({ oldPassword: event.target.value, confirmPassword: event.target.value });
+    }
 
-    setIsChanging(true);
-
-    history.push("/login");
-  }
+  const handleSubmit = (event) => {
+    if (fields.password !== fields.confirmPassword){
+      alert("The passwords doesn't match")
+    }else{
+      const currentPassword = fields.oldPassword;
+      const newPassword = fields.confirmPassword;
+      const userId = user.id;
+      axios
+         .post("/password/change", [currentPassword, newPassword, userId])
+         .catch((error) => console.error(error)); // The form will submit
+    }
+    alert("Password has been Changed Successfully");
+    history.push(`/profile/${id}`);
+  };
+  // const handleSubmit = () => {
+  //   axios
+  //     .post("/password/change", new_password)
+  //     .then((response) => {
+  //       // console.log("response",response);
+  //     })
+  //     .catch((error) => console.error(error));
+  //   alert("Password has been Changed Successfully");
+  //   history.push(`/profile/${id}`);
+  // };
 
   return (
-    <div>
-      <h1>{t("profile:changePassword.change")}</h1>
-      <div className="ChangePassword">
-        <form onSubmit={handleChangeClick}>
-          <label id="oldPassword">
-            <br />
-            <p>{t("profile:changePassword.old")}</p>
+    <div className="bg-white-profile">
+      <Content>
+        <UserChange />
+        <DivEdit>
+          <FormChange
+            onSubmit={(event) => {
+              changePassword(event);
+            }}
+          >
+            <h1>Password</h1>
             <input
+              onChange={handleChange}
               type="password"
-              onChange={handleFieldChange}
+              name="oldPassword"
+              placeholder={t("profile:changePassword.old")}
               value={fields.oldPassword}
             />
-          </label>
-          <br />
-          <br />
-          <label id="password">
-            <p>{t("profile:changePassword.new")}</p>
+            <br />
             <input
+              onChange={handleChange}
+              name="newPassword"
               type="password"
-              onChange={handleFieldChange}
+              placeholder={t("profile:changePassword.new")}
               value={fields.password}
             />
-          </label>
-          <br />
-          <br />
-          <label id="confirmPassword">
-            <p>{t("profile:changePassword.confirm")}</p>
+            <br />
             <input
+              onChange={handleChange}
               type="password"
-              onChange={handleFieldChange}
+              placeholder={t("profile:changePassword.confirm")}
               value={fields.confirmPassword}
             />
-          </label>
-          <br />
-          <br />
-          <button
-            block
-            type="submit"
-            // disabled={!validateForm()}
-            isLoading={isChanging}
-          >
+            <br />
+            <Link to="/password/reset">
+              <h2>{t("profile:changePassword.forget")}?</h2>
+            </Link>
+            <br />
+            <Save onClick={() => handleSubmit()} type="submit">
             {t("profile:changePassword.change")}
-          </button>
-        </form>
-        <br />
-        <br />
-        <Link to="/profile/forget_password">
-          <p>{t("profile:changePassword.forget")}?</p>
-        </Link>
-        <br />
-        <br />
-      </div>
+            </Save>
+          </FormChange>
+        </DivEdit>
+      </Content>
     </div>
   );
-}
+};
 
 export default ChangePassword;

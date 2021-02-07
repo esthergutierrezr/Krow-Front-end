@@ -39,6 +39,7 @@
   min-height: 100vh;
   /* margin-top: -12vh; */
   align-self: center;
-  background-size: cover;
+  background-position: 35%;
+  background-size:cover;
   background-image: url("../Style/bg/computer-bg.png");
 }
