@@ -95,13 +95,9 @@ const Profile = () => {
           </Link>
           <hr />
           <LabelBottom>
-            {/* <Link to="/contact">
-              <label className="label-bottom">Contact Us</label>
-            </Link>
-           <br/> */}
             <br />
             <Link to="/choose-language">
-              <label>Mudar para Português</label>
+              <label>{t("profile:profile.changeLanguage")}</label>
             </Link>
             <br />
             <br />
