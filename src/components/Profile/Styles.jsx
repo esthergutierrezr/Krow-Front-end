@@ -393,3 +393,21 @@ export const WheelIcon = styled.img`
   height: 21.2px;
   display: flex;
 `;
+
+
+//************RESET PASSWORD */
+export const ArrowBlue = styled.img`
+  display: flex;
+  width: 14.5px;
+  height: 23.2px;
+  margin: 44.6px 0 0 40px;
+`;
+export const Logo = styled.img`
+  height: 70px;
+  width: 174.7px;
+  margin-top: 50.5px;
+  display: block;
+  margin-left: 146.6px;
+  margin-right: auto;
+`;
+

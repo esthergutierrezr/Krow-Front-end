@@ -28,13 +28,3 @@
   background-size:cover;
   background-image: url("../Style/bg/white_wall.png");
 }
-
-.bg-white-edit {
-  position: absolute;
-  width: auto;
-  height:auto;
-  /* min-height: 100vh; */
-  align-self: center;
-  background-size:cover;
-  background-image: url("../Style/bg/white_wall.png");
-}

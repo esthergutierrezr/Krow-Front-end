@@ -48,7 +48,7 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="bg-white-edit">
+    <div className="bg-white-profile">
       <Content>
         <UserEdit />
         <DivEdit>
