@@ -42,20 +42,20 @@ const Profile = () => {
               <input type="checkbox" id="A" />
               <label htmlFor="A">
                 <WheelProfile src={Wheel} alt="settings-wheel" />
-                {t("profile:forgetPassword.accountSettings")}
+                {t("profile:profile.accountSettings")}
                 <ArrowD src={ArrowDown} alt="arrow drop-menu" />
               </label>
               <hr />
               <DropMenu>
                 <Link to={`/profile/${user.id}/edit`}>
                   <li className="active">
-                    {t("profile:forgetPassword.editProfile")}
+                    {t("profile:profile.editProfile")}
                   </li>
                 </Link>
                 <hr />
                 <Link to="/password/change">
                   <li className="active">
-                    {t("profile:forgetPassword.changePassword")}
+                    {t("profile:profile.changePassword")}
                   </li>
                 </Link>
                 <hr />
@@ -65,7 +65,7 @@ const Profile = () => {
           <Link to="/membership">
             <label>
               <CartProfile src={Cart} alt="settings-wheel" />
-              {t("profile:forgetPassword.addMembership")}
+              {t("profile:profile.addMembership")}
             </label>
           </Link>
           <hr />
@@ -73,7 +73,7 @@ const Profile = () => {
           <Link to="/profile/notifications">
             <label>
               <NotificationProfile src={Notification} alt="settings-wheel" />
-              {t("profile:forgetPassword.notifications")}
+              {t("profile:profile.notifications")}
             </label>
           </Link>
           <hr />
@@ -81,7 +81,7 @@ const Profile = () => {
           <Link to="/profile/historic">
             <label>
               <HistoricProfile src={Historic} alt="settings-wheel" />
-              {t("profile:forgetPassword.historic")}
+              {t("profile:profile.historic")}
             </label>
           </Link>
           <hr />
@@ -90,7 +90,7 @@ const Profile = () => {
             <label>
               {" "}
               <InviteProfile src={Invite} alt="settings-wheel" />
-              {t("profile:forgetPassword.inviteAFriend")}
+              {t("profile:profile.inviteAFriend")}
             </label>
           </Link>
           <hr />
@@ -111,7 +111,7 @@ const Profile = () => {
                 history.push("/auth/login");
               }}
             >
-              {t("profile:forgetPassword.logout")}
+              {t("profile:profile.logout")}
             </label>
           </LabelBottom>
         </Menu>
