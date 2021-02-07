@@ -13,22 +13,14 @@ import {
   WhiteBorder,
 } from "../Style/Colors";
 
+// *********************Profile
+
 export const ProfilePhoto = styled.img`
   height: 104px;
   width: 104px;
   margin-top: -25px;
-  //   display: block;
   margin-right: 50.5px;
   margin-left: 275.5px;
-`;
-
-export const EditPhoto = styled.img`
-  height: 104px;
-  width: 104px;
-  margin-top: 20px;
-  display: block;
-  margin-right: auto;
-  margin-left: 150px;
 `;
 export const Greeting = styled.h1`
   display: block;
@@ -44,6 +36,101 @@ export const Greeting = styled.h1`
   line-height: 1.2;
   letter-spacing: 0.3px;
   margin: 79.8px 0 0 0;
+`;
+export const Content = styled.div`
+  font-family: Calibril;
+  font-size: 26.6px;
+
+  /*Func of dropdown menu*/
+
+  .drop-item ul,
+  input[type="checkbox"] {
+    display: none;
+  }
+  #menu:checked ~ .multi-level,
+  .drop-item input:checked ~ ul {
+    display: block;
+  }
+`;
+export const Menu = styled.div`
+  margin-top: 90.4px;
+  margin-bottom: 111.8px;
+  height: 541px;
+  label {
+    padding-left: 75.9px;
+    margin-top: 23.9px;
+  }
+  hr {
+    width: 360.3px;
+    border-bottom: solid 1px ${WhiteBorder};
+  }
+`;
+export const DropMenu = styled.ul`
+  margin-top: -13px;
+  margin-left: 74.5px;
+  padding-top: 10px;
+  background-color: ${Blue};
+  width: 362.3px;
+  height: 116px;
+
+  li {
+    color: ${White};
+    padding: 10.2px 0 0 38.4px;
+  }
+  hr {
+    width: 360.3px;
+    border-bottom: solid 1px ${White};
+  }
+  hr:last-child {
+    margin-bottom: 17.2px;
+  }
+`;
+export const WheelProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+`;
+export const CartProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
+export const NotificationProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
+export const HistoricProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
+export const InviteProfile = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  padding-right: 17.4px;
+  margin-top: 10px;
+`;
+export const LabelBottom = styled.div`
+  color: ${GrayText};
+  font-size: 19.8px;
+  label {
+    margin-bottom: 10.7px;
+  }
+`;
+
+//* ***********************Edit
+
+export const EditPhoto = styled.img`
+  height: 104px;
+  width: 104px;
+  margin-top: 20px;
+  display: block;
+  margin-right: auto;
+  margin-left: 150px;
 `;
 export const GreetingEdit = styled.h1`
   display: block;
@@ -65,21 +152,6 @@ export const CenterDiv = styled.div`
   justify-content: center;
   align-items: center;
   margin: auto auto 126.5px auto;
-`;
-export const CenterDivChange = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto auto 33.4px auto;
-`;
-export const ActiveMember = styled.div`
-  margin-left: 80px;
-`;
-export const DivEdit = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
 `;
 export const FormEdit = styled.form`
   height: 100%;
@@ -103,7 +175,6 @@ export const FormEdit = styled.form`
     letter-spacing: normal;
   }
 `;
-
 export const SaveChanges = styled.button`
   background-color: ${YellowButton};
   width: 174.3px;
@@ -116,9 +187,38 @@ export const SaveChanges = styled.button`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  // padding: 0 18px;
   margin: 17.4px auto 100.4px 90px;
   border-radius: 11.9px;
+`;
+export const HeaderEdit = styled.div`
+  width: 100%;
+  height: 112.2px;
+  margin: 0 0 43.8px;
+  padding: 22px 41.3px 21.5px 41px;
+  background-color: ${Blue};
+`;
+export const EditTitle = styled.div`
+  width: 414.2px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Calibril;
+  font-size: 26.6px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: 0.32px;
+  color: ${White};
+  margin-top: 34px;
+`;
+
+// ****************Change Password
+
+export const CenterDivChange = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto 33.4px auto;
 `;
 export const FormChange = styled.form`
   height: 100%;
@@ -145,7 +245,6 @@ export const FormChange = styled.form`
     line-height: 1.2;
     letter-spacing: 0.31px;
     text-align: center;
-    // margin-bottom: 29.7px;
     color: ${Blue};
   }
   input {
@@ -167,21 +266,47 @@ export const FormChange = styled.form`
   }
 `;
 export const Save = styled.button`
-background-color: ${YellowButton};
-width: 174.3px;
-height: 54.6px;
-color: ${Black};
-font-family: Raleway;
-font-size: 16.5px;
-font-weight: normal;
-font-stretch: normal;
-font-style: normal;
-line-height: 1.2;
-letter-spacing: normal;
-// padding: 0 18px;
-margin: auto auto 100.4px 90px;
-border-radius: 11.9px;
-`
+  background-color: ${YellowButton};
+  width: 174.3px;
+  height: 54.6px;
+  color: ${Black};
+  font-family: Raleway;
+  font-size: 16.5px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  margin: auto auto 100.4px 90px;
+  border-radius: 11.9px;
+`;
+export const ChangeTitle = styled.div`
+  width: 414.2px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Calibril;
+  font-size: 26.6px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: 0.32px;
+  color: ${White};
+  margin-top: 34px;
+`;
+
+// ****************Common style
+
+export const ActiveMember = styled.div`
+  margin-left: 80px;
+`;
+export const DivEdit = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+`;
+
 export const BlackBox = styled.div`
   margin: -47.5px 0 10px 16px;
   width: 165.8px;
@@ -253,54 +378,6 @@ export const BuyMember = styled.p`
   width: 155.5px;
   margin-left: 20px;
 `;
-export const Content = styled.div`
-  font-family: Calibril;
-  font-size: 26.6px;
-
-  /*Func of dropdown menu*/
-
-  .drop-item ul,
-  input[type="checkbox"] {
-    display: none;
-  }
-  #menu:checked ~ .multi-level,
-  .drop-item input:checked ~ ul {
-    display: block;
-  }
-`;
-export const Menu = styled.div`
-  margin-top: 90.4px;
-  margin-bottom: 111.8px;
-  height: 541px;
-  label {
-    padding-left: 75.9px;
-    margin-top: 23.9px;
-  }
-  hr {
-    width: 360.3px;
-    border-bottom: solid 1px ${WhiteBorder};
-  }
-`;
-export const DropMenu = styled.ul`
-  margin-top: -13px;
-  margin-left: 74.5px;
-  padding-top: 10px;
-  background-color: ${Blue};
-  width: 362.3px;
-  height: 116px;
-
-  li {
-    color: ${White};
-    padding: 10.2px 0 0 38.4px;
-  }
-  hr {
-    width: 360.3px;
-    border-bottom: solid 1px ${White};
-  }
-  hr:last-child {
-    margin-bottom: 17.2px;
-  }
-`;
 export const ArrowD = styled.img`
   width: 18.5px;
   height: 11.6px;
@@ -315,79 +392,4 @@ export const WheelIcon = styled.img`
   width: 21.2px;
   height: 21.2px;
   display: flex;
-`;
-export const WheelProfile = styled.img`
-  width: 21.2px;
-  height: 21.2px;
-  padding-right: 17.4px;
-`;
-
-export const CartProfile = styled.img`
-  width: 21.2px;
-  height: 21.2px;
-  padding-right: 17.4px;
-  margin-top: 10px;
-`;
-export const NotificationProfile = styled.img`
-  width: 21.2px;
-  height: 21.2px;
-  padding-right: 17.4px;
-  margin-top: 10px;
-`;
-export const HistoricProfile = styled.img`
-  width: 21.2px;
-  height: 21.2px;
-  padding-right: 17.4px;
-  margin-top: 10px;
-`;
-export const InviteProfile = styled.img`
-  width: 21.2px;
-  height: 21.2px;
-  padding-right: 17.4px;
-  margin-top: 10px;
-`;
-
-export const HeaderEdit = styled.div`
-  width: 100%;
-  height: 112.2px;
-  margin: 0 0 43.8px;
-  padding: 22px 41.3px 21.5px 41px;
-  background-color: ${Blue};
-`;
-
-export const EditTitle = styled.div`
-  width: 414.2px;
-  display: flex;
-  justify-content: space-between;
-  font-family: Calibril;
-  font-size: 26.6px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.24;
-  letter-spacing: 0.32px;
-  color: ${White};
-  margin-top: 34px;
-`;
-
-export const ChangeTitle = styled.div`
-  width: 414.2px;
-  display: flex;
-  justify-content: space-between;
-  font-family: Calibril;
-  font-size: 26.6px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.24;
-  letter-spacing: 0.32px;
-  color: ${White};
-  margin-top: 34px;
-`;
-export const LabelBottom = styled.div`
-  color: ${GrayText};
-  font-size: 19.8px;
-  label {
-    margin-bottom: 10.7px;
-  }
 `;

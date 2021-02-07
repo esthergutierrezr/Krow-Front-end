@@ -13,13 +13,13 @@ const EditProfile = () => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("newUser", user);
+    // console.log("newUser", user);
     setEditedUser(user);
   }, [user]);
 
   useEffect(
     (editUser) => {
-      console.log("editedUser", user);
+      // console.log("editedUser", user);
       setUser(user);
     },
     [editedUser]
@@ -30,7 +30,7 @@ const EditProfile = () => {
   };
 
   const editUser = (e) => {
-    console.log("editedUser", editedUser);
+    // console.log("editedUser", editedUser);
     e.preventDefault();
     setUser({ ...editedUser });
   };
