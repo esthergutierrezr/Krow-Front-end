@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 import PackagesAvailable from "./PackagesAvailable";
-import PackageCards from './PackageCards';
+import PackageCards from "./PackageCards";
 
 const PackagesDisplay = () => {
-    return (
-        <div>
-            {PackagesAvailable.map((membership) => (
+  return (
+    <div>
+      {PackagesAvailable.map((membership) => (
         <PackageCards {...membership} />
       ))}
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default PackagesDisplay
+export default PackagesDisplay;
