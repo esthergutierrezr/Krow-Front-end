@@ -12,13 +12,14 @@
       "facilidades": "Coffe, Toilets , Parking",
       "information": "All the info",
       "beneficios": "All the beneficts",
-      "horarios": "Segunda 09:00-20:00 "
+      "horarios": "Segunda 09:00-20:00 ",
+      "rating":5
       },
     {
         "id": 1,
         "name": "Pois Cafe",
-        "lat": 38.71069513919607,
-        "lng": -9.132052936519779,
+        "lat": 41.16354330999724,
+        "lng":  -8.63019546747443,
         "network": "Pois Wifi",
         "password": "aaa34",
         "description": "Located at the beautifull centre, the location offers...",
@@ -26,6 +27,7 @@
       "information": "All the info",
       "beneficios": "All the beneficts",
       "horarios": "Segunda 09:00-20:00 ",
+      "rating":5,
       "image":
         "https://images.unsplash.com/photo-1551023629-106d39e0c145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"
     },
@@ -41,6 +43,7 @@
       "beneficios": "All the beneficts",
       "horarios": "Segunda 09:00-20:00 ",
         "description": "Located at the beautifull centre, the location offers...",
+        "rating":6,
       "image":
       "https://images.unsplash.com/photo-1546971587-02375cbbdade?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"
     }

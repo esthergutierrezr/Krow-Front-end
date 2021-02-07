@@ -1,19 +1,23 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./reset.css";
 import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
 import AuthContextProvider from "./contexts/AuthContext";
+
+import "./helpers/i18n";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </AuthContextProvider>
+    <Suspense fallback={null}>
+      <AuthContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AuthContextProvider>
+    </Suspense>
   </React.StrictMode>,
   document.getElementById("root")
 );
