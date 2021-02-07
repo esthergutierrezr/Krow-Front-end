@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink as Link, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import UserProfile from "./UserProfile";
@@ -23,10 +24,10 @@ import Cart from "../Style/SVG/Profile/SVG_Screen Perfil-02_icon.svg";
 import Historic from "../Style/SVG/Profile/SVG_Screen Perfil-04_icon.svg";
 import Notification from "../Style/SVG/Profile/SVG_Screen Perfil-03_icon.svg";
 import Invite from "../Style/SVG/Profile/SVG_Screen Perfil-05_icon.svg";
-// import { HeadersProfile } from "../Style/Backgrounds";
 
 const Profile = () => {
-  const { user, setUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const { t } = useTranslation(["profile"]);
   const history = useHistory();
 
   return (
@@ -41,17 +42,21 @@ const Profile = () => {
               <input type="checkbox" id="A" />
               <label htmlFor="A">
                 <WheelProfile src={Wheel} alt="settings-wheel" />
-                Account Settings
+                {t("profile:forgetPassword.accountSettings")}
                 <ArrowD src={ArrowDown} alt="arrow drop-menu" />
               </label>
               <hr />
               <DropMenu>
                 <Link to={`/profile/${user.id}/edit`}>
-                  <li className="active">Edit Profile</li>
+                  <li className="active">
+                    {t("profile:forgetPassword.editProfile")}
+                  </li>
                 </Link>
                 <hr />
                 <Link to="/password/change">
-                  <li className="active">Change Password</li>
+                  <li className="active">
+                    {t("profile:forgetPassword.changePassword")}
+                  </li>
                 </Link>
                 <hr />
               </DropMenu>
@@ -60,7 +65,7 @@ const Profile = () => {
           <Link to="/membership">
             <label>
               <CartProfile src={Cart} alt="settings-wheel" />
-              Add a Membership
+              {t("profile:forgetPassword.addMembership")}
             </label>
           </Link>
           <hr />
@@ -68,7 +73,7 @@ const Profile = () => {
           <Link to="/profile/notifications">
             <label>
               <NotificationProfile src={Notification} alt="settings-wheel" />
-              Notifications
+              {t("profile:forgetPassword.notifications")}
             </label>
           </Link>
           <hr />
@@ -76,7 +81,7 @@ const Profile = () => {
           <Link to="/profile/historic">
             <label>
               <HistoricProfile src={Historic} alt="settings-wheel" />
-              Historic
+              {t("profile:forgetPassword.historic")}
             </label>
           </Link>
           <hr />
@@ -85,7 +90,7 @@ const Profile = () => {
             <label>
               {" "}
               <InviteProfile src={Invite} alt="settings-wheel" />
-              Invite a Friend
+              {t("profile:forgetPassword.inviteAFriend")}
             </label>
           </Link>
           <hr />
@@ -106,7 +111,7 @@ const Profile = () => {
                 history.push("/auth/login");
               }}
             >
-              Log Out
+              {t("profile:forgetPassword.logout")}
             </label>
           </LabelBottom>
         </Menu>

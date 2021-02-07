@@ -7,11 +7,15 @@
   font-stretch: normal;
 }
 
-#root{
-  height:100%;
+body {
+  min-height: 100%;
 }
 
-.react-tel-input{
-  opacity: .9;
+#root {
+  height: 100%;
+}
+
+.react-tel-input {
+  opacity: 0.9;
   max-width: 285px;
 }

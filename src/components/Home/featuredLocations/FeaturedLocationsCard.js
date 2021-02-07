@@ -5,7 +5,7 @@ import './featured-locations-carousel.css'
 
 const CarouselCard=(props)=>{
   const {id, img, locationName, rating} = props;
-  console.log(id)
+//  console.log(id)
   return (
     <Link className="carousel-card" to={`/locations/${id}`}>
       <img className="carousel-card__image" src={img} alt="" />

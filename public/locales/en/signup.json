@@ -1,0 +1,11 @@
+{
+  "Email": "Email",
+  "EmailReq": "Your email is required to login later",
+  "PhoneNumber": "Phone Number",
+  "PhoneNumberReq": "Your phone number",
+  "FullName": "Full Name",
+  "FullNameReq": "Your Full Name",
+  "CreatePassword": "Create Password",
+  "CreatePasswordReq": "Password is required",
+  "Register": "Register"
+}

@@ -1,6 +1,7 @@
 /* eslint-disable no-alert */
 import React, { useState, useContext } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Content, DivEdit, FormChange, Save } from "./Styles";
@@ -12,7 +13,7 @@ import "./profile.css";
 const ChangePassword = () => {
   const { user, setUser } = useContext(AuthContext);
   // const [new_password, setPassword] = useState({});
-
+  const { t } = useTranslation(["profile"]);
   const [fields, setFieldChange] = useState({
     password: "",
     oldPassword: user.password,
@@ -70,7 +71,7 @@ const ChangePassword = () => {
               onChange={handleChange}
               type="password"
               name="oldPassword"
-              placeholder="Old Password"
+              placeholder={t("profile:changePassword.old")}
               value={fields.oldPassword}
             />
             <br />
@@ -78,23 +79,23 @@ const ChangePassword = () => {
               onChange={handleChange}
               name="newPassword"
               type="password"
-              placeholder="New Password"
+              placeholder={t("profile:changePassword.new")}
               value={fields.password}
             />
             <br />
             <input
               onChange={handleChange}
               type="password"
-              placeholder="Confirm New Password"
+              placeholder={t("profile:changePassword.confirm")}
               value={fields.confirmPassword}
             />
             <br />
             <Link to="/password/reset">
-              <h2>Forget your Password?</h2>
+              <h2>{t("profile:changePassword.forget")}?</h2>
             </Link>
             <br />
             <Save onClick={() => handleSubmit()} type="submit">
-              Save Changes
+            {t("profile:changePassword.change")}
             </Save>
           </FormChange>
         </DivEdit>
