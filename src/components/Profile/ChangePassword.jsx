@@ -23,7 +23,9 @@ const ChangePassword = () => {
   const history = useHistory();
 
   const handleChange = (event) => {
-    setFieldChange({ [event.target.name]: event.target.value });
+    console.log("name", event.target.name);
+    console.log("value", event.target.value);
+    // setFieldChange({ [event.target.name]: event.target.value });
   };
 
   const changePassword = (event) => {
@@ -36,7 +38,7 @@ const ChangePassword = () => {
       alert("The passwords doesn't match")
     }else{
       const currentPassword = fields.oldPassword;
-      const newPassword = fields.confirmPassword;
+      const newPassword = fields.password;
       const userId = user.id;
       axios
          .post("/password/change", [currentPassword, newPassword, userId])
@@ -77,8 +79,8 @@ const ChangePassword = () => {
             <br />
             <input
               onChange={handleChange}
-              name="newPassword"
               type="password"
+              name="newPassword"
               placeholder={t("profile:changePassword.new")}
               value={fields.password}
             />
@@ -86,6 +88,7 @@ const ChangePassword = () => {
             <input
               onChange={handleChange}
               type="password"
+              name="confirmPassword"
               placeholder={t("profile:changePassword.confirm")}
               value={fields.confirmPassword}
             />

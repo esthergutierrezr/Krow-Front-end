@@ -14,39 +14,25 @@ const EditProfile = () => {
   const [editedUser, setEditedUser] = useState({});
   const history = useHistory();
 
+  // update editedUser when user info loads
   useEffect(() => {
-    // console.log("newUser", user);
     setEditedUser(user);
   }, [user]);
-
-  useEffect(
-    (editUser) => {
-      // console.log("editedUser", user);
-      setUser(user);
-    },
-    [editedUser]
-  );
 
   const handleChange = (event) => {
     setEditedUser({ ...editedUser, [event.target.name]: event.target.value });
   };
 
-  const editUser = (e) => {
-    // console.log("editedUser", editedUser);
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setUser({ ...editedUser });
-  };
-
-  const handleSubmit = () => {
     axios
       .put(`/profile/${id}/edit`, editedUser)
-      // .then((response) => {
-      //   console.log("response", response);
-      // })
+      .then(async (response) => {
+        const user = await setUser(response.data[0]);
+        history.push(`/profile/${id}`);
+      })
       .catch((error) => console.error(error));
     alert("Profile Successfully Updated");
-    history.push(`/profile/${id}`);
-
   };
 
   return (
@@ -54,11 +40,7 @@ const EditProfile = () => {
       <Content>
         <UserEdit />
         <DivEdit>
-          <FormEdit
-            onSubmit={(e) => {
-              editUser(e);
-            }}
-          >
+          <FormEdit onSubmit={(e) => handleSubmit(e)}>
             <input
               onChange={handleChange}
               defaultValue={editedUser.fullName}
@@ -115,8 +97,8 @@ const EditProfile = () => {
               placeholder={t("profile:editProfile.industry")}
             />
             <br />
-            <SaveChanges onClick={() => handleSubmit()} type="submit">
-            {t("profile:editProfile.save")}
+            <SaveChanges type="submit">
+              {t("profile:editProfile.save")}
             </SaveChanges>
           </FormEdit>
         </DivEdit>

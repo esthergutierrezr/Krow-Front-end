@@ -392,6 +392,7 @@ export const WheelIcon = styled.img`
   width: 21.2px;
   height: 21.2px;
   display: flex;
+  padding-right: 10px;
 `;
 
 //************RESET PASSWORD */
