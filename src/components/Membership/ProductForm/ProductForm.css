@@ -1,41 +1,10 @@
 .mbs-promo-code-container {
-  display: flex;
-  justify-content: center;
   margin-bottom: 50.2px;
 }
 
-.mbs-promo-code-input {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  width: 176.3px;
-  height: 38.5px;
-  margin-right: 7.7px;
-}
-
-.mbs-promo-code-input::placeholder {
-  font-family: Raleway;
-  font-size: 13.3px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  color: #181812;
+.mbs-promo-code div {
   text-align: center;
-}
-
-.mbs-promo-code-dark-button {
-  height: 42.5px;
-  font-family: Raleway;
-  font-size: 13.3px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
   color: #ffffff;
-  cursor: pointer;
-  text-align: center;
-  padding-left: 14.7px;
-  padding-right: 14.7px;
 }
 
 .mbs-payment-summary-container {

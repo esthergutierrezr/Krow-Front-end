@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { StyledButton } from "../Style";
 import PackagesAvailable from "../PackagesAvailable";
 import CCards from "../../Style/SVG/Membership/pf.svg";
+import axios from "axios";
 
 import "./ProductForm.css";
 
@@ -13,13 +14,16 @@ const stripePromise = loadStripe(
   "pk_test_51I6HEqA5Jiwwo3yOlA1U4oaHSVxEgJpnZkoYPKhH2LKpWwFTJTnFMJiE3v2L4Et29rcdsUULbFHOeasf4Sp09bKC00MnRbRNl6"
 );
 
-const PaymentSummaryDisplay = () => {
+// ProductForm --> PaymentSummaryDisplay --> PaymentSummaryTemplate
+
+const PaymentSummaryDisplay = (props) => {
+  const { handleClick } = props;
   return (
     <div>
       {PackagesAvailable.map((membership) => {
         return (
           <div>
-            <PaymentSummaryTemplate {...membership} />
+            <PaymentSummaryTemplate {...membership} handleClick={handleClick} />
           </div>
         );
       })}
@@ -27,8 +31,8 @@ const PaymentSummaryDisplay = () => {
   );
 };
 
-const PaymentSummaryTemplate = (props, { handleClick }) => {
-  const { name, taxedPrice, price, validity } = props;
+const PaymentSummaryTemplate = (props) => {
+  const { name, taxedPrice, price, validity, handleClick } = props;
   const [termsAndConditions, setTermsAndConditions] = React.useState(false);
   const [autoRenew, setAutoRenew] = React.useState(true);
   const handleTermsChange = () => {
@@ -55,14 +59,10 @@ const PaymentSummaryTemplate = (props, { handleClick }) => {
             <div className="mbs-validity">{validity}</div>
           </div>
           <div className="mbs-promo-code-container">
-            <input
-              className="mbs-promo-code-input"
-              type="text"
-              placeholder="Código promocional?"
-            />
-            <StyledButton dark className="mbs-promo-code-dark-button">
-              Aplicar
-            </StyledButton>
+            <div>
+              Para aplicar o código promocional clique em detalhes após clicar
+              em Pagamento.
+            </div>
           </div>
           <div className="mbs-payment-summary-container">
             <div className="mbs-payment-summary-element">
@@ -144,11 +144,16 @@ export default function ProductForm() {
     }
   }, []);
   const handleClick = async (event) => {
+    console.log("handleClick has been called");
     const stripe = await stripePromise;
-    const response = await fetch("/stripe-webhook/create-checkout-session", {
-      method: "POST",
-    });
-    const session = await response.json();
+    const response = await axios.post(
+      "/stripe-webhook/create-checkout-session",
+      {
+        // take the language from localstorage or the user info
+        language: "pt", // "localstorage" || "user.language",
+      }
+    );
+    const session = await response.data;
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
       sessionId: session.id,

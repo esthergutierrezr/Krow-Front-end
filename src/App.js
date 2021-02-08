@@ -4,17 +4,17 @@ import Login from "./components/Login/Login";
 import AppRoute from "./AppRoute.jsx";
 import Signup from "./components/Signup/Signup";
 import AuthContextProvider from "./contexts/AuthContext";
-import LocationContextProvider from './contexts/LocationContext'
+import LocationContextProvider from "./contexts/LocationContext";
+import ChooseLanguage from "./components/ChooseLanguage/ChooseLanguage";
 import "./App.css";
 
-
 function App() {
-
   return (
     <div className="App">
       <AuthContextProvider>
         <LocationContextProvider>
           <Switch>
+            <Route path="/choose-language" component={ChooseLanguage} />
             <Route path="/auth/login" component={Login} />
             <Route path="/auth/signup" component={Signup} />
             <Route path="/" component={AppRoute} />
