@@ -58,6 +58,13 @@
 
 .mbs-button {
   margin-top: 26.3px;
+  height: 49.9px;
   display: flex;
   justify-content: center;
+}
+
+.mbs-button a {
+  font-size: 18.3px;
+  padding-left: 55px;
+  padding-right: 55px;
 }

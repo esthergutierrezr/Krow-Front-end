@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import ProductForm from "./ProductForm";
+import ProductForm from "./ProductForm/ProductForm";
 import PackagesDisplay from "./PackagesDisplay/PackagesDisplay";
 import TermsAndConditions from "./TermsAndConditions";
 import AutoRenew from "./AutoRenew";
