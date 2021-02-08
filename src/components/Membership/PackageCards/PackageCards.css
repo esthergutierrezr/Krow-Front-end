@@ -1,0 +1,70 @@
+.mbs-img-container {
+  position: absolute;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: -61.2px;
+  margin-bottom: 24.4px;
+}
+
+.mbs-text-title-container {
+  padding-top: 82.3px;
+  font-family: Raleway;
+  font-size: 14.4px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 37.2px;
+}
+
+.mbs-title {
+  font-size: 37.9px;
+  font-weight: normal;
+}
+
+.mbs-validity {
+  padding-top: 40px;
+}
+
+.mbs-perks {
+  font-family: Raleway;
+  font-size: 15.4px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.84;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  margin-left: 56.4px;
+  text-align: left;
+}
+
+.mbs-perks-img {
+  margin-right: 15.2px;
+}
+
+.mbs-price {
+  font-size: 39.3px;
+  color: #ffffff;
+  margin-top: 26.8px;
+  text-align: center;
+}
+
+.mbs-button {
+  margin-top: 26.3px;
+  height: 49.9px;
+  display: flex;
+  justify-content: center;
+}
+
+.mbs-button a {
+  font-size: 18.3px;
+  padding-left: 55px;
+  padding-right: 55px;
+}

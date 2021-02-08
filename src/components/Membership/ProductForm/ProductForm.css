@@ -1,0 +1,104 @@
+.mbs-promo-code-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50.2px;
+}
+
+.mbs-promo-code-input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 176.3px;
+  height: 38.5px;
+  margin-right: 7.7px;
+}
+
+.mbs-promo-code-input::placeholder {
+  font-family: Raleway;
+  font-size: 13.3px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #181812;
+  text-align: center;
+}
+
+.mbs-promo-code-dark-button {
+  height: 42.5px;
+  font-family: Raleway;
+  font-size: 13.3px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  padding-left: 14.7px;
+  padding-right: 14.7px;
+}
+
+.mbs-payment-summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mbs-payment-summary-element {
+  width: 335.2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: Raleway;
+  font-size: 16.6px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.mbs-line-element {
+  width: 335.2px;
+  height: 4.1px;
+  background-color: #ffffff;
+  margin-bottom: 27.3px;
+  margin-top: 12.2px;
+}
+
+.mbs-checkbox-container {
+  text-align: center;
+}
+
+.mbs-checkbox-element {
+  width: 335.2px;
+  display: inline-block;
+  text-align: left;
+  margin-top: 11.3px;
+  font-family: Raleway;
+  font-size: 11.6px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.mbs-checkbox-element a {
+  font-family: Raleway;
+  font-size: 11.6px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.mbs-payment-btn {
+  cursor: pointer;
+  font-size: 18.3px;
+  padding-left: 55px;
+  padding-right: 55px;
+}
