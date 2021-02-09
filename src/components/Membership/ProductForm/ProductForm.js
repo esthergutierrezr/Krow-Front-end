@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { StyledButton } from "../Style";
 import PackagesAvailable from "../PackagesAvailable";
@@ -38,9 +39,8 @@ const PaymentSummaryTemplate = (props) => {
   const handleTermsChange = () => {
     setTermsAndConditions(!termsAndConditions);
   };
-  const handleRenewChange = () => {
-    setAutoRenew(!autoRenew);
-  };
+
+  const { t } = useTranslation(["membership"]);
   return (
     <div>
       <div className="white-bg"></div>
@@ -55,18 +55,19 @@ const PaymentSummaryTemplate = (props) => {
         </div>
         <div>
           <div className="mbs-text-title-container">
-            <div className="mbs-title">{name}</div>
-            <div className="mbs-validity">{validity}</div>
+            <div className="mbs-title">
+              {t("membership:packagesAvailable.number1.name")}
+            </div>
+            <div className="mbs-validity">
+              {t("membership:packagesAvailable.number1.validity")}
+            </div>
           </div>
           <div className="mbs-promo-code-container">
-            <div>
-              Para aplicar o código promocional clique em Detalhes após clicar
-              em Pagamento.
-            </div>
+            <div>{t("membership:productForm.promoCode")}</div>
           </div>
           <div className="mbs-payment-summary-container">
             <div className="mbs-payment-summary-element">
-              <div>Valor base</div>
+              <div>{t("membership:productForm.baseValue")}</div>
               <div>{price}€</div>
             </div>
             <div className="mbs-line-element"></div>
@@ -76,8 +77,10 @@ const PaymentSummaryTemplate = (props) => {
             </div>
             <div className="mbs-line-element"></div>
             <div className="mbs-payment-summary-element">
-              <div style={{ fontWeight: "bold" }}>Valor total</div>
-              <div>{taxedPrice}€</div>
+              <div style={{ fontWeight: "bold" }}>
+                {t("membership:productForm.total")}
+              </div>
+              <div style={{ fontWeight: "bold" }}>{taxedPrice}€</div>
             </div>
             <div className="mbs-line-element"></div>
           </div>
@@ -89,22 +92,20 @@ const PaymentSummaryTemplate = (props) => {
                 checked={termsAndConditions}
                 onChange={handleTermsChange}
               />
-              Eu concordo com os{" "}
-              <Link to="/membership/terms-and-conditions">
-                <u>Termos & Condições da Krow</u>
-              </Link>
-              .
+              {t("membership:productForm.terms")}{" "}
+              <NavLink
+                className="terms-renew"
+                to="/membership/terms-and-conditions"
+              >
+                {t("membership:productForm.conditions")}
+              </NavLink>
               <br />
               <br />
-              <input
-                type="checkbox"
-                checked={autoRenew}
-                onChange={handleRenewChange}
-              />
-              <Link to="/membership/auto-renew">
-                <u>Auto-renovar</u>
-              </Link>{" "}
-              a minha subscrição
+              <input type="checkbox" checked={autoRenew} />
+              <NavLink className="terms-renew" to="/membership/auto-renew">
+                {t("membership:productForm.renew")}
+              </NavLink>
+              {t("membership:productForm.subscription")}
             </div>
           </div>
           <div className="mbs-button">
@@ -116,7 +117,7 @@ const PaymentSummaryTemplate = (props) => {
               onClick={handleClick}
               disabled={!termsAndConditions ? true : false}
             >
-              Pagamento
+              {t("membership:productForm.pay")}
             </StyledButton>
           </div>
         </div>
