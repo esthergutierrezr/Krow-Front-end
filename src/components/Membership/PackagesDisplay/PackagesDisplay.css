@@ -5,7 +5,25 @@
 
 .color-bg {
   background-color: #08726c;
-  height: 120vh;
+  height: 100vh;
   font-family: Raleway;
   width: 100%;
+}
+
+@media only screen and (max-width: 390px) {
+  .color-bg {
+    height: 120vh;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .color-bg {
+    height: 118vh;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .color-bg {
+    height: 170vh;
+  }
 }

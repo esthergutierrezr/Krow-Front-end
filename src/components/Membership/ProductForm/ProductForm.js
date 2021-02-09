@@ -60,7 +60,7 @@ const PaymentSummaryTemplate = (props) => {
           </div>
           <div className="mbs-promo-code-container">
             <div>
-              Para aplicar o código promocional clique em detalhes após clicar
+              Para aplicar o código promocional clique em Detalhes após clicar
               em Pagamento.
             </div>
           </div>

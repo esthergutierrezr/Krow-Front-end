@@ -1,10 +1,9 @@
 .mbs-promo-code-container {
   margin-bottom: 50.2px;
-}
-
-.mbs-promo-code div {
   text-align: center;
   color: #ffffff;
+  font-family: Raleway;
+  font-size: 16.6px;
 }
 
 .mbs-payment-summary-container {
@@ -70,4 +69,16 @@
   font-size: 18.3px;
   padding-left: 55px;
   padding-right: 55px;
+}
+
+@media only screen and (max-width: 330px) {
+  .mbs-payment-summary-element {
+    width: 300.2px;
+  }
+  .mbs-line-element {
+    width: 300.2px;
+  }
+  .mbs-checkbox-element {
+    width: 300.2px;
+  }
 }
