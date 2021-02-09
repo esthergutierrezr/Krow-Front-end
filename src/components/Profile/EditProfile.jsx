@@ -6,6 +6,8 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Content, FormEdit, DivEdit, SaveChanges } from "./Styles";
 import UserEdit from "./UserEdit";
+import {config} from "../../helpers/auth"
+
 
 const EditProfile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -26,7 +28,7 @@ const EditProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`/profile/${id}/edit`, editedUser)
+      .put(`/profile/${id}/edit`, editedUser, config)
       .then(async (response) => {
         const user = await setUser(response.data[0]);
         history.push(`/profile/${id}`);

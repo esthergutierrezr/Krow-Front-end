@@ -27,8 +27,13 @@ import Invite from "../Style/SVG/Profile/SVG_Screen Perfil-05_icon.svg";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  const { t } = useTranslation(["profile"]);
+  const { t, i18n } = useTranslation(["profile"]);
   const history = useHistory();
+
+  const changeLanguage = (code) => {
+      i18n.changeLanguage(code);
+      window.location.href = `/profile/${user.id}`;
+    };
 
   return (
     <div className="bg-white-profile">
@@ -48,9 +53,7 @@ const Profile = () => {
               <hr />
               <DropMenu>
                 <Link to={`/profile/${user.id}/edit`}>
-                  <li className="active">
-                    {t("profile:profile.editProfile")}
-                  </li>
+                  <li className="active">{t("profile:profile.editProfile")}</li>
                 </Link>
                 <hr />
                 <Link to="/password/change">
@@ -96,9 +99,15 @@ const Profile = () => {
           <hr />
           <LabelBottom>
             <br />
-            <Link to="/choose-language">
-              <label>{t("profile:profile.changeLanguage")}</label>
-            </Link>
+            {/* <Link to="/choose-language"> */}
+            <label
+              onClick={() => {
+                changeLanguage("en");
+              }}
+            >
+              {t("profile:profile.changeLanguage")}
+            </label>
+            {/* </Link> */}
             <br />
             <br />
             <label

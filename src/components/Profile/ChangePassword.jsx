@@ -8,22 +8,22 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Content, DivEdit, FormChange, Save } from "./Styles";
 import UserChange from "./UserChange";
 import "./profile.css";
-
+import {config} from "../../helpers/auth"
 // body of backend current_password, new_password, user_id
 
 const ChangePassword = () => {
   const { user } = useContext(AuthContext);
   const { t } = useTranslation(["profile"]);
-  // const [newPassword, setPassword] = useState({});
-  const [fields, setFieldChange] = useState({
-    newPassword: "",
-    oldPassword: "",
-    confirmPassword: "",
-  });
+  const [newPassword, setNewPassword] = useState("");
+  // const [fields, setFieldChange] = useState({
+  //   newPassword: "",
+  //   oldPassword: "",
+  //   confirmPassword: "",
+  // });
   const id = Number(user.id);
   const history = useHistory();
   const { register, errors, handleSubmit, watch } = useForm({});
-  // const password = useRef("");
+  // const password = useRef({});
   // password.current = watch("newPassword", "");
 
   // fields that i need to backend
@@ -40,23 +40,23 @@ const ChangePassword = () => {
   };
 
   // ******try 3
-  const onSubmit = (event, data) => {
+  const onSubmit = (data) => {
     console.log("data: ", data);
-    // event.preventDefault();
+    // console.log("event: ", event);
+    axios
+      .put("/password/change", {
+        currentPassword: data.oldPassword,
+        newPassword: data.confirmPassword,
+        userId: id
 
-    // const currentPassword = fields.oldPassword;
-    // const newPassword = fields.password;
-    // const userId = id;
-
-    // axios
-    //   .put("/password/change", [currentPassword, newPassword, userId])
-    //   .then(async (response) => {
-    //     console.log("response: ", response);
-    //     // const user = await setUser(response.data[0]);
-    //     // history.push(`/profile/${id}`);
-    //   })
+      }, config)
+      .then(async (response) => {
+        console.log("response: ", response);
+        // const user = await setUser(response.data[0]);
+        history.push(`/profile/${id}`);
+      })
     //   .catch((error) => console.error(error));
-    // alert("Password has been Changed Successfully");
+    alert("Password has been Changed Successfully");
   };
 
   return (
@@ -67,21 +67,20 @@ const ChangePassword = () => {
           <FormChange onSubmit={handleSubmit(onSubmit)}>
             <h1>Password</h1>
             <input
-              onChange={handleChange}
+              // onChange={handleChange}
               type="password"
               name="oldPassword"
               placeholder={t("profile:changePassword.old")}
-              value={fields.oldPassword}
-              // ref={register({ required: true })}
-              // ref={register({ required: true, validate: (value) => value === user.password || "This password do not match with your old password" })}
+              // value={oldPassword}
+              ref={register({ required: true })}
             />
             <br />
             <input
               name="newPassword"
               placeholder={t("profile:changePassword.new")}
-              onChange={handleChange}
-              type="password"
-              value={fields.newPassword}
+              onChange={(event) => setNewPassword(event.target.value)}
+              type="input"
+              value={newPassword}
               ref={register({
                 minLength: 8,
                 required: true,
@@ -93,24 +92,27 @@ const ChangePassword = () => {
             <input
               name="confirmPassword"
               placeholder={t("profile:changePassword.confirm")}
-              onChange={handleChange}
-              type="password"
-              value={fields.confirmPassword}
+              // onChange={handleChange}
+              type="input"
               ref={register({
                 required: true,
-                validate: (value) => console.log("Confirm value:",value, "objective:",password.current) 
-                   || "The passwords do not match",
+                validate: {
+                  asyncValidate: async (value) =>
+                    (await value) === newPassword ||
+                    "The passwords do not match",
+                },
               })}
-              // value === password.current
             />
-            {errors.newPassword && <p>Password must have at least 8 characters</p>}
-            {errors.confirmPassword && <p>The passwords do not match</p>}
+            {errors.newPassword && (
+              <p>
+                Password must have at least 8 characters, 1 special character
+                and 1 number{" "}
+              </p>
+            )}
+            {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
             <br />
             <Link to="/password/reset">
-              <h2>
-                {t("profile:changePassword.forget")}
-                ?
-              </h2>
+              <h2>{t("profile:changePassword.forget")}?</h2>
             </Link>
             <br />
             <Save type="submit">{t("profile:changePassword.change")}</Save>
