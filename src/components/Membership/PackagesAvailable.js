@@ -8,7 +8,6 @@ const PackagesAvailable = [
     image: MembershipHome,
     taxedPrice: "89",
     price: "72.36",
-    dailyCost: "Less than 4€ per day",
     validity: "*Válida por 30 dias desde a data da compra",
     perks: [
       {

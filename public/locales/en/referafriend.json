@@ -1,0 +1,15 @@
+{
+  "header": {
+    "title": "Refer a Friend",
+    "discount": "Offer a discount of 25%"
+  },
+  "paragraphs": {
+    "first": "Share the code below with a friend and the first subscription to a 25% discount will be applied.",
+    "second": "In your case, for every friend you invite and subscribe, you will earn 1 point.",
+    "third": "When you reach 5 points, and for actively participating in the community, we will have something (really) very special for you."
+  },
+  "button": {
+      "copy": "Copy",
+      "share": "Share"
+  }
+}

@@ -1,9 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import "./AutoRenew.css";
 
 const AutoRenew = () => {
+  const { t } = useTranslation(["membership"]);
+
   return (
     <div>
       <div className="white-bg conditions-header">
@@ -19,7 +22,9 @@ const AutoRenew = () => {
             </svg>
           </Link>
         </div>
-        <div className="conditions-header-title">Auto-Renew Policy</div>
+        <div className="conditions-header-title">
+          {t("membership:termsRenew.renew.title")}
+        </div>
       </div>
       <div className="conditions-text-body">
         <div className="conditions-paragraph-title">Paragraph Number One:</div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { StyledButton } from "../Style";
 
@@ -6,6 +7,7 @@ import "./PackageCards.css";
 
 const PackageCards = (props) => {
   const { name, image, taxedPrice, validity, perks } = props;
+  const { t } = useTranslation(["membership"]);
   return (
     <div>
       <div className="mbs-img-container">
@@ -13,13 +15,17 @@ const PackageCards = (props) => {
       </div>
       <div>
         <div className="mbs-text-title-container">
-          <div className="mbs-title">{name}</div>
-          <div className="mbs-validity">{validity}</div>
+          <div className="mbs-title">
+            {t("membership:packagesAvailable.number1.name")}
+          </div>
+          <div className="mbs-validity">
+            {t("membership:packagesAvailable.number1.validity")}
+          </div>
         </div>
         <div>
           <div>
             {perks.map((perk) => (
-              <li key={perk.id}>
+              <li className="mbs-perks-li" key={perk.id}>
                 <div className="mbs-perks">
                   <img
                     className="mbs-perks-img"
@@ -28,13 +34,16 @@ const PackageCards = (props) => {
                     width="15px"
                     alt="CheckBox"
                   />
-                  {perk.description}
+                  {t(`membership:packagesAvailable.number1.perks.${perk.id}`)}
                 </div>
               </li>
             ))}
           </div>
         </div>
-        <div className="mbs-price">{taxedPrice}€/mês</div>
+        <div className="mbs-price">
+          {taxedPrice}
+          {t("membership:packageCards.taxedPrice")}
+        </div>
         <div className="mbs-button">
           <StyledButton>
             <Link
@@ -42,7 +51,7 @@ const PackageCards = (props) => {
               to="/membership/payment-summary"
               style={{ textDecoration: "none", color: "#65493e" }}
             >
-              Subscrever
+              {t("membership:packageCards.subscribe")}
             </Link>
           </StyledButton>
         </div>

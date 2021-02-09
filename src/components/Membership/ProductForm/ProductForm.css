@@ -64,6 +64,11 @@
   color: #ffffff;
 }
 
+.terms-renew {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
 .mbs-payment-btn {
   cursor: pointer;
   font-size: 18.3px;

@@ -14,11 +14,11 @@ function App() {
       <AuthContextProvider>
         <LocationContextProvider>
           <Switch>
-            <Route
+            {/*<Route
               exact
               path="/"
               component={() => <Redirect to="/choose-language" />}
-            />
+            />*/}
             <Route path="/choose-language" component={ChooseLanguage} />
             <Route path="/auth/login" component={Login} />
             <Route path="/auth/signup" component={Signup} />

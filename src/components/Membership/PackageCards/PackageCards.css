@@ -31,6 +31,10 @@
   padding-top: 40px;
 }
 
+.mbs-perks-li {
+  list-style: none;
+}
+
 .mbs-perks {
   font-family: Raleway;
   font-size: 15.4px;
