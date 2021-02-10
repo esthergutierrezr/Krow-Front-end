@@ -29,7 +29,6 @@ export const LogoShare = styled.img`
 const Content = styled.div`
   width: 100%;
   height: auto;
-  margin-bottom: 21.1px;
   .text-refer {
     padding-top: 167px;
     display: block;
@@ -79,7 +78,7 @@ const Content = styled.div`
   }
   .bgRed {
     background-color: ${Red};
-    height: 90vh;
+    height: 80vh;
   }
 `;
 
@@ -107,13 +106,14 @@ export const ButtonCopy = styled.button`
 export const ButtonCode = styled.input`
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: ${White};
   border-radius: 10px;
   border: hidden;
   margin-left: 121.9px;
   margin-right: auto;
   margin-top: 17.4px;
-  padding-left:38px;
+  // padding-left:38px;
   width: 109.2px;
   height:39.9px;
   color: ${Black};
