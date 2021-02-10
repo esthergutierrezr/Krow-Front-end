@@ -65,8 +65,23 @@ const BottomNav = () => {
         homeSrc: GreyKrow,
         profileSrc: OrangeProfile,
       });
+    } else if (location.pathname === `/profile/${user.id}/edit`) {
+        setActiveLink({
+          locationsSrc: GreyLaptop,
+          inviteSrc: GreyInvite,
+          homeSrc: GreyKrow,
+          profileSrc: OrangeProfile,
+        });
       //  console.log("location pathname:", location.pathname);
-    }
+    } else if (location.pathname === "/password/change") {
+    setActiveLink({
+      locationsSrc: GreyLaptop,
+      inviteSrc: GreyInvite,
+      homeSrc: GreyKrow,
+      profileSrc: OrangeProfile,
+    });
+  //  console.log("location pathname:", location.pathname);
+}
   };
 
   return (

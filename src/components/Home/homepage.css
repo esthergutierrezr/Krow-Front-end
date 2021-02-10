@@ -82,7 +82,6 @@
   height: 173.4px;
   margin: 44.6px 50.7px 43.6px 32.4px;
   border-radius: 10px;
-  /* padding: 18.2px 33.5px 16.6px 33.3px; */
   box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #a73f25;
   font-family: Raleway;
@@ -100,7 +99,6 @@
   height: 173.4px;
   margin: 43.8px 0px 43.6px 51px;
   border-radius: 10px;
-  /*padding: 19.5px 29.2px 16.6px 28.1px; */
   box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #08726c;
   font-family: Raleway;
@@ -135,13 +133,14 @@
 }
 
 .bg-white{
-  position: absolute;
-  margin-top: -50px;
-  width: 100vw;
-  min-height: 100vh;
+  position: absolute; 
+  width: 100%;
+  height: auto;
+  min-height: 125vh;
   align-self: center;
   background-size:cover;
-  background-image: url("../Style/bg/white_wall.png");
+  background-image: url("../Style/bg/white_wall.png") ; 
+  margin-top: -50px;
 }
 
 h2{

@@ -5,7 +5,7 @@
     "new": "New Password",
     "confirm": "Confirm New Password",
     "forget": "Forget Password"
-  },
+  }, 
   "editProfile": {
     "edit": "Edit Profile",
     "firstLastName": "First and last name",

@@ -110,8 +110,8 @@ export const ButtonCode = styled.input`
   background-color: ${White};
   border-radius: 10px;
   border: hidden;
-  margin-left: 121.9px;
-  margin-right: auto;
+  // margin-left: 121.9px;
+  // margin-right: auto;
   margin-top: 17.4px;
   // padding-left:38px;
   width: 109.2px;
@@ -126,22 +126,27 @@ export const ButtonCode = styled.input`
   letter-spacing: normal;
   }
 `;
-export const ButtonShare = styled.button`
-  background-color: ${BlackButton};
-  border-radius: 10px;
-  border: hidden;
-  margin-left: 121.9px;
-  margin-right: auto;
-  margin-top:19.6px;
-  margin-bottom:21.1px;
-  width: 237.7px;
-  height:58.5px;
-  color: ${White};
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
+export const DivButtons = styled.div`
+  text-align: center;
 `;
+// export const ButtonShare = styled.button`
+//   background-color: ${BlackButton};
+//   border-radius: 10px;
+//   border: hidden;
+//   margin-left: 121.9px;
+//   margin-right: auto;
+//   margin-top:19.6px;
+//   margin-bottom:21.1px;
+//   width: 237.7px;
+//   height:58.5px;
+//   color: ${White};
+//   display: inline-flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+// `;
+
+
 
 const ReferFriend = () => {
   const { t } = useTranslation(["referafriend"]);
@@ -172,10 +177,12 @@ const ReferFriend = () => {
           <p>{t("referafriend:paragraphs.second")}</p>
           <p>{t("referafriend:paragraphs.third")}</p>
         </div>
-        <ButtonCode ref={textAreaRef} type="text" value="Krow21" />
-        <ButtonCopy type="button" onClick={copyToClipboard}>
-          {t("referafriend:button.copy")}
-        </ButtonCopy>
+        <DivButtons>
+          <ButtonCode ref={textAreaRef} type="text" value="Krow21" />
+          <ButtonCopy type="button" onClick={copyToClipboard}>
+            {t("referafriend:button.copy")}
+          </ButtonCopy>
+        </DivButtons>
         <br />
         {/* <ButtonShare type="button" onClick={() => Share()}>
           <LogoShare src={ShareCode} alt="share-code" />

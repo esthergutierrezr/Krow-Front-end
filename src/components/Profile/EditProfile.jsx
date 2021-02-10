@@ -6,8 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Content, FormEdit, DivEdit, SaveChanges } from "./Styles";
 import UserEdit from "./UserEdit";
-import {config} from "../../helpers/auth"
-
+import { config } from "../../helpers/auth";
 
 const EditProfile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -38,7 +37,7 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="bg-white-profile">
+    <div className="bg-white-profile" >
       <Content>
         <UserEdit />
         <DivEdit>

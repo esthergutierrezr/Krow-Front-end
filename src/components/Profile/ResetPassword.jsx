@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -24,7 +25,8 @@ const ResetPassword = () => {
       })
       .then(async (response) => {
         console.log("response: ", response);
-        history.push(`/profile/${id}`);
+        Cookies.remove("authToken");
+        history.push("/auth/login");
       })
       .catch((error) => console.error(error));
     alert("A new Password has been send to your Email");

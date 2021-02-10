@@ -34,7 +34,7 @@ const Profile = () => {
       i18n.changeLanguage(code);
       window.location.href = `/profile/${user.id}`;
     };
-
+ 
   return (
     <div className="bg-white-profile">
       <UserProfile />
