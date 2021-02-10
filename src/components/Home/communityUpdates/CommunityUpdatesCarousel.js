@@ -46,7 +46,6 @@ const Carousel = () => {
       settings: {
         centerMode: true,
         slidesToShow: 1,
-        arrows: true,
         slidesToScroll: 1,
       }
     },

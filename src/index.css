@@ -19,3 +19,8 @@ body {
   opacity: 0.9;
   max-width: 285px;
 }
+
+.widget-app-container{
+  margin-right: 36vw !important;
+  left: auto !important;
+}

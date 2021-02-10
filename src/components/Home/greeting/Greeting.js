@@ -9,9 +9,9 @@ function Greeting() {
   const { user } = useContext(AuthContext)
 
   return (
-    <div>
+    <React.Fragment>
       {user ? <UserGreeting {...user} /> : <GuestGreeting />}
-    </div>
+    </React.Fragment>
   );
 }
 
