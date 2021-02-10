@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 import React, { useState, useContext } from "react";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useHistory, Link } from "react-router-dom";
@@ -7,96 +8,101 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Content, DivEdit, FormChange, Save } from "./Styles";
 import UserChange from "./UserChange";
 import "./profile.css";
-
+import { config } from "../../helpers/auth";
 // body of backend current_password, new_password, user_id
 
 const ChangePassword = () => {
-  const { user, setUser } = useContext(AuthContext);
-  // const [new_password, setPassword] = useState({});
+  const { user } = useContext(AuthContext);
   const { t } = useTranslation(["profile"]);
-  const [fields, setFieldChange] = useState({
-    password: "",
-    oldPassword: user.password,
-    confirmPassword: "",
-  });
+  const [newPassword, setNewPassword] = useState("");
+  // const [fields, setFieldChange] = useState({
+  //   newPassword: "",
+  //   oldPassword: "",
+  //   confirmPassword: "",
+  // });
   const id = Number(user.id);
   const history = useHistory();
+  const { register, errors, handleSubmit } = useForm({});
 
-  const handleChange = (event) => {
-    setFieldChange({ [event.target.name]: event.target.value });
-  };
-
-  const changePassword = (event) => {
-      event.preventDefault();
-      setFieldChange({ oldPassword: event.target.value, confirmPassword: event.target.value });
-    }
-
-  const handleSubmit = (event) => {
-    if (fields.password !== fields.confirmPassword){
-      alert("The passwords doesn't match")
-    }else{
-      const currentPassword = fields.oldPassword;
-      const newPassword = fields.confirmPassword;
-      const userId = user.id;
-      axios
-         .post("/password/change", [currentPassword, newPassword, userId])
-         .catch((error) => console.error(error)); // The form will submit
-    }
+  // ******try 3
+  const onSubmit = (data) => {
+    console.log("data: ", data);
+    // console.log("event: ", event);
+    axios
+      .put(
+        "/password/change",
+        {
+          currentPassword: data.oldPassword,
+          newPassword: data.confirmPassword,
+          userId: id,
+        },
+        config
+      )
+      .then(async (response) => {
+        console.log("response: ", response);
+        history.push(`/profile/${id}`);
+      })
+      .catch((error) => console.error(error));
     alert("Password has been Changed Successfully");
-    history.push(`/profile/${id}`);
   };
-  // const handleSubmit = () => {
-  //   axios
-  //     .post("/password/change", new_password)
-  //     .then((response) => {
-  //       // console.log("response",response);
-  //     })
-  //     .catch((error) => console.error(error));
-  //   alert("Password has been Changed Successfully");
-  //   history.push(`/profile/${id}`);
-  // };
 
   return (
     <div className="bg-white-profile">
       <Content>
         <UserChange />
         <DivEdit>
-          <FormChange
-            onSubmit={(event) => {
-              changePassword(event);
-            }}
-          >
+          <FormChange onSubmit={handleSubmit(onSubmit)}>
             <h1>Password</h1>
             <input
-              onChange={handleChange}
+              // onChange={handleChange}
               type="password"
               name="oldPassword"
               placeholder={t("profile:changePassword.old")}
-              value={fields.oldPassword}
+              // value={oldPassword}
+              ref={register({ required: true })}
             />
             <br />
             <input
-              onChange={handleChange}
               name="newPassword"
-              type="password"
               placeholder={t("profile:changePassword.new")}
-              value={fields.password}
+              onChange={(event) => setNewPassword(event.target.value)}
+              type="input"
+              value={newPassword}
+              ref={register({
+                minLength: 8,
+                required: true,
+                pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
+                // message: "Password must have at least 8 characters",
+              })}
             />
             <br />
             <input
-              onChange={handleChange}
-              type="password"
+              name="confirmPassword"
               placeholder={t("profile:changePassword.confirm")}
-              value={fields.confirmPassword}
+              // onChange={handleChange}
+              type="input"
+              ref={register({
+                required: true,
+                validate: {
+                  asyncValidate: async (value) =>
+                    (await value) === newPassword ||
+                    "The passwords do not match",
+                },
+              })}
             />
+            {errors.newPassword && (
+              <p>
+                Password must have at least 8 characters, 1 special character
+                and 1 number{" "}
+              </p>
+            )}
+            {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
             <br />
             <Link to="/password/reset">
               <h2>{t("profile:changePassword.forget")}?</h2>
             </Link>
             <br />
-            <Save onClick={() => handleSubmit()} type="submit">
-            {t("profile:changePassword.change")}
-            </Save>
+            <Save type="submit">{t("profile:changePassword.change")}</Save>
           </FormChange>
         </DivEdit>
       </Content>

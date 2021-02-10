@@ -8,6 +8,7 @@ import MainProfile from "./components/Profile/MainProfile";
 import ChangePassword from "./components/Profile/ChangePassword";
 import ResetPassword from "./components/Profile/ResetPassword";
 import ReferFriend from "./components/Profile/ReferFriend";
+import ForgetPassword from "./components/Login/ForgetPassword"
 // import { AuthContext } from "./contexts/AuthContext";
 
 // const ProtectedRoute = ({ component: Component, ...rest }) => {
@@ -32,6 +33,7 @@ function AppRoute() {
         <Route path="/membership" component={Membership} />
         <Route path="/invite" component={ReferFriend} />
         <Route path="/profile" component={MainProfile} />
+        <Route path="/password/forget" component={ForgetPassword} />
         <Route path='/password/change' component={ChangePassword} />
         <Route path='/password/reset' component={ResetPassword} />
         {/* 
