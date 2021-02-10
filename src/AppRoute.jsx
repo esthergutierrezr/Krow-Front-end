@@ -9,6 +9,7 @@ import ChangePassword from "./components/Profile/ChangePassword";
 import ResetPassword from "./components/Profile/ResetPassword";
 import ReferFriend from "./components/Profile/ReferFriend";
 import ForgetPassword from "./components/Login/ForgetPassword"
+import LiveChat from "./components/Navigation/LiveChat"
 // import { AuthContext } from "./contexts/AuthContext";
 
 // const ProtectedRoute = ({ component: Component, ...rest }) => {
@@ -45,6 +46,7 @@ function AppRoute() {
         <Redirect to="/" />
       </Switch>
       <BottomNav />
+      <LiveChat />
     </div>
   );
 }

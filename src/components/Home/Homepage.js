@@ -22,8 +22,8 @@ const Homepage = () => {
   return (
     <div homepage>
       <HeadersBg>
-      <h2 className="welcome">{t("homepage:homePage.WelcomeToKrow")}</h2>
-      <Greeting />
+        <h2 className="welcome">{t("homepage:homePage.WelcomeToKrow")}</h2>
+        <Greeting />
       </HeadersBg>
       <div className="bg-white">
         <CTAButtons />
@@ -32,7 +32,7 @@ const Homepage = () => {
         <p className="home__featured-locations">
           <h2>{t("homepage:homePage.FeaturedLocations")}</h2>
           <Link id="home__view-all-locations" to="/locations">
-          {t("homepage:homePage.viewAll")}
+            {t("homepage:homePage.viewAll")}
           </Link>
         </p>
         <FeaturedLocations />
