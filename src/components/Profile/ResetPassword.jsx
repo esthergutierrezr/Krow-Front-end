@@ -41,7 +41,7 @@ const ResetPassword = () => {
       <br />
       <ResetDiv onSubmit={handleSubmit(onSubmit)}>
         <h1>Forget your Password?</h1>
-        <p>Enter your associated email to your Krow account</p>
+        <p>Confirm your associated email to your Krow account. If not use Support Chat.</p>
         <input
           name="email"
           type="email"
@@ -49,6 +49,7 @@ const ResetPassword = () => {
           ref={register({
             required: true,
           })}
+          value={user.email}
         />
         <SendEmail type="submit">Send Replacement Password</SendEmail>
       </ResetDiv>
