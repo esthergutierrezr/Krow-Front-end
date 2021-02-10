@@ -30,7 +30,7 @@ const Carousel = () => {
     initialSlide: 0,
     padding: "30px",
     swipeToSlide: true,
-    arrows: true,
+    arrows: false,
     responsive: [
     {
       breakpoint: 1024,

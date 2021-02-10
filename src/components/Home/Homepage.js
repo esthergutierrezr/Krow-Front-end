@@ -13,10 +13,6 @@ import StarRating from "../Reusable/StarRating";
 
 const Homepage = () => {
 
-  const locationId = 24;
-  const amountVotes = 10;
-  const ratingAVG = 4;
-
   const { user } = useContext(AuthContext);
   const { t } = useTranslation(["homepage"]);
   return (
@@ -38,7 +34,6 @@ const Homepage = () => {
         <FeaturedLocations />
         <ImportantMessage />
       </div> 
-      <StarRating amountVotes={amountVotes} ratingAVG={ratingAVG} location_id={locationId} />
     </div>
   );
 };

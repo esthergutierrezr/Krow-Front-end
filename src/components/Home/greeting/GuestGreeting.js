@@ -5,7 +5,6 @@ import ProfilePicture from "../../Style/SVG/HomePage/SVG_Screen Registar-01.svg"
 
 function GuestGreeting() {
 
-  // Some endpoints don't exist yet --> register
   const { t } = useTranslation(["homepage"]);
 
   return (

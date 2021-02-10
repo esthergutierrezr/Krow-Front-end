@@ -9,15 +9,15 @@ function CTAButtons() {
   return (
     <div className="home__ctabuttons">
       <Link to="/membership">
-        <div className="subscribe">
+        <div className="cta-background" id="subscribe">
           <img className="ctabuttons__button" src={Subscribe} />
         <p>{t("homepage:CTAButtons.Subscribe")}</p>
         </div>
         </Link>
       <Link to="/invite">
-        <div className="invite">
+        <div className="cta-background" id="invite">
           <img className="ctabuttons__button" src={Invite} alt="refer a friend" />
-        <p>{t("homepage:CTAButtons.Invite")}</p>
+          <p>{t("homepage:CTAButtons.Invite")}</p>
         </div>
         </Link>
     </div>

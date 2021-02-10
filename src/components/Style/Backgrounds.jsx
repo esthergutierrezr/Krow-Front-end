@@ -4,7 +4,7 @@ import Laptop from "./bg/computer-bg.png";
 import { Black, HeaderGrey, Red, Blue } from "./Colors";
 
 export const HeadersBg = styled.div`
-  width: 100%;
+  max-width: 100%;
   height: 112.2px;
   margin: 0 0 43.8px;
   padding: 22px 41.3px 21.5px 41px;

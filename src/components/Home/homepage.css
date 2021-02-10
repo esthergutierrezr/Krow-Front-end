@@ -56,6 +56,7 @@
   justify-content: space-between;
   margin:10px;
   margin-right:20px;
+  max-width: 100%;
 }
 .profile-picture{
   width: 88.7px;
@@ -70,46 +71,39 @@
 
 .ctabuttons__button {
   position: relative;
-  width: 105.8px;
-  height: 100.9px;
-  margin: 18.2px 0 11.9px; 
+  width: 50%;
+  height: 50%;
 }
 
-.invite{
+.cta-background{
+  display:flex;
   justify-content: center;
   align-items: center;
-  width: 173.4px;
-  height: 173.4px;
+  position: relative;
+  width: 25vw;
+  height: 25vw;
   margin: 44.6px 50.7px 43.6px 32.4px;
   border-radius: 10px;
   box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #a73f25;
   font-family: Raleway;
-  font-size: 21.4px;
+  font-size: 4vw;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-align: center;
+  text-align: center; 
   color: #ffffff;
 }
-.subscribe{
-  width: 173.4px;
-  height: 173.4px;
-  margin: 43.8px 0px 43.6px 51px;
-  border-radius: 10px;
-  box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+
+.cta-background p{
+  position: absolute;
+  bottom: 4%;
+}
+
+#subscribe{
   background-color: #08726c;
-  font-family: Raleway;
-  font-size: 21.4px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-align: center;
-  color: #ffffff;
 }
 
 .home__featured-locations{
@@ -147,3 +141,8 @@ h2{
   font-size: 20px;
   font-weight: 600;
 }
+
+/* @media screen and (max-width: 480px) {
+
+
+} */
