@@ -1,0 +1,42 @@
+{
+  "packagesAvailable": {
+    "number1": {
+      "name": "Monthly Subscription",
+      "checkIns": "Unlimited Check-ins",
+      "validity": "*Valid for 30 days after the purchase",
+      "perks": {
+        "1": "Unlimited Check-ins in premium locations",
+        "2": "Unlimited coffee, tea and water",
+        "3": "Free Wi-Fi",
+        "4": "Dedicated spot, plugs available",
+        "5": "20% discount of in food and beverages",
+        "6": "Free parking or with discount",
+        "7": "Meeting rooms with special features",
+        "8": "Exclusive 'lifestyle' perks",
+        "9": "Access to a distinct community"
+      }
+    }
+  },
+  "packageCards": {
+    "taxedPrice": "€/month",
+    "subscribe": "Subscribe"
+  },
+  "productForm": {
+    "promoCode": "To use the promotional code click on Details after you press Pay.",
+    "baseValue": "Base value",
+    "total": "Total",
+    "terms": "I agree with ",
+    "conditions": "Krows Terms & Conditions.",
+    "renew": "Auto-renew",
+    "subscription": " my subscription.",
+    "pay": "Pay"
+  },
+  "termsRenew": {
+      "terms": {
+          "title": "Terms & Conditions"
+      },
+      "renew": {
+          "title": "Auto-Renew Policy"
+      }
+  }
+}

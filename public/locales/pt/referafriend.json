@@ -1,0 +1,15 @@
+{
+  "header": {
+    "title": "Convide um Amigo",
+    "discount": "Ofereça um desconto de 25%!"
+  },
+  "paragraphs": {
+    "first": "Partilhe o código abaixo com um amigo e à primeira subscrição do mesmo será aplicado um desconto de 25%.",
+    "second": "No seu caso, por cada amigo que convidar e que subscreva, irá ganhar 1 ponto. ",
+    "third": "Quando atingir 5 pontos, e por participar ativamente na comunidade, teremos algo (mesmo) muito especial para si."
+  },
+  "button": {
+      "copy": "Copiar",
+      "share": "Partilhar"
+  }
+}

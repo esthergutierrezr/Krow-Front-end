@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.0.2",
+    "@stripe/react-stripe-js": "^1.2.2",
+    "@stripe/stripe-js": "^1.12.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -12,6 +14,7 @@
     "google-map-react": "^2.1.9",
     "google-maps-react": "^2.0.6",
     "i18next": "^19.8.5",
+    "i18next-browser-languagedetector": "^6.0.1",
     "i18next-xhr-backend": "^3.2.2",
     "js-cookie": "^2.2.1",
     "react": "^17.0.1",
@@ -27,6 +30,7 @@
     "react-slick": "^0.27.13",
     "reactjs-popup": "^2.0.4",
     "slick-carousel": "^1.8.1",
+    "stripe": "^8.134.0",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },

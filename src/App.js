@@ -1,6 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
 import ChooseLanguage from "./components/ChooseLanguage/ChooseLanguage";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./components/Login/Login";
 import AppRoute from "./AppRoute";
 import Signup from "./components/Signup/Signup";
@@ -14,6 +14,11 @@ function App() {
       <AuthContextProvider>
         <LocationContextProvider>
           <Switch>
+            {/*<Route
+              exact
+              path="/"
+              component={() => <Redirect to="/choose-language" />}
+            />*/}
             <Route path="/choose-language" component={ChooseLanguage} />
             <Route path="/auth/login" component={Login} />
             <Route path="/auth/signup" component={Signup} />

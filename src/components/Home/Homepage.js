@@ -30,7 +30,7 @@ const Homepage = () => {
         <h2>{t("homepage:homePage.CommunityUpdates")}</h2>
         <CommunityUpdates />
         <p className="home__featured-locations">
-          <h2>{t("homepage:FeaturedLocations")}</h2>
+          <h2>{t("homepage:homePage.FeaturedLocations")}</h2>
           <Link id="home__view-all-locations" to="/locations">
           {t("homepage:homePage.viewAll")}
           </Link>

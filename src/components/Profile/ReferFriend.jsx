@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Black, Red, White, YellowButton, BlackButton } from "../Style/Colors";
 import styled from "styled-components";
 import ReferLogo from "../Style/SVG/Invite/SVG_Screen Registar-01.svg";
@@ -23,8 +24,7 @@ export const LogoShare = styled.img`
   width: 35px;
   height: 35px;
   display: inline-block;
-  padding-right:18.9px;
-
+  padding-right: 18.9px;
 `;
 const Content = styled.div`
   width: 100%;
@@ -67,7 +67,7 @@ const Content = styled.div`
     font-size: 14.4px;
     font-weight: bold;
   }
-  .share{
+  .share {
     font-family: Raleway;
     font-size: 18.3px;
     font-weight: normal;
@@ -140,11 +140,13 @@ export const ButtonShare = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  }
+}
 `;
 
 const ReferFriend = () => {
-
+  const { t } = useTranslation(["referafriend"]);
+  // const { user } = useContext(AuthContext);
+  // should be the membership context, when created we should be able to get the info for generate the code of Stripe!!!!!!
   const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
@@ -164,30 +166,21 @@ const ReferFriend = () => {
         <LogoInvite src={ReferLogo} alt="Krow-logo" />
         {/* image of refer friend */}
         <div className="text-refer">
-          <h1>Refer a Friend</h1>
-          <h3>Offer a discount of 25%</h3>
-          <p>
-            Share the code below with a friend and the first subscription to a
-            25% discount will be applied.
-          </p>
-          <p>
-            In your case, for every friend you invite and subscribe, you will
-            earn 1 point.
-          </p>
-          <p>
-            When you reach 5 points, and for actively participating in the
-            community, we will have something (really) very special for you.
-          </p>
+          <h1>{t("referafriend:header.title")}</h1>
+          <h3>{t("referafriend:header.discount")}</h3>
+          <p>{t("referafriend:paragraphs.first")}</p>
+          <p>{t("referafriend:paragraphs.second")}</p>
+          <p>{t("referafriend:paragraphs.third")}</p>
         </div>
         <ButtonCode ref={textAreaRef} type="text" value="Krow21" />
         <ButtonCopy type="button" onClick={copyToClipboard}>
-          Copy
+          {t("referafriend:button.copy")}
         </ButtonCopy>
         <br />
         {/* <ButtonShare type="button" onClick={() => Share()}>
           <LogoShare src={ShareCode} alt="share-code" />
           <div className="share">
-          <span>Share</span>
+            <span>{t("referafriend:button.share")}</span>
           </div>
         </ButtonShare> */}
       </div>
