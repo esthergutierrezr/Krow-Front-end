@@ -144,8 +144,7 @@ export const ButtonShare = styled.button`
 `;
 
 const ReferFriend = () => {
-  // const { user } = useContext(AuthContext);
-  // should be the membership context, when created we should be able to get the info for generate the code of Stripe!!!!!!
+
   const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
@@ -153,42 +152,8 @@ const ReferFriend = () => {
     textAreaRef.current.select();
     document.execCommand("copy");
     event.target.focus();
-    // console.log(textAreaRef);
-    // console.log(event.target)
-    // console.log(copySuccess)
     setCopySuccess("Copied!");
   };
-
-  {
-    /*******1*******
-  import {Share} from 'react-native'
-  Share.share({
-  message: this.state.inputValue.toString(),
-})
-.then(result => console.log(result))
-.catch(errorMsg => console.log(errorMsg));
-
-******2*******
-  <intent-filter >
-    <action android:name="com.example.project.SHOW_CURRENT" />
-    <action android:name="com.example.project.SHOW_RECENT" />
-    <action android:name="com.example.project.SHOW_PENDING" />
- 
-</intent-filter> 
-
-*******3*******
-npm i react-native-share --save
-import Share from 'react-native-share';
-
-Share.open(options)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    err && console.log(err);
-  });
-*/
-  }
 
   const Share = () => {};
 
@@ -214,24 +179,17 @@ Share.open(options)
             community, we will have something (really) very special for you.
           </p>
         </div>
-        <ButtonCode ref={textAreaRef} type="text" value="Code12" />
+        <ButtonCode ref={textAreaRef} type="text" value="Krow21" />
         <ButtonCopy type="button" onClick={copyToClipboard}>
           Copy
         </ButtonCopy>
-        {/* {
-            copySuccess ?
-            <div style={{"color": "green"}}>
-              Success!
-            </div> : null
-          } */}
         <br />
-        {/* img for sharing */}
-        <ButtonShare type="button" onClick={() => Share()}>
+        {/* <ButtonShare type="button" onClick={() => Share()}>
           <LogoShare src={ShareCode} alt="share-code" />
           <div className="share">
           <span>Share</span>
           </div>
-        </ButtonShare>
+        </ButtonShare> */}
       </div>
     </Content>
   );

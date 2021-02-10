@@ -91,7 +91,7 @@ const BottomNav = () => {
       </div>
       <div className="item">
         <NavLink
-          to="/referafriend"
+          to="/invite"
           className="disabled-link"
           activeClassName="active-link active2"
         >
