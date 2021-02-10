@@ -29,7 +29,6 @@ export const LogoShare = styled.img`
 const Content = styled.div`
   width: 100%;
   height: auto;
-  margin-bottom: 21.1px;
   .text-refer {
     padding-top: 167px;
     display: block;
@@ -79,7 +78,7 @@ const Content = styled.div`
   }
   .bgRed {
     background-color: ${Red};
-    height: 90vh;
+    height: 80vh;
   }
 `;
 
@@ -107,13 +106,14 @@ export const ButtonCopy = styled.button`
 export const ButtonCode = styled.input`
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: ${White};
   border-radius: 10px;
   border: hidden;
   margin-left: 121.9px;
   margin-right: auto;
   margin-top: 17.4px;
-  padding-left:38px;
+  // padding-left:38px;
   width: 109.2px;
   height:39.9px;
   color: ${Black};
@@ -154,42 +154,8 @@ const ReferFriend = () => {
     textAreaRef.current.select();
     document.execCommand("copy");
     event.target.focus();
-    // console.log(textAreaRef);
-    // console.log(event.target)
-    // console.log(copySuccess)
     setCopySuccess("Copied!");
   };
-
-  {
-    /*******1*******
-  import {Share} from 'react-native'
-  Share.share({
-  message: this.state.inputValue.toString(),
-})
-.then(result => console.log(result))
-.catch(errorMsg => console.log(errorMsg));
-
-******2*******
-  <intent-filter >
-    <action android:name="com.example.project.SHOW_CURRENT" />
-    <action android:name="com.example.project.SHOW_RECENT" />
-    <action android:name="com.example.project.SHOW_PENDING" />
- 
-</intent-filter> 
-
-*******3*******
-npm i react-native-share --save
-import Share from 'react-native-share';
-
-Share.open(options)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    err && console.log(err);
-  });
-*/
-  }
 
   const Share = () => {};
 
@@ -206,24 +172,17 @@ Share.open(options)
           <p>{t("referafriend:paragraphs.second")}</p>
           <p>{t("referafriend:paragraphs.third")}</p>
         </div>
-        <ButtonCode ref={textAreaRef} type="text" value="Code12" />
+        <ButtonCode ref={textAreaRef} type="text" value="Krow21" />
         <ButtonCopy type="button" onClick={copyToClipboard}>
           {t("referafriend:button.copy")}
         </ButtonCopy>
-        {/* {
-            copySuccess ?
-            <div style={{"color": "green"}}>
-              Success!
-            </div> : null
-          } */}
         <br />
-        {/* img for sharing */}
-        <ButtonShare type="button" onClick={() => Share()}>
+        {/* <ButtonShare type="button" onClick={() => Share()}>
           <LogoShare src={ShareCode} alt="share-code" />
           <div className="share">
             <span>{t("referafriend:button.share")}</span>
           </div>
-        </ButtonShare>
+        </ButtonShare> */}
       </div>
     </Content>
   );

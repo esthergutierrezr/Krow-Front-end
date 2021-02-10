@@ -3,10 +3,10 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import ArrowLeft from "../Style/SVG/Profile/SVG_Screen Perfil-06_seta azul-01.svg";
-import "./profile.css";
-import { ArrowBlue, Logo, ResetDiv, SendEmail } from "./Styles";
-import KrowLogo from "../Style/SVG/Profile/SVG_Screen Equeceu-se da password_logo krow-01.svg";
+import ArrowLeft from "../Style/SVG/Profile/SVG_Screen Perfil-06_seta branca-01.svg";
+import { ArrowBlue, Logo, ForgetDiv, SendEmailPass } from "../Profile/Styles";
+import KrowLg from "../Style/SVG/KrowLogo.svg";
+import "./Login.css";
 
 const ResetPassword = () => {
   const { user } = useContext(AuthContext);
@@ -24,27 +24,24 @@ const ResetPassword = () => {
       })
       .then(async (response) => {
         console.log("response: ", response);
-        history.push(`/profile/${id}`);
+        history.push("/auth/login");
       })
       .catch((error) => console.error(error));
     alert("A new Password has been send to your Email");
   };
 
   return (
-    <div className="bg-white-profile">
+    <div className="bg">
       <div>
-        <Link to={`/profile/${id}`}>
+        <Link to="/auth/login">
           <ArrowBlue src={ArrowLeft} alt="arrow-back" />
         </Link>
       </div>
-      <Logo src={KrowLogo} alt="Krow-logo" />
+      <Logo src={KrowLg} alt="Krow-logo" />
       <br />
-      <ResetDiv onSubmit={handleSubmit(onSubmit)}>
+      <ForgetDiv onSubmit={handleSubmit(onSubmit)}>
         <h1>Forget your Password?</h1>
-        <p>
-          Confirm your associated email to your Krow account. If not use Support
-          Chat.
-        </p>
+        <p>Enter your associated email to your Krow account</p>
         <input
           name="email"
           type="email"
@@ -52,10 +49,9 @@ const ResetPassword = () => {
           ref={register({
             required: true,
           })}
-          value={user.email}
         />
-        <SendEmail type="submit">Send Replacement Password</SendEmail>
-      </ResetDiv>
+        <SendEmailPass type="submit">Send Replacement Password</SendEmailPass>
+      </ForgetDiv>
     </div>
   );
 };

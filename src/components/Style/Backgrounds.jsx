@@ -25,26 +25,3 @@ export const FooterBg = styled.div`
   padding: 19.2px 221.1px 11.2px 223.2px;
   background-color: ${Black};
 `;
-export const WhiteWallBg = styled.div`
-  position: relative;
-  width: 480px;
-  height: 130.3px;
-  align-self: center;
-  background-size: contain;
-  background: url(${WhiteWall});
-`;
-export const LaptopBg = styled.img`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  align-self: center;
-  background-size: contain;
-  background: url(${Laptop});
-`;
-export const InviteBg = styled.div`
-  width: 480px;
-  height: 722.7px;
-  margin: 63.1px 0 0;
-  padding: 193.6px 0 0 0.7px;
-  background-color: ${Red};
-`;

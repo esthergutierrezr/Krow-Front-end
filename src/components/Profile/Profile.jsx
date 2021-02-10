@@ -27,8 +27,13 @@ import Invite from "../Style/SVG/Profile/SVG_Screen Perfil-05_icon.svg";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  const { t } = useTranslation(["profile"]);
+  const { t, i18n } = useTranslation(["profile"]);
   const history = useHistory();
+
+  const changeLanguage = (code) => {
+      i18n.changeLanguage(code);
+      window.location.href = `/profile/${user.id}`;
+    };
 
   return (
     <div className="bg-white-profile">
@@ -42,20 +47,18 @@ const Profile = () => {
               <input type="checkbox" id="A" />
               <label htmlFor="A">
                 <WheelProfile src={Wheel} alt="settings-wheel" />
-                {t("profile:forgetPassword.accountSettings")}
+                {t("profile:profile.accountSettings")}
                 <ArrowD src={ArrowDown} alt="arrow drop-menu" />
               </label>
               <hr />
               <DropMenu>
                 <Link to={`/profile/${user.id}/edit`}>
-                  <li className="active">
-                    {t("profile:forgetPassword.editProfile")}
-                  </li>
+                  <li className="active">{t("profile:profile.editProfile")}</li>
                 </Link>
                 <hr />
                 <Link to="/password/change">
                   <li className="active">
-                    {t("profile:forgetPassword.changePassword")}
+                    {t("profile:profile.changePassword")}
                   </li>
                 </Link>
                 <hr />
@@ -65,7 +68,7 @@ const Profile = () => {
           <Link to="/membership">
             <label>
               <CartProfile src={Cart} alt="settings-wheel" />
-              {t("profile:forgetPassword.addMembership")}
+              {t("profile:profile.addMembership")}
             </label>
           </Link>
           <hr />
@@ -73,7 +76,7 @@ const Profile = () => {
           <Link to="/profile/notifications">
             <label>
               <NotificationProfile src={Notification} alt="settings-wheel" />
-              {t("profile:forgetPassword.notifications")}
+              {t("profile:profile.notifications")}
             </label>
           </Link>
           <hr />
@@ -81,7 +84,7 @@ const Profile = () => {
           <Link to="/profile/historic">
             <label>
               <HistoricProfile src={Historic} alt="settings-wheel" />
-              {t("profile:forgetPassword.historic")}
+              {t("profile:profile.historic")}
             </label>
           </Link>
           <hr />
@@ -90,19 +93,21 @@ const Profile = () => {
             <label>
               {" "}
               <InviteProfile src={Invite} alt="settings-wheel" />
-              {t("profile:forgetPassword.inviteAFriend")}
+              {t("profile:profile.inviteAFriend")}
             </label>
           </Link>
           <hr />
           <LabelBottom>
-            {/* <Link to="/contact">
-              <label className="label-bottom">Contact Us</label>
-            </Link>
-           <br/> */}
             <br />
-            <Link to="/choose-language">
-              <label>Mudar para Português</label>
-            </Link>
+            {/* <Link to="/choose-language"> */}
+            <label
+              onClick={() => {
+                changeLanguage("en");
+              }}
+            >
+              {t("profile:profile.changeLanguage")}
+            </label>
+            {/* </Link> */}
             <br />
             <br />
             <label
@@ -111,7 +116,7 @@ const Profile = () => {
                 history.push("/auth/login");
               }}
             >
-              {t("profile:forgetPassword.logout")}
+              {t("profile:profile.logout")}
             </label>
           </LabelBottom>
         </Menu>

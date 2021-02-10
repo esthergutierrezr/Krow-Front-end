@@ -1,11 +1,11 @@
 import React from "react";
+import ChooseLanguage from "./components/ChooseLanguage/ChooseLanguage";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./components/Login/Login";
-import AppRoute from "./AppRoute.jsx";
+import AppRoute from "./AppRoute";
 import Signup from "./components/Signup/Signup";
 import AuthContextProvider from "./contexts/AuthContext";
 import LocationContextProvider from "./contexts/LocationContext";
-import ChooseLanguage from "./components/ChooseLanguage/ChooseLanguage";
 import "./App.css";
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
             <Route path="/auth/login" component={Login} />
             <Route path="/auth/signup" component={Signup} />
             <Route path="/" component={AppRoute} />
+          
           </Switch>
           {/* should be {user.length ? <BottomNav /> : null } */}
           {/* {user.length ? null : <BottomNav />} */}
