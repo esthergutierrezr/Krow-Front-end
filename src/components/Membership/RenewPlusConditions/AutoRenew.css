@@ -1,0 +1,49 @@
+.conditions-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.greenArrow {
+  margin-top: 36px;
+  margin-left: 36px;
+  height: 23.2px;
+  width: 14.5px;
+}
+
+.conditions-header-title {
+  margin-top: 30px;
+  margin-left: 52.8px;
+  font-family: Calibri;
+  font-size: 26.6px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: 0.32px;
+  text-align: left;
+  color: #08726c;
+}
+
+.conditions-text-body {
+  margin-top: 28.5px;
+  margin-left: 66px;
+  margin-right: 66px;
+  height: 100vh;
+  font-family: Raleway;
+  font-size: 16.6px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.conditions-paragraph-title {
+  font-weight: bold;
+}
+
+.conditions-paragraph-body {
+  margin-bottom: 15px;
+}

@@ -1,0 +1,42 @@
+{
+  "packagesAvailable": {
+    "number1": {
+      "name": "Subscrição Mensal",
+      "checkIns": "Check-ins Ilimitados",
+      "validity": "*Válida por 30 dias desde a data da compra",
+      "perks": {
+        "1": "Check-ins ilimitados em localizações premium",
+        "2": "Café, chá e água ilimitados",
+        "3": "Wi-Fi gratuito",
+        "4": "Lugar dedicado, acesso a tomadas",
+        "5": "20% de desconto em comida e bebida",
+        "6": "Estacionamento gratuito ou com desconto",
+        "7": "Salas de reunião com condições especiais",
+        "8": "Benefícios exclusivos de 'lifestyle'",
+        "9": "Acesso a uma comunidade distinta"
+      }
+    }
+  },
+  "packageCards": {
+    "taxedPrice": "€/mês",
+    "subscribe": "Subscrever"
+  },
+  "productForm": {
+    "promoCode": "Para aplicar o código promocional clique em Detalhes após clicar em Pagamento.",
+    "baseValue": "Valor base",
+    "total": "Valor total",
+    "terms": "Eu concordo com os ",
+    "conditions": "Termos & Condições da Krow.",
+    "renew": "Auto-renovar",
+    "subscription": " a minha subscrição.",
+    "pay": "Pagamento"
+  },
+  "termsRenew": {
+      "terms": {
+          "title": "Termos & Condições"
+      },
+      "renew": {
+          "title": "Política de Auto-Renovação"
+      }
+  }
+}

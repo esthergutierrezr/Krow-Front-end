@@ -1,11 +1,25 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import {Link} from 'react-router-dom';
+import Invite from '../Style/SVG/HomePage/SVG_Screen Registar-03.svg';
+import Subscribe from "../Style/SVG/HomePage/SVG_Screen Registar-02.svg"
 
-function CTAButtons(props) {
+function CTAButtons() {
+  const { t } = useTranslation(["homepage"]);
   return (
     <div className="home__ctabuttons">
-      <Link to="/membership"><img className="ctabuttons__button" src="https://growthzonesitesprod.azureedge.net/wp-content/uploads/sites/1419/2019/12/Member-Button.png" alt="get a membership" /></Link>
-      <Link to="/referafriend"><img className="ctabuttons__button" src="https://thumbs.dreamstime.com/b/refer-friend-share-information-isolated-icon-recommendation-reference-social-media-function-vector-repost-male-profile-emblem-153969352.jpg" alt="refer a friend" /></Link>
+      <Link to="/membership">
+        <div className="subscribe">
+          <img className="ctabuttons__button" src={Subscribe} />
+        <p>{t("homepage:CTAButtons.Subscribe")}</p>
+        </div>
+        </Link>
+      <Link to="/invite">
+        <div className="invite">
+          <img className="ctabuttons__button" src={Invite} alt="refer a friend" />
+        <p>{t("homepage:CTAButtons.Invite")}</p>
+        </div>
+        </Link>
     </div>
   );
 }

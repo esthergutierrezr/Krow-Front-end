@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Raleway;
+  src: local("Raleway-Regular"),
+    url("./components/Style/Raleway-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+* {
+  max-width: 480px;
+  max-height: auto;
+}

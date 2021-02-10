@@ -1,0 +1,18 @@
+{
+  "homePage": {
+    "WelcomeToKrow": "Bem-vindo à Krow",
+    "CommunityUpdates": "Destaques",
+    "FeaturedLocations": "Localizações",
+    "viewAll": "Ver todas"
+  },
+  "guestGreeting": {
+    "SignUp": "Registar"
+  },
+  "userGreeting": {
+    "Hi": "Olá"
+  },
+  "CTAButtons": {
+    "Subscribe": "Subscrever",
+    "Invite": "Convidar"
+  }
+}

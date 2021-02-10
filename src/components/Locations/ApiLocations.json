@@ -1,0 +1,49 @@
+[
+    {
+      "id": 0,
+      "name": "Wild Code School",
+      "lat": 38.72493608746106,
+      "lng": -9.14578853237358,
+      "network": "Wild Wifi",
+      "password": "1234",
+      "image":
+      "https://images.adsttc.com/media/images/5ca7/72a6/284d/d153/3000/01f2/slideshow/feature-_UC8A1822.jpg?1554477709",
+      "description": "Located at the beautifull centre, the location offers...",
+      "facilidades": "Coffe, Toilets , Parking",
+      "information": "All the info",
+      "beneficios": "All the beneficts",
+      "horarios": "Segunda 09:00-20:00 "
+      },
+    {
+        "id": 1,
+        "name": "Pois Cafe",
+        "lat": 41.16354330999724,
+        "lng":  -8.63019546747443,
+        "network": "Pois Wifi",
+        "password": "aaa34",
+        "description": "Located at the beautifull centre, the location offers...",
+        "facilidades": "Coffe, Toilets , Parking",
+      "information": "All the info",
+      "beneficios": "All the beneficts",
+      "horarios": "Segunda 09:00-20:00 ",
+      "image":
+        "https://images.unsplash.com/photo-1551023629-106d39e0c145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"
+    },
+    {
+        "id": 2,
+        "name": "Nannarella",
+        "lat": 38.71426849404318,
+        "lng": -9.152753992000902,
+        "network": "Nannarella Wifi",
+        "password": "bba34",
+        "facilidades": "Coffe, Toilets , Parking",
+      "information": "All the info",
+      "beneficios": "All the beneficts",
+      "horarios": "Segunda 09:00-20:00 ",
+        "description": "Located at the beautifull centre, the location offers...",
+      "image":
+      "https://images.unsplash.com/photo-1546971587-02375cbbdade?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=60"
+    }
+  ]
+
+

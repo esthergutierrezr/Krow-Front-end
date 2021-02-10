@@ -1,3 +1,56 @@
+@font-face {
+  font-family: Raleway;
+  src: local("Raleway-Regular"),
+    url("../Style/Raleway-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+.welcome{
+  margin-top:25.5px;
+  width: 250px;
+  height: 24px;
+  /* margin: 0 0 8px; */
+  font-family: Raleway;
+  font-size: 19.7px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.register{
+  font-size: 16.4px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.yellow-bg{
+  width: 88.5px;
+  height: 17.5px;
+  margin: 1.1px 0 0.4px;
+  border-radius: 3.3px;
+  background-color: #f8c861;
+  font-size: 16.4px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  padding: 0 5px;
+}
+
 .greeting-container{
   display: flex;
   justify-content: space-between;
@@ -5,9 +58,10 @@
   margin-right:20px;
 }
 .profile-picture{
-  border-radius: 5px;
-  width: 75px;
-  height: 75px;
+  width: 88.7px;
+  height: 88.7px;
+  margin: -55px 0 0 -150px;
+  padding: 7.7px 7.7px 7.7px 7.7px;
 }
 .home__ctabuttons{
   display: flex;
@@ -15,9 +69,47 @@
 }
 
 .ctabuttons__button {
-  margin: 5px;
-  height: 75px;
-  width: 93px;
+  position: relative;
+  width: 105.8px;
+  height: 100.9px;
+  margin: 18.2px 0 11.9px; 
+}
+
+.invite{
+  justify-content: center;
+  align-items: center;
+  width: 173.4px;
+  height: 173.4px;
+  margin: 44.6px 50.7px 43.6px 32.4px;
+  border-radius: 10px;
+  box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #a73f25;
+  font-family: Raleway;
+  font-size: 21.4px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+.subscribe{
+  width: 173.4px;
+  height: 173.4px;
+  margin: 43.8px 0px 43.6px 51px;
+  border-radius: 10px;
+  box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #08726c;
+  font-family: Raleway;
+  font-size: 21.4px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
 }
 
 .home__featured-locations{
@@ -38,6 +130,17 @@
   border-radius: 10px;
   width: 90vw;
   height: auto;
+}
+
+.bg-white{
+  position: absolute; 
+  width: 100%;
+  height: auto;
+  min-height: 125vh;
+  align-self: center;
+  background-size:cover;
+  background-image: url("../Style/bg/white_wall.png") ; 
+  margin-top: -50px;
 }
 
 h2{

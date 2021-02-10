@@ -1,0 +1,40 @@
+@font-face {
+  font-family: Calibrib;
+  src: local("calibrib"), url("../Style/calibrib.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+@font-face {
+  font-family: Calibril;
+  src: local("calibril"), url("../Style/calibril.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+.bg-white-profile {
+  position: absolute; 
+  width: 100%;
+  height: auto;
+  /* height: 140vh; */
+  min-height: 125vh;
+  align-self: center;
+  /* background-position: center; */
+  background-size:cover;
+  background-image: url("../Style/bg/white_wall.png") ; 
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 480px;
+  width: 100%;
+  height: auto;
+  position: fixed;*/
+}
+

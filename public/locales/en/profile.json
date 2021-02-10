@@ -1,0 +1,49 @@
+{
+  "changePassword": {
+    "change": "Change Password",
+    "old": "Old Password",
+    "new": "New Password",
+    "confirm": "Confirm New Password",
+    "forget": "Forget Password"
+  }, 
+  "editProfile": {
+    "edit": "Edit Profile",
+    "firstLastName": "First and last name",
+    "phoneNumber": "Phone Number",
+    "country": "Country",
+    "city": "City",
+    "company": "Company",
+    "profession": "Profession",
+    "industry": "Industry",
+    "save": "Save changes"
+  },
+  "forgetPassword": {
+    "sendConfirmation": "Send Confirmation",
+    "confirmationCode": "Confirmation Code",
+    "pleaseCheckEmail": "Please check your email",
+    "forConfCode": "for the confirmation code",
+    "new": "New Password",
+    "confirm": "Confirm New Password",
+    "submit": "Confirm",
+    "confMessage": "Your password has been reset",
+    "loginWithNewPW": "Click here to login with your new credentials"
+  },
+  "profile": {
+    "accountSettings": "Account Settings",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password",
+    "addMembership": "Add a Membership",
+    "notifications": "Notifications",
+    "historic": "Historic",
+    "inviteAFriend": "Invite a Friend",
+    "changeLanguage":"Mudar para Português",
+    "contactUs": "Contact Us",
+    "logout": "Log Out"
+  },
+  "userProfile": {
+    "activeMembership": "Active Membership",
+    "expiry": "Expires in",
+    "noMembership": "No Active Membership",
+    "buyMembership": "Add a Membership"
+  }
+}
