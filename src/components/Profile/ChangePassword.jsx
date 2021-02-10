@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useRef, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Content, DivEdit, FormChange, Save } from "./Styles";
 import UserChange from "./UserChange";
 import "./profile.css";
-import {config} from "../../helpers/auth"
+import { config } from "../../helpers/auth";
 // body of backend current_password, new_password, user_id
 
 const ChangePassword = () => {
@@ -22,40 +22,27 @@ const ChangePassword = () => {
   // });
   const id = Number(user.id);
   const history = useHistory();
-  const { register, errors, handleSubmit, watch } = useForm({});
-  // const password = useRef({});
-  // password.current = watch("newPassword", "");
-
-  // fields that i need to backend
-  // const { currentPassword, newPassword, userId } = req.body;
-
-  // how to compare in front end if old password it's teh same
-
-  //
-
-  const handleChange = (event) => {
-    // console.log("name", event.target.name);
-    // console.log("value", event.target.value);
-    setFieldChange({ [event.target.name]: event.target.value });
-  };
+  const { register, errors, handleSubmit } = useForm({});
 
   // ******try 3
   const onSubmit = (data) => {
     console.log("data: ", data);
     // console.log("event: ", event);
     axios
-      .put("/password/change", {
-        currentPassword: data.oldPassword,
-        newPassword: data.confirmPassword,
-        userId: id
-
-      }, config)
+      .put(
+        "/password/change",
+        {
+          currentPassword: data.oldPassword,
+          newPassword: data.confirmPassword,
+          userId: id,
+        },
+        config
+      )
       .then(async (response) => {
         console.log("response: ", response);
-        // const user = await setUser(response.data[0]);
         history.push(`/profile/${id}`);
       })
-    //   .catch((error) => console.error(error));
+      .catch((error) => console.error(error));
     alert("Password has been Changed Successfully");
   };
 

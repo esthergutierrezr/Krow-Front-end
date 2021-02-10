@@ -1,9 +1,10 @@
 .bg {
   width: 100vw;
   min-height: 100vh;
+  /* position: 0%; */
   background-size: cover;
   background-image: url("../Style/bg/computer-bg.png");
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
 }
 .form-container {
