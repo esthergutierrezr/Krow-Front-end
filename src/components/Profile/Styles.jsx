@@ -44,7 +44,7 @@ export const ProfilePhoto = styled.img`
 export const HeadersProfile = styled.div`
 // display:flex;
 // flex-direction: column;
-  width: 100%;
+  width: auto;
   height: 112.2px;
   margin-bottom:43.8px;
   margin-left: auto;
@@ -52,6 +52,10 @@ export const HeadersProfile = styled.div`
   padding: 22px 41.3px 21.5px 41px;
   background-color: ${Blue};
   text-align: left;
+
+  @media only screen and (max-width: 350px) {
+    // display: none;
+  }
 `;
 
 export const Greeting = styled.h1`
@@ -68,13 +72,16 @@ export const Greeting = styled.h1`
   line-height: 1.2;
   letter-spacing: 0.3px;
   margin-top: 79.8px;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
 
-  // @media only screen and (max-width: 370px) {
+  // @media only screen and (max-width: 375px) {
   //   height: auto;
   //   margin-left: auto;
   //   margin-right: auto;
+  //   display flex;
+  //   flex-direction: column;
+  //   width: 100%;
   // }
 `;
 export const Content = styled.div`
@@ -201,7 +208,7 @@ export const EditPhoto = styled.img`
   margin-top: 20px;
   display: block;
   margin-right: auto;
-  margin-left: 150px;
+  margin-left: auto;
 `;
 export const GreetingEdit = styled.h1`
   display: block;
@@ -216,7 +223,8 @@ export const GreetingEdit = styled.h1`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0.3px;
-  margin: 79.8px auto 10.3px 140.3px;
+  margin: 79.8px auto 10.3px auto;
+  text-align:center;
 `;
 export const CenterDiv = styled.div`
   display: flex;
@@ -226,13 +234,13 @@ export const CenterDiv = styled.div`
 `;
 export const FormEdit = styled.form`
   height: 100%;
-  margin: 0px 70px 15.1px 60px;
+  margin: 0px auto 15.1px auto;
 
   input {
     background: transparent;
     width: 354px;
     height: 54.9px;
-    margin: 0 0 15.1px;
+    margin: 0 auto 15.1px auto;
     border-radius: 10px;
     border: solid 1px ${GrayBorder};
     text-align: center;
@@ -244,6 +252,12 @@ export const FormEdit = styled.form`
     font-style: normal;
     line-height: 1.2;
     letter-spacing: normal;
+
+    @media only screen and (max-width: 370px) {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 `;
 export const SaveChanges = styled.button`
@@ -260,16 +274,20 @@ export const SaveChanges = styled.button`
   letter-spacing: normal;
   margin: 17.4px auto 100.4px 90px;
   border-radius: 11.9px;
+
+  @media only screen and (max-width: 370px) {
+    margin-left: 70px;
+  }
 `;
 export const HeaderEdit = styled.div`
-  width: 100%;
+  width: auto;
   height: 112.2px;
   margin: 0 0 43.8px;
   padding: 22px 41.3px 21.5px 41px;
   background-color: ${Blue};
 `;
 export const EditTitle = styled.div`
-  width: 414.2px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   font-family: Calibril;
@@ -281,6 +299,8 @@ export const EditTitle = styled.div`
   letter-spacing: 0.32px;
   color: ${White};
   margin-top: 34px;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
 // ****************Change Password
@@ -480,7 +500,7 @@ export const BuyMember = styled.p`
 export const ArrowD = styled.img`
   width: 18.5px;
   height: 11.6px;
-  padding-left: 80.6px;
+  padding-left: 100.6px;
 
   @media only screen and (max-width: 320px) {
     padding-left: 50px;

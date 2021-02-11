@@ -30,7 +30,7 @@ function UserEdit() {
   return (
     <>
       <HeaderEdit>
-        <div>
+ 
           <EditTitle>
             <Link to={`/profile/${user.id}`}>
               <ArrowL src={ArrowLeft} alt="arrow-back" />
@@ -42,7 +42,7 @@ function UserEdit() {
             src={!user.image ? picture : user.image}
             alt={`${user.fullName}`}
           />
-        </div>
+      
       </HeaderEdit>
       <GreetingEdit>{initialGreeting}</GreetingEdit>
       <CenterDiv>
