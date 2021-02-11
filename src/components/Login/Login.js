@@ -81,7 +81,9 @@ function Login() {
               </PasswordLink>
             </Link>
             <br />
-            <GuestLink>Continue as Guest</GuestLink>
+            <Link to="/">
+              <GuestLink>Continue as Guest</GuestLink>
+            </Link>
           </LoginText>
           <br />
         </LoginForm>

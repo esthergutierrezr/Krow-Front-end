@@ -133,7 +133,7 @@ const Message = ({ message }) => (
 );
 export default function ProductForm() {
   const [message, setMessage] = useState("");
-  const { user } = useContext("AuthContext");
+  const { user } = useContext(AuthContext);
   const [language, setLanguage] = useState("");
 
   const getLanguage = () => {
@@ -153,18 +153,17 @@ export default function ProductForm() {
       );
     }
   }, []);
+
   const handleClick = async (event) => {
-    console.log("handleClick has been called");
     const stripe = await stripePromise;
     const response = await axios.post(
       "/stripe-webhook/create-checkout-session",
       {
-        // take the language from localstorage or the user info
         language: language.length ? language : `${user.language}`,
-        customer_email: `${user.email}`
+        email: `${user.email}`,
       }
-    );
-    const session = await response.data;
+      );
+      const session = await response.data;
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
       sessionId: session.id,

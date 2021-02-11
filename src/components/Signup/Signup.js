@@ -93,7 +93,7 @@ function Signup() {
               borderRadius: "8px",
               opacity: ".9",
               zIndex: "1",
-              position:"relative",
+              position: "relative",
               marginTop: "-27px",
             }}
             dropdownStyle={{
@@ -101,7 +101,7 @@ function Signup() {
               border: "none",
               color: "#898884",
               zIndex: "-1",
-              position:"relative"
+              position: "relative",
             }}
             inputProps={{
               name: "phone",
@@ -167,7 +167,9 @@ function Signup() {
               <RegisterLink>Please login</RegisterLink>
             </Link>
             <br />
-            <GuestLink>Continue as Guest</GuestLink>
+            <Link to="/">
+              <GuestLink>Continue as Guest</GuestLink>
+            </Link>
           </LoginText>
         </FormSignUp>
       </ContainerSignUp>
