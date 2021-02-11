@@ -2,22 +2,7 @@ import styled from "styled-components";
 
 import { GrayText, Red, TextInput } from "./Colors";
 
-export const Input = styled.input`
-  .phone {
-    width: 100px;
-  };
 
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 249px;
-  height: 54.9px;
-  background-color: ${GrayText};
-  font-family: Raleway;
-  font-size: 17.2px;
-  color: ${TextInput};
-  padding: 0 18px;
-`;
 
 export const Arrow = styled.div`
   border: solid;

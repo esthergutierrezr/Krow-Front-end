@@ -9,8 +9,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import "react-phone-input-2/lib/style.css";
 import "./Signup.css";
 import KrowLogo from "../Style/SVG/KrowLogo.svg";
-import { Logo, Register } from "./SignUpStyle";
-import { Input } from "../Style/Utilities";
+import { Logo, Register, Input } from "./SignUpStyle";
 // import { LaptopBg } from "../Style/Backgrounds";
 
 function Signup() {
@@ -48,13 +47,14 @@ function Signup() {
           <Input
             type="email"
             name="email"
-            placeholder={
-              !errors.email
-                ? `${t("signup:Email")}*`
-                : `${t("signup:EmailReq")}`
-            }
+            placeholder="Email*"
             ref={register({ required: true, maxLength: 80 })}
           />
+          <p>
+            {!errors.email
+              ? `${t("signup:Email")}`
+              : `${t("signup:EmailReq")}`}
+          </p>
           <PhoneInput
             inputStyle={{
               backgroundColor: "#323232",
@@ -93,7 +93,6 @@ function Signup() {
                 : `${t("signup:PhoneNumberReq")}`
             }
           />
-
           <Input
             className="hidden"
             value={state.phone}
@@ -130,7 +129,7 @@ function Signup() {
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
           />
-          <Register type="submit" value={`${t("signup:Register")}`} />
+          <Register type="submit">{t("signup:Register")}</Register>
         </form>
       </div>
     </div>
