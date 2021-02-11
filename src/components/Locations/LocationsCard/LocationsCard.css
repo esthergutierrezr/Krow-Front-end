@@ -1,11 +1,11 @@
-.locationsCard {
+/* .locationsCard {
   display: flex;
   flex-direction: row;
 }
 .checkin {
   display: flex;
   height: 167.5px;
-  width: 240.7px;
+  width: 100vw;
   background-color: white;
 }
 
@@ -13,5 +13,5 @@
   background-color: rgba(87, 99, 202, 0.719);
   display: flex;
   height: 167.5px;
-  width: 240.7px;
-}
+  width: 100vw;
+} */

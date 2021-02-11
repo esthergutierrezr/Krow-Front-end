@@ -27,7 +27,9 @@ export default function PopUpC(props) {
           starColor="#ffd700"
           emptyStarColor="gray"
         />
-        <button onClick={props.toggle}>Submeter</button>
+        <button className="button-popup" onClick={props.toggle}>
+          Submeter
+        </button>
       </div>
     </div>
   );

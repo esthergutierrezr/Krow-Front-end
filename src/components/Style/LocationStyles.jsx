@@ -3,7 +3,7 @@ import WhiteWall from "./bg/white_wall.png";
 
 export const WhiteBg = styled.div`
   position: relative;
-  width: 480px;
+  width: 100vw;
   height: 900px;
   align-self: center;
   background-size: contain;

@@ -20,3 +20,23 @@
 
 .details_checkout {
 }
+
+.button-container {
+  padding: 40px;
+}
+.button-checkin {
+  background-color: #f8c962;
+  height: 66px;
+  width: 100vw;
+  padding: 0px;
+  border: none;
+  border-radius: 10px;
+}
+.button-checkout {
+  background-color: #38b6ff;
+  height: 66px;
+  width: 100vw;
+  padding: 0px;
+  border: none;
+  border-radius: 10px;
+}

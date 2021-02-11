@@ -1,8 +1,20 @@
+.location-name {
+  font-size: 13.8px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
 .locationsCard {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  font-family: Raleway;
 }
 
 .location-image {
@@ -24,13 +36,27 @@
   background-color: white;
   height: 167.2px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-right: -10px; */
   /* border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px; */
 }
-.checkout {
-  background-color: rgba(87, 99, 202, 0.719);
+.content-blue {
+  min-width: 240px;
+  background-color: #395daa;
+  height: 167.2px;
+  border-radius: 10px;
+  color: white;
+  font-family: Raleway;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.checkout-list {
   display: flex;
 }
 

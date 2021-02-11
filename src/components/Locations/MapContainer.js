@@ -2,7 +2,7 @@ import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ApiLocations from "./ApiLocations.json";
-import LocationsCard from "./LocationsCard/LocationsCard.js";
+import ListLocationCard from "./ListContainer/ListLocationCard";
 import { LocationContext } from "../../contexts/LocationContext.js";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -100,9 +100,7 @@ function MapContainer(props) {
       {/* <div>
         <AutoComplete map={mapInstance} mapApi={mapApi} addplace={addPlace} />
       </div> */}
-      <div>
-        <SearchInput />
-      </div>
+
       <div style={{ height: "450px", width: "100vw" }}>
         <Map
           style={{ height: "770px", width: "100vw" }}
@@ -118,6 +116,9 @@ function MapContainer(props) {
           }}
           google={props.google}
         >
+          <div className="search-input-map">
+            <SearchInput />
+          </div>
           {ApiLocations.map((locationApi) => (
             <Marker
               {...locationApi}
@@ -136,7 +137,7 @@ function MapContainer(props) {
         <Slider {...settings}>
           {ApiLocations.map((location) => (
             <div>
-              <LocationsCard {...location} />{" "}
+              <ListLocationCard {...location} />{" "}
             </div>
           ))}
         </Slider>

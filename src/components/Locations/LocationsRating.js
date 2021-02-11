@@ -8,6 +8,7 @@ function LocationsRating(props) {
     <div
       style={{
         color: "#787878",
+        fontSize: "11px",
       }}
     >
       <span

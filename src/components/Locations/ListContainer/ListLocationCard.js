@@ -1,11 +1,13 @@
 import React from "react";
 import "./ListLocationCard.css";
 import { LocationContext } from "../../../contexts/LocationContext";
-import PopUpA from "../LocationDetails/PopUpA";
-import PopUpB from "../LocationDetails/PopUpB";
-import PopUpC from "../LocationDetails/PopUpC";
-import PopUpD from "../LocationDetails/PopUpD";
+import PopUpA from "../LocationDetails/PopUps/PopUpA";
+import PopUpB from "../LocationDetails/PopUps/PopUpB";
+import PopUpC from "../LocationDetails/PopUps/PopUpC";
+import PopUpD from "../LocationDetails/PopUps/PopUpD";
 import LocationsRating from "../LocationsRating";
+import member from "../../Style/SVG/Locations/People.svg";
+import time from "../../Style/SVG/Locations/Time.svg";
 
 function ListLocationCard(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
@@ -53,12 +55,41 @@ function ListLocationCard(props) {
       {checked !== props.id ? (
         <div className="checkin-list">
           <div className="content">
-            <h1>{props.name}</h1>
-            <p>1 miembro aqui</p>
+            <h1 className="location-name">{props.name}</h1>
+            <div style={{ display: "flex" }}>
+              <img
+                style={{ height: "10px", width: "10px", paddingRight: "5px" }}
+                src={member}
+                alt="members"
+              />
+              <p style={{ fontSize: "9px" }}>1 member here</p>
+            </div>
+            <div style={{ display: "flex" }}>
+              <img
+                style={{
+                  height: "10px",
+                  width: "10px",
+                  paddingTop: "12px",
+                  paddingRight: "5px",
+                }}
+                src={time}
+                alt="time"
+              />
+              <div style={{ fontSize: "12px", paddingTop: "10px" }}>
+                09:00 - 17:00{" "}
+              </div>
+            </div>
+            <div style={{ fontSize: "12px", padding: "10px" }}>
+              {" "}
+              Sintra |{" "}
+              <a
+                href="https://google.com"
+                style={{ textDecoration: "underline", fontSize: "12px" }}
+              >
+                Obtener direccoes{" "}
+              </a>{" "}
+            </div>
 
-            <div>09:00 - 17:00 </div>
-            <div> Sintra </div>
-            <a href="https://google.com"> Obtener direccoes </a>
             <LocationsRating rating={props.rating} />
           </div>
           <div className="container">
@@ -75,21 +106,45 @@ function ListLocationCard(props) {
           </div>
         </div>
       ) : (
-        <div className="checkout">
-          <h1>{props.name}</h1>
-          {popUpA ? <PopUpA toggle={togglePopA} /> : null}
-          <p>6 miembro(s) aqui</p>
-          <div>Aberto ate as 22:00 </div>
-          <p>wifi:{props.network}</p>
-          <p>Password:{props.password}</p>
-          <a href={`/locations/${props.id}`}>Details</a>
+        <div className="checkout-list">
+          <div className="content-blue">
+            <h1 className="location-name">{props.name}</h1>
+            {popUpA ? <PopUpA toggle={togglePopA} /> : null}
+            <div style={{ display: "flex" }}>
+              <img
+                style={{ height: "10px", width: "10px", paddingRight: "5px" }}
+                src={member}
+                alt="members"
+              />
+              <p style={{ fontSize: "9px" }}>6 member(s) here</p>
+            </div>
+            <div style={{ display: "flex" }}>
+              <img
+                style={{
+                  height: "10px",
+                  width: "10px",
+                  paddingTop: "12px",
+                  paddingRight: "5px",
+                }}
+                src={time}
+                alt="time"
+              />
+              <div style={{ fontSize: "12px", paddingTop: "10px" }}>
+                Open until 22:00
+              </div>
+            </div>
 
+            <p>wifi:{props.network}</p>
+            <p>Password:{props.password}</p>
+            {/* <a href={`/locations/${props.id}`}>Details</a> */}
+          </div>
           <div className="container">
             <img
               src={props.image}
               alt="image"
               width="167.2px"
               height="167.2px"
+              className="location-image"
             />
 
             <button className="check-out" onClick={checkOut}>

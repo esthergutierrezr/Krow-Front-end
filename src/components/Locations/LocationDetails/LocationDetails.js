@@ -5,10 +5,10 @@ import LocationMap from "./LocationMap";
 import ApiLocations from "../ApiLocations.json";
 import { LocationContext } from "../../../contexts/LocationContext";
 import "./LocationDetails.css";
-import PopUpA from "./PopUpA";
-import PopUpB from "./PopUpB";
-import PopUpC from "./PopUpC";
-import PopUpD from "./PopUpD";
+import PopUpA from "./PopUps/PopUpA";
+import PopUpB from "./PopUps/PopUpB";
+import PopUpC from "./PopUps/PopUpC";
+import PopUpD from "./PopUps/PopUpD";
 import LocationsRating from "../LocationsRating";
 
 function LocationDetails(props) {
@@ -26,7 +26,7 @@ function LocationDetails(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
 
   const checkIn = () => {
-    // console.log(props.match.params.id);
+    console.log(props.match.params.id);
     setChecked(props.match.params.id);
     setPopUpA(!popUpA);
   };
@@ -95,9 +95,7 @@ function LocationDetails(props) {
             <a href={`/locations/`}>Back</a>
             <div>
               <h1>{location.name}</h1>
-              <button onClick={checked === null ? checkIn : message}>
-                Check In
-              </button>
+
               {popUpB ? <PopUpB toggle={togglePopB} /> : null}
               <p>1 miembro aqui</p>
               <p>icon + opening times</p>
@@ -106,8 +104,8 @@ function LocationDetails(props) {
 
               <div className="description">
                 <h2>Description</h2>
-                <p>???</p>
-                <div onClick={readMoreA}>\/</div>
+                <p>{location.description}</p>
+                <div onClick={readMoreA}>More</div>
                 {moreTextA ? <p>{location.description}</p> : null}
                 <div>
                   <h2>Facilidades</h2>
@@ -137,6 +135,15 @@ function LocationDetails(props) {
                   <div>
                     <LocationMap />
                   </div>
+
+                  <div className="button-container">
+                    <button
+                      className="button-checkin"
+                      onClick={checked === null ? checkIn : message}
+                    >
+                      Check In
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,7 +165,7 @@ function LocationDetails(props) {
               <div>
                 <h1>{location.name}</h1>
                 {popUpA ? <PopUpA toggle={togglePopA} /> : null}
-                <button onClick={checkOut}>Check Out</button>
+
                 {popUpC ? (
                   <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />
                 ) : null}
@@ -205,6 +212,11 @@ function LocationDetails(props) {
                     <a href="https://google.com">Visitar Website</a>
                     <div>
                       <LocationMap />
+                    </div>
+                    <div className="button-container">
+                      <button className="button-checkout" onClick={checkOut}>
+                        Check Out
+                      </button>
                     </div>
                   </div>
                 </div>
