@@ -8,8 +8,6 @@ function UserGreeting() {
 
   const { user } = useContext(AuthContext);
 
-
-
   return (
     <div className="greeting-container">
       <span>
