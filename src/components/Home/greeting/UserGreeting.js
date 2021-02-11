@@ -8,15 +8,13 @@ function UserGreeting() {
 
   const { user } = useContext(AuthContext);
 
-  const initialGreeting = `${t("homepage:userGreeting.Hi")} ${user.fullName}`;
+
 
   return (
     <div className="greeting-container">
       <span>
-        {initialGreeting}
-        <br />
-        {user.membership_id ? "active membership!"
-          : (<span> 
+        {user.membership_id ? "Active membership!"
+          : (<span style={{color:'#940000'}}> 
               No active membership 
               <br /> 
               <Link to="membership">Click here to buy a plan</Link> 

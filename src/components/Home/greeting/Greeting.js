@@ -18,9 +18,10 @@ const ProfilePicture = styled.div`
 function Greeting() {
   const { user } = useContext(AuthContext)
   const { t } = useTranslation(["homepage"]);
+  const initialGreeting = `${t("homepage:userGreeting.Hi")} ${user.fullName}`;
   return (
     <HeadersBg>
-      <h2 className="welcome">{t("homepage:homePage.WelcomeToKrow")}</h2>
+      <h2 className="welcome">{user? initialGreeting :t("homepage:homePage.WelcomeToKrow")}</h2>
         <Link to="/auth/login" className="profile-picture"><img  src={ProfilePic} alt="" /></Link>
       {user ? <UserGreeting {...user} /> : <GuestGreeting />}
     </HeadersBg>
