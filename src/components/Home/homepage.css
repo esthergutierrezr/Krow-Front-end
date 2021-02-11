@@ -102,10 +102,14 @@
 .home__featured-locations{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #home__view-all-locations{
   color: #444;
+  margin: 0 15px 30px 0;
+
+
 }
 
 .bg-white{
@@ -122,7 +126,7 @@
 h2{
   font-size: 20px;
   font-weight: 600;
-  margin: 30px 0 15px 30px
-
+  margin: 0 0 30px 11vw;
+  display:inline
 }
 

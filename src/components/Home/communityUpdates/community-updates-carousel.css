@@ -4,6 +4,7 @@
   width: 100vw;
 } */
 #carousel-community-updates .slick-slide{
+  margin-top: 10px;
   max-height: 270px !important;
 }
 .slick-list, .slick-track, .slick-slider{
