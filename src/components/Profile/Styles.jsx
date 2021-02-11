@@ -24,12 +24,12 @@ export const ProfilePhoto = styled.img`
   // margin-left: 275.5px;
 
   @media only screen and (max-width: 480px) {
-   margin-right: 10px;
+    margin-right: 10px;
   }
 
   @media only screen and (max-width: 420px) {
     margin-right: -10px;
-   }
+  }
 
   @media only screen and (max-width: 375px) {
     margin-top: -15px;
@@ -42,11 +42,11 @@ export const ProfilePhoto = styled.img`
 `;
 
 export const HeadersProfile = styled.div`
-// display:flex;
-// flex-direction: column;
+  // display:flex;
+  // flex-direction: column;
   width: auto;
   height: 112.2px;
-  margin-bottom:43.8px;
+  margin-bottom: 43.8px;
   margin-left: auto;
   margin-right: auto;
   padding: 22px 41.3px 21.5px 41px;
@@ -224,7 +224,7 @@ export const GreetingEdit = styled.h1`
   line-height: 1.2;
   letter-spacing: 0.3px;
   margin: 79.8px auto 10.3px auto;
-  text-align:center;
+  text-align: center;
 `;
 export const CenterDiv = styled.div`
   display: flex;
@@ -285,6 +285,10 @@ export const HeaderEdit = styled.div`
   margin: 0 0 43.8px;
   padding: 22px 41.3px 21.5px 41px;
   background-color: ${Blue};
+
+  @media only screen and (max-width: 330px) {
+    padding-right: 10px;
+  }
 `;
 export const EditTitle = styled.div`
   width: 100%;
@@ -313,7 +317,7 @@ export const CenterDivChange = styled.div`
 `;
 export const FormChange = styled.form`
   height: 100%;
-  margin: 0px 70px 15.1px 60px;
+  margin: 0px auto 15.1px auto;
 
   h1 {
     font-family: Calibril;
@@ -354,6 +358,10 @@ export const FormChange = styled.form`
     font-style: normal;
     line-height: 1.2;
     letter-spacing: normal;
+
+    @media only screen and (max-width: 370px) {
+      width: 300px;
+    }
   }
 `;
 export const Save = styled.button`
@@ -370,9 +378,13 @@ export const Save = styled.button`
   letter-spacing: normal;
   margin: auto auto 100.4px 90px;
   border-radius: 11.9px;
+
+  @media only screen and (max-width: 370px) {
+    margin-left: 70px;
+  }
 `;
 export const ChangeTitle = styled.div`
-  width: 414.2px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   font-family: Calibril;
@@ -383,7 +395,10 @@ export const ChangeTitle = styled.div`
   line-height: 1.24;
   letter-spacing: 0.32px;
   color: ${White};
-  margin-top: 34px;
+  margin: 34px auto 0 auto;
+  @media only screen and (max-width: 350px) {
+    margin-right: 10px;
+  }
 `;
 
 // ****************Common style
@@ -518,7 +533,7 @@ export const WheelIcon = styled.img`
   padding-right: 10px;
 `;
 
-//************RESET PASSWORD */
+//* ***********RESET PASSWORD */
 export const ArrowBlue = styled.img`
   display: flex;
   width: 14.5px;
@@ -530,13 +545,17 @@ export const Logo = styled.img`
   width: 174.7px;
   margin-top: 50.5px;
   display: block;
-  margin-left: 146.6px;
+  margin-left: auto;
   margin-right: auto;
 `;
 export const ResetDiv = styled.form`
-  height: 100%;
-  margin: 0px 70px 151.1px 60px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px auto 151.1px auto;
+  justify-content: center;
+  align-items: center;
 
   h1 {
     margin: 111px 6.5px 21.6px 11.1px;
@@ -561,7 +580,7 @@ export const ResetDiv = styled.form`
     line-height: 1.2;
     letter-spacing: normal;
     text-align: center;
-    margin: 21.6px 72.4px 48.5px 77.2px;
+    margin: 21.6px auto 48.5px auto;
   }
   input {
     background: transparent;
@@ -579,6 +598,9 @@ export const ResetDiv = styled.form`
     font-style: normal;
     line-height: 1.2;
     letter-spacing: normal;
+    @media only screen and (max-width: 370px) {
+      width: 300px;
+    }
   }
 `;
 export const SendEmail = styled.button`
@@ -595,71 +617,7 @@ export const SendEmail = styled.button`
   letter-spacing: normal;
   margin: 30px 0 0px 0;
   border-radius: 11.9px;
-`;
-
-export const ForgetDiv = styled.form`
-  height: 100%;
-  margin: 0px 70px 151.1px 60px;
-  text-align: center;
-
-  h1 {
-    margin: 111px 6.5px 21.6px 11.1px;
-    font-family: Calibril;
-    font-size: 26.2px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: 0.31px;
-    text-align: center;
-    color: ${White};
+  @media only screen and (max-width: 370px) {
+    width: 300px;
   }
-  p {
-    color: ${White};
-    width: 210px;
-    height: 39px;
-    font-family: Raleway;
-    font-size: 16.4px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    text-align: center;
-    margin: 21.6px 72.4px 48.5px 77.2px;
-  }
-  input {
-    width: 336px;
-    height: 54.9px;
-    margin: 0 0 15.1px;
-    border-radius: 10px;
-    border: solid 1px ${GrayBorder};
-    text-align: left;
-    padding-left: 18.7px;
-    background-color: ${GrayBorder};
-    opacity: 0.85;
-    font-family: Raleway;
-    font-size: 19.8px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    color: ${White};
-  }
-`;
-export const SendEmailPass = styled.button`
-  background-color: ${White};
-  width: 360px;
-  height: 54.9px;
-  color: ${Black};
-  font-family: Raleway;
-  font-size: 16.5px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  margin: 30px 0 0px 0;
-  border-radius: 11.9px;
 `;

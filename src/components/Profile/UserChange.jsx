@@ -6,19 +6,19 @@ import Wheel from "../Style/SVG/Profile/SVG_Screen Perfil-01_icon white.svg";
 import ArrowLeft from "../Style/SVG/Profile/SVG_Screen Perfil-06_seta branca-01.svg";
 import "./profile.css";
 import {
-    ArrowL,
-    WheelIcon,
-    HeaderEdit,
-    EditPhoto,
-    ChangeTitle,
-    GreetingEdit,
-    IsMember,
-    NotMember,
-    BuyMember,
-    ExpireTime,
-    Circle,
-    CenterDivChange,
-    ActiveMember,
+  ArrowL,
+  WheelIcon,
+  HeaderEdit,
+  EditPhoto,
+  ChangeTitle,
+  GreetingEdit,
+  IsMember,
+  NotMember,
+  BuyMember,
+  ExpireTime,
+  Circle,
+  CenterDivChange,
+  ActiveMember,
 } from "./Styles";
 
 function UserChange() {
@@ -32,25 +32,23 @@ function UserChange() {
   return (
     <>
       <HeaderEdit>
-        <div>
-          <ChangeTitle>
-            <Link to={`/profile/${id}`}>
-              <ArrowL src={ArrowLeft} alt="arrow-back" />
-            </Link>
-            Change Password
-            <WheelIcon src={Wheel} alt="wheel-icon" />
-          </ChangeTitle>
-          <EditPhoto
-            src={!user.image ? picture : user.image}
-            alt={`${user.fullName}`}
-          />
-        </div>
+        <ChangeTitle>
+          <Link to={`/profile/${id}`}>
+            <ArrowL src={ArrowLeft} alt="arrow-back" />
+          </Link>
+          Change Password
+          <WheelIcon src={Wheel} alt="wheel-icon" />
+        </ChangeTitle>
+        <EditPhoto
+          src={!user.image ? picture : user.image}
+          alt={`${user.fullName}`}
+        />
       </HeaderEdit>
       <GreetingEdit>{initialGreeting}</GreetingEdit>
       <CenterDivChange>
         <br />
         <br />
-        {!member ? (
+        {member ? (
           <ActiveMember>
             <IsMember>
               {" "}
