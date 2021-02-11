@@ -1,13 +1,109 @@
 .locationsCard {
   display: flex;
   flex-direction: column;
-}
-.checkin {
-  background-color: rgb(223, 217, 217);
-  display: flex;
+  align-items: center;
+  padding: 10px;
 }
 
+.location-image {
+  width: 167.2px;
+  height: 167.2px;
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px; */
+  border-radius: 10px;
+}
+.checkin-list {
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+}
+.content {
+  min-width: 240px;
+  background-color: white;
+  height: 167.2px;
+  border-radius: 10px;
+  /* border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px; */
+}
 .checkout {
   background-color: rgba(87, 99, 202, 0.719);
   display: flex;
 }
+
+.button {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .disponivel {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #f8c861;
+  color: black;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 96.2px;
+  height: 32.6px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}
+.container .indisponivel {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #a6a5a5;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 96.2px;
+  height: 32.6px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}
+.container .check-out {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #395daa;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 96.2px;
+  height: 32.6px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}
+
+/* .container .btn:hover {
+  background-color: #f8c861;
+  color: black;
+} */

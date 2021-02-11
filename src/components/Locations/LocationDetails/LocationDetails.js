@@ -85,21 +85,13 @@ function LocationDetails(props) {
 
   return (
     <div>
-      <div>
+      <div className="location-carousel">
         <LocationCarousel />
       </div>
 
       {checked !== props.match.params.id ? (
         <div className="details_checkin">
-          <div
-            style={{
-              borderTopLeftRadius: "40px",
-              borderTopRightRadius: "40px",
-              backgroundColor: "#ece6c7",
-              paddingTop: "30px",
-              paddingLeft: "30px",
-            }}
-          >
+          <div className="all-info">
             <a href={`/locations/`}>Back</a>
             <div>
               <h1>{location.name}</h1>
@@ -112,10 +104,10 @@ function LocationDetails(props) {
               <p>Icon + Location</p>
               <LocationsRating rating={location.rating} />
 
-              <div>
+              <div className="description">
                 <h2>Description</h2>
                 <p>???</p>
-                <button onClick={readMoreA}>Ler mais</button>
+                <div onClick={readMoreA}>\/</div>
                 {moreTextA ? <p>{location.description}</p> : null}
                 <div>
                   <h2>Facilidades</h2>

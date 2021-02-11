@@ -7,7 +7,7 @@ function LocationsRating(props) {
   return (
     <div
       style={{
-        color: "#444",
+        color: "#787878",
       }}
     >
       <span

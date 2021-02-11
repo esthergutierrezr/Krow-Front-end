@@ -13,7 +13,7 @@ function LocationContextProvider(props) {
 
   const [checked, setChecked] = useState(null);
   const [searchValue, updateSearchValue] = React.useState("");
-
+  const [map, setShowMap] = React.useState(false);
   return (
     <LocationContext.Provider
       value={{
@@ -23,6 +23,8 @@ function LocationContextProvider(props) {
         updateSearchValue,
         setChecked,
         setLocation,
+        map,
+        setShowMap,
       }}
     >
       {props.children}

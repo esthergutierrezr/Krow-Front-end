@@ -19,16 +19,39 @@ function LocationMap(props) {
       activeMarker: marker,
     });
   };
+
+  const defaultMapOptions = {
+    fullscreenControl: false,
+    scaleControl: false,
+    zoomControl: false,
+    mapTypeControl: false,
+
+    streetViewControl: false,
+    rotateControl: false,
+  };
   return (
-    <div style={{ height: "50px", width: "50px" }}>
+    <div
+      style={{
+        height: "200px",
+        width: "auto",
+        backgroundColor: "#ebeadf",
+        padding: "30px",
+      }}
+    >
       <Map
         defaultZoom={1}
+        options={defaultMapOptions}
         initialCenter={{
           lat: state.mapCenter.lat,
           lng: state.mapCenter.lng,
         }}
         google={props.google}
-        style={{ height: "500px", width: "500px" }}
+        style={{
+          height: "230px",
+          width: "400px",
+          paddingLeft: "30px",
+          paddingRight: "30px",
+        }}
       >
         <Marker
           {...location}

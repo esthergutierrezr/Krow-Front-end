@@ -64,20 +64,19 @@ function LocationsCard(props) {
     <div className="locationsCard">
       {checked !== props.id ? (
         <div className="checkin">
+          <h1>{props.name}</h1>
+
+          <p>1 miembro aqui</p>
+
+          <div>09:00 - 17:00 </div>
+
+          <div> Sintra | </div>
+          <a href="https://google.com"> Obtener direccoes </a>
           <div>
-            <h1>{props.name}</h1>
-
-            <p>1 miembro aqui</p>
-
-            <div>09:00 - 17:00 </div>
-
-            <div> Sintra | </div>
-            <a href="https://google.com"> Obtener direccoes </a>
-            <div>
-              <LocationsRating rating={props.rating} />
-            </div>
-            <a href={`/locations/${props.id}`}>Details</a>
+            <LocationsRating rating={props.rating} />
           </div>
+          <a href={`/locations/${props.id}`}>Details</a>
+
           <button onClick={onCardClick}>
             <img src={props.image} alt="image" width="150" height="150" />
           </button>
@@ -99,7 +98,12 @@ function LocationsCard(props) {
           </div>
 
           <div>
-            <img src={props.image} alt="image" width="250" height="220" />
+            <img
+              src={props.image}
+              alt="image"
+              width="167.2px"
+              height="167.2px"
+            />
           </div>
           <button onClick={checkOut}>Check Out</button>
           {popUpC ? (

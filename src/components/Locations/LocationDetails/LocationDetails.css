@@ -1,4 +1,21 @@
 .details_checkin {
+  position: absolute;
+  display: flex;
+}
+
+.location-carousel {
+  height: 230px;
+}
+.all-info {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background-color: white;
+  padding-top: 30px;
+  padding-left: 30px;
+  width: 100vw;
+}
+.description {
+  background-color: #ebeadf;
 }
 
 .details_checkout {

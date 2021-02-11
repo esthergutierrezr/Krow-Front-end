@@ -51,8 +51,8 @@ function ListLocationCard(props) {
   return (
     <div className="locationsCard">
       {checked !== props.id ? (
-        <div className="checkin">
-          <div>
+        <div className="checkin-list">
+          <div className="content">
             <h1>{props.name}</h1>
             <p>1 miembro aqui</p>
 
@@ -60,32 +60,42 @@ function ListLocationCard(props) {
             <div> Sintra </div>
             <a href="https://google.com"> Obtener direccoes </a>
             <LocationsRating rating={props.rating} />
-            <a href={`/locations/${props.id}`}>Details</a>
           </div>
-          <div>
-            <img src={props.image} alt="image" width="250" height="220" />
+          <div className="container">
+            <a href={`/locations/${props.id}`}>
+              <img src={props.image} alt="image" className="location-image" />
+            </a>
+            <button
+              className={checked ? "indisponivel" : "disponivel"}
+              onClick={checked === null ? checkIn : message}
+            >
+              {popUpB ? <PopUpB toggle={togglePopB} /> : null}
+              Check In
+            </button>
           </div>
-          <button onClick={checked === null ? checkIn : message}>
-            {popUpB ? <PopUpB toggle={togglePopB} /> : null}
-            Check In
-          </button>
         </div>
       ) : (
         <div className="checkout">
-          <div>
-            <h1>{props.name}</h1>
-            {popUpA ? <PopUpA toggle={togglePopA} /> : null}
-            <p>6 miembro(s) aqui</p>
-            <div>Aberto ate as 22:00 </div>
-            <p>wifi:{props.network}</p>
-            <p>Password:{props.password}</p>
-            <a href={`/locations/${props.id}`}>Details</a>
-          </div>
+          <h1>{props.name}</h1>
+          {popUpA ? <PopUpA toggle={togglePopA} /> : null}
+          <p>6 miembro(s) aqui</p>
+          <div>Aberto ate as 22:00 </div>
+          <p>wifi:{props.network}</p>
+          <p>Password:{props.password}</p>
+          <a href={`/locations/${props.id}`}>Details</a>
 
-          <div>
-            <img src={props.image} alt="image" width="250" height="220" />
+          <div className="container">
+            <img
+              src={props.image}
+              alt="image"
+              width="167.2px"
+              height="167.2px"
+            />
+
+            <button className="check-out" onClick={checkOut}>
+              Check Out
+            </button>
           </div>
-          <button onClick={checkOut}>Check Out</button>
           {popUpC ? (
             <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />
           ) : null}

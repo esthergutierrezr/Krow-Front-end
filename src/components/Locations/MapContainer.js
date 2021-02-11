@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./MapContainer.css";
 import AutoComplete from "./Autocomplete";
+import SearchInput from "./SearchInput.js";
 
 function MapContainer(props) {
   const { location, setLocation } = useContext(LocationContext);
@@ -96,14 +97,16 @@ function MapContainer(props) {
   // };
   return (
     <div>
-      <Link to="/">HomePage</Link>
       {/* <div>
         <AutoComplete map={mapInstance} mapApi={mapApi} addplace={addPlace} />
       </div> */}
-      <div style={{ height: "350px", width: "100vw" }}>
+      <div>
+        <SearchInput />
+      </div>
+      <div style={{ height: "450px", width: "100vw" }}>
         <Map
-          style={{ height: "350px", width: "100vw" }}
-          containerStyle={{ height: "350px", width: "100vw" }}
+          style={{ height: "770px", width: "100vw" }}
+          containerStyle={{ height: "550px", width: "100vw" }}
           zoom={16}
           center={{
             lat: location.center.lat,

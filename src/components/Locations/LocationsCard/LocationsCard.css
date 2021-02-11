@@ -3,11 +3,15 @@
   flex-direction: row;
 }
 .checkin {
-  background-color: rgb(223, 217, 217);
   display: flex;
+  height: 167.5px;
+  width: 240.7px;
+  background-color: white;
 }
 
 .checkout {
   background-color: rgba(87, 99, 202, 0.719);
   display: flex;
+  height: 167.5px;
+  width: 240.7px;
 }
