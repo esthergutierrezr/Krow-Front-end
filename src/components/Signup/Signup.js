@@ -2,14 +2,22 @@ import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import Cookies from "js-cookie";
 import { AuthContext } from "../../contexts/AuthContext";
 import "react-phone-input-2/lib/style.css";
 import "./Signup.css";
 import KrowLogo from "../Style/SVG/KrowLogo.svg";
-import { Logo, Register, Input } from "./SignUpStyle";
+import {
+  Logo,
+  Register,
+  FormSignUp,
+  ContainerSignUp,
+  LoginText,
+  RegisterLink,
+  GuestLink,
+} from "./SignUpStyle";
 // import { LaptopBg } from "../Style/Backgrounds";
 
 function Signup() {
@@ -42,19 +50,18 @@ function Signup() {
   return (
     <div className="bg">
       <Logo src={KrowLogo} alt="Krow-logo" />
-      <div className="form-container">
-        <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-          <Input
+      <ContainerSignUp>
+        <FormSignUp onSubmit={handleSubmit(onSubmit)}>
+          <input
             type="email"
             name="email"
             placeholder="Email*"
-            ref={register({ required: true, maxLength: 80 })}
+            ref={register({ required: true })}
           />
-          <p>
-            {!errors.email
-              ? `${t("signup:Email")}`
-              : `${t("signup:EmailReq")}`}
-          </p>
+          {/* <p>
+            {errors.email && `${t("signup:EmailReq")}`}
+          </p> */}
+          <br />
           <PhoneInput
             inputStyle={{
               backgroundColor: "#323232",
@@ -62,8 +69,11 @@ function Signup() {
               color: "#898884",
               borderRadius: "8px",
               opacity: ".9",
-              maxWidth: "285px",
+              width: "305px",
               height: "54.2px",
+              marginTop: "24.8px",
+              // zIndex: "-1",
+              // position:"relative"
             }}
             buttonStyle={{
               backgroundColor: "#323232",
@@ -71,11 +81,16 @@ function Signup() {
               color: "#898884",
               borderRadius: "8px",
               opacity: ".9",
+              zIndex: "1",
+              position:"relative",
+              marginTop: "-27px",
             }}
             dropdownStyle={{
               backgroundColor: "#323232",
               border: "none",
               color: "#898884",
+              zIndex: "-1",
+              position:"relative"
             }}
             inputProps={{
               name: "phone",
@@ -87,51 +102,64 @@ function Signup() {
             type="tel"
             country="pt"
             name="phone"
-            placeholder={
-              !errors.phone
-                ? `${t("signup:PhoneNumber")}*`
-                : `${t("signup:PhoneNumberReq")}`
-            }
+            placeholder="Phone Number*"
           />
-          <Input
+
+          <input
             className="hidden"
             value={state.phone}
             type="tel"
             name="phoneNumber"
-            placeholder={
-              !errors.phone
-                ? `${t("signup:PhoneNumber")}*`
-                : `${t("signup:PhoneNumberReq")}`
-            }
+            placeholder="Phone Number*"
             ref={register({ required: true, maxLength: 80 })}
           />
-          <Input
+          <br />
+          <br />
+          {/* <p>{
+            {
+              errors.phone && `${t("signup:PhoneNumberReq")}`
+            }
+              errors.phone && `${t("signup:PhoneNumberReq")}`
+            }</p> */}
+          <input
             type="text"
             name="fullName"
-            placeholder={
-              !errors.fullName
-                ? `${t("signup:FullName")}*`
-                : `${t("signup:FullNameReq")}`
-            }
+            placeholder="Full Name*"
             ref={register({ required: true, maxLength: 30 })}
           />
-          <Input
+          {/* <p>
+          {
+              errors.fullName && `${t("signup:FullNameReq")}`
+            }
+          </p> */}
+          <input
             type="password"
             name="password"
-            placeholder={
-              !errors.password
-                ? `${t("signup:CreatePassword")}*`
-                : `${t("signup:CreatePasswordReq")}`
-            }
+            placeholder="Password*"
             ref={register({
               minLength: 8,
               required: true,
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
           />
+          {/* <p>
+          {
+              !errors.password && `${t("signup:CreatePasswordReq")}`
+            }
+          </p> */}
+          <br />
           <Register type="submit">{t("signup:Register")}</Register>
-        </form>
-      </div>
+          <br />
+          <LoginText>
+            <p>Already a Member?</p>
+            <Link to="/auth/login">
+              <RegisterLink>Please login</RegisterLink>
+            </Link>
+            <br />
+            <GuestLink>Continue as Guest</GuestLink>
+          </LoginText>
+        </FormSignUp>
+      </ContainerSignUp>
     </div>
   );
 }
