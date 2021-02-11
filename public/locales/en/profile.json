@@ -8,7 +8,7 @@
   }, 
   "editProfile": {
     "edit": "Edit Profile",
-    "firstLastName": "First and last name",
+    "firstLastName": "First and Last Name",
     "phoneNumber": "Phone Number",
     "country": "Country",
     "city": "City",
@@ -41,9 +41,32 @@
     "logout": "Log Out"
   },
   "userProfile": {
+    "greeting": "Hey",
     "activeMembership": "Active Membership",
     "expiry": "Expires in",
+    "welcome": "Welcome to Krow",
     "noMembership": "No Active Membership",
     "buyMembership": "Add a Membership"
+  },
+  "userChange": {
+    "greeting": "Hey",
+    "changePassword": "Change Password",
+    "subscription": "Active Subscription",
+    "expiry": "Expires in ",
+    "noMembership": "No Active Membership",
+    "addMembership": "Add a Membership"
+  },
+  "userEdit": {
+    "greeting": "Hey",
+    "editProfile": "Edit Profile",
+    "subscription": "Active Subscription",
+    "expiry": "Expires in ",
+    "noMembership": "No Active Membership",
+    "addMembership": "Add a Membership"
+  },
+  "resetPassword": {
+    "forget": "Forget your Password?",
+    "insertEmail": "Please type your Krow account email.",
+    "replacement": "Send Replacement Password"
   }
 }

@@ -1,25 +1,31 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Black, Red, White, YellowButton, BlackButton } from "../Style/Colors";
 import styled from "styled-components";
+import { Black, Red, White, YellowButton } from "../Style/Colors";
 import ReferLogo from "../Style/SVG/Invite/SVG_Screen Registar-01.svg";
-import ShareCode from "../Style/SVG/Invite/SVG_Screen Registar_Icon Partilhar-01.svg";
 import "./profile.css";
 
-// import { AuthContext } from "../../contexts/AuthContext";
 const Header = styled.div`
-  display: block;
-  position: relative;
+  display: flex;
   height: 130.3px;
 `;
 export const LogoInvite = styled.img`
   height: 200px;
   width: 250px;
-  display: block;
-  position: absolute;
-  margin: -47px auto 35.9px 120px;
-`;
 
+  @media only screen and (max-width: 420px) {
+    height: 150px;
+    width: 200px;
+  }
+`;
+export const ImgDiv = styled.div`
+  position: absolute;   
+  text-align: center;   
+  left: 0;   
+  right: 0;   
+  margin-top: -47px;   
+  margin-bottom: 35.9px; }
+`;
 export const LogoShare = styled.img`
   width: 35px;
   height: 35px;
@@ -29,14 +35,23 @@ export const LogoShare = styled.img`
 const Content = styled.div`
   width: 100%;
   height: auto;
+
   .text-refer {
-    padding-top: 167px;
-    display: block;
-    margin: 0 59.5px 17.4px 59.5px;
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 17.4px;
+    margin-left: auto;
+    margin-right: auto;
     width: 361px;
     height: 288px;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: 420px) {
+      width: 250px;
+      margin-bottom: 100px;
+    }
   }
   p {
     font-family: Raleway;
@@ -78,10 +93,15 @@ const Content = styled.div`
   }
   .bgRed {
     background-color: ${Red};
-    height: 80vh;
+    height: 100vh;
+    padding-bottom: 55px;
+    width: 100%;
+  }
+  .bgWhite{
+    width: 100%;
+    background-color: ${White};
   }
 `;
-
 export const ButtonCopy = styled.button`
   background-color: ${YellowButton};
   border-radius: 10px;
@@ -110,10 +130,8 @@ export const ButtonCode = styled.input`
   background-color: ${White};
   border-radius: 10px;
   border: hidden;
-  // margin-left: 121.9px;
-  // margin-right: auto;
+ 
   margin-top: 17.4px;
-  // padding-left:38px;
   width: 109.2px;
   height:39.9px;
   color: ${Black};
@@ -129,6 +147,7 @@ export const ButtonCode = styled.input`
 export const DivButtons = styled.div`
   text-align: center;
 `;
+// TODO This style it's for the button to share the code with other apps
 // export const ButtonShare = styled.button`
 //   background-color: ${BlackButton};
 //   border-radius: 10px;
@@ -146,12 +165,8 @@ export const DivButtons = styled.div`
 // }
 // `;
 
-
-
 const ReferFriend = () => {
   const { t } = useTranslation(["referafriend"]);
-  // const { user } = useContext(AuthContext);
-  // should be the membership context, when created we should be able to get the info for generate the code of Stripe!!!!!!
   const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
@@ -168,8 +183,9 @@ const ReferFriend = () => {
     <Content>
       <Header className="bgwhite" />
       <div className="bgRed">
-        <LogoInvite src={ReferLogo} alt="Krow-logo" />
-        {/* image of refer friend */}
+        <ImgDiv>
+          <LogoInvite src={ReferLogo} alt="Krow-logo" />
+        </ImgDiv>
         <div className="text-refer">
           <h1>{t("referafriend:header.title")}</h1>
           <h3>{t("referafriend:header.discount")}</h3>
@@ -184,7 +200,9 @@ const ReferFriend = () => {
           </ButtonCopy>
         </DivButtons>
         <br />
-        {/* <ButtonShare type="button" onClick={() => Share()}>
+        {/* 
+        // TODO This button it's to share the code with other apps
+        <ButtonShare type="button" onClick={() => Share()}>
           <LogoShare src={ShareCode} alt="share-code" />
           <div className="share">
             <span>{t("referafriend:button.share")}</span>

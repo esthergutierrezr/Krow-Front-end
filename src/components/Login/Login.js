@@ -1,59 +1,95 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useContext } from "react";
-import styled from "styled-components";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import KrowLogo from "../Style/SVG/KrowLogo.svg";
-
-const Logo = styled.img`
-  height: 78.3px;
-  width: 163px;
-  margin-top: 83px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-`;
+import {
+  LoginForm,
+  Logo,
+  Container,
+  LoginText,
+  RegisterLink,
+  PasswordLink,
+  GuestLink,
+} from "./StyleLogin";
 
 function Login() {
   const [state, setState] = useState({});
   const { setUser, setAuth } = useContext(AuthContext);
   const history = useHistory();
+  const { register, errors, handleSubmit } = useForm({});
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios.post("/auth/login", state).then((response) => {
-      setUser(response.data.foundUser);
-      setAuth(true);
-      Cookies.set("authToken", response.data.token);
-      history.push("/");
-    });
+  const onSubmit = (data) => {
+    axios
+      .post("/auth/login", { email: data.email, password: data.password })
+      .then((response) => {
+        setUser(response.data.foundUser);
+        setAuth(true);
+        Cookies.set("authToken", response.data.token);
+        history.push("/");
+      });
   };
 
-  const handleChange = (event) => {
-    const { value, name } = event.target;
-    setState({ ...state, [name]: value });
+  const resetSession = () => {
+    window.location.href = "/";
   };
 
   return (
     <div className="bg">
       <Logo src={KrowLogo} alt="Krow-logo" />
-      <div className="form-container">
-        <form onSubmit={handleSubmit} className="login-form">
-          <p>Email</p>
-          <input name="email" value={state.email} onChange={handleChange} />
-          <br />
-          <p>Password</p>
+      <Container>
+        <LoginForm onSubmit={handleSubmit(onSubmit)}>
           <input
+            placeholder="Email*"
+            type="email"
+            name="email"
+            value={state.email}
+            ref={register({
+              required: true,
+            })}
+          />
+          {errors.email && <p>Required Email</p>}
+          <br />
+          <input
+            placeholder="Password*"
             name="password"
             type="password"
             value={state.password}
-            onChange={handleChange}
+            ref={register({
+              required: true,
+              minLength: 8,
+              pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
+            })}
           />
+          {errors.password && <p>Password must have at least 8 characters</p>}
           <br />
           <button type="submit">Login</button>
-        </form>
-      </div>
+          <br />
+          <br />
+          <LoginText>
+            <p>Not a Member yet?</p>
+            <Link to="/auth/signup">
+              <RegisterLink>Please register</RegisterLink>
+            </Link>
+            <br />
+            <Link to="/password/forget">
+              <PasswordLink>
+                Forget your Password
+                <hr />
+              </PasswordLink>
+            </Link>
+            <br />
+            <div onClick={() => resetSession()} to="/">
+              <GuestLink>Continue as Guest</GuestLink>
+            </div>
+          </LoginText>
+          <br />
+        </LoginForm>
+      </Container>
     </div>
   );
 }

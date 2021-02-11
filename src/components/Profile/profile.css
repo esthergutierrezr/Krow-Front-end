@@ -21,6 +21,7 @@
   position: absolute; 
   width: 100%;
   height: auto;
+  padding-bottom: 55px;
   /* height: 140vh; */
   min-height: 125vh;
   align-self: center;

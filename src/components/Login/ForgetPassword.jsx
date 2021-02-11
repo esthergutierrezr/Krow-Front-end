@@ -1,15 +1,18 @@
 import React, { useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import ArrowLeft from "../Style/SVG/Profile/SVG_Screen Perfil-06_seta branca-01.svg";
-import { ArrowBlue, Logo, ForgetDiv, SendEmailPass } from "../Profile/Styles";
+import { ArrowBlue, Logo } from "../Profile/Styles";
+import { ForgetForm, SendEmailPass } from "./StyleLogin";
 import KrowLg from "../Style/SVG/KrowLogo.svg";
 import "./Login.css";
 
 const ResetPassword = () => {
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation(["login"]);
   const id = Number(user.id);
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm({});
@@ -17,13 +20,11 @@ const ResetPassword = () => {
   // emailRecipient
 
   const onSubmit = (data) => {
-    console.log("data: ", data);
     axios
       .post("/password/reset", {
         emailRecipient: data.email,
       })
       .then(async (response) => {
-        console.log("response: ", response);
         history.push("/auth/login");
       })
       .catch((error) => console.error(error));
@@ -33,15 +34,15 @@ const ResetPassword = () => {
   return (
     <div className="bg">
       <div>
-        <Link to="/auth/login">
+        <Link to="/auth/signup">
           <ArrowBlue src={ArrowLeft} alt="arrow-back" />
         </Link>
       </div>
       <Logo src={KrowLg} alt="Krow-logo" />
       <br />
-      <ForgetDiv onSubmit={handleSubmit(onSubmit)}>
-        <h1>Forget your Password?</h1>
-        <p>Enter your associated email to your Krow account</p>
+      <ForgetForm onSubmit={handleSubmit(onSubmit)}>
+        <h1>{t("login:forgetPassword.forget")}</h1>
+        <p>{t("login:forgetPassword.enterEmail")}</p>
         <input
           name="email"
           type="email"
@@ -50,8 +51,8 @@ const ResetPassword = () => {
             required: true,
           })}
         />
-        <SendEmailPass type="submit">Send Replacement Password</SendEmailPass>
-      </ForgetDiv>
+        <SendEmailPass type="submit">{t("login:forgetPassword.sendReplacement")}</SendEmailPass>
+      </ForgetForm>
     </div>
   );
 };

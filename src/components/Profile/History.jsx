@@ -4,19 +4,28 @@
 // Check-Ins
 // check-in card
 
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import Billing from './Billing'
-import CheckIns from './CheckIns'
+import React, {useContext} from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Billing from "./Billing";
+import CheckIns from "./CheckIns";
+import { AuthContext } from "../../contexts/AuthContext";
 
-const History = () => (
-  <div>
-    
-    <Switch>
-      <Route path="/profile/historic/ckeckins" component={CheckIns}/>
-      <Route path="/profile/historic/billings" component={Billing} />
-    </Switch>
-  </div>
-    )
+const History = () => {
+  const { user } = useContext(AuthContext);
+  console.log("object", user);
+  // console.log(user)
+  const id = Number(user.id);
 
-export default History
+  return (
+    <div>
+      <h1>Historic</h1>
+      <Switch>
+        {/* <Route path={`/profile/${id}/historic/ckeckins`} component={CheckIns} /> */}
+        <Route path={`/profile/${id}/historic/billing`} component={Billing} />
+        <Redirect path={`/profile/${id}/historic/billing`} component={Billing} />
+      </Switch>
+    </div>
+  );
+};
+
+export default History;

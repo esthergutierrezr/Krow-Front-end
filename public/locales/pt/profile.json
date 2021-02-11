@@ -8,7 +8,7 @@
   },
   "editProfile": {
     "edit": "Editar Perfil",
-    "firstLastName": "Primeiro e último nome",
+    "firstLastName": "Primeiro e Último Nome",
     "phoneNumber": "Número Móvel",
     "country": "País",
     "city": "Cidade",
@@ -41,9 +41,32 @@
     "logout": "Terminar Sessão"
   },
   "userProfile": {
+    "greeting": "Olá",
     "activeMembership": "Subscrição Ativa",
     "expiry": "Expira em",
+    "welcome": "Bem-vindo à Krow",
     "noMembership": "Nenhuma Subscrição Ativa",
     "buyMembership": "Subscrever"
+  },
+  "userChange": {
+    "greeting": "Olá",
+    "changePassword": "Mudar Password",
+    "subscription": "Subscrição Ativa",
+    "expiry": "Termina a ",
+    "noMembership": "Nenhuma subscrição ativa",
+    "addMembership": "Subscrever"
+  },
+  "userEdit": {
+    "greeting": "Olá",
+    "editProfile": "Editar Perfil",
+    "subscription": "Subscrição Ativa",
+    "expiry": "Termina a ",
+    "noMembership": "Nenhuma Subscrição Activa",
+    "addMembership": "Subscrever"
+  },
+  "resetPassword": {
+    "forget": "Esqueceu-se da sua password?",
+    "insertEmail": "Por favor insira o email associado à sua conta Krow.",
+    "replacement": "Enviar Password de Reposição"
   }
 }

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { StyledButton } from "../Style";
+import { AuthContext } from "../../../contexts/AuthContext";
 import PackagesAvailable from "../PackagesAvailable";
 import CCards from "../../Style/SVG/Membership/pf.svg";
 import axios from "axios";
@@ -12,7 +13,7 @@ import "./ProductForm.css";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(
-  "pk_test_51I6HEqA5Jiwwo3yOlA1U4oaHSVxEgJpnZkoYPKhH2LKpWwFTJTnFMJiE3v2L4Et29rcdsUULbFHOeasf4Sp09bKC00MnRbRNl6"
+  process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
 );
 
 // ProductForm --> PaymentSummaryDisplay --> PaymentSummaryTemplate
@@ -132,7 +133,15 @@ const Message = ({ message }) => (
 );
 export default function ProductForm() {
   const [message, setMessage] = useState("");
+  const { user } = useContext(AuthContext);
+  const [language, setLanguage] = useState("");
+
+  const getLanguage = () => {
+      setLanguage(localStorage.getItem("i18nextLng"));
+  }
   useEffect(() => {
+    getLanguage();
+
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get("success")) {
@@ -144,17 +153,17 @@ export default function ProductForm() {
       );
     }
   }, []);
+
   const handleClick = async (event) => {
-    console.log("handleClick has been called");
     const stripe = await stripePromise;
     const response = await axios.post(
       "/stripe-webhook/create-checkout-session",
       {
-        // take the language from localstorage or the user info
-        language: "pt", // "localstorage" || "user.language",
+        language: language.length ? language : `${user.language}`,
+        email: `${user.email}`,
       }
-    );
-    const session = await response.data;
+      );
+      const session = await response.data;
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
       sessionId: session.id,

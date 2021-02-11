@@ -63,3 +63,10 @@
   color: #f8c861 !important;
   fill: #f8c861 !important;
 }
+
+@media only screen and (max-width: 360px) {
+  .item-elements-icon {
+    height: 28.7px;
+    width: 28.7px;
+  }
+}

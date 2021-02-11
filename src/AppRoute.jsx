@@ -10,18 +10,18 @@ import ResetPassword from "./components/Profile/ResetPassword";
 import ReferFriend from "./components/Profile/ReferFriend";
 import ForgetPassword from "./components/Login/ForgetPassword"
 import LiveChat from "./components/Navigation/LiveChat"
-// import { AuthContext } from "./contexts/AuthContext";
+import { AuthContext } from "./contexts/AuthContext";
 
-// const ProtectedRoute = ({ component: Component, ...rest }) => {
-//   const { auth } = React.useContext(AuthContext);
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) =>
-//         auth ? <Component {...props} /> : <Redirect to="/auth/login" />}
-//     />
-//   );
-// };
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const { auth } = React.useContext(AuthContext);
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        auth ? <Component {...props} /> : <Redirect to="/auth/login" />}
+    />
+  );
+};
 
 function AppRoute() {
   // const { user } = React.useContext(AuthContext);
@@ -32,17 +32,15 @@ function AppRoute() {
         <Route exact path="/" component={Homepage} />
         <Route path="/locations" component={MainLocations} />
         <Route path="/membership" component={Membership} />
-        <Route path="/invite" component={ReferFriend} />
-        <Route path="/profile" component={MainProfile} />
         <Route path="/password/forget" component={ForgetPassword} />
+        {/* <Route path="/invite" component={ReferFriend} /> */}
+        {/* <Route path="/profile" component={MainProfile} />
         <Route path='/password/change' component={ChangePassword} />
-        <Route path='/password/reset' component={ResetPassword} />
-        {/* 
+        <Route path='/password/reset' component={ResetPassword} /> */}
         <ProtectedRoute path="/invite" component={ReferFriend} /> 
         <ProtectedRoute path="/profile" component={MainProfile} /> 
         <ProtectedRoute path="/password/change" component={ChangePassword} /> 
         <ProtectedRoute path="/password/reset" component={ResetPassword} /> 
-        */}
         <Redirect to="/" />
       </Switch>
       <BottomNav />
