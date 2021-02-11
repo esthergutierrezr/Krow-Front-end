@@ -15,6 +15,7 @@ import CheckIns from "./CheckIns";
 
 const History = () => (
   <div>
+    <h1>History</h1>
     <form method="POST" action="/stripe-webhook/create-customer-portal-session">
   <button type="submit">Manage billing</button>
 </form>;
