@@ -18,14 +18,13 @@ const cards = [
 const Carousel = () => {
   const settings = {
     className: "slides",
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
     initialSlide: 0,
     arrows: false,
     centerMode: true,
-    // swipeToSlide: true,
     responsive: [
     {
       breakpoint: 1024,
