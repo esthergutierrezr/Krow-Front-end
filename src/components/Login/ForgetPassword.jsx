@@ -51,7 +51,7 @@ const ResetPassword = () => {
             required: true,
           })}
         />
-        <SendEmailPass type="submit"></SendEmailPass>
+        <SendEmailPass type="submit">{t("login:forgetPassword.sendReplacement")}</SendEmailPass>
       </ForgetForm>
     </div>
   );

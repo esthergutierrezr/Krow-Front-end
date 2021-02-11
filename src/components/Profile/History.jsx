@@ -4,26 +4,28 @@
 // Check-Ins
 // check-in card
 
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, {useContext} from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Billing from "./Billing";
 import CheckIns from "./CheckIns";
+import { AuthContext } from "../../contexts/AuthContext";
 
-// History Billing + Cancel Subscription
+const History = () => {
+  const { user } = useContext(AuthContext);
+  console.log("object", user);
+  // console.log(user)
+  const id = Number(user.id);
 
-
-
-const History = () => (
-  <div>
-    <h1>History</h1>
-    <form method="POST" action="/stripe-webhook/create-customer-portal-session">
-  <button type="submit">Manage billing</button>
-</form>;
-    <Switch>
-      <Route path="/profile/historic/ckeckins" component={CheckIns} />
-      <Route path="/profile/historic/billings" component={Billing} />
-    </Switch>
-  </div>
-);
+  return (
+    <div>
+      <h1>Historic</h1>
+      <Switch>
+        {/* <Route path={`/profile/${id}/historic/ckeckins`} component={CheckIns} /> */}
+        <Route path={`/profile/${id}/historic/billing`} component={Billing} />
+        <Redirect path={`/profile/${id}/historic/billing`} component={Billing} />
+      </Switch>
+    </div>
+  );
+};
 
 export default History;
