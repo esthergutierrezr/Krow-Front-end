@@ -1,23 +1,29 @@
-#carousel-community-updates{
+#carousel-community-updates, .slick-slide, .carouwel-card{
   min-height: 150px;
-  max-height: 200px;
+  max-height: 300px;
   width: 100vw;
 }
 .slick-list{
-  padding: 20% 0 20%;
+  margin: 0 0 0 -30px;
 }
 
 .slick-slide{
-  height: 200px;
-  width: 100px;
+  height: 300px;
+  width: 150px;
 }
 
-.slick-dots{
-  margin-bottom: 30px;
+.slick-dots, .slick-dots li.slick-active button:before{
+  margin-top: -250px;
+  color: #F8C861;
 }
+
+.slick-dots li.slick-active button{
+  size: 10px;
+}
+
 .carousel-card{
   margin: 10px;
-  height: 150px;
+  height: auto;
   max-width: 200px;
   display: flex;
   justify-self:center;

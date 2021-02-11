@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import ProfilePicture from "../../Style/SVG/HomePage/SVG_Screen Registar-01.svg"
 
 function GuestGreeting() {
 
@@ -14,7 +13,6 @@ function GuestGreeting() {
         {' | '}
         <Link  to="/auth/login"className="yellow-bg">Login</Link>
       </span>
-      <Link to="/auth/login"><img className="profile-picture" src={ProfilePicture} alt="" /></Link>
     </div>
   );
 }

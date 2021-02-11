@@ -18,20 +18,27 @@ const cards = [
 const Carousel = () => {
   const settings = {
     className: "slides",
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
     initialSlide: 0,
     arrows: false,
+    centerMode: true,
     // swipeToSlide: true,
     responsive: [
     {
       breakpoint: 1024,
       settings: {
+        slidesToShow: 1.2,
+      }
+    },
+    {
+      breakpoint: 700,
+      settings: {
         slidesToShow: 2.2,
-        infinite: false,
-        dots: false
+        slidesToScroll: 1,
+        centerMode: false,
       }
     },
     {
@@ -44,7 +51,7 @@ const Carousel = () => {
     {
       breakpoint: 480,
       settings: {
-        centerMode: true,
+
         slidesToShow: 1,
         slidesToScroll: 1,
       }

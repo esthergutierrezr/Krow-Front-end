@@ -54,16 +54,10 @@
 .greeting-container{
   display: flex;
   justify-content: space-between;
-  margin:10px;
-  margin-right:20px;
+  align-items: center;
   max-width: 100%;
 }
-.profile-picture{
-  width: 88.7px;
-  height: 88.7px;
-  margin: -55px 0 0 -150px;
-  padding: 7.7px 7.7px 7.7px 7.7px;
-}
+
 .home__ctabuttons{
   display: flex;
   justify-content: space-around;
@@ -140,9 +134,6 @@
 h2{
   font-size: 20px;
   font-weight: 600;
+  margin-left: 30px
 }
 
-/* @media screen and (max-width: 480px) {
-
-
-} */

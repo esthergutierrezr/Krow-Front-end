@@ -17,10 +17,7 @@ const Homepage = () => {
   const { t } = useTranslation(["homepage"]);
   return (
     <div homepage>
-      <HeadersBg>
-        <h2 className="welcome">{t("homepage:homePage.WelcomeToKrow")}</h2>
         <Greeting />
-      </HeadersBg>
       <div className="bg-white">
         <CTAButtons />
         <h2>{t("homepage:homePage.CommunityUpdates")}</h2>
