@@ -21,7 +21,7 @@ const cards = [
 
 const Carousel = () => {
   const settings = {
-    className: "slides",
+    className: "leonvdk",
     dots: false,
     infinite: false,
     speed: 500,
@@ -48,9 +48,16 @@ const Carousel = () => {
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 450,
       settings: {
-        slidesToShow: 2.3,
+        slidesToShow: 1.5,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 400,
+      settings: {
+        slidesToShow: 1.5,
         slidesToScroll: 1,
       }
     }

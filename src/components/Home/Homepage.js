@@ -5,11 +5,9 @@ import Greeting from "./greeting/Greeting";
 import CTAButtons from "./CTAButtons";
 import CommunityUpdates from "./communityUpdates/CommunityUpdates";
 import FeaturedLocations from "./featuredLocations/FeaturedLocations";
-import ImportantMessage from "./ImportantMessage";
+import ImportantMessages from "./importanteMessages/ImportantMessages";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./homepage.css";
-import { HeadersBg } from "../Style/Backgrounds.jsx";
-import StarRating from "../Reusable/StarRating";
 
 const Homepage = () => {
 
@@ -29,7 +27,7 @@ const Homepage = () => {
           </Link>
         </p>
         <FeaturedLocations />
-        <ImportantMessage />
+        <ImportantMessages />
       </div> 
     </div>
   );

@@ -19,7 +19,7 @@
 }
 
 .cu-carousel-card__image{
-  border-radius: 10px;
+  border-radius: 25px;
   justify-self: center;
   height: 90%;
   width: 90%;
@@ -32,10 +32,15 @@
 }
 @media screen and (max-width: 425px) {
   .slick-list, .slick-track, .slick-slider{
-    max-height: 150px !important;
+    max-height: 200px !important;
   }
 }
 
+@media screen and (min-width: 426px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 250px !important;
+  }
+}
 @media screen and (min-width: 680px) {
   .slick-list, .slick-track, .slick-slider{
     max-height: 300px !important;
