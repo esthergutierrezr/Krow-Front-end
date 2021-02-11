@@ -25,3 +25,25 @@
   width: 90%;
 }
 
+@media screen and (max-width: 360px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 150px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 150px !important;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 300px !important;
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 350px !important;
+  }
+}
