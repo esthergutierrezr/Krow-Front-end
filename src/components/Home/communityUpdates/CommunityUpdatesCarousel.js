@@ -36,31 +36,27 @@ const Carousel = () => {
     {
       breakpoint: 700,
       settings: {
-        slidesToShow: 2.2,
-        slidesToScroll: 1,
-        centerMode: false,
+        slidesToShow: 1.2,
+        centerMode: true,
       }
     },
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 1.2,
-        slidesToScroll: 1,
+        slidesToShow: 1,
+        centerMode: true,
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 520,
       settings: {
-
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: .95,
       }
     },
     {
-      breakpoint: 345,
+      breakpoint: 490,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: .9,
       }
     }
   ]
@@ -70,7 +66,7 @@ const Carousel = () => {
     <div id="carousel-community-updates">
       <Slider {...settings}>
         {cards.map((card, index) => (
-          <CarouselCard  key={index} {...card}/>
+          <CarouselCard key={index} {...card}/>
         ))}
       </Slider>
     </div>
