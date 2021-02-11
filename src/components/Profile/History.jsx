@@ -9,9 +9,17 @@ import { Switch, Route } from 'react-router-dom'
 import Billing from './Billing'
 import CheckIns from './CheckIns'
 
+
+// History Billing + Cancel Subscription
+{
+  /*<form method="POST" action="/stripe-webhook/create-customer-portal-session">
+  <button type="submit">Manage billing</button>
+</form>;*/
+}
+
+
 const History = () => (
   <div>
-    
     <Switch>
       <Route path="/profile/historic/ckeckins" component={CheckIns}/>
       <Route path="/profile/historic/billings" component={Billing} />
