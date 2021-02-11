@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -16,14 +16,25 @@ import { Input } from "../Style/Utilities";
 function Signup() {
   const { t } = useTranslation(["signup"]);
   const { register, errors, handleSubmit } = useForm();
-  const { setUser, setAuth } = useContext(AuthContext);
+  const { user, setUser, setAuth } = useContext(AuthContext);
   const history = useHistory();
   const [state, setState] = useState({
     phone: "",
   });
+  const [language, setLanguage] = useState("");
 
+  const getLanguage = () => {
+    setLanguage(localStorage.getItem("i18nextLng"));
+    //console.log("local storage: ", localStorage.getItem("i18nextLng"));
+  };
+  useEffect(() => {
+    getLanguage();
+  }, []);
+
+  //  console.log("signup language: ", language);
   const onSubmit = (data) => {
     console.log("data: ", data);
+    data = { ...data, language };
     axios
       .post("/auth/signup", data)
       .then(() => {
