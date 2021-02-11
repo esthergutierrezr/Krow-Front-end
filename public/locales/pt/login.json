@@ -1,0 +1,7 @@
+{
+    "forgetPassword": {
+        "forget": "Forget your Password?",
+        "enterEmail": "Por favor insira o email associado à sua conta Krow.",
+        "sendReplacement": "Enviar Password de Reposição"
+    }
+}

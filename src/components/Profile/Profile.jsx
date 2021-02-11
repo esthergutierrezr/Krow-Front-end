@@ -31,10 +31,10 @@ const Profile = () => {
   const history = useHistory();
 
   const changeLanguage = (code) => {
-      i18n.changeLanguage(code);
-      window.location.href = `/profile/${user.id}`;
-    };
- 
+    i18n.changeLanguage(code);
+    window.location.href = `/profile/${user.id}`;
+  };
+
   return (
     <div className="bg-white-profile">
       <UserProfile />
@@ -73,7 +73,7 @@ const Profile = () => {
           </Link>
           <hr />
 
-          <Link to="/profile/notifications">
+          <Link to={`/profile/${user.id}/notifications`}>
             <label>
               <NotificationProfile src={Notification} alt="settings-wheel" />
               {t("profile:profile.notifications")}
@@ -81,7 +81,7 @@ const Profile = () => {
           </Link>
           <hr />
 
-          <Link to="/profile/historic">
+          <Link to={`/profile/${user.id}/historic`}>
             <label>
               <HistoricProfile src={Historic} alt="settings-wheel" />
               {t("profile:profile.historic")}
@@ -99,7 +99,6 @@ const Profile = () => {
           <hr />
           <LabelBottom>
             <br />
-            {/* <Link to="/choose-language"> */}
             <label
               onClick={() => {
                 changeLanguage("en");
@@ -107,7 +106,6 @@ const Profile = () => {
             >
               {t("profile:profile.changeLanguage")}
             </label>
-            {/* </Link> */}
             <br />
             <br />
             <label

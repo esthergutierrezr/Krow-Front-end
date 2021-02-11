@@ -7,12 +7,6 @@ const LiveChat = () => {
   return (
     <div>
       <Helmet>
-        {/*<script
-            type="text/javascript"
-            async
-            defer
-            src="//js.hs-scripts.com/9197058.js"
-          ></script>*/}
         <script
           type="text/javascript"
           id="hs-script-loader"

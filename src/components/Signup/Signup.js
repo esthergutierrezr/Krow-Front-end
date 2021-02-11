@@ -1,16 +1,25 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import Cookies from "js-cookie";
 import { AuthContext } from "../../contexts/AuthContext";
 import "react-phone-input-2/lib/style.css";
 import "./Signup.css";
 import KrowLogo from "../Style/SVG/KrowLogo.svg";
-import { Logo, Register } from "./SignUpStyle";
-import { Input } from "../Style/Utilities";
+import {
+  Logo,
+  Register,
+  FormSignUp,
+  ContainerSignUp,
+  LoginText,
+  RegisterLink,
+  GuestLink,
+} from "./SignUpStyle";
 // import { LaptopBg } from "../Style/Backgrounds";
 
 function Signup() {
@@ -25,23 +34,26 @@ function Signup() {
 
   const getLanguage = () => {
     setLanguage(localStorage.getItem("i18nextLng"));
-    //console.log("local storage: ", localStorage.getItem("i18nextLng"));
   };
+
   useEffect(() => {
     getLanguage();
   }, []);
 
-  //  console.log("signup language: ", language);
+  const resetSession = () => {
+    window.location.href = "/";
+  };
+
   const onSubmit = (data) => {
-    console.log("data: ", data);
+    // console.log("data: ", data);
     data = { ...data, language };
     axios
       .post("/auth/signup", data)
       .then(() => {
         const loginInfo = { email: data.email, password: data.password };
         axios.post("/auth/login", loginInfo).then((response) => {
-          console.log(loginInfo);
-          console.log("on login: ", response);
+          // console.log(loginInfo);
+          // console.log("on login: ", response);
           setUser(response.data.foundUser);
           setAuth(true);
           Cookies.set("authToken", response.data.token);
@@ -54,18 +66,16 @@ function Signup() {
   return (
     <div className="bg">
       <Logo src={KrowLogo} alt="Krow-logo" />
-      <div className="form-container">
-        <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-          <Input
+      <ContainerSignUp>
+        <FormSignUp onSubmit={handleSubmit(onSubmit)}>
+          <input
             type="email"
             name="email"
-            placeholder={
-              !errors.email
-                ? `${t("signup:Email")}*`
-                : `${t("signup:EmailReq")}`
-            }
-            ref={register({ required: true, maxLength: 80 })}
+            placeholder="Email*"
+            ref={register({ required: true })}
           />
+          {errors.email && <p>{t("signup:EmailReq")}</p>}
+          <br />
           <PhoneInput
             inputStyle={{
               backgroundColor: "#323232",
@@ -73,8 +83,9 @@ function Signup() {
               color: "#898884",
               borderRadius: "8px",
               opacity: ".9",
-              maxWidth: "285px",
+              width: "305px",
               height: "54.2px",
+              marginTop: "24.8px",
             }}
             buttonStyle={{
               backgroundColor: "#323232",
@@ -82,11 +93,16 @@ function Signup() {
               color: "#898884",
               borderRadius: "8px",
               opacity: ".9",
+              zIndex: "1",
+              position: "relative",
+              marginTop: "-27px",
             }}
             dropdownStyle={{
               backgroundColor: "#323232",
               border: "none",
               color: "#898884",
+              zIndex: "-1",
+              position: "relative",
             }}
             inputProps={{
               name: "phone",
@@ -98,52 +114,58 @@ function Signup() {
             type="tel"
             country="pt"
             name="phone"
-            placeholder={
-              !errors.phone
-                ? `${t("signup:PhoneNumber")}*`
-                : `${t("signup:PhoneNumberReq")}`
-            }
+            placeholder="Phone Number*"
           />
 
-          <Input
+          <input
             className="hidden"
             value={state.phone}
             type="tel"
             name="phoneNumber"
-            placeholder={
-              !errors.phone
-                ? `${t("signup:PhoneNumber")}*`
-                : `${t("signup:PhoneNumberReq")}`
-            }
+            placeholder="Phone Number*"
             ref={register({ required: true, maxLength: 80 })}
           />
-          <Input
+          <br />
+          <br />
+          {errors.phoneNumber && (
+            <>
+              {" "}
+              <br /> <p>{t("signup:PhoneNumberReq")}</p>
+            </>
+          )}
+          <input
             type="text"
             name="fullName"
-            placeholder={
-              !errors.fullName
-                ? `${t("signup:FullName")}*`
-                : `${t("signup:FullNameReq")}`
-            }
+            placeholder="Full Name*"
             ref={register({ required: true, maxLength: 30 })}
           />
-          <Input
+          {errors.fullName && <p>{t("signup:FullNameReq")}</p>}
+          <input
             type="password"
             name="password"
-            placeholder={
-              !errors.password
-                ? `${t("signup:CreatePassword")}*`
-                : `${t("signup:CreatePasswordReq")}`
-            }
+            placeholder="Password*"
             ref={register({
               minLength: 8,
               required: true,
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
           />
-          <Register type="submit" value={`${t("signup:Register")}`} />
-        </form>
-      </div>
+          {errors.password && <p>{t("signup:CreatePasswordReq")}</p>}
+          <br />
+          <Register type="submit">{t("signup:Register")}</Register>
+          <br />
+          <LoginText>
+            <p>Already a Member?</p>
+            <Link to="/auth/login">
+              <RegisterLink>Please login</RegisterLink>
+            </Link>
+            <br />
+            <div onClick={() => resetSession()} to="/">
+              <GuestLink>Continue as Guest</GuestLink>
+            </div>
+          </LoginText>
+        </FormSignUp>
+      </ContainerSignUp>
     </div>
   );
 }
