@@ -1,38 +1,55 @@
-#carousel-community-updates{
-  min-height: 150px;
-  max-height: 200px;
+/* #carousel-community-updates{
+  min-height: 50px;
+  max-height: 450px;
   width: 100vw;
+} */
+#carousel-community-updates .slick-slide{
+  margin-top: 10px;
+  max-height: 270px !important;
 }
-.slick-list{
-  padding: 20% 0 20%;
+.slick-list, .slick-track, .slick-slider{
+  max-height: 250px !important;
+  padding: none !important
 }
 
-.slick-slide{
-  height: 200px;
-  width: 100px;
+.slick-dots, .slick-dots li.slick-active button:before{
+  color: #F8C861;
 }
-
 .slick-dots{
-  margin-bottom: 30px;
-}
-.carousel-card{
-  margin: 10px;
-  height: 150px;
-  max-width: 200px;
-  display: flex;
-  justify-self:center;
+  display: none
 }
 
 .cu-carousel-card__image{
-  border-radius: 10px;
+  border-radius: 25px;
   justify-self: center;
-  margin-left: auto;
-  margin-right: 5%;
-  height: 162px;
-  width: 310px;
+  height: 90%;
+  width: 90%;
 }
 
-a{
-  color: #000;
-  text-decoration: none;
+@media screen and (max-width: 360px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 150px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 200px !important;
+  }
+}
+
+@media screen and (min-width: 426px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 250px !important;
+  }
+}
+@media screen and (min-width: 680px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 300px !important;
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .slick-list, .slick-track, .slick-slider{
+    max-height: 350px !important;
+  }
 }

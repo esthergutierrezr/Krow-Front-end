@@ -4,11 +4,37 @@ import Laptop from "./bg/computer-bg.png";
 import { Black, HeaderGrey, Red, Blue } from "./Colors";
 
 export const HeadersBg = styled.div`
-  width: 100%;
+  max-width: 100%;
   height: 112.2px;
   margin: 0 0 43.8px;
-  padding: 22px 41.3px 21.5px 41px;
+  padding: 10px 41px 10px 41px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(50px, 1fr));
+  grid-template-rows: repeat(2, minmax(50px, 1fr));
   background-color: ${HeaderGrey};
+
+.profile-picture{
+  display: flex;
+  justify-content: flex-end;
+  // grid-row-start: 1;
+  // grid-row-end: 3;
+  // grid-column-start:2;
+  // grid-column-end: 3;
+}
+  
+  img{
+    width: 88.7px;
+    height: 88.7px;
+    padding: 7.7px 7.7px 7.7px 7.7px;
+  }
+
+  @media screen and (max-width: 380px) {
+    .profile-picture{
+      display: none;
+    }
+
+    grid-template-columns: none;
+  }
 `;
 
 

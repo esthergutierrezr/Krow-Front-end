@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 const LiveChat = () => {
   return (
-    <div>
+    <div style={{left: '15px', position: 'absolute'}}>
       <Helmet>
         <script
           type="text/javascript"
