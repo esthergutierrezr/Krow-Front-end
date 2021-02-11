@@ -18,13 +18,45 @@ import {
 export const ProfilePhoto = styled.img`
   height: 104px;
   width: 104px;
+  float: right;
   margin-top: -25px;
   margin-right: 50.5px;
-  margin-left: 275.5px;
+  // margin-left: 275.5px;
+
+  @media only screen and (max-width: 480px) {
+   margin-right: 10px;
+  }
+
+  @media only screen and (max-width: 420px) {
+    margin-right: -10px;
+   }
+
+  @media only screen and (max-width: 375px) {
+    margin-top: -15px;
+    height: 74px;
+    width: 74px;
+  }
+  @media only screen and (max-width: 350px) {
+    display: none;
+  }
 `;
+
+export const HeadersProfile = styled.div`
+// display:flex;
+// flex-direction: column;
+  width: 100%;
+  height: 112.2px;
+  margin-bottom:43.8px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 22px 41.3px 21.5px 41px;
+  background-color: ${Blue};
+  text-align: left;
+`;
+
 export const Greeting = styled.h1`
   display: block;
-  z-index: 3;
+  // z-index: 3;
   color: ${Yellow};
   width: 250px;
   height: 31px;
@@ -35,7 +67,15 @@ export const Greeting = styled.h1`
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0.3px;
-  margin: 79.8px 0 0 0;
+  margin-top: 79.8px;
+  margin-left: auto;
+  margin-right: auto;
+
+  // @media only screen and (max-width: 370px) {
+  //   height: auto;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 `;
 export const Content = styled.div`
   font-family: Calibril;
@@ -53,26 +93,51 @@ export const Content = styled.div`
   }
 `;
 export const Menu = styled.div`
+  width: 362.3px;
   margin-top: 90.4px;
   margin-bottom: 111.8px;
+  margin-left: auto;
+  margin-right: auto;
   height: 541px;
+  @media only screen and (max-width: 370px) {
+    height: auto;
+    width: auto;
+  }
   label {
-    padding-left: 75.9px;
+    width: 360.3px;
     margin-top: 23.9px;
+    @media only screen and (max-width: 370px) {
+      padding-left: 8px;
+      height: auto;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   hr {
     width: 360.3px;
     border-bottom: solid 1px ${WhiteBorder};
+
+    @media only screen and (max-width: 370px) {
+      height: auto;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 `;
 export const DropMenu = styled.ul`
   margin-top: -13px;
-  margin-left: 58.5px;
   padding-top: 10px;
   background-color: ${Blue};
   width: 362.3px;
   height: 116px;
-
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen and (max-width: 370px) {
+    height: auto;
+    width: auto;
+  }
   li {
     color: ${White};
     padding: 10.2px 0 0 38.4px;
@@ -80,6 +145,12 @@ export const DropMenu = styled.ul`
   hr {
     width: 360.3px;
     border-bottom: solid 1px ${White};
+    @media only screen and (max-width: 370px) {
+      height: auto;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   hr:last-child {
     margin-bottom: 17.2px;
@@ -305,10 +376,29 @@ export const DivEdit = styled.div`
   justify-content: center;
   align-items: center;
   align-self: center;
+  @media only screen and (max-width: 370px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+export const MemberDiv = styled.div`
+  padding-top: 47.5px
+  width: 100%;
+  height: 100%;
+
+
+@media only screen and (max-width: 445px) {
+  margin-top: 85xp;
+  margin-bottom: 35px;
+}
+@media only screen and (max-width: 370px) {
+  margin-left: auto;
+  margin-right: auto;
+}
 `;
 
 export const BlackBox = styled.div`
-  margin: -47.5px 0 10px 16px;
+  margin: 47.5px 0 10px 16px;
   width: 165.8px;
   justify-content: center;
   align-items: center;
@@ -323,6 +413,11 @@ export const BlackBox = styled.div`
   line-height: 1.2;
   letter-spacing: 0.23px;
   color: ${Yellow};
+
+  // @media only screen and (max-width: 370px) {
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 `;
 export const Circle = styled.div`
   border-radius: 50%;
@@ -331,6 +426,10 @@ export const Circle = styled.div`
   background-color: ${Yellow};
   margin: 4px 5.3px 7.4px 0;
   display: inline-flex;
+  @media only screen and (max-width: 370px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 export const IsMember = styled.p`
   margin: -30px 65.6px 2px -10px;
@@ -382,6 +481,10 @@ export const ArrowD = styled.img`
   width: 18.5px;
   height: 11.6px;
   padding-left: 80.6px;
+
+  @media only screen and (max-width: 320px) {
+    padding-left: 50px;
+  }
 `;
 export const ArrowL = styled.img`
   display: flex;
@@ -523,7 +626,6 @@ export const ForgetDiv = styled.form`
     line-height: 1.2;
     letter-spacing: normal;
     color: ${White};
-
   }
 `;
 export const SendEmailPass = styled.button`
