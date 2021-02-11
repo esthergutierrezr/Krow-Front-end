@@ -22,7 +22,7 @@ function UserProfile() {
   const { member } = useState(false);
   const { t } = useTranslation(["profile"]);
 
-  const initialGreeting = `Hey, ${user.fullName}`;
+  const initialGreeting = `${t("profile:userProfile.greeting")}, ${user.fullName}`;
 
   return (
     <HeadersProfile>
@@ -42,13 +42,14 @@ function UserProfile() {
               {t("profile:userProfile.activeMembership")}
             </IsMember>
             <ExpireTime>
-              {t("profile:userProfile.expiry")} (date to expire membership)
+              // TODO fetch expiry date from Stripe
+              {`${t("profile:userProfile.expiry")} (date to expire membership)`}
             </ExpireTime>
           </MemberDiv>
         ) : (
           <MemberDiv>
             <BlackBox>
-              <h2>Welcome to Krow</h2>
+              <h2>{t("profile:userProfile.welcome")}</h2>
             </BlackBox>
             <NotMember>{t("profile:userProfile.noMembership")}</NotMember>
             <Link to="/membership">

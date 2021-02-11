@@ -13,7 +13,7 @@ import "./ProductForm.css";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(
-  "pk_test_51I6HEqA5Jiwwo3yOlA1U4oaHSVxEgJpnZkoYPKhH2LKpWwFTJTnFMJiE3v2L4Et29rcdsUULbFHOeasf4Sp09bKC00MnRbRNl6"
+  process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
 );
 
 // ProductForm --> PaymentSummaryDisplay --> PaymentSummaryTemplate

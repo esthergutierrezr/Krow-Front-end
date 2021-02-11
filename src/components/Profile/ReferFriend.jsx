@@ -1,12 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { Black, Red, White, YellowButton, BlackButton } from "../Style/Colors";
+import { Black, Red, White, YellowButton } from "../Style/Colors";
 import ReferLogo from "../Style/SVG/Invite/SVG_Screen Registar-01.svg";
-// import ShareCode from "../Style/SVG/Invite/SVG_Screen Registar_Icon Partilhar-01.svg";
 import "./profile.css";
 
-// import { AuthContext } from "../../contexts/AuthContext";
 const Header = styled.div`
   display: flex;
   height: 130.3px;
@@ -20,7 +18,6 @@ export const LogoInvite = styled.img`
     width: 200px;
   }
 `;
-
 export const ImgDiv = styled.div`
   position: absolute;   
   text-align: center;   
@@ -29,7 +26,6 @@ export const ImgDiv = styled.div`
   margin-top: -47px;   
   margin-bottom: 35.9px; }
 `;
-
 export const LogoShare = styled.img`
   width: 35px;
   height: 35px;
@@ -55,7 +51,6 @@ const Content = styled.div`
     @media only screen and (max-width: 420px) {
       width: 250px;
       margin-bottom: 100px;
-      // padding-top: 250px;
     }
   }
   p {
@@ -98,7 +93,6 @@ const Content = styled.div`
   }
   .bgRed {
     background-color: ${Red};
-    // height: auto;
     height: 100vh;
     padding-bottom: 55px;
     width: 100%;
@@ -108,7 +102,6 @@ const Content = styled.div`
     background-color: ${White};
   }
 `;
-
 export const ButtonCopy = styled.button`
   background-color: ${YellowButton};
   border-radius: 10px;
@@ -154,6 +147,7 @@ export const ButtonCode = styled.input`
 export const DivButtons = styled.div`
   text-align: center;
 `;
+// TODO This style it's for the button to share the code with other apps
 // export const ButtonShare = styled.button`
 //   background-color: ${BlackButton};
 //   border-radius: 10px;
@@ -173,8 +167,6 @@ export const DivButtons = styled.div`
 
 const ReferFriend = () => {
   const { t } = useTranslation(["referafriend"]);
-  // const { user } = useContext(AuthContext);
-  // should be the membership context, when created we should be able to get the info for generate the code of Stripe!!!!!!
   const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
@@ -194,7 +186,6 @@ const ReferFriend = () => {
         <ImgDiv>
           <LogoInvite src={ReferLogo} alt="Krow-logo" />
         </ImgDiv>
-        {/* image of refer friend */}
         <div className="text-refer">
           <h1>{t("referafriend:header.title")}</h1>
           <h3>{t("referafriend:header.discount")}</h3>
@@ -209,7 +200,9 @@ const ReferFriend = () => {
           </ButtonCopy>
         </DivButtons>
         <br />
-        {/* <ButtonShare type="button" onClick={() => Share()}>
+        {/* 
+        // TODO This button it's to share the code with other apps
+        <ButtonShare type="button" onClick={() => Share()}>
           <LogoShare src={ShareCode} alt="share-code" />
           <div className="share">
             <span>{t("referafriend:button.share")}</span>

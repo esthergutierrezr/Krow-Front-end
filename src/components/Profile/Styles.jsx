@@ -21,16 +21,13 @@ export const ProfilePhoto = styled.img`
   float: right;
   margin-top: -25px;
   margin-right: 50.5px;
-  // margin-left: 275.5px;
 
   @media only screen and (max-width: 480px) {
     margin-right: 10px;
   }
-
   @media only screen and (max-width: 420px) {
     margin-right: -10px;
   }
-
   @media only screen and (max-width: 375px) {
     margin-top: -15px;
     height: 74px;
@@ -42,8 +39,6 @@ export const ProfilePhoto = styled.img`
 `;
 
 export const HeadersProfile = styled.div`
-  // display:flex;
-  // flex-direction: column;
   width: auto;
   height: 112.2px;
   margin-bottom: 43.8px;
@@ -53,14 +48,10 @@ export const HeadersProfile = styled.div`
   background-color: ${Blue};
   text-align: left;
 
-  @media only screen and (max-width: 350px) {
-    // display: none;
-  }
 `;
 
 export const Greeting = styled.h1`
   display: block;
-  // z-index: 3;
   color: ${Yellow};
   width: 250px;
   height: 31px;
@@ -72,17 +63,6 @@ export const Greeting = styled.h1`
   line-height: 1.2;
   letter-spacing: 0.3px;
   margin-top: 79.8px;
-  // margin-left: auto;
-  // margin-right: auto;
-
-  // @media only screen and (max-width: 375px) {
-  //   height: auto;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  //   display flex;
-  //   flex-direction: column;
-  //   width: 100%;
-  // }
 `;
 export const Content = styled.div`
   font-family: Calibril;
@@ -421,7 +401,6 @@ export const MemberDiv = styled.div`
   width: 100%;
   height: 100%;
 
-
 @media only screen and (max-width: 445px) {
   margin-top: 85xp;
   margin-bottom: 35px;
@@ -431,7 +410,6 @@ export const MemberDiv = styled.div`
   margin-right: auto;
 }
 `;
-
 export const BlackBox = styled.div`
   margin: 47.5px 0 10px 16px;
   width: 165.8px;
@@ -448,11 +426,6 @@ export const BlackBox = styled.div`
   line-height: 1.2;
   letter-spacing: 0.23px;
   color: ${Yellow};
-
-  // @media only screen and (max-width: 370px) {
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // }
 `;
 export const Circle = styled.div`
   border-radius: 50%;
@@ -461,6 +434,7 @@ export const Circle = styled.div`
   background-color: ${Yellow};
   margin: 4px 5.3px 7.4px 0;
   display: inline-flex;
+
   @media only screen and (max-width: 370px) {
     margin-left: auto;
     margin-right: auto;
@@ -515,10 +489,13 @@ export const BuyMember = styled.p`
 export const ArrowD = styled.img`
   width: 18.5px;
   height: 11.6px;
-  padding-left: 100.6px;
+  padding-left: 90.6px;
 
-  @media only screen and (max-width: 320px) {
-    padding-left: 50px;
+  @media only screen and (max-width: 370px) {
+    padding-left: 70px;
+  }
+  @media only screen and (max-width: 340px) {
+    padding-left: 40px;
   }
 `;
 export const ArrowL = styled.img`
@@ -598,6 +575,7 @@ export const ResetDiv = styled.form`
     font-style: normal;
     line-height: 1.2;
     letter-spacing: normal;
+
     @media only screen and (max-width: 370px) {
       width: 300px;
     }
@@ -610,13 +588,15 @@ export const SendEmail = styled.button`
   color: ${Black};
   font-family: Raleway;
   font-size: 16.5px;
-  font-weight: bold;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
   margin: 30px 0 0px 0;
   border-radius: 11.9px;
+  opacity: 0.60;
+
   @media only screen and (max-width: 370px) {
     width: 300px;
   }

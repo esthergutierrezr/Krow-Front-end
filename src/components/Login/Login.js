@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
@@ -32,6 +34,10 @@ function Login() {
       });
   };
 
+  const resetSession = () => {
+    window.location.href = "/";
+  };
+
   return (
     <div className="bg">
       <Logo src={KrowLogo} alt="Krow-logo" />
@@ -46,6 +52,7 @@ function Login() {
               required: true,
             })}
           />
+          {errors.email && <p>Required Email</p>}
           <br />
           <input
             placeholder="Password*"
@@ -58,12 +65,7 @@ function Login() {
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
           />
-          {errors.password && (
-            <p>
-              Password must have at least 8 characters, 1 special character and
-              1 number{" "}
-            </p>
-          )}
+          {errors.password && <p>Password must have at least 8 characters</p>}
           <br />
           <button type="submit">Login</button>
           <br />
@@ -81,9 +83,9 @@ function Login() {
               </PasswordLink>
             </Link>
             <br />
-            <Link to="/">
+            <div onClick={() => resetSession()} to="/">
               <GuestLink>Continue as Guest</GuestLink>
-            </Link>
+            </div>
           </LoginText>
           <br />
         </LoginForm>

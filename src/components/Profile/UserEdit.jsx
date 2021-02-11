@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import picture from "../Style/SVG/HomePage/SVG_Screen Registar-01.svg";
@@ -23,9 +24,10 @@ import {
 function UserEdit() {
   const { user } = useContext(AuthContext);
   const { member } = useState(false);
+  const { t } = useTranslation(["profile"]);
 
 
-  const initialGreeting = `Hey, ${user.fullName}`;
+  const initialGreeting = `${t("profile:userEdit.greeting")}, ${user.fullName}`;
 
   return (
     <>
@@ -35,7 +37,7 @@ function UserEdit() {
             <Link to={`/profile/${user.id}`}>
               <ArrowL src={ArrowLeft} alt="arrow-back" />
             </Link>
-            Edit Profile
+            {t("profile:userEdit.editProfile")}
             <WheelIcon src={Wheel} alt="wheel-icon" />
           </EditTitle>
           <EditPhoto
@@ -53,18 +55,18 @@ function UserEdit() {
             <IsMember>
               {" "}
               <Circle />
-              Active Subscription
+              {t("profile:userEdit.subscription")}
             </IsMember>
-            <ExpireTime>Expire in (date to expire membership)</ExpireTime>
+            <ExpireTime>{`${t("profile:userEdit.expiry")} (date to expire membership)`}</ExpireTime>
           </div>
         ) : (
           <div>
             {/* <BlackBox>
               <h2>Welcome to Krow</h2>
             </BlackBox> */}
-            <NotMember>No Active Membership</NotMember>
+            <NotMember>{t("profile:userEdit.noMembership")}</NotMember>
             <Link to="/membership">
-              <BuyMember>Add a Membership</BuyMember>
+              <BuyMember>{t("profile:userEdit.addMembership")}</BuyMember>
             </Link>
           </div>
         )}

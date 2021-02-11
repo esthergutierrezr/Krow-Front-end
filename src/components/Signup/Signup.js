@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
@@ -32,23 +34,26 @@ function Signup() {
 
   const getLanguage = () => {
     setLanguage(localStorage.getItem("i18nextLng"));
-    //console.log("local storage: ", localStorage.getItem("i18nextLng"));
   };
+
   useEffect(() => {
     getLanguage();
   }, []);
 
-  //  console.log("signup language: ", language);
+  const resetSession = () => {
+    window.location.href = "/";
+  };
+
   const onSubmit = (data) => {
-    console.log("data: ", data);
+    // console.log("data: ", data);
     data = { ...data, language };
     axios
       .post("/auth/signup", data)
       .then(() => {
         const loginInfo = { email: data.email, password: data.password };
         axios.post("/auth/login", loginInfo).then((response) => {
-          console.log(loginInfo);
-          console.log("on login: ", response);
+          // console.log(loginInfo);
+          // console.log("on login: ", response);
           setUser(response.data.foundUser);
           setAuth(true);
           Cookies.set("authToken", response.data.token);
@@ -69,9 +74,7 @@ function Signup() {
             placeholder="Email*"
             ref={register({ required: true })}
           />
-          {/* <p>
-            {errors.email && `${t("signup:EmailReq")}`}
-          </p> */}
+          {errors.email && <p>{t("signup:EmailReq")}</p>}
           <br />
           <PhoneInput
             inputStyle={{
@@ -83,8 +86,6 @@ function Signup() {
               width: "305px",
               height: "54.2px",
               marginTop: "24.8px",
-              // zIndex: "-1",
-              // position:"relative"
             }}
             buttonStyle={{
               backgroundColor: "#323232",
@@ -126,23 +127,19 @@ function Signup() {
           />
           <br />
           <br />
-          {/* <p>{
-            {
-              errors.phone && `${t("signup:PhoneNumberReq")}`
-            }
-              errors.phone && `${t("signup:PhoneNumberReq")}`
-            }</p> */}
+          {errors.phoneNumber && (
+            <>
+              {" "}
+              <br /> <p>{t("signup:PhoneNumberReq")}</p>
+            </>
+          )}
           <input
             type="text"
             name="fullName"
             placeholder="Full Name*"
             ref={register({ required: true, maxLength: 30 })}
           />
-          {/* <p>
-          {
-              errors.fullName && `${t("signup:FullNameReq")}`
-            }
-          </p> */}
+          {errors.fullName && <p>{t("signup:FullNameReq")}</p>}
           <input
             type="password"
             name="password"
@@ -153,11 +150,7 @@ function Signup() {
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
           />
-          {/* <p>
-          {
-              !errors.password && `${t("signup:CreatePasswordReq")}`
-            }
-          </p> */}
+          {errors.password && <p>{t("signup:CreatePasswordReq")}</p>}
           <br />
           <Register type="submit">{t("signup:Register")}</Register>
           <br />
@@ -167,9 +160,9 @@ function Signup() {
               <RegisterLink>Please login</RegisterLink>
             </Link>
             <br />
-            <Link to="/">
+            <div onClick={() => resetSession()} to="/">
               <GuestLink>Continue as Guest</GuestLink>
-            </Link>
+            </div>
           </LoginText>
         </FormSignUp>
       </ContainerSignUp>

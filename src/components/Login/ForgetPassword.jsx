@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory, Link } from "react-router-dom";
@@ -11,6 +12,7 @@ import "./Login.css";
 
 const ResetPassword = () => {
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation(["login"]);
   const id = Number(user.id);
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm({});
@@ -39,8 +41,8 @@ const ResetPassword = () => {
       <Logo src={KrowLg} alt="Krow-logo" />
       <br />
       <ForgetForm onSubmit={handleSubmit(onSubmit)}>
-        <h1>Forget your Password?</h1>
-        <p>Enter your associated email to your Krow account</p>
+        <h1>{t("login:forgetPassword.forget")}</h1>
+        <p>{t("login:forgetPassword.enterEmail")}</p>
         <input
           name="email"
           type="email"
@@ -49,7 +51,7 @@ const ResetPassword = () => {
             required: true,
           })}
         />
-        <SendEmailPass type="submit">Send Replacement Password</SendEmailPass>
+        <SendEmailPass type="submit"></SendEmailPass>
       </ForgetForm>
     </div>
   );

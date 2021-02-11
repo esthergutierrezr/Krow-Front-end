@@ -15,6 +15,7 @@ export const Logo = styled.img`
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  text-align: center;
 `;
 export const LoginForm = styled.form`
   display: flex;
@@ -33,7 +34,8 @@ export const LoginForm = styled.form`
     font-style: normal;
     line-height: 1.2;
     letter-spacing: normal;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   input {
@@ -179,13 +181,14 @@ export const SendEmailPass = styled.button`
   color: ${Black};
   font-family: Raleway;
   font-size: 16.5px;
-  font-weight: bold;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
   margin: 30px 0 0px 0;
   border-radius: 11.9px;
+  opacity: 0.60;
 
   @media only screen and (max-width: 370px) {
     width: 300px;
