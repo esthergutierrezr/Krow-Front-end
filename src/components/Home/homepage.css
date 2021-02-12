@@ -7,11 +7,14 @@
   font-stretch: normal;
 }
 
+.welcome-container{
+  display: flex;
+}
+
 .welcome{
-  margin:25.5px 0 0 0;
+  /* margin:25.5px 0 0 0; */
   width: 250px;
   height: 24px;
-  font-family: Raleway;
   font-size: 19.7px;
   font-weight: bold;
   font-stretch: normal;
@@ -20,6 +23,10 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 0 !important;
+  align-self: flex-end;
 }
 
 .register{
@@ -53,7 +60,8 @@
 .greeting-container{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 10px;
   max-width: 100%;
 }
 
@@ -108,8 +116,6 @@
 #home__view-all-locations{
   color: #444;
   margin: 15px 15px 5px 0;
-
-
 }
 
 .bg-white{
@@ -123,7 +129,7 @@
   margin-top: -50px;
 }
 
-h2{
+.h2{
   font-size: 20px;
   font-weight: 600;
   margin: 15px 0 5px 11vw;
@@ -133,7 +139,7 @@ h2{
 
 
 
-span, p, h3{
+.raleway{
   font-family: 'Raleway', sans-serif;
 }
 
