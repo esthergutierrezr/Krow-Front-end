@@ -168,13 +168,9 @@ function ListLocationCard(props) {
             {/* <a href={`/locations/${props.id}`}>Details</a> */}
           </div>
           <div className="container">
-            <img
-              src={props.image}
-              alt="image"
-              width="167.2px"
-              height="167.2px"
-              className="location-image"
-            />
+            <a href={`/locations/${props.id}`}>
+              <img src={props.image} alt="image" className="location-image" />
+            </a>
 
             <button className="check-out" onClick={checkOut}>
               Check-Out
