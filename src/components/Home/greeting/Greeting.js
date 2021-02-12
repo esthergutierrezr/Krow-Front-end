@@ -17,10 +17,10 @@ function Greeting() {
   const initialGreeting = `${t("homepage:userGreeting.Hi")} ${user.fullName}`;
   return (
     <HeadersBg>
-      <div className='welcome-container'><h2 className="welcome h2 raleway">{user? initialGreeting :t("homepage:homePage.WelcomeToKrow")}</h2></div>
-        <Link to="/auth/login" className="profile-picture"><img  src={ProfilePic} alt="" /></Link>
-      {user ? <UserGreeting {...user} /> : <GuestGreeting />}
-    </HeadersBg>
+    <div className='welcome-container'><h2 className="welcome h2">{user? initialGreeting :t("homepage:homePage.WelcomeToKrow")}</h2></div>
+      <Link to="/auth/login" className="profile-picture"><img  src={ProfilePic} alt="" /></Link>
+    {user ? <UserGreeting {...user} /> : <GuestGreeting />}
+  </HeadersBg>
   );
 }
 
