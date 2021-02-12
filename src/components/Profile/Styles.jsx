@@ -490,11 +490,11 @@ export const ArrowD = styled.img`
   height: 11.6px;
   padding-left: 90.6px;
 
-  @media only screen and (max-width: 370px) {
-    padding-left: 70px;
-  }
+  // @media only screen and (max-width: 370px) {
+  //   padding-left: 90px;
+  // }
   @media only screen and (max-width: 340px) {
-    padding-left: 40px;
+    padding-left: 70px;
   }
 `;
 export const ArrowL = styled.img`
@@ -616,6 +616,20 @@ export const HistButton = styled.form`
   margin: 0px auto 151.1px auto;
   justify-content: center;
   align-items: center;
+
+  p{
+    width: 300px;
+    height: 39px;
+    font-family: Raleway;
+    font-size: 16.4px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    margin: 21.6px auto 48.5px auto;
+  }
 `;
 
 export const ManageButton = styled.button`

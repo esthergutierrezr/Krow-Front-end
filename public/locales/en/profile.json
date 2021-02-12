@@ -68,5 +68,10 @@
     "forget": "Forget your Password?",
     "insertEmail": "Please type your Krow account email.",
     "replacement": "Send Replacement Password"
+  },
+  "history": {
+      "history": "History",
+      "paragraph": "Click the button to check your billing history, download your invoices and manage your subscriptions.",
+      "billings": "Manage Invoices/Subscriptions"
   }
 }

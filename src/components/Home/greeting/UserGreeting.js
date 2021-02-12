@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
+import "../homepage.css";
 
 function UserGreeting() {
   const { t } = useTranslation(["homepage"]);

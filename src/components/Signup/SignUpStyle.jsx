@@ -39,7 +39,7 @@ export const FormSignUp = styled.form`
   margin-top: 3em;
 
   p {
-    width: 100%;
+    width: 303px;
     height: 39px;
     font-family: Raleway;
     font-size: 16.4px;
