@@ -3,9 +3,7 @@ import Carousel from './FeaturedLocationsCarousel'
 
 function FeaturedLocations(props) {
   return (
-    <div>
       <Carousel />
-    </div>
   );
 }
 

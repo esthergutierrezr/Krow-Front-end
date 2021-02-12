@@ -8,9 +8,9 @@
   },
   "editProfile": {
     "edit": "Editar Perfil",
-    "firstLastName": "Primeiro e último nome",
+    "firstLastName": "Primeiro e Último Nome",
     "phoneNumber": "Número Móvel",
-    "country": "Country",
+    "country": "País",
     "city": "Cidade",
     "company": "Empresa",
     "profession": "Profissão",
@@ -21,7 +21,7 @@
     "sendConfirmation": "Enviar Confirmação",
     "confirmationCode": "Código de Confirmação",
     "pleaseCheckEmail": "Por-favor confirme o email",
-    "forConfCode": "para verificar o código de confirmação",
+    "forConfCode": "Para verificar o código de confirmação",
     "new": "Password Nova",
     "confirm": "Confirmar Password NovaF",
     "submit": "Confirmar",
@@ -33,16 +33,45 @@
     "editProfile": "Editar Conta",
     "changePassword": "Alterar Password",
     "addMembership": "Adicionar Subscrição",
-    "notifications": "Mensagens",
+    "notifications": "Mensagens (em breve)",
     "historic": "Histórico",
     "inviteAFriend": "Convidar Amigo",
+    "changeLanguage":"Switch to English",
     "contactUs": "Contacte-nos",
     "logout": "Terminar Sessão"
   },
   "userProfile": {
+    "greeting": "Olá",
     "activeMembership": "Subscrição Ativa",
     "expiry": "Expira em",
+    "welcome": "Bem-vindo à Krow",
     "noMembership": "Nenhuma Subscrição Ativa",
     "buyMembership": "Subscrever"
+  },
+  "userChange": {
+    "greeting": "Olá",
+    "changePassword": "Mudar Password",
+    "subscription": "Subscrição Ativa",
+    "expiry": "Termina a ",
+    "noMembership": "Nenhuma subscrição ativa",
+    "addMembership": "Subscrever"
+  },
+  "userEdit": {
+    "greeting": "Olá",
+    "editProfile": "Editar Perfil",
+    "subscription": "Subscrição Ativa",
+    "expiry": "Termina a ",
+    "noMembership": "Nenhuma Subscrição Activa",
+    "addMembership": "Subscrever"
+  },
+  "resetPassword": {
+    "forget": "Esqueceu-se da sua password?",
+    "insertEmail": "Por favor insira o email associado à sua conta Krow.",
+    "replacement": "Enviar Password de Reposição"
+  },
+  "history": {
+    "history": "Histórico",
+    "paragraph": "Clica no botão para verificar o teu histórico de transações, fazer o download de recibos e gerir as tuas subscrições.",
+    "billings": "Gerir Faturas/Subscrições"
   }
 }

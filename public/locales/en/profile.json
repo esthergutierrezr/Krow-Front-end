@@ -5,10 +5,10 @@
     "new": "New Password",
     "confirm": "Confirm New Password",
     "forget": "Forget Password"
-  },
+  }, 
   "editProfile": {
     "edit": "Edit Profile",
-    "firstLastName": "First and last name",
+    "firstLastName": "First and Last Name",
     "phoneNumber": "Phone Number",
     "country": "Country",
     "city": "City",
@@ -33,16 +33,45 @@
     "editProfile": "Edit Profile",
     "changePassword": "Change Password",
     "addMembership": "Add a Membership",
-    "notifications": "Notifications",
-    "historic": "Historic",
+    "notifications": "Notifications (coming soon)",
+    "historic": "History",
     "inviteAFriend": "Invite a Friend",
+    "changeLanguage":"Mudar para Português",
     "contactUs": "Contact Us",
     "logout": "Log Out"
   },
   "userProfile": {
+    "greeting": "Hey",
     "activeMembership": "Active Membership",
     "expiry": "Expires in",
+    "welcome": "Welcome to Krow",
     "noMembership": "No Active Membership",
     "buyMembership": "Add a Membership"
+  },
+  "userChange": {
+    "greeting": "Hey",
+    "changePassword": "Change Password",
+    "subscription": "Active Subscription",
+    "expiry": "Expires in ",
+    "noMembership": "No Active Membership",
+    "addMembership": "Add a Membership"
+  },
+  "userEdit": {
+    "greeting": "Hey",
+    "editProfile": "Edit Profile",
+    "subscription": "Active Subscription",
+    "expiry": "Expires in ",
+    "noMembership": "No Active Membership",
+    "addMembership": "Add a Membership"
+  },
+  "resetPassword": {
+    "forget": "Forget your Password?",
+    "insertEmail": "Please type your Krow account email.",
+    "replacement": "Send Replacement Password"
+  },
+  "history": {
+      "history": "History",
+      "paragraph": "Click the button to check your billing history, download your invoices and manage your subscriptions.",
+      "billings": "Manage Invoices/Subscriptions"
   }
 }

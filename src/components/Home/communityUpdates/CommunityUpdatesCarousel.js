@@ -18,42 +18,44 @@ const cards = [
 const Carousel = () => {
   const settings = {
     className: "slides",
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
     initialSlide: 0,
-    // swipeToSlide: true,
+    arrows: false,
+    centerMode: true,
     responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 2.2,
-        infinite: false,
-        dots: false
+        slidesToShow: 1.2,
+      }
+    },
+    {
+      breakpoint: 700,
+      settings: {
+        slidesToShow: 1.2,
+        centerMode: true,
       }
     },
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 1.2,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
+        slidesToShow: 1,
         centerMode: true,
-        slidesToShow: 1,
-        arrows: true,
-        slidesToScroll: 1,
       }
     },
     {
-      breakpoint: 345,
+      breakpoint: 520,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: .95,
+      }
+    },
+    {
+      breakpoint: 0,
+      settings: {
+        slidesToShow: .9,
       }
     }
   ]
@@ -63,7 +65,7 @@ const Carousel = () => {
     <div id="carousel-community-updates">
       <Slider {...settings}>
         {cards.map((card, index) => (
-          <CarouselCard  key={index} {...card}/>
+          <CarouselCard key={index} {...card}/>
         ))}
       </Slider>
     </div>

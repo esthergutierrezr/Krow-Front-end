@@ -7,12 +7,14 @@
   font-stretch: normal;
 }
 
-.welcome{
-  margin-top:25.5px;
-  width: 173px;
+.welcome-container {
+  display: flex;
+}
+
+.welcome {
+  /* margin:25.5px 0 0 0; */
+  width: 250px;
   height: 24px;
-  /* margin: 0 0 8px; */
-  font-family: Raleway;
   font-size: 19.7px;
   font-weight: bold;
   font-stretch: normal;
@@ -21,9 +23,14 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 0 !important;
+  align-self: flex-end;
 }
 
-.register{
+.register {
+  font-family: Raleway;
   font-size: 16.4px;
   font-weight: bold;
   font-stretch: normal;
@@ -34,7 +41,8 @@
   color: #000000;
 }
 
-.yellow-bg{
+.yellow-bg {
+  font-family: Raleway;
   width: 88.5px;
   height: 17.5px;
   margin: 1.1px 0 0.4px;
@@ -51,38 +59,55 @@
   padding: 0 5px;
 }
 
-.greeting-container{
+.greeting-container {
   display: flex;
   justify-content: space-between;
-  margin:10px;
-  margin-right:20px;
+  align-items: flex-start;
+  margin-top: 10px;
+  max-width: 100%;
 }
-.profile-picture{
-  width: 88.7px;
-  height: 88.7px;
-  margin: -55px 0 0 -150px;
-  padding: 7.7px 7.7px 7.7px 7.7px;
-}
-.home__ctabuttons{
+
+.home__ctabuttons {
   display: flex;
   justify-content: space-around;
 }
 
-.ctabuttons__button {
+.ctabuttons__image {
   position: relative;
   width: 105.8px;
   height: 100.9px;
-  margin: 18.2px 0 11.9px; 
+  margin-bottom: 5px;
 }
 
-.invite{
+.cta-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 173.4px;
+  height: 173.4px;
+  margin: 18.2px 0 11.9px;
+  border-radius: 10px;
+  box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #a73f25;
+  font-family: Raleway;
+  font-size: 4vw;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+#invite {
   justify-content: center;
   align-items: center;
   width: 173.4px;
   height: 173.4px;
-  margin: 44.6px 50.7px 43.6px 32.4px;
+  margin: 44.6px 0 43.6px 0;
   border-radius: 10px;
-  /* padding: 18.2px 33.5px 16.6px 33.3px; */
   box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #a73f25;
   font-family: Raleway;
@@ -95,14 +120,20 @@
   text-align: center;
   color: #ffffff;
 }
-.subscribe{
+
+.cta-background p {
+  position: absolute;
+  bottom: 4%;
+}
+
+#subscribe {
+  justify-content: center;
+  align-items: center;
   width: 173.4px;
   height: 173.4px;
-  margin: 43.8px 0px 43.6px 51px;
+  margin: 44.6px 0 43.6px 0;
   border-radius: 10px;
-  /*padding: 19.5px 29.2px 16.6px 28.1px; */
   box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
-  background-color: #08726c;
   font-family: Raleway;
   font-size: 21.4px;
   font-weight: bold;
@@ -112,39 +143,81 @@
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
+  background-color: #08726c;
 }
 
-.home__featured-locations{
+.home__featured-locations {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-#home__view-all-locations{
+#home__view-all-locations {
   color: #444;
+  margin: 15px 15px 5px 0;
 }
 
-.important-messages{
-  display: flex;
-  justify-content: center;
-}
-
-.important-message{
-  border-radius: 10px;
-  width: 90vw;
-  height: auto;
-}
-
-.bg-white{
+.bg-white {
+  font-family: Raleway;
   position: absolute;
-  margin-top: -50px;
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: auto;
+  min-height: 125vh;
   align-self: center;
-  background-size:cover;
+  background-size: cover;
   background-image: url("../Style/bg/white_wall.png");
+  margin-top: -50px;
 }
 
-h2{
-  font-size: 20px;
-  font-weight: 600;
+.h2 {
+  font-size: 19px;
+  font-weight: bold;
+  margin: 15px 0 5px 11vw;
+  display: inline;
+  font-family: "Raleway", sans-serif;
+}
+.p {
+  font-family: "Raleway";
+}
+
+.member-link {
+  color: #08726c;
+  font-weight: normal;
+}
+.active-membership {
+  color: #08726c;
+  font-family: Raleway;
+  font-size: 16.4px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+.raleway {
+  color: #c1c1c1;
+  font-weight: bold;
+  font-family: Raleway;
+  font-size: 16.4px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  padding-bottom: 4px;
+}
+
+@media only screen and (max-width: 374px) {
+  #subscribe {
+    width: 133.4px;
+    height: 133.4px;
+  }
+  #invite {
+    width: 133.4px;
+    height: 133.4px;
+  }
+  .ctabuttons__image {
+    width: 85.8px;
+    height: 80.9px;
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "forgetPassword": {
+    "forget": "Forget your Password?",
+    "enterEmail": "Por favor insira o email associado à sua conta Krow.",
+    "sendReplacement": "Enviar Password de Reposição"
+  },
+  "login": {
+    "passwordReq": "Password incorreta",
+    "notMember": "Ainda não é membro?",
+    "register": "Faça o seu registo",
+    "forgetPW": "Recuperar password",
+    "guest": "Continuar como convidado",
+    "emailReq": "O Email é necessário"
+  }
+  
+}

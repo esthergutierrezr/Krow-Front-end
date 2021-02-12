@@ -1,8 +1,14 @@
 import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 export const LocationContext = createContext();
 
 function LocationContextProvider(props) {
+  const [allLocations, setAllLocations] = useState();
+  const [locationId, setLocationId] = useState();
+  const [checked, setChecked] = useState(null);
+  const [searchValue, updateSearchValue] = useState("");
+  const [map, setShowMap] = React.useState(false);
   const [location, setLocation] = useState({
     selectedPlace: {},
     center: {
@@ -11,12 +17,38 @@ function LocationContextProvider(props) {
     },
   });
 
-  const [checked, setChecked] = useState(null);
-  const [searchValue, updateSearchValue] = React.useState("");
-  const [map, setShowMap] = React.useState(false);
+  //! Get all Locations
+  useEffect(() => {
+    axios
+      .get("/locations/")
+      .then((response) => {
+        console.log(response.data);
+        setAllLocations(response.data);
+      })
+      .catch((response) => {
+        console.log(response);
+      });
+  }, []);
+
+  // ! Get location by Id
+  useEffect(() => {
+    axios
+      .get(`/locations/${locationId}`)
+      .then((response) => {
+        console.log(response.data);
+        setLocation(response.data);
+      })
+      .catch((response) => {
+        console.log(response);
+      });
+  }, [locationId]);
+
   return (
     <LocationContext.Provider
       value={{
+        allLocations,
+        setAllLocations,
+        locationId,
         location,
         checked,
         searchValue,
@@ -25,6 +57,7 @@ function LocationContextProvider(props) {
         setLocation,
         map,
         setShowMap,
+        setLocationId,
       }}
     >
       {props.children}

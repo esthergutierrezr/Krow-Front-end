@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import KrowLogo from "../Style/SVG/KrowLogo.svg";
 import PTFlag from "../Style/SVG/ChooseLanguage/PT_flag.svg";
@@ -20,6 +19,7 @@ const ChooseLanguage = () => {
 
   const changeLanguage = (code) => {
     i18n.changeLanguage(code);
+    window.location.href = "/auth/signup";
   };
 
   return (
@@ -30,20 +30,16 @@ const ChooseLanguage = () => {
         </div>
         <div className="flag-text-container">
           <div onClick={() => changeLanguage("pt")}>
-            <Link to="/auth/signup">
-              <div className="flag-text pt">
-                <img src={PTFlag} alt="PT" width="79px" height="79px" />
-                <span>Começar em Português</span>
-              </div>
-            </Link>
+            <div className="flag-text pt">
+              <img src={PTFlag} alt="PT" width="79px" height="79px" />
+              <span>Começar em Português</span>
+            </div>
           </div>
           <div onClick={() => changeLanguage("en")}>
-            <Link to="/auth/signup">
-              <div className="flag-text en">
-                <img src={ENFlag} alt="EN" width="79px" height="79px" />
-                <span>Start in English</span>
-              </div>
-            </Link>
+            <div className="flag-text en">
+              <img src={ENFlag} alt="EN" width="79px" height="79px" />
+              <span>Start in English</span>
+            </div>
           </div>
         </div>
       </div>

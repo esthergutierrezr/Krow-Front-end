@@ -1,0 +1,13 @@
+.white-bg {
+  background-image: url(../../Style/bg/white_wall.png);
+  height: 129.2px;
+}
+
+.color-bg {
+  background-color: #08726c;
+  height: auto;
+  font-family: Raleway;
+  width: 100%;
+  margin-bottom: 83px;
+  padding-bottom: 33px;
+}

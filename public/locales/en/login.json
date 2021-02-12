@@ -1,0 +1,15 @@
+{
+    "forgetPassword": {
+        "forget": "Forget your Password?",
+        "enterEmail": "Enter your associated email to your Krow account.",
+        "sendReplacement": "Send Replacement Password"
+    },
+    "login": {
+        "passwordReq": "Password is incorrect",
+        "notMember": "Not a Member yet?",
+        "register": "Register here",
+        "forgetPW": "Recover Password",
+        "guest": "Continue as Guest",
+        "emailReq": "Email Required"
+    }
+}

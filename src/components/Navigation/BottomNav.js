@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import LiveChat from "./LiveChat";
 // import laptop from "./nav-icons/computer-laptop.svg";
 import GreyLaptop from "../Style/SVG/Nav/SVG_Screen Registar-14.svg";
@@ -12,6 +12,8 @@ import OrangeInvite from "../Style/SVG/Nav/SVG_Screen Registar-06.svg";
 import OrangeKrow from "../Style/SVG/Nav/SVG_Screen Registar-07.svg";
 import OrangeProfile from "../Style/SVG/Nav/SVG_Screen Registar-09.svg";
 // import {NavStyle} from "./NavStyle"
+import { AuthContext } from "../../contexts/AuthContext";
+
 
 import "./BottomNav.css";
 
@@ -23,19 +25,75 @@ const BottomNav = () => {
     homeSrc: OrangeKrow,
     profileSrc: GreyProfile,
   });
+  const { user } = useContext(AuthContext);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    currentLocation();
+  }, [location]);
+
+  const currentLocation = () => {
+    if (location.pathname === "/") {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: OrangeKrow,
+        profileSrc: GreyProfile,
+      });
+      //  console.log("location pathname:", location.pathname);
+    } else if (location.pathname === "/invite") {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: OrangeInvite,
+        homeSrc: GreyKrow,
+        profileSrc: GreyProfile,
+      });
+      //  console.log("location pathname:", location.pathname);
+    } else if (location.pathname === "/locations") {
+      setActiveLink({
+        locationsSrc: OrangeLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: GreyKrow,
+        profileSrc: GreyProfile,
+      });
+      //  console.log("location pathname:", location.pathname);
+    } else if (location.pathname === `/profile/${user.id}/edit`) {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: GreyKrow,
+        profileSrc: OrangeProfile,
+      });
+      //  console.log("location pathname:", location.pathname);
+    } else if (location.pathname === "/password/change") {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: GreyKrow,
+        profileSrc: OrangeProfile,
+      });
+    } else if (location.pathname === `/profile/${user.id}/history`) {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: GreyKrow,
+        profileSrc: OrangeProfile,
+      });
+    } else if (location.pathname === `/profile/${user.id}`) {
+      setActiveLink({
+        locationsSrc: GreyLaptop,
+        inviteSrc: GreyInvite,
+        homeSrc: GreyKrow,
+        profileSrc: OrangeProfile,
+      });
+  //  console.log("location pathname:", location.pathname);
+}
+  };
+
   return (
     <div className="nav">
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: OrangeLaptop,
-            inviteSrc: GreyInvite,
-            homeSrc: GreyKrow,
-            profileSrc: GreyProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
           to="/locations"
           className="disabled-link"
@@ -53,17 +111,7 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: GreyLaptop,
-            inviteSrc: OrangeInvite,
-            homeSrc: GreyKrow,
-            profileSrc: GreyProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
           to="/invite"
           className="disabled-link"
@@ -81,17 +129,7 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: GreyLaptop,
-            inviteSrc: GreyInvite,
-            homeSrc: OrangeKrow,
-            profileSrc: GreyProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
           exact
           to="/"
@@ -110,19 +148,9 @@ const BottomNav = () => {
           </div>
         </NavLink>
       </div>
-      <div
-        className="item"
-        onClick={(e) =>
-          setActiveLink({
-            locationsSrc: GreyLaptop,
-            inviteSrc: GreyInvite,
-            homeSrc: GreyKrow,
-            profileSrc: OrangeProfile,
-          })
-        }
-      >
+      <div className="item">
         <NavLink
-          to="/profile/:id"
+          to={`/profile/${user.id}`}
           className="disabled-link"
           activeClassName="active-link active2"
         >
