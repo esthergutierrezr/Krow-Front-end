@@ -177,8 +177,6 @@ const ReferFriend = () => {
     setCopySuccess("Copied!");
   };
 
-  const Share = () => {};
-
   return (
     <Content>
       <Header className="bgwhite" />

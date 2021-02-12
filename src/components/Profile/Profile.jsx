@@ -31,31 +31,15 @@ const Profile = () => {
   const { user, setUser } = useContext(AuthContext);
   const { t, i18n } = useTranslation(["profile"]);
   const history = useHistory();
-  console.log("user", user);
-
-  // useEffect(() => {
-  //   setUser(user);
-  // }, [user]);
-
-  // useEffect(() => {
-  //   changeLanguage();
-  // }, []);
-
-  // const resetSession = () => {
-  //   window.location.href = "/";
-  // };
 
   const changeLanguage = (newLanguage) => {
-    // event.preventDefault();
-    console.log("changeLanguage");
-      axios
-        .put(`/profile/${user.id}/edit`, { language: newLanguage }, config)
-        .then(async (response) => {
-          console.log("response", response.data[0]);
-          const user = await setUser(response.data[0]);
-          i18n.changeLanguage(newLanguage)
-        })
-        .catch((error) => console.error(error));
+    axios
+      .put(`/profile/${user.id}/edit`, { language: newLanguage }, config)
+      .then(async (response) => {
+        const user = await setUser(response.data[0]);
+        i18n.changeLanguage(newLanguage);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -95,15 +79,13 @@ const Profile = () => {
             </label>
           </Link>
           <hr />
-
-          <Link to={`/profile/${user.id}/notifications`}>
-            <label>
-              <NotificationProfile src={Notification} alt="settings-wheel" />
-              {t("profile:profile.notifications")}
-            </label>
-          </Link>
+          {/* <Link to={`/profile/${user.id}/notifications`}> */}
+          <label>
+            <NotificationProfile src={Notification} alt="settings-wheel" />
+            {t("profile:profile.notifications")}
+          </label>
+          {/* </Link> */}
           <hr />
-
           <Link to={`/profile/${user.id}/history`}>
             <label>
               <HistoricProfile src={Historic} alt="settings-wheel" />
@@ -111,7 +93,6 @@ const Profile = () => {
             </label>
           </Link>
           <hr />
-
           <Link to="/invite">
             <label>
               {" "}
@@ -122,14 +103,16 @@ const Profile = () => {
           <hr />
           <LabelBottom>
             <br />
-            <label onClick={() => {
-              console.log("user language", user.language)
-              if(user.language === "pt") {
-                changeLanguage("en")
-              } else {
-                changeLanguage("pt")
-              }
-              }}> 
+            <label
+              onClick={() => {
+                console.log("user language", user.language);
+                if (user.language === "pt") {
+                  changeLanguage("en");
+                } else {
+                  changeLanguage("pt");
+                }
+              }}
+            >
               {t("profile:profile.changeLanguage")}
             </label>
             <br />
