@@ -1,4 +1,4 @@
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { useState, Component } from "react";
 import ApiLocations from "../ApiLocations.json";
 
@@ -11,15 +11,6 @@ function LocationMap(props) {
       lng: -9.14578853237358,
     },
   });
-
-  const onMarkerClick = (location, marker, e) => {
-    console.log(location);
-    setState({
-      ...state,
-      selectedPlace: location,
-      activeMarker: marker,
-    });
-  };
 
   const defaultMapOptions = {
     fullscreenControl: false,
@@ -35,8 +26,9 @@ function LocationMap(props) {
       style={{
         height: "200px",
         width: "auto",
-        backgroundColor: "#ebeadf",
-        paddingTop: "30px",
+
+        // backgroundColor: "#ebeadf",
+        // paddingTop: "30px",
       }}
     >
       <Map
@@ -55,20 +47,22 @@ function LocationMap(props) {
           paddingRight: "30px",
         }}
       >
-        {ApiLocations.filter((locationApi) => locationApi.id == props.id).map(
-          (locationApi) => (
-            <Marker
-              {...locationApi}
-              key={locationApi.id}
-              // onClick={onMarkerClick}
-              name={locationApi.name}
-              position={{
-                lat: locationApi.lat,
-                lng: locationApi.lng,
-              }}
-            />
-          )
-        )}
+        {ApiLocations.map((locationApi) => (
+          // console.log(locationApi);
+          // console.log(props.id);
+          //  if (locationApi.id == props.id) {
+          //console.log(locationApi);
+          <Marker
+            {...locationApi}
+            key={locationApi.id}
+            // onClick={onMarkerClick}
+            name={locationApi.name}
+            position={{
+              lat: locationApi.lat,
+              lng: locationApi.lng,
+            }}
+          />
+        ))}
       </Map>
     </div>
   );

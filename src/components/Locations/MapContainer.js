@@ -63,6 +63,11 @@ function MapContainer(props) {
     ],
   };
 
+  window.onload = () => {
+    const fullScreen = document.getElementsByClassName("gm-fullscreen-control");
+    console.log(fullScreen);
+    console.log("hello world");
+  };
   // const addPlace = (place) => {
   //   setState({
   //     ...state,

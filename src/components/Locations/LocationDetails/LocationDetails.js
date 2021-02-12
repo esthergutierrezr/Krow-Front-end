@@ -15,6 +15,8 @@ import time from "../../Style/SVG/Locations/Time.svg";
 import arrow from "../../Style/SVG/Locations/downArrow.svg";
 import website from "../../Style/SVG/Locations/web.svg";
 import phone from "../../Style/SVG/Locations/phone.svg";
+import network from "../../Style/SVG/Locations/wifi.svg";
+import password from "../../Style/SVG/Locations/IconPassword.svg";
 
 function LocationDetails(props) {
   const [moreTextA, setMoreTextA] = useState(false);
@@ -100,7 +102,7 @@ function LocationDetails(props) {
             {/* <a href={`/locations/`}>Back</a> */}
             <div>
               <div className="info-location">
-                <h1>{location.name}</h1>
+                <h1 className="location-details-name">{location.name}</h1>
 
                 {popUpAlreadyChecked ? (
                   <PopUpAlreadyChecked toggle={togglePopUpAlreadyChecked} />
@@ -108,31 +110,37 @@ function LocationDetails(props) {
                 <div style={{ display: "flex" }}>
                   <img
                     style={{
-                      height: "10px",
-                      width: "10px",
+                      height: "15px",
+                      width: "15px",
                       paddingRight: "5px",
                     }}
                     src={member}
                     alt="members"
                   />
-                  <p style={{ fontSize: "9px" }}>1 member here</p>
+                  <p style={{ fontSize: "15px" }}>1 member here</p>
                 </div>
                 <div style={{ display: "flex" }}>
                   <img
                     style={{
-                      height: "10px",
-                      width: "10px",
+                      height: "15px",
+                      width: "15px",
                       paddingTop: "12px",
                       paddingRight: "5px",
                     }}
                     src={time}
                     alt="time"
                   />
-                  <div style={{ fontSize: "12px", paddingTop: "10px" }}>
+                  <div style={{ fontSize: "15px", paddingTop: "10px" }}>
                     09:00 - 17:00{" "}
                   </div>
                 </div>
-                <div style={{ fontSize: "12px", padding: "10px" }}>
+                <div
+                  style={{
+                    fontSize: "15px",
+                    paddingTop: "10px",
+                    paddingBottom: "15px",
+                  }}
+                >
                   {" "}
                   Sintra |{" "}
                   <a
@@ -149,15 +157,26 @@ function LocationDetails(props) {
                 />
               </div>
               <div className="description">
-                <h2>Description</h2>
+                <h2 style={{ paddingBottom: "30px" }}>Description</h2>
                 <p>{location.description}</p>
-                <div style={{ fontWeight: "bold" }} onClick={readMoreA}>
-                  Read More...
+                <div
+                  style={{ fontWeight: "bold", paddingBottom: "30px" }}
+                  onClick={readMoreA}
+                >
+                  {moreTextA ? <p>{location.description}</p> : null}
+                  <p>Read More...</p>
                 </div>
-                {moreTextA ? <p>{location.description}</p> : null}
+
                 <hr className="separator"></hr>
                 <div className="details-separator">
-                  <h2>Facilidades</h2>
+                  <h2
+                    style={{
+                      paddingBottom: "12px",
+                      paddingTop: "12px",
+                    }}
+                  >
+                    Facilidades
+                  </h2>
                   <img
                     onClick={readMoreB}
                     src={arrow}
@@ -168,7 +187,14 @@ function LocationDetails(props) {
 
                 <hr className="separator"></hr>
                 <div className="details-separator">
-                  <h2>Important Information</h2>
+                  <h2
+                    style={{
+                      paddingBottom: "12px",
+                      paddingTop: "12px",
+                    }}
+                  >
+                    Important Information
+                  </h2>
                   <img
                     onClick={readMoreC}
                     src={arrow}
@@ -179,27 +205,35 @@ function LocationDetails(props) {
 
                 <div>
                   <hr className="separator"></hr>
-                  <h2>Beneficios Exclusivos</h2>
+                  <h2
+                    style={{
+                      paddingBottom: "12px",
+                      paddingTop: "12px",
+                    }}
+                  >
+                    Beneficios Exclusivos
+                  </h2>
                   <img
                     onClick={readMoreD}
                     src={arrow}
-                    style={{
-                      height: "13px",
-                      width: "22px",
-                    }}
+                    className="arrow-style"
                   />
                   {moreTextD ? <p>{location.beneficios} </p> : null}
                 </div>
                 <div>
                   <hr className="separator"></hr>
-                  <h2>Horarios Krow</h2>
+                  <h2
+                    style={{
+                      paddingBottom: "12px",
+                      paddingTop: "12px",
+                    }}
+                  >
+                    Horarios Krow
+                  </h2>
                   <img
                     onClick={readMoreE}
                     src={arrow}
-                    style={{
-                      height: "13px",
-                      width: "22px",
-                    }}
+                    className="arrow-style"
                   />
                   {moreTextE ? <p>{location.horarios}</p> : null}
                 </div>
@@ -208,13 +242,20 @@ function LocationDetails(props) {
                   <hr className="separator"></hr>
                   <h2
                     style={{
-                      paddingBottom: "30px",
+                      paddingBottom: "22px",
+                      paddingTop: "12px",
                     }}
                   >
                     About this location
                   </h2>
 
-                  <div style={{ display: "flex", flexDirection: "row" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      paddingBottom: "20px",
+                    }}
+                  >
                     <div style={{ display: "flex" }}>
                       <img
                         style={{
@@ -245,13 +286,16 @@ function LocationDetails(props) {
                     </div>
                   </div>
                   <div>
-                    <LocationMap id={props.match.params.id} />
+                    <LocationMap
+                      id={props.match.params.id}
+                      location={location}
+                    />
                   </div>
 
                   <div className="button-container">
                     <button
                       className="button-checkin"
-                      onClick={checked === null ? checkIn : message}
+                      // onClick={checked === null ? checkIn : message}
                     >
                       Check In
                     </button>
@@ -263,86 +307,177 @@ function LocationDetails(props) {
         </div>
       ) : (
         <div className="details_checkout">
-          <div>
+          <div className="all-info">
+            <h1 className="location-details-name">{location.name}</h1>
+            {popUpCheckIn ? <PopUpCheckIn toggle={togglePopUpCheckIn} /> : null}
+
+            {popUpRating ? (
+              <PopUpRating
+                cancel={cancelTogglePopUpRating}
+                toggle={togglePopUpRating}
+              />
+            ) : null}
+            {popUpConfirmCheckOut ? (
+              <PopUpConfirmCheckOut
+                cancel={cancelTogglePopUpConfirmCheckOut}
+                toggle={togglePopUpConfirmCheckOut}
+              />
+            ) : null}
+
+            <div style={{ display: "flex" }}>
+              <img
+                style={{
+                  height: "15px",
+                  width: "15px",
+                  paddingRight: "5px",
+                }}
+                src={member}
+                alt="members"
+              />
+              <p style={{ fontSize: "15px" }}>1 member here</p>
+            </div>
+            <div style={{ display: "flex" }}>
+              <img
+                style={{
+                  height: "15px",
+                  width: "15px",
+                  paddingTop: "12px",
+                  paddingRight: "5px",
+                }}
+                src={time}
+                alt="time"
+              />
+              <div style={{ fontSize: "15px", paddingTop: "10px" }}>
+                09:00 - 17:00{" "}
+              </div>
+            </div>
             <div
               style={{
-                borderTopLeftRadius: "40px",
-                borderTopRightRadius: "40px",
-                backgroundColor: "rgba(87, 99, 202, 0.719)",
-                paddingTop: "30px",
-                paddingLeft: "30px",
+                fontSize: "15px",
+                paddingTop: "10px",
+                paddingBottom: "15px",
               }}
             >
-              <a href={`/locations/`}>Back</a>
-              <div>
-                <h1>{location.name}</h1>
-                {popUpCheckIn ? (
-                  <PopUpCheckIn toggle={togglePopUpCheckIn} />
-                ) : null}
+              {" "}
+              Sintra |{" "}
+              <a
+                href="https://google.com"
+                style={{ textDecoration: "underline", fontSize: "12px" }}
+              >
+                Obtener direccoes{" "}
+              </a>{" "}
+            </div>
+            <LocationsRating
+              rating={location.rating}
+              lat={location.lat}
+              lng={location.lng}
+            />
 
-                {popUpRating ? (
-                  <PopUpRating
-                    cancel={cancelTogglePopUpRating}
-                    toggle={togglePopUpRating}
-                  />
-                ) : null}
-                {popUpConfirmCheckOut ? (
-                  <PopUpConfirmCheckOut
-                    cancel={cancelTogglePopUpConfirmCheckOut}
-                    toggle={togglePopUpConfirmCheckOut}
-                  />
-                ) : null}
-                <p>1 miembro aqui</p>
-                <p>icon + opening times</p>
-                <p>Icon + Location</p>
-                <LocationsRating rating={location.rating} />
-                <div>
-                  <p>WifiIcon: {location.network}</p>
-                  <p>Password: {location.password}</p>
+            <div className="wifiDetails">
+              <div style={{ fontSize: "9px", display: "flex" }}>
+                <img
+                  style={{
+                    height: "15px",
+                    width: "15px",
+                    paddingTop: "9px",
+                    paddingRight: "5px",
+                  }}
+                  src={network}
+                  alt="network"
+                />
+                <p style={{ paddingTop: "16px" }}>{props.network}</p>
+              </div>
+              <div style={{ fontSize: "9px", display: "flex" }}>
+                <img
+                  style={{
+                    height: "15px",
+                    width: "15px",
+                    paddingTop: "6px",
+                    paddingRight: "5px",
+                  }}
+                  src={password}
+                  alt="password"
+                />
+                <p style={{ paddingTop: "9px" }}>{props.password}</p>
+              </div>
+            </div>
+          </div>
+          <div className="checked-description">
+            <div>
+              <h2>Description</h2>
+              <div
+                style={{ fontWeight: "bold", paddingBottom: "30px" }}
+                onClick={readMoreA}
+              >
+                {moreTextA ? <p>{location.description}</p> : null}
+                <p>Read More...</p>
+              </div>
+              <div>
+                <h2>Facilidades</h2>
+                <button onClick={readMoreB}>more</button>
+                {moreTextB ? <p>{location.facilidades} </p> : null}
+              </div>
+              <div>
+                <h2>Informacoes Importantes</h2>
+                <button onClick={readMoreC}>more</button>
+                {moreTextC ? <p>{location.information} </p> : null}
+              </div>
+              <div>
+                <h2>Beneficios Exclusivos</h2>
+                <button onClick={readMoreD}>more</button>
+                {moreTextD ? <p>{location.beneficios} </p> : null}
+              </div>
+              <div>
+                <h2>Horarios</h2>
+                <button onClick={readMoreE}>more</button>
+                {moreTextE ? <p>{location.horarios}</p> : null}
+              </div>
+
+              <div>
+                <h1>Sobre esta localizacao</h1>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "20px",
+                    flexDirection: "row",
+                  }}
+                >
+                  <div style={{ display: "flex" }}>
+                    <img
+                      style={{
+                        height: "24px",
+                        width: "24px",
+                        paddingBottom: "10px",
+                        paddingRight: "5px",
+                      }}
+                      src={phone}
+                      alt="phone"
+                    />
+                    <p style={{ color: "white" }}>+4876557755</p>
+                  </div>
+                  <div style={{ display: "flex", paddingLeft: "30px" }}>
+                    <img
+                      style={{
+                        height: "24px",
+                        width: "24px",
+                        paddingBottom: "10px",
+                        paddingRight: "5px",
+                      }}
+                      src={website}
+                      alt="website"
+                    />
+                    <a style={{ color: "white" }} href="https://google.com">
+                      Visitar Website
+                    </a>
+                  </div>
                 </div>
                 <div>
-                  <h2>Description</h2>
-                  <p>???</p>
-                  <button onClick={readMoreA}>Ler mais</button>
-                  {moreTextA ? <p>{location.description}</p> : null}
-                  <div>
-                    <h2>Facilidades</h2>
-                    <button onClick={readMoreB}>more</button>
-                    {moreTextB ? <p>{location.facilidades} </p> : null}
-                  </div>
-                  <div>
-                    <h2>Informacoes Importantes</h2>
-                    <button onClick={readMoreC}>more</button>
-                    {moreTextC ? <p>{location.information} </p> : null}
-                  </div>
-                  <div>
-                    <h2>Beneficios Exclusivos</h2>
-                    <button onClick={readMoreD}>more</button>
-                    {moreTextD ? <p>{location.beneficios} </p> : null}
-                  </div>
-                  <div>
-                    <h2>Horarios</h2>
-                    <button onClick={readMoreE}>more</button>
-                    {moreTextE ? <p>{location.horarios}</p> : null}
-                  </div>
-
-                  <div>
-                    <h1>Sobre esta localizacao</h1>
-                    <button>+4876557755</button>
-                    <a href="https://google.com">Visitar Website</a>
-                    <div>
-                      <LocationMap
-                        id={props.match.params.id}
-                        lat={location.lat}
-                        lng={location.lng}
-                      />
-                    </div>
-                    <div className="button-container">
-                      <button className="button-checkout" onClick={checkOut}>
-                        Check Out
-                      </button>
-                    </div>
-                  </div>
+                  <LocationMap location={location} id={props.match.params.id} />
+                </div>
+                <div className="button-container">
+                  <button className="button-checkout" onClick={checkOut}>
+                    Check Out
+                  </button>
                 </div>
               </div>
             </div>
