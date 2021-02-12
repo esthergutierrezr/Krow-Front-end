@@ -51,9 +51,9 @@ const History = () => {
           method="POST"
           action="/stripe-webhook/create-customer-portal-session"
         >
-          <h3>
+          <p>
             {t("profile:history.paragraph")}
-          </h3>
+          </p>
           <ManageButton type="submit">{t("profile:history.billings")}</ManageButton>
         </HistButton>
       </div>
