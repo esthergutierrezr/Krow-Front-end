@@ -9,7 +9,11 @@
     "SignUp": "Registar"
   },
   "userGreeting": {
-    "Hi": "Olá"
+    "Hi": "Olá",
+    "active": "Subscrição ativa!",
+    "expiry": "Termina em ",
+    "noSubs": "Nenhuma subscrição ativa",
+    "subscribe": "Subscrever"
   },
   "CTAButtons": {
     "Subscribe": "Subscrever",

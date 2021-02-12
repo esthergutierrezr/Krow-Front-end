@@ -14,15 +14,15 @@ function UserGreeting() {
       <span>
         {user.membership_id ? (
           <>
-            <span className="active-membership">Active membership!</span>
-            <p>Expire date</p>
+            <span className="active-membership">{t("homepage:userGreeting.active")}</span>
+            <p>{t("homepage:userGreeting.expiry")}</p>
           </>
         ) : (
           <span className="raleway">
-            No active membership
+            {t("homepage:userGreeting.noSubs")}
             <br />
             <Link to="membership" className="member-link">
-              Subscribe
+            {t("homepage:userGreeting.subscribe")}
             </Link>
           </span>
         )}

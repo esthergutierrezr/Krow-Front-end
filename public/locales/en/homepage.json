@@ -9,7 +9,11 @@
     "SignUp": "Sign Up"
   },
   "userGreeting": {
-    "Hi": "Hi"
+    "Hi": "Hi",
+    "active": "Active membership!",
+    "expiry": "Expires in ",
+    "noSubs": "No active membership",
+    "subscribe": "Subscribe"
   },
   "CTAButtons": {
     "Subscribe": "Subscribe",
