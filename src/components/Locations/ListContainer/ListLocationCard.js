@@ -1,52 +1,54 @@
 import React from "react";
 import "./ListLocationCard.css";
 import { LocationContext } from "../../../contexts/LocationContext";
-import PopUpA from "../LocationDetails/PopUps/PopUpA";
-import PopUpB from "../LocationDetails/PopUps/PopUpB";
-import PopUpC from "../LocationDetails/PopUps/PopUpC";
-import PopUpD from "../LocationDetails/PopUps/PopUpD";
+import PopUpCheckIn from "../LocationDetails/PopUps/PopUpCheckIn";
+import PopUpAlreadyChecked from "../LocationDetails/PopUps/PopUpAlreadyChecked";
+import PopUpRating from "../LocationDetails/PopUps/PopUpRating";
+import PopUpConfirmCheckOut from "../LocationDetails/PopUps/PopUpConfirmCheckOut";
 import LocationsRating from "../LocationsRating";
 import member from "../../Style/SVG/Locations/People.svg";
 import time from "../../Style/SVG/Locations/Time.svg";
+import network from "../../Style/SVG/Locations/wifi.svg";
+import password from "../../Style/SVG/Locations/IconPassword.svg";
 
 function ListLocationCard(props) {
   const { checked, setChecked } = React.useContext(LocationContext);
-  const [popUpA, setPopUpA] = React.useState(false);
-  const [popUpB, setPopUpB] = React.useState(false);
-  const [popUpC, setPopUpC] = React.useState(false);
-  const [popUpD, setPopUpD] = React.useState(false);
+  const [popUpCheckIn, setPopUpCheckIn] = React.useState(false);
+  const [popUpAlreadyChecked, setPopUpAlreadyChecked] = React.useState(false);
+  const [popUpRating, setPopUpRating] = React.useState(false);
+  const [popUpConfirmCheckOut, setPopUpConfirmCheckOut] = React.useState(false);
 
   const checkIn = () => {
     setChecked(props.id);
-    setPopUpA(!popUpA);
+    setPopUpCheckIn(!popUpCheckIn);
   };
   const checkOut = () => {
-    setPopUpC(!popUpC);
+    setPopUpRating(!popUpRating);
   };
 
   const message = () => {
     console.log("please checkout first");
-    setPopUpB(!popUpB);
+    setPopUpAlreadyChecked(!popUpAlreadyChecked);
   };
-  const togglePopA = () => {
-    setPopUpA(false);
+  const togglePopUpCheckIn = () => {
+    setPopUpCheckIn(false);
   };
-  const togglePopB = () => {
-    setPopUpB(false);
+  const togglePopUpAlreadyChecked = () => {
+    setPopUpAlreadyChecked(false);
   };
-  const togglePopC = () => {
-    setPopUpC(false);
+  const togglePopUpRating = () => {
+    setPopUpRating(false);
 
-    setPopUpD(!popUpD);
+    setPopUpConfirmCheckOut(!popUpConfirmCheckOut);
   };
-  const cancelTogglePopC = () => {
-    setPopUpC(false);
+  const cancelTogglePopUpRating = () => {
+    setPopUpRating(false);
   };
-  const cancelTogglePopD = () => {
-    setPopUpD(false);
+  const cancelTogglePopUpConfirmCheckOut = () => {
+    setPopUpConfirmCheckOut(false);
   };
-  const togglePopD = () => {
-    setPopUpD(false);
+  const togglePopUpConfirmCheckOut = () => {
+    setPopUpConfirmCheckOut(false);
     setChecked(null);
   };
 
@@ -100,8 +102,10 @@ function ListLocationCard(props) {
               className={checked ? "indisponivel" : "disponivel"}
               onClick={checked === null ? checkIn : message}
             >
-              {popUpB ? <PopUpB toggle={togglePopB} /> : null}
-              Check In
+              {popUpAlreadyChecked ? (
+                <PopUpAlreadyChecked toggle={togglePopUpAlreadyChecked} />
+              ) : null}
+              Check-In
             </button>
           </div>
         </div>
@@ -109,7 +113,7 @@ function ListLocationCard(props) {
         <div className="checkout-list">
           <div className="content-blue">
             <h1 className="location-name">{props.name}</h1>
-            {popUpA ? <PopUpA toggle={togglePopA} /> : null}
+            {popUpCheckIn ? <PopUpCheckIn toggle={togglePopUpCheckIn} /> : null}
             <div style={{ display: "flex" }}>
               <img
                 style={{ height: "10px", width: "10px", paddingRight: "5px" }}
@@ -133,9 +137,34 @@ function ListLocationCard(props) {
                 Open until 22:00
               </div>
             </div>
-
-            <p>wifi:{props.network}</p>
-            <p>Password:{props.password}</p>
+            <div className="wifiDetails">
+              <div style={{ fontSize: "9px", display: "flex" }}>
+                <img
+                  style={{
+                    height: "15px",
+                    width: "15px",
+                    paddingTop: "9px",
+                    paddingRight: "5px",
+                  }}
+                  src={network}
+                  alt="network"
+                />
+                <p style={{ paddingTop: "16px" }}>{props.network}</p>
+              </div>
+              <div style={{ fontSize: "9px", display: "flex" }}>
+                <img
+                  style={{
+                    height: "15px",
+                    width: "15px",
+                    paddingTop: "6px",
+                    paddingRight: "5px",
+                  }}
+                  src={password}
+                  alt="password"
+                />
+                <p style={{ paddingTop: "9px" }}>{props.password}</p>
+              </div>
+            </div>
             {/* <a href={`/locations/${props.id}`}>Details</a> */}
           </div>
           <div className="container">
@@ -148,14 +177,20 @@ function ListLocationCard(props) {
             />
 
             <button className="check-out" onClick={checkOut}>
-              Check Out
+              Check-Out
             </button>
           </div>
-          {popUpC ? (
-            <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />
+          {popUpRating ? (
+            <PopUpRating
+              cancel={cancelTogglePopUpRating}
+              toggle={togglePopUpRating}
+            />
           ) : null}
-          {popUpD ? (
-            <PopUpD cancel={cancelTogglePopD} toggle={togglePopD} />
+          {popUpConfirmCheckOut ? (
+            <PopUpConfirmCheckOut
+              cancel={cancelTogglePopUpConfirmCheckOut}
+              toggle={togglePopUpConfirmCheckOut}
+            />
           ) : null}
         </div>
       )}

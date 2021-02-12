@@ -31,6 +31,7 @@
   padding: 0px;
   border: none;
   border-radius: 10px;
+  outline: none;
 }
 .button-checkout {
   background-color: #38b6ff;
@@ -39,4 +40,5 @@
   padding: 0px;
   border: none;
   border-radius: 10px;
+  outline: none;
 }

@@ -5,10 +5,10 @@ import LocationMap from "./LocationMap";
 import ApiLocations from "../ApiLocations.json";
 import { LocationContext } from "../../../contexts/LocationContext";
 import "./LocationDetails.css";
-import PopUpA from "./PopUps/PopUpA";
-import PopUpB from "./PopUps/PopUpB";
-import PopUpC from "./PopUps/PopUpC";
-import PopUpD from "./PopUps/PopUpD";
+import PopUpCheckIn from "./PopUps/PopUpCheckIn";
+import PopUpAlreadyChecked from "./PopUps/PopUpAlreadyChecked";
+import PopUpRating from "./PopUps/PopUpRating";
+import PopUpConfirmCheckOut from "./PopUps/PopUpConfirmCheckOut";
 import LocationsRating from "../LocationsRating";
 
 function LocationDetails(props) {
@@ -18,45 +18,45 @@ function LocationDetails(props) {
   const [moreTextD, setMoreTextD] = useState(false);
   const [moreTextE, setMoreTextE] = useState(false);
   const [location, setLocation] = useState({});
-  const [popUpA, setPopUpA] = useState(false);
-  const [popUpB, setPopUpB] = useState(false);
-  const [popUpC, setPopUpC] = useState(false);
-  const [popUpD, setPopUpD] = useState(false);
+  const [popUpCheckIn, setPopUpCheckIn] = React.useState(false);
+  const [popUpAlreadyChecked, setPopUpAlreadyChecked] = React.useState(false);
+  const [popUpRating, setPopUpRating] = React.useState(false);
+  const [popUpConfirmCheckOut, setPopUpConfirmCheckOut] = React.useState(false);
 
   const { checked, setChecked } = React.useContext(LocationContext);
 
   const checkIn = () => {
     console.log(props.match.params.id);
     setChecked(props.match.params.id);
-    setPopUpA(!popUpA);
+    setPopUpCheckIn(!popUpCheckIn);
   };
   const checkOut = () => {
-    setPopUpC(!popUpC);
+    setPopUpRating(!popUpRating);
   };
 
   const message = () => {
     console.log("please checkout first");
-    setPopUpB(!popUpB);
+    setPopUpAlreadyChecked(!popUpAlreadyChecked);
   };
-  const togglePopA = () => {
-    setPopUpA(false);
+  const togglePopUpCheckIn = () => {
+    setPopUpCheckIn(false);
   };
-  const togglePopB = () => {
-    setPopUpB(false);
+  const togglePopUpAlreadyChecked = () => {
+    setPopUpAlreadyChecked(false);
   };
-  const togglePopC = () => {
-    setPopUpC(false);
+  const togglePopUpRating = () => {
+    setPopUpRating(false);
 
-    setPopUpD(!popUpD);
+    setPopUpConfirmCheckOut(!popUpConfirmCheckOut);
   };
-  const cancelTogglePopC = () => {
-    setPopUpC(false);
+  const cancelTogglePopUpRating = () => {
+    setPopUpRating(false);
   };
-  const cancelTogglePopD = () => {
-    setPopUpD(false);
+  const cancelTogglePopUpConfirmCheckOut = () => {
+    setPopUpConfirmCheckOut(false);
   };
-  const togglePopD = () => {
-    setPopUpD(false);
+  const togglePopUpConfirmCheckOut = () => {
+    setPopUpConfirmCheckOut(false);
     setChecked(null);
   };
 
@@ -96,7 +96,9 @@ function LocationDetails(props) {
             <div>
               <h1>{location.name}</h1>
 
-              {popUpB ? <PopUpB toggle={togglePopB} /> : null}
+              {popUpAlreadyChecked ? (
+                <PopUpAlreadyChecked toggle={togglePopUpAlreadyChecked} />
+              ) : null}
               <p>1 miembro aqui</p>
               <p>icon + opening times</p>
               <p>Icon + Location</p>
@@ -164,13 +166,21 @@ function LocationDetails(props) {
               <a href={`/locations/`}>Back</a>
               <div>
                 <h1>{location.name}</h1>
-                {popUpA ? <PopUpA toggle={togglePopA} /> : null}
-
-                {popUpC ? (
-                  <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />
+                {popUpCheckIn ? (
+                  <PopUpCheckIn toggle={togglePopUpCheckIn} />
                 ) : null}
-                {popUpD ? (
-                  <PopUpD cancel={cancelTogglePopD} toggle={togglePopD} />
+
+                {popUpRating ? (
+                  <PopUpRating
+                    cancel={cancelTogglePopUpRating}
+                    toggle={togglePopUpRating}
+                  />
+                ) : null}
+                {popUpConfirmCheckOut ? (
+                  <PopUpConfirmCheckOut
+                    cancel={cancelTogglePopUpConfirmCheckOut}
+                    toggle={togglePopUpConfirmCheckOut}
+                  />
                 ) : null}
                 <p>1 miembro aqui</p>
                 <p>icon + opening times</p>

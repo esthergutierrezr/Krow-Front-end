@@ -1,7 +1,7 @@
 .PopUp {
   position: fixed;
   width: 70%;
-  height: 30%;
+  height: 25%;
   top: 0;
   left: 0;
   right: 0;
@@ -12,14 +12,14 @@
   border-radius: 10px;
 }
 .popup_inner {
-  position: absolute;
+  /* position: absolute; */
   left: 25%;
   right: 25%;
-  top: 25%;
+  top: 10%;
   bottom: 25%;
   margin: auto;
   border-radius: 20px;
-  background: white;
+
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -32,4 +32,23 @@
   border-radius: 5px;
   height: 50px;
   width: 90px;
+  outline: none;
+}
+
+.PopUpAlreadyChecked {
+  background-color: #545454;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.exit-button {
+  background: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  top: 36%;
+  right: 14%;
+  display: flex;
+  align-items: center;
 }
