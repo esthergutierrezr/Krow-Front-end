@@ -12,12 +12,16 @@ import Historic from "../Style/SVG/Profile/SVG_Screen Perfil-04_icon white.svg";
 import ArrowLeft from "../Style/SVG/Profile/SVG_Screen Perfil-06_seta branca-01.svg";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./profile.css";
+import Mug from "../Style/SVG/Profile/SVG_Screen Confirmar Subscrição -01_ilustration mug-01.svg";
 import {
   ArrowL,
   HistoricIcon,
   HeaderEdit,
   EditTitle,
-  HistTitle,
+  ManageButton,
+  HistButton,
+  LogoHistory,
+  ImgDiv,
 } from "./Styles";
 
 const History = () => {
@@ -37,12 +41,20 @@ const History = () => {
           <HistoricIcon src={Historic} alt="history-icon" />
         </EditTitle>
       </HeaderEdit>
-      <HistTitle>
-        <h1>Log-ins</h1>
-        <h1>Transactions</h1>
-      </HistTitle>
-
+      <ImgDiv>
+        <LogoHistory src={Mug} alt="mug" />
+      </ImgDiv>
       <div>
+        <HistButton
+          method="POST"
+          action="/stripe-webhook/create-customer-portal-session"
+        >
+          <h3>
+            Check your billings, invoices and manage your membership plan, please click on
+            button.
+          </h3>
+          <ManageButton type="submit">Manage billing</ManageButton>
+        </HistButton>
       </div>
     </div>
   );

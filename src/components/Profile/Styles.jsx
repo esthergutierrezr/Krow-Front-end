@@ -608,8 +608,52 @@ export const SendEmail = styled.button`
 
 // ****************History
 
-export const HistTitle = styled.div`
-  display:flex
-  flex-direction: row;
-  justify-content: space-between;
+export const HistButton = styled.form`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px auto 151.1px auto;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ManageButton = styled.button`
+  background-color: ${YellowButton};
+  width: 360px;
+  height: 54.9px;
+  color: ${Black};
+  font-family: Raleway;
+  font-size: 16.5px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  margin: 30px 0 0px 0;
+  border-radius: 11.9px;
+  opacity: 0.6;
+
+  @media only screen and (max-width: 370px) {
+    width: 300px;
+  }
+`;
+
+export const LogoHistory = styled.img`
+  height: 115.9px;
+  width: 138.1px;
+
+  // @media only screen and (max-width: 420px) {
+  //   height: 150px;
+  //   width: 200px;
+  // }
+`;
+
+export const ImgDiv = styled.div`
+  position: relative;   
+  text-align: center;   
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -77px;   
+  margin-bottom: 35.9px; }
 `;

@@ -49,7 +49,7 @@ function UserProfile() {
         ) : (
           <MemberDiv>
             <BlackBox>
-              <h2>{t("profile:userProfile.welcome")}</h2>
+              <h1>{t("profile:userProfile.welcome")}</h1>
             </BlackBox>
             <NotMember>{t("profile:userProfile.noMembership")}</NotMember>
             <Link to="/membership">

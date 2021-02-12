@@ -104,7 +104,7 @@ const Profile = () => {
           </Link>
           <hr />
 
-          <Link to={`/profile/${user.id}/historic`}>
+          <Link to={`/profile/${user.id}/history`}>
             <label>
               <HistoricProfile src={Historic} alt="settings-wheel" />
               {t("profile:profile.historic")}
