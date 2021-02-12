@@ -8,16 +8,14 @@ function UserGreeting() {
 
   const { user } = useContext(AuthContext);
 
-
-
   return (
     <div className="greeting-container">
       <span>
-        {user.membership_id ? "Active membership!"
-          : (<span style={{color:'#940000'}}> 
+        {user.membership_id ? <span className='raleway'>Active membership!</span>
+          : (<span className='raleway'style={{color:'#940000'}}> 
               No active membership 
               <br /> 
-              <Link to="membership">Click here to buy a plan</Link> 
+              <Link to="membership" className='raleway'>Click here to buy a plan</Link> 
             </span>)
         }
       </span>
