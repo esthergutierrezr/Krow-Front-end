@@ -11,5 +11,10 @@
         "forgetPW": "Recover Password",
         "guest": "Continue as Guest",
         "emailReq": "Email Required"
+    },
+    "history": {
+        "history": "History",
+        "paragraph": "Click the button to check your billing history, download your invoices and manage your subscriptions.",
+        "billings": "Manage Billings/Subscriptions"
     }
 }

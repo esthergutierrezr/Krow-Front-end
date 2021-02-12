@@ -5,6 +5,7 @@
 // check-in card
 
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 // import Billing from "./Billing";
 // import CheckIns from "./CheckIns";
@@ -27,6 +28,7 @@ import {
 const History = () => {
   const { user } = useContext(AuthContext);
   console.log("object", user);
+  const { t } = useTranslation(["profile"]);
   // console.log(user)
   const id = Number(user.id);
 
@@ -37,7 +39,7 @@ const History = () => {
           <Link to={`/profile/${id}`}>
             <ArrowL src={ArrowLeft} alt="arrow-back" />
           </Link>
-          History
+          {t("profile:history.history")}
           <HistoricIcon src={Historic} alt="history-icon" />
         </EditTitle>
       </HeaderEdit>
@@ -50,10 +52,9 @@ const History = () => {
           action="/stripe-webhook/create-customer-portal-session"
         >
           <h3>
-            Check your billings, invoices and manage your membership plan, please click on
-            button.
+            {t("profile:history.paragraph")}
           </h3>
-          <ManageButton type="submit">Manage billing</ManageButton>
+          <ManageButton type="submit">{t("login:history.billings")}</ManageButton>
         </HistButton>
       </div>
     </div>
