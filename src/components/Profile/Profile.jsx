@@ -120,7 +120,7 @@ const Profile = () => {
             <label
               onClick={() => {
                 Cookies.remove("authToken");
-                history.push("/auth/login");
+                window.location.href="/auth/login";
               }}
             >
               {t("profile:profile.logout")}
