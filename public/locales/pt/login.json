@@ -1,15 +1,20 @@
 {
-    "forgetPassword": {
-        "forget": "Forget your Password?",
-        "enterEmail": "Por favor insira o email associado à sua conta Krow.",
-        "sendReplacement": "Enviar Password de Reposição"
-    },
-    "login": {
-        "passwordReq": "Password incorreta",
-        "notMember": "Ainda não é membro?",
-        "register": "Faça o seu registo",
-        "forgetPW": "Recuperar password",
-        "guest": "Continuar como convidado",
-        "emailReq": "O Email é necessário"
-    }
+  "forgetPassword": {
+    "forget": "Forget your Password?",
+    "enterEmail": "Por favor insira o email associado à sua conta Krow.",
+    "sendReplacement": "Enviar Password de Reposição"
+  },
+  "login": {
+    "passwordReq": "Password incorreta",
+    "notMember": "Ainda não é membro?",
+    "register": "Faça o seu registo",
+    "forgetPW": "Recuperar password",
+    "guest": "Continuar como convidado",
+    "emailReq": "O Email é necessário"
+  },
+  "history": {
+    "history": "Histórico",
+    "paragraph": "Clica no botão para verificar o teu histórico de transações, fazer o download de recibos e gerir as tuas subscrições.",
+    "billings": "Gerir Faturas/Subscrições"
+  }
 }
