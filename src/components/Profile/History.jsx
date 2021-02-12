@@ -54,7 +54,7 @@ const History = () => {
           <h3>
             {t("profile:history.paragraph")}
           </h3>
-          <ManageButton type="submit">{t("login:history.billings")}</ManageButton>
+          <ManageButton type="submit">{t("profile:history.billings")}</ManageButton>
         </HistButton>
       </div>
     </div>

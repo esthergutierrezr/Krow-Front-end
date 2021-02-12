@@ -18,11 +18,11 @@ const Homepage = () => {
         <Greeting />
       <div className="bg-white">
         <CTAButtons />
-        <h2 className='h2 raleway'>{t("homepage:homePage.CommunityUpdates")}</h2>
+        <h2 className='h2'>{t("homepage:homePage.CommunityUpdates")}</h2>
         <CommunityUpdates />
         <p className="home__featured-locations">
-          <h2 className='h2 raleway'>{t("homepage:homePage.FeaturedLocations")}</h2>
-          <Link id="home__view-all-locations raleway" to="/locations">
+          <h2 className='h2'>{t("homepage:homePage.FeaturedLocations")}</h2>
+          <Link id="home__view-all-locations" to="/locations">
             {t("homepage:homePage.viewAll")}
           </Link>
         </p>

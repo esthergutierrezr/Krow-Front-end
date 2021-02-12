@@ -68,5 +68,10 @@
     "forget": "Esqueceu-se da sua password?",
     "insertEmail": "Por favor insira o email associado à sua conta Krow.",
     "replacement": "Enviar Password de Reposição"
+  },
+  "history": {
+    "history": "Histórico",
+    "paragraph": "Clica no botão para verificar o teu histórico de transações, fazer o download de recibos e gerir as tuas subscrições.",
+    "billings": "Gerir Faturas/Subscrições"
   }
 }
