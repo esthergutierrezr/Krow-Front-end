@@ -1,11 +1,13 @@
 import React,{createContext, useState, useEffect} from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import { config } from "../helpers/auth";
 
 export const AuthContext = createContext(null);
 
 export default function AuthContextProvider(props) {
+  const { i18n } = useTranslation();
   const [auth, setAuth] = useState(true);
   const [user, setUser] = useState(false);
 
@@ -15,6 +17,7 @@ export default function AuthContextProvider(props) {
       .then((response) => {
       //  console.log(response.data)
         setUser(response.data);
+        i18n.changeLanguage(response.data.language)
         setAuth(true);
       })
       .catch(() => {

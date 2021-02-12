@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
@@ -19,6 +20,7 @@ import {
 
 function Login() {
   const [state, setState] = useState({});
+  const { t, i18n } = useTranslation(["login"]);
   const { setUser, setAuth } = useContext(AuthContext);
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm({});
@@ -28,9 +30,10 @@ function Login() {
       .post("/auth/login", { email: data.email, password: data.password })
       .then((response) => {
         setUser(response.data.foundUser);
+        i18n.changeLanguage(response.data.foundUser.language)
         setAuth(true);
         Cookies.set("authToken", response.data.token);
-        history.push("/");
+        window.location.href = "/";
       });
   };
 
@@ -52,7 +55,7 @@ function Login() {
               required: true,
             })}
           />
-          {errors.email && <p>Required Email</p>}
+          {errors.email && <p>{t("login:login.emailReq")}</p>}
           <br />
           <input
             placeholder="Password*"
@@ -65,26 +68,26 @@ function Login() {
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
           />
-          {errors.password && <p>Password must have at least 8 characters</p>}
+          {errors.password && <p>{t("login:login.passwordReq")}</p>}
           <br />
           <button type="submit">Login</button>
           <br />
           <br />
           <LoginText>
-            <p>Not a Member yet?</p>
+            <p>{t("login:login.notMember")}</p>
             <Link to="/auth/signup">
-              <RegisterLink>Please register</RegisterLink>
+              <RegisterLink>{t("login:login.register")}</RegisterLink>
             </Link>
             <br />
             <Link to="/password/forget">
               <PasswordLink>
-                Forget your Password
+                {t("login:login.forgetPW")}
                 <hr />
               </PasswordLink>
             </Link>
             <br />
             <div onClick={() => resetSession()} to="/">
-              <GuestLink>Continue as Guest</GuestLink>
+              <GuestLink>{t("login:login.guest")}</GuestLink>
             </div>
           </LoginText>
           <br />

@@ -10,8 +10,6 @@ import { AuthContext } from "../../contexts/AuthContext";
 function MainProfile() {
 
   const { user } = useContext(AuthContext);
-  console.log("object", user)
-  // console.log(user)
   const id = Number(user.id);
 
 
@@ -20,7 +18,7 @@ function MainProfile() {
       <Route exact path={`/profile/${id}`} component={Profile} />
       <Route path={`/profile/${id}/edit`} component={EditProfile} />
       <Route path={`/profile/${id}/notifications`} component={Notification} />
-      <Route path={`/profile/${id}/historic`} component={History} />
+      <Route path={`/profile/${id}/history`} component={History} />
       <Redirect path={`/profile/${id}`} />
     </Switch>
   );

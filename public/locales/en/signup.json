@@ -1,11 +1,16 @@
 {
-  "Email": "Email",
-  "EmailReq": "Your email is required to login later",
-  "PhoneNumber": "Phone Number",
-  "PhoneNumberReq": "Your phone number",
-  "FullName": "Full Name",
-  "FullNameReq": "Your Full Name",
-  "CreatePassword": "Create Password",
-  "CreatePasswordReq": "Password is required",
-  "Register": "Register"
+  "signup": {
+    "Email": "Email",
+    "EmailReq": "Your email is required",
+    "PhoneNumber": "Phone Number",
+    "PhoneNumberReq": "Your phone number",
+    "FullName": "Full Name",
+    "FullNameReq": "Your Full Name",
+    "CreatePassword": "Create Password",
+    "CreatePasswordReq": "Password must be at least 8 characters long and contain one special character",
+    "Register": "Register",
+    "AlreadyMember": "Already a Member?",
+    "Login": "Please login",
+    "Guest": "Continue as Guest"
+  }
 }

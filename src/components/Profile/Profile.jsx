@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink as Link, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
+import axios from "axios";
 import UserProfile from "./UserProfile";
 import { AuthContext } from "../../contexts/AuthContext";
 import {
@@ -24,15 +25,37 @@ import Cart from "../Style/SVG/Profile/SVG_Screen Perfil-02_icon.svg";
 import Historic from "../Style/SVG/Profile/SVG_Screen Perfil-04_icon.svg";
 import Notification from "../Style/SVG/Profile/SVG_Screen Perfil-03_icon.svg";
 import Invite from "../Style/SVG/Profile/SVG_Screen Perfil-05_icon.svg";
+import { config } from "../../helpers/auth";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const { t, i18n } = useTranslation(["profile"]);
   const history = useHistory();
+  console.log("user", user);
 
-  const changeLanguage = (code) => {
-    i18n.changeLanguage(code);
-    window.location.href = `/profile/${user.id}`;
+  // useEffect(() => {
+  //   setUser(user);
+  // }, [user]);
+
+  // useEffect(() => {
+  //   changeLanguage();
+  // }, []);
+
+  // const resetSession = () => {
+  //   window.location.href = "/";
+  // };
+
+  const changeLanguage = (newLanguage) => {
+    // event.preventDefault();
+    console.log("changeLanguage");
+      axios
+        .put(`/profile/${user.id}/edit`, { language: newLanguage }, config)
+        .then(async (response) => {
+          console.log("response", response.data[0]);
+          const user = await setUser(response.data[0]);
+          i18n.changeLanguage(newLanguage)
+        })
+        .catch((error) => console.error(error));
   };
 
   return (
@@ -99,11 +122,14 @@ const Profile = () => {
           <hr />
           <LabelBottom>
             <br />
-            <label
-              onClick={() => {
-                changeLanguage("en");
-              }}
-            >
+            <label onClick={() => {
+              console.log("user language", user.language)
+              if(user.language === "pt") {
+                changeLanguage("en")
+              } else {
+                changeLanguage("pt")
+              }
+              }}> 
               {t("profile:profile.changeLanguage")}
             </label>
             <br />

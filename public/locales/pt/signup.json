@@ -1,11 +1,17 @@
 {
-  "Email": "Email",
-  "EmailReq": "O email é necessário.",
-  "PhoneNumber": "Número Móvel",
-  "PhoneNumberReq": "O teu número móvel",
-  "FullName": "Nome Completo",
-  "FullNameReq": "O Teu Nome Completo",
-  "CreatePassword": "Criar Password",
-  "CreatePasswordReq": "A Password é necessária",
-  "Register": "Registar"
+  "signup": {
+    "Email": "Email",
+    "EmailReq": "O email é necessário.",
+    "PhoneNumber": "Número Móvel",
+    "PhoneNumberReq": "O teu número móvel",
+    "FullName": "Nome Completo",
+    "FullNameReq": "O Teu Nome Completo",
+    "CreatePassword": "Criar Password",
+    "CreatePasswordReq": "A Password necessita um mínimo de 8 caracteres e um caracter especial",
+    "Register": "Registar",
+    "AlreadyMember": "Já é membro?",
+    "Login": "Faça login",
+    "Guest": "Continuar como convidado"
+  }
 }
+  

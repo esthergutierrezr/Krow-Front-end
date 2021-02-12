@@ -47,7 +47,6 @@ export const HeadersProfile = styled.div`
   padding: 22px 41.3px 21.5px 41px;
   background-color: ${Blue};
   text-align: left;
-
 `;
 
 export const Greeting = styled.h1`
@@ -509,7 +508,12 @@ export const WheelIcon = styled.img`
   display: flex;
   padding-right: 10px;
 `;
-
+export const HistoricIcon = styled.img`
+  width: 21.2px;
+  height: 21.2px;
+  display: flex;
+  padding-right: 10px;
+`;
 //* ***********RESET PASSWORD */
 export const ArrowBlue = styled.img`
   display: flex;
@@ -595,9 +599,17 @@ export const SendEmail = styled.button`
   letter-spacing: normal;
   margin: 30px 0 0px 0;
   border-radius: 11.9px;
-  opacity: 0.60;
+  opacity: 0.6;
 
   @media only screen and (max-width: 370px) {
     width: 300px;
   }
+`;
+
+// ****************History
+
+export const HistTitle = styled.div`
+  display:flex
+  flex-direction: row;
+  justify-content: space-between;
 `;

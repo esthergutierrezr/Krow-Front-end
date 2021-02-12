@@ -2,11 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 import { StyledButton } from "../Style";
 import { AuthContext } from "../../../contexts/AuthContext";
 import PackagesAvailable from "../PackagesAvailable";
 import CCards from "../../Style/SVG/Membership/pf.svg";
-import axios from "axios";
 
 import "./ProductForm.css";
 
@@ -22,13 +22,11 @@ const PaymentSummaryDisplay = (props) => {
   const { handleClick } = props;
   return (
     <div>
-      {PackagesAvailable.map((membership) => {
-        return (
-          <div>
-            <PaymentSummaryTemplate {...membership} handleClick={handleClick} />
-          </div>
-        );
-      })}
+      {PackagesAvailable.map((membership) => (
+        <div>
+          <PaymentSummaryTemplate {...membership} handleClick={handleClick} />
+        </div>
+        ))}
     </div>
   );
 };
@@ -44,7 +42,7 @@ const PaymentSummaryTemplate = (props) => {
   const { t } = useTranslation(["membership"]);
   return (
     <div>
-      <div className="white-bg"></div>
+      <div className="white-bg" />
       <div className="color-bg">
         <div className="mbs-img-container">
           <img
@@ -69,21 +67,30 @@ const PaymentSummaryTemplate = (props) => {
           <div className="mbs-payment-summary-container">
             <div className="mbs-payment-summary-element">
               <div>{t("membership:productForm.baseValue")}</div>
-              <div>{price}€</div>
+              <div>
+                {price}
+                €
+              </div>
             </div>
-            <div className="mbs-line-element"></div>
+            <div className="mbs-line-element" />
             <div className="mbs-payment-summary-element">
               <div>IVA 23%</div>
-              <div>{(price * 0.23).toFixed(2)}€</div>
+              <div>
+                {(price * 0.23).toFixed(2)}
+                €
+              </div>
             </div>
-            <div className="mbs-line-element"></div>
+            <div className="mbs-line-element" />
             <div className="mbs-payment-summary-element">
               <div style={{ fontWeight: "bold" }}>
                 {t("membership:productForm.total")}
               </div>
-              <div style={{ fontWeight: "bold" }}>{taxedPrice}€</div>
+              <div style={{ fontWeight: "bold" }}>
+                {taxedPrice}
+                €
+              </div>
             </div>
-            <div className="mbs-line-element"></div>
+            <div className="mbs-line-element" />
           </div>
           <div className="mbs-checkbox-container">
             <div className="mbs-checkbox-element">
@@ -93,7 +100,8 @@ const PaymentSummaryTemplate = (props) => {
                 checked={termsAndConditions}
                 onChange={handleTermsChange}
               />
-              {t("membership:productForm.terms")}{" "}
+              {t("membership:productForm.terms")}
+              {" "}
               <NavLink
                 className="terms-renew"
                 to="/membership/terms-and-conditions"
@@ -116,7 +124,7 @@ const PaymentSummaryTemplate = (props) => {
               id="checkout-button"
               role="link"
               onClick={handleClick}
-              disabled={!termsAndConditions ? true : false}
+              disabled={!termsAndConditions}
             >
               {t("membership:productForm.pay")}
             </StyledButton>

@@ -4,11 +4,21 @@
 // Check-Ins
 // check-in card
 
-import React, {useContext} from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import Billing from "./Billing";
-import CheckIns from "./CheckIns";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+// import Billing from "./Billing";
+// import CheckIns from "./CheckIns";
+import Historic from "../Style/SVG/Profile/SVG_Screen Perfil-04_icon white.svg";
+import ArrowLeft from "../Style/SVG/Profile/SVG_Screen Perfil-06_seta branca-01.svg";
 import { AuthContext } from "../../contexts/AuthContext";
+import "./profile.css";
+import {
+  ArrowL,
+  HistoricIcon,
+  HeaderEdit,
+  EditTitle,
+  HistTitle,
+} from "./Styles";
 
 const History = () => {
   const { user } = useContext(AuthContext);
@@ -17,13 +27,23 @@ const History = () => {
   const id = Number(user.id);
 
   return (
-    <div>
-      <h1>Historic</h1>
-      <Switch>
-        {/* <Route path={`/profile/${id}/historic/ckeckins`} component={CheckIns} /> */}
-        <Route path={`/profile/${id}/historic/billing`} component={Billing} />
-        <Redirect path={`/profile/${id}/historic/billing`} component={Billing} />
-      </Switch>
+    <div className="bg-white-profile">
+      <HeaderEdit>
+        <EditTitle>
+          <Link to={`/profile/${id}`}>
+            <ArrowL src={ArrowLeft} alt="arrow-back" />
+          </Link>
+          History
+          <HistoricIcon src={Historic} alt="history-icon" />
+        </EditTitle>
+      </HeaderEdit>
+      <HistTitle>
+        <h1>Log-ins</h1>
+        <h1>Transactions</h1>
+      </HistTitle>
+
+      <div>
+      </div>
     </div>
   );
 };

@@ -33,7 +33,7 @@ function Signup() {
   const [language, setLanguage] = useState("");
 
   const getLanguage = () => {
-    setLanguage(localStorage.getItem("i18nextLng"));
+    setLanguage(user.language || localStorage.getItem("i18nextLng"));
   };
 
   useEffect(() => {
@@ -74,7 +74,7 @@ function Signup() {
             placeholder="Email*"
             ref={register({ required: true })}
           />
-          {errors.email && <p>{t("signup:EmailReq")}</p>}
+          {errors.email && <p>{t("signup:signup.EmailReq")}</p>}
           <br />
           <PhoneInput
             inputStyle={{
@@ -114,7 +114,7 @@ function Signup() {
             type="tel"
             country="pt"
             name="phone"
-            placeholder="Phone Number*"
+            placeholder={`${t("signup:signup.PhoneNumber")}*`}
           />
 
           <input
@@ -122,7 +122,7 @@ function Signup() {
             value={state.phone}
             type="tel"
             name="phoneNumber"
-            placeholder="Phone Number*"
+            placeholder={`${t("signup:signup.PhoneNumber")}*`}
             ref={register({ required: true, maxLength: 80 })}
           />
           <br />
@@ -130,16 +130,17 @@ function Signup() {
           {errors.phoneNumber && (
             <>
               {" "}
-              <br /> <p>{t("signup:PhoneNumberReq")}</p>
+              <br />
+              <p>{t("signup:signup.PhoneNumberReq")}</p>
             </>
           )}
           <input
             type="text"
             name="fullName"
-            placeholder="Full Name*"
+            placeholder={`${t("signup:signup.Full Name")}*`}
             ref={register({ required: true, maxLength: 30 })}
           />
-          {errors.fullName && <p>{t("signup:FullNameReq")}</p>}
+          {errors.fullName && <p>{t("signup:signup.FullNameReq")}</p>}
           <input
             type="password"
             name="password"
@@ -150,18 +151,18 @@ function Signup() {
               pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/i,
             })}
           />
-          {errors.password && <p>{t("signup:CreatePasswordReq")}</p>}
+          {errors.password && <p>{t("signup:signup.CreatePasswordReq")}</p>}
           <br />
-          <Register type="submit">{t("signup:Register")}</Register>
+          <Register type="submit">{t("signup:signup.Register")}</Register>
           <br />
           <LoginText>
-            <p>Already a Member?</p>
+            <p></p>
             <Link to="/auth/login">
-              <RegisterLink>Please login</RegisterLink>
+              <RegisterLink>{t("signup:signup.Login")}</RegisterLink>
             </Link>
             <br />
             <div onClick={() => resetSession()} to="/">
-              <GuestLink>Continue as Guest</GuestLink>
+              <GuestLink>{t("signup:signup.Guest")}</GuestLink>
             </div>
           </LoginText>
         </FormSignUp>
