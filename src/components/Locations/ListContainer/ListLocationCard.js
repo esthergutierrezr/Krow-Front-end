@@ -88,7 +88,7 @@ function ListLocationCard(props) {
                 href="https://google.com"
                 style={{ textDecoration: "underline", fontSize: "12px" }}
               >
-                Obtener direccoes{" "}
+                Get Directions{" "}
               </a>{" "}
             </div>
 

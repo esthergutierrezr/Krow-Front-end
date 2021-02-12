@@ -67,6 +67,10 @@
   max-width: 100%;
 }
 
+.span2{
+  width: 200px;
+}
+
 .home__ctabuttons {
   display: flex;
   justify-content: space-around;
@@ -196,6 +200,7 @@
 }
 
 .raleway {
+  width: 250px;
   color: #c1c1c1;
   font-weight: bold;
   font-family: Raleway;
@@ -221,3 +226,4 @@
     height: 80.9px;
   }
 }
+

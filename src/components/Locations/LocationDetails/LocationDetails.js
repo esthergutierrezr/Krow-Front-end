@@ -147,7 +147,7 @@ function LocationDetails(props) {
                     href="https://google.com"
                     style={{ textDecoration: "underline", fontSize: "12px" }}
                   >
-                    Obtener direccoes{" "}
+                    Get Directions{" "}
                   </a>{" "}
                 </div>
                 <LocationsRating
@@ -267,7 +267,7 @@ function LocationDetails(props) {
                         src={phone}
                         alt="phone"
                       />
-                      <p style={{ color: "#4285f4" }}>+4876557755</p>
+                      <p style={{ color: "#4285f4" }}>217266632</p>
                     </div>
                     <div style={{ display: "flex", paddingLeft: "30px" }}>
                       <img
@@ -364,7 +364,7 @@ function LocationDetails(props) {
                 href="https://google.com"
                 style={{ textDecoration: "underline", fontSize: "12px" }}
               >
-                Obtener direccoes{" "}
+                Get Directions{" "}
               </a>{" "}
             </div>
             <LocationsRating

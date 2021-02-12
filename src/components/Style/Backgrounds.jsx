@@ -28,7 +28,7 @@ export const HeadersBg = styled.div`
     padding: 7.7px 7.7px 7.7px 7.7px;
   }
 
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 340px) {
     .profile-picture{
       display: none;
     }

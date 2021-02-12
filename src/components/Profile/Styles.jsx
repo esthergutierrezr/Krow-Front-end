@@ -489,7 +489,7 @@ export const BuyMember = styled.p`
 export const ArrowD = styled.img`
   width: 18.5px;
   height: 11.6px;
-  padding-left: 90.6px;
+  padding-left: 100.6px;
 
   // @media only screen and (max-width: 370px) {
   //   padding-left: 90px;

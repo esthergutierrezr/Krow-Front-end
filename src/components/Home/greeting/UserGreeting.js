@@ -11,7 +11,7 @@ function UserGreeting() {
 
   return (
     <div className="greeting-container">
-      <span>
+      <span className="span2">
         {window.localStorage.getItem("membership")!= null ? (
           <>
             <span className="active-membership">
