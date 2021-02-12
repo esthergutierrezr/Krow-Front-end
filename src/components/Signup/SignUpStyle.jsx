@@ -30,6 +30,7 @@ export const ContainerSignUp = styled.div`
   justify-content: center;
 `;
 
+
 export const FormSignUp = styled.form`
   display: flex;
   flex-direction: column;
