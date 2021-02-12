@@ -8,6 +8,10 @@ import "./PackageCards.css";
 const PackageCards = (props) => {
   const { name, image, taxedPrice, validity, perks } = props;
   const { t } = useTranslation(["membership"]);
+
+   // TODO remove this it is only for demo purpose
+   window.localStorage.setItem("membership", "12-03-2021");
+
   return (
     <div>
       <div className="mbs-img-container">

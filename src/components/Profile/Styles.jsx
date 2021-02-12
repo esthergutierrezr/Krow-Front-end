@@ -399,6 +399,7 @@ export const MemberDiv = styled.div`
   padding-top: 47.5px
   width: 100%;
   height: 100%;
+  margin-top: 50px;
 
 @media only screen and (max-width: 445px) {
   margin-top: 85xp;

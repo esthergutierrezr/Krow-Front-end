@@ -164,6 +164,9 @@ export default function ProductForm() {
 
   const handleClick = async (event) => {
     const stripe = await stripePromise;
+
+   
+    
     const response = await axios.post(
       "/stripe-webhook/create-checkout-session",
       {

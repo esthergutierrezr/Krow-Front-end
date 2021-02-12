@@ -22,7 +22,9 @@ function UserProfile() {
   const { member } = useState(false);
   const { t } = useTranslation(["profile"]);
 
-  const initialGreeting = `${t("profile:userProfile.greeting")}, ${user.fullName}`;
+  const initialGreeting = `${t("profile:userProfile.greeting")}, ${
+    user.fullName
+  }`;
 
   return (
     <HeadersProfile>
@@ -34,7 +36,7 @@ function UserProfile() {
         />
       </div>
       <>
-        {member ? (
+        {window.localStorage.getItem("membership")!= null ? (
           <MemberDiv>
             <IsMember>
               {" "}
@@ -42,8 +44,10 @@ function UserProfile() {
               {t("profile:userProfile.activeMembership")}
             </IsMember>
             <ExpireTime>
-              // TODO fetch expiry date from Stripe
-              {`${t("profile:userProfile.expiry")} (date to expire membership)`}
+             
+              {`${t(
+                "profile:userProfile.expiry"
+              )}   ${window.localStorage.getItem("membership")}`}
             </ExpireTime>
           </MemberDiv>
         ) : (

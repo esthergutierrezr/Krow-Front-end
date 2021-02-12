@@ -50,14 +50,16 @@ function UserChange() {
       <CenterDivChange>
         <br />
         <br />
-        {member ? (
+        {window.localStorage.getItem("membership")!= null ? (
           <ActiveMember>
             <IsMember>
               {" "}
               <Circle />
               {t("profile:userChange.subscription")}
             </IsMember>
-            <ExpireTime>{t("profile:userChange.expiry")}</ExpireTime>
+            <ExpireTime> {`${t(
+                "profile:userProfile.expiry"
+              )}   ${window.localStorage.getItem("membership")}`}</ExpireTime>
           </ActiveMember>
         ) : (
           <div>

@@ -50,14 +50,16 @@ function UserEdit() {
       <CenterDiv>
         <br/>
         <br/>
-        {member ? (
+        {window.localStorage.getItem("membership")!= null ? (
           <div>
             <IsMember>
               {" "}
               <Circle />
               {t("profile:userEdit.subscription")}
             </IsMember>
-            <ExpireTime>{`${t("profile:userEdit.expiry")} (date to expire membership)`}</ExpireTime>
+            <ExpireTime> {`${t(
+                "profile:userProfile.expiry"
+              )}   ${window.localStorage.getItem("membership")}`}</ExpireTime>
           </div>
         ) : (
           <div>
