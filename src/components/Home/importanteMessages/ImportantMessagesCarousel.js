@@ -2,16 +2,16 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import CarouselCard from './CommunityUpdatesCard'
-import './community-updates-carousel.css';
-import CarouselImg from "../../Style/bg/carouselsImg.png"
+import CarouselCard from './ImportantMessagesCard'
+import './important-messages-carousel.css';
+import CarouselImg from "../../Style/SVG/HomePage/ImportantMessage.png"
 
 const cards = [
   {updateName: "Update 1",
   img: CarouselImg},
   {updateName: "Update 2",
   img: CarouselImg},
-  {updateName: "Update 31",
+  {updateName: "Update 3",
   img: CarouselImg}
 ]
 
@@ -62,7 +62,7 @@ const Carousel = () => {
 };
 
   return (
-    <div id="carousel-community-updates">
+    <div id="carousel-important-messages">
       <Slider {...settings}>
         {cards.map((card, index) => (
           <CarouselCard key={index} {...card}/>

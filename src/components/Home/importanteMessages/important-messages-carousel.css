@@ -1,0 +1,59 @@
+.important-messages{
+  margin: 50px 0 100px 0
+}
+
+#carousel-important-messages .slick-slide{
+  max-height: 270px !important;
+  margin-top: 100px;
+}
+.slick-list, .slick-track, .slick-slider{
+  max-height: 250px !important;
+  padding: none !important
+}
+
+.slick-dots, .slick-dots li.slick-active button:before{
+  color: #F8C861;
+}
+.slick-dots{
+  display: none
+}
+
+.important-message-carousel-card__image{
+  border-radius: 25px;
+  margin-top: -90px;
+  justify-self: center;
+  height: 90%;
+  width: 90%;
+}
+
+@media screen and (max-width: 360px) {
+  #carousel-important-messages .slick-list, #carousel-important-messages .slick-track, #carousel-important-messages .slick-slider{
+    max-height: 150px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  #carousel-important-messages .slick-list, #carousel-important-messages .slick-track, #carousel-important-messages .slick-slider{
+    max-height: 200px !important;
+  }
+}
+@media screen and (min-width: 426px) {
+  #carousel-important-messages .slick-list, #carousel-important-messages .slick-track, #carousel-important-messages .slick-slider{
+    max-height: 250px !important;
+  }
+  /* .important-messages{
+    margin: 50px 0 175px 0
+  }
+   */
+}
+
+@media screen and (min-width: 680px) {
+  #carousel-important-messages .slick-list, #carousel-important-messages .slick-track, #carousel-important-messages .slick-slider{
+    max-height: 300px !important;
+  }
+}
+
+@media screen and (min-width: 790px) {
+  #carousel-important-messages .slick-list, #carousel-important-messages .slick-track, #carousel-important-messages .slick-slider{
+    max-height: 350px !important;
+  }
+}

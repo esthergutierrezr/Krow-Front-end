@@ -8,10 +8,9 @@
 }
 
 .welcome{
-  margin-top:25.5px;
+  margin:25.5px 0 0 0;
   width: 250px;
   height: 24px;
-  /* margin: 0 0 8px; */
   font-family: Raleway;
   font-size: 19.7px;
   font-weight: bold;
@@ -54,82 +53,63 @@
 .greeting-container{
   display: flex;
   justify-content: space-between;
-  margin:10px;
-  margin-right:20px;
+  align-items: center;
+  max-width: 100%;
 }
-.profile-picture{
-  width: 88.7px;
-  height: 88.7px;
-  margin: -55px 0 0 -150px;
-  padding: 7.7px 7.7px 7.7px 7.7px;
-}
+
 .home__ctabuttons{
   display: flex;
   justify-content: space-around;
 }
 
-.ctabuttons__button {
+.ctabuttons__image {
   position: relative;
-  width: 105.8px;
-  height: 100.9px;
-  margin: 18.2px 0 11.9px; 
+  width: 50%;
+  height: 50%;
 }
 
-.invite{
+.cta-background{
+  display:flex;
   justify-content: center;
   align-items: center;
-  width: 173.4px;
-  height: 173.4px;
-  margin: 44.6px 50.7px 43.6px 32.4px;
+  position: relative;
+  width: 35vw;
+  height: 35vw;
+  margin: 44.6px 0 43.6px 0;
   border-radius: 10px;
   box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #a73f25;
   font-family: Raleway;
-  font-size: 21.4px;
+  font-size: 4vw;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-align: center;
+  text-align: center; 
   color: #ffffff;
 }
-.subscribe{
-  width: 173.4px;
-  height: 173.4px;
-  margin: 43.8px 0px 43.6px 51px;
-  border-radius: 10px;
-  box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+
+.cta-background p{
+  position: absolute;
+  bottom: 4%;
+}
+
+#subscribe{
   background-color: #08726c;
-  font-family: Raleway;
-  font-size: 21.4px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-align: center;
-  color: #ffffff;
 }
 
 .home__featured-locations{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #home__view-all-locations{
   color: #444;
-}
+  margin: 15px 15px 5px 0;
 
-.important-messages{
-  display: flex;
-  justify-content: center;
-}
 
-.important-message{
-  border-radius: 10px;
-  width: 90vw;
-  height: auto;
 }
 
 .bg-white{
@@ -146,4 +126,14 @@
 h2{
   font-size: 20px;
   font-weight: 600;
+  margin: 15px 0 5px 11vw;
+  display:inline;
+  font-family: 'Raleway', sans-serif;
 }
+
+
+
+span, p, h3{
+  font-family: 'Raleway', sans-serif;
+}
+

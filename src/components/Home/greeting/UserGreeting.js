@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 
 function UserGreeting() {
@@ -8,21 +8,18 @@ function UserGreeting() {
 
   const { user } = useContext(AuthContext);
 
-  const initialGreeting = `${t("homepage:userGreeting.Hi")} ${user.fullName}`;
+
 
   return (
     <div className="greeting-container">
       <span>
-        {initialGreeting}
-        <br />
-        {/* {isMember
-          ? "active membership!"
-          : (<span> 
+        {user.membership_id ? "Active membership!"
+          : (<span style={{color:'#940000'}}> 
               No active membership 
               <br /> 
               <Link to="membership">Click here to buy a plan</Link> 
             </span>)
-        } */}
+        }
       </span>
       {/* <Link to="/profile"><img className="profile-picture" src={image} alt={fullName} /></Link> */}
     </div>

@@ -21,16 +21,15 @@ const cards = [
 
 const Carousel = () => {
   const settings = {
-    className: "slides",
+    className: "leonvdk",
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 2.3,
-    // slidesToScroll: 4,
-    initialSlide: 0,
+    initialSlide: -0.2,
     padding: "30px",
     swipeToSlide: true,
-    arrows: true,
+    arrows: false,
     responsive: [
     {
       breakpoint: 1024,
@@ -48,9 +47,16 @@ const Carousel = () => {
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 450,
       settings: {
-        slidesToShow: 2.3,
+        slidesToShow: 1.5,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 400,
+      settings: {
+        slidesToShow: 1.5,
         slidesToScroll: 1,
       }
     }
