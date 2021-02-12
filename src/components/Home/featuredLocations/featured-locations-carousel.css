@@ -4,68 +4,70 @@
   width: 100vw;
   /* margin-left: 10vw; */
 }
-#carousel-featured-locations .carousel-card{
+#carousel-featured-locations .carousel-card {
   margin: 10px;
   height: 175px;
   max-width: 225px;
   display: grid;
-  grid-template-areas: 
-  "image"
-  "name"
-  "rating";
+  grid-template-areas:
+    "image"
+    "name"
+    "rating";
 }
 
 /* #carousel-featured-locations .slick-track :nth-child(1){
   margin-left: 3vw;
 } */
 
-.carousel-card__image{
+.carousel-card__image {
   grid-area: image;
   max-height: 125px;
-  min-height:125px;
+  min-height: 125px;
   border-radius: 10px;
   width: 100%;
   max-width: 100%;
-  box-shadow: 3px 3px 10px #555
+  box-shadow: 3px 3px 10px #555;
 }
 
-.carousel-card__text{
+.carousel-card__text {
   grid-area: name;
   display: inline-block;
   grid-template-rows: 1fr 1fr;
 }
 
-.carousel-card__location-name{
+.carousel-card__location-name {
   margin-bottom: 4px;
 }
-.carousel-card__location-rating{
+.carousel-card__location-rating {
   grid-area: rating;
   color: #000;
 }
 
 .star {
-  color: #F8C861;
+  color: #f8c861;
 }
 
-a{
+a {
   color: #000;
   text-decoration: none;
 }
 
-h3{
+h3 {
   margin-top: 15px;
   font-weight: 400;
   font-size: 20px;
   break-after: always;
 }
 
-
 @media screen and (max-width: 425px) {
-  #carousel-featured-locations  .slick-list, #carousel-featured-locations .slick-track, #carousel-featured-locations  .slick-slider, #carousel-featured-locations  .slick-slide{
+  #carousel-featured-locations .slick-list,
+  #carousel-featured-locations .slick-track,
+  #carousel-featured-locations .slick-slider,
+  #carousel-featured-locations .slick-slide {
     max-height: 300px !important;
   }
 
-  #carousel-featured-locations .carousel-card{
+  #carousel-featured-locations .carousel-card {
     margin-top: 0px;
     max-height: 300px;
   }

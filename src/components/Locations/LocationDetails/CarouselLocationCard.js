@@ -6,7 +6,13 @@ const CarouselCard = (props) => {
 
   return (
     <div className="locationCarouselCard">
-      <img className="locationCard-img" src={img} alt="" />
+      <img
+        className="locationCard-img"
+        src={img}
+        alt=""
+        height="100px"
+        width="100px"
+      />
     </div>
   );
 };

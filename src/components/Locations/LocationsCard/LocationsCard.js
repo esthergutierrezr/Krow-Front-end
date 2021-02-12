@@ -1,75 +1,121 @@
-import React from "react";
-import "./LocationsCard.css";
-import { LocationContext } from "../../../contexts/LocationContext";
-import PopUp from "../LocationDetails/PopUp.js";
+// import React from "react";
+// import "./LocationsCard.css";
+// import { LocationContext } from "../../../contexts/LocationContext";
 
-function LocationsCard(props) {
-  const { checked, setChecked } = React.useContext(LocationContext);
-  const { location, setLocation } = React.useContext(LocationContext);
-  const [popUp, setPopUp] = React.useState(false);
+// import PopUpA from "../LocationDetails/PopUps/PopUpA";
+// import PopUpB from "../LocationDetails/PopUps/PopUpB";
+// import PopUpC from "../LocationDetails/PopUps/PopUpC";
+// import PopUpD from "../LocationDetails/PopUps/PopUpD";
+// import LocationsRating from "../LocationsRating";
 
-  const checkIn = () => {
-    setChecked(props.id);
-    setPopUp(!popUp);
-  };
+// function LocationsCard(props) {
+//   const { checked, setChecked } = React.useContext(LocationContext);
+//   const { location, setLocation } = React.useContext(LocationContext);
+//   const [popUpA, setPopUpA] = React.useState(false);
+//   const [popUpB, setPopUpB] = React.useState(false);
+//   const [popUpC, setPopUpC] = React.useState(false);
+//   const [popUpD, setPopUpD] = React.useState(false);
 
-  const togglePop = () => {
-    setPopUp(false);
-  };
-  const checkOut = () => {
-    setChecked(null);
-  };
+//   const checkIn = () => {
+//     setChecked(props.id);
+//     setPopUpA(!popUpA);
+//   };
+//   const checkOut = () => {
+//     setPopUpC(!popUpC);
+//   };
 
-  const onCardClick = () => {
-    console.log(props);
-    setLocation({
-      ...location,
-      center: {
-        lat: props.lat,
-        lng: props.lng,
-      },
-    });
-  };
+//   const message = () => {
+//     console.log("please checkout first");
+//     setPopUpB(!popUpB);
+//   };
+//   const togglePopA = () => {
+//     setPopUpA(false);
+//   };
+//   const togglePopB = () => {
+//     setPopUpB(false);
+//   };
+//   const togglePopC = () => {
+//     setPopUpC(false);
 
-  return (
-    <div className="locationsCard">
-      {checked !== props.id ? (
-        <div className="checkin">
-          <div>
-            <h1>{props.name}</h1>
+//     setPopUpD(!popUpD);
+//   };
+//   const cancelTogglePopC = () => {
+//     setPopUpC(false);
+//   };
+//   const cancelTogglePopD = () => {
+//     setPopUpD(false);
+//   };
+//   const togglePopD = () => {
+//     setPopUpD(false);
+//     setChecked(null);
+//   };
+//   const onCardClick = () => {
+//     console.log(props);
+//     setLocation({
+//       ...location,
+//       center: {
+//         lat: props.lat,
+//         lng: props.lng,
+//       },
+//     });
+//   };
 
-            <p>1 miembro aqui</p>
+//   return (
+//     <div className="locationsCard">
+//       {checked !== props.id ? (
+//         <div className="checkin">
+//           <h1>{props.name}</h1>
 
-            <div>09:00 - 17:00 </div>
-            <div> Sintra | Obtener direccoes </div>
-            <div> * * * * 4.9</div>
-            <a href={`/locations/${props.id}`}>Details</a>
-          </div>
-          <button onClick={onCardClick}>
-            <img src={props.image} alt="image" width="150" height="150" />
-          </button>
-          <button onClick={checkIn}>Check In</button>
-        </div>
-      ) : (
-        <div className="checkout">
-          <div>
-            <h1>{props.name}</h1>
-            {popUp ? <PopUp toggle={togglePop} /> : null}
-            <p>6 miembro(s) aqui</p>
-            <div>Aberto ate as 22:00 </div>
-            <p>wifi:{props.network}</p>
-            <p>Password:{props.password}</p>
-            <a href={`/locations/${props.id}`}>Details</a>
-          </div>
+//           <p>1 miembro aqui</p>
 
-          <div>
-            <img src={props.image} alt="image" width="250" height="220" />
-          </div>
-          <button onClick={checkOut}>Check Out</button>
-        </div>
-      )}
-    </div>
-  );
-}
+//           <div>09:00 - 17:00 </div>
 
-export default LocationsCard;
+//           <div> Sintra | </div>
+//           <a href="https://google.com"> Obtener direccoes </a>
+//           <div>
+//             <LocationsRating rating={props.rating} />
+//           </div>
+//           <a href={`/locations/${props.id}`}>Details</a>
+
+//           <button onClick={onCardClick}>
+//             <img src={props.image} alt="image" width="150" height="150" />
+//           </button>
+//           <button onClick={checked === null ? checkIn : message}>
+//             Check In
+//           </button>
+//           {popUpB ? <PopUpB toggleB={togglePopB} /> : null}
+//         </div>
+//       ) : (
+//         <div className="checkout">
+//           <div>
+//             <h1>{props.name}</h1>
+//             {popUpA ? <PopUpA toggle={togglePopA} /> : null}
+//             <p>6 miembro(s) aqui</p>
+//             <div>Aberto ate as 22:00 </div>
+//             <p>wifi:{props.network}</p>
+//             <p>Password:{props.password}</p>
+//             <a href={`/locations/${props.id}`}>Details</a>
+//           </div>
+
+//           <div>
+//             <img
+//               src={props.image}
+//               alt="image"
+//               width="167.2px"
+//               height="167.2px"
+//             />
+//           </div>
+//           <button onClick={checkOut}>Check Out</button>
+//           {popUpC ? (
+//             <PopUpC cancel={cancelTogglePopC} toggle={togglePopC} />
+//           ) : null}
+//           {popUpD ? (
+//             <PopUpD cancel={cancelTogglePopD} toggle={togglePopD} />
+//           ) : null}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default LocationsCard;

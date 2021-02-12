@@ -2,21 +2,116 @@ import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ApiLocations from "./ApiLocations.json";
-import LocationsCard from "./LocationsCard/LocationsCard.js";
+import ListLocationCard from "./ListContainer/ListLocationCard";
 import { LocationContext } from "../../contexts/LocationContext.js";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./MapContainer.css";
+import AutoComplete from "./Autocomplete";
+import SearchInput from "./SearchInput.js";
 
 function MapContainer(props) {
   const { location, setLocation } = useContext(LocationContext);
-  // const { locations, setLocations } = React.useState({});
+  const { state, setState } = React.useState({
+    mapApiLoaded: false,
+    mapInstance: null,
+    mapApi: null,
+    geoCoder: null,
+    places: [],
+    center: [],
+    zoom: 9,
+    address: "",
+    draggable: true,
+    lat: null,
+    lng: null,
+  });
+  const settings = {
+    className: "slides",
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2.3,
+    // slidesToScroll: 4,
+    initialSlide: 0,
+    padding: "30px",
+    swipeToSlide: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3.3,
+          infinite: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2.3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
+  window.onload = () => {
+    const fullScreen = document.getElementsByClassName("gm-fullscreen-control");
+    console.log(fullScreen);
+    console.log("hello world");
+  };
+  // const addPlace = (place) => {
+  //   setState({
+  //     ...state,
+  //     places: [place],
+  //     lat: place.geometry.location.lat(),
+  //     lng: place.geometry.location.lng(),
+  //   });
+  //   _generateAddress;
+  // };
+
+  // const _generateAddress = () => {
+  //   const { mapApi } = state;
+
+  //   const geocoder = new mapApi.Geocoder();
+
+  //   geocoder.geocode(
+  //     { location: { lat: this.state.lat, lng: this.state.lng } },
+  //     (results, status) => {
+  //       console.log(results);
+  //       console.log(status);
+  //       if (status === "OK") {
+  //         if (results[0]) {
+  //           setState({ address: results[0].formatted_address });
+  //         } else {
+  //           window.alert("No results found");
+  //         }
+  //       } else {
+  //         window.alert("Geocoder failed due to: " + status);
+  //       }
+  //     }
+  //   );
+  // };
   return (
     <div>
-      <Link to="/">HomePage</Link>
-      <div style={{ height: "350px", width: "100vw" }}>
+      {/* <div>
+        <AutoComplete map={mapInstance} mapApi={mapApi} addplace={addPlace} />
+      </div> */}
+
+      <div style={{ height: "450px", width: "100vw" }}>
         <Map
-          style={{ height: "350px", width: "100vw" }}
-          containerStyle={{ height: "350px", width: "100vw" }}
+          style={{ height: "770px", width: "100vw" }}
+          containerStyle={{ height: "550px", width: "100vw" }}
           zoom={16}
+          disableDefaultUI={true}
           center={{
             lat: location.center.lat,
             lng: location.center.lng,
@@ -27,6 +122,9 @@ function MapContainer(props) {
           }}
           google={props.google}
         >
+          <div className="search-input-map">
+            <SearchInput />
+          </div>
           {ApiLocations.map((locationApi) => (
             <Marker
               {...locationApi}
@@ -41,12 +139,14 @@ function MapContainer(props) {
           ))}
         </Map>
       </div>
-      <div style={{ display: "flex" }}>
-        {ApiLocations.map((location) => (
-          <div>
-            <LocationsCard {...location} />{" "}
-          </div>
-        ))}
+      <div class="carousel-locations">
+        <Slider {...settings}>
+          {ApiLocations.map((location) => (
+            <div>
+              <ListLocationCard {...location} />{" "}
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );

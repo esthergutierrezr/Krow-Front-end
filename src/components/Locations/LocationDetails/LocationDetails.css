@@ -1,5 +1,82 @@
 .details_checkin {
+  position: absolute;
+  display: flex;
+}
+
+.location-carousel {
+  height: 230px;
+}
+.all-info {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background-color: white;
+
+  width: 100vw;
+  font-family: Raleway;
+}
+.details-separator {
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.arrow-style {
+  height: 13px;
+  width: 22px;
+  padding-left: 90%;
+}
+.arrow-style-info {
+  height: 13px;
+  width: 22px;
+  padding-left: 90%;
+}
+.info-location {
+  padding: 20px;
+}
+
+.description {
+  background-color: #ebeadf;
+  padding: 20px;
 }
 
 .details_checkout {
+}
+
+.button-container {
+  padding-top: 30px;
+}
+.button-checkin {
+  background-color: #f8c962;
+  height: 66px;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  width: 96%;
+}
+.button-checkout {
+  background-color: #38b6ff;
+  height: 66px;
+  width: 100vw;
+  padding: 0px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.separator {
+  border-top: 1px solid rgba(170, 170, 170, 0.871);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.location-details-name {
+  font-size: 24.5px;
+  padding-bottom: 15px;
+}
+
+.checked-description {
+  background-color: rgba(87, 99, 202, 0.719);
+  padding: 20px;
 }

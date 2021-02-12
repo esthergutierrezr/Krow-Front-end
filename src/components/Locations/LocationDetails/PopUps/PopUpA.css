@@ -1,0 +1,58 @@
+.PopUp {
+  position: fixed;
+  width: 70%;
+  height: 25%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #545454;
+  z-index: 1;
+  border-radius: 10px;
+}
+.popup_inner {
+  /* position: absolute; */
+  left: 25%;
+  right: 25%;
+  top: 10%;
+  bottom: 25%;
+  margin: auto;
+  border-radius: 20px;
+
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-popup {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  width: 90px;
+  outline: none;
+}
+
+.PopUpAlreadyChecked {
+  background-color: #545454;
+  position: absolute;
+  z-index: 10;
+  border-radius: 20px;
+  right: 60%;
+  width: 70%;
+  height: 25%;
+}
+
+.exit-button {
+  background: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  top: 36%;
+  right: 14%;
+  display: flex;
+  align-items: center;
+}

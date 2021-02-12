@@ -1,5 +1,6 @@
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { useState, Component } from "react";
+import ApiLocations from "../ApiLocations.json";
 
 function LocationMap(props) {
   const [state, setState] = useState({
@@ -11,35 +12,57 @@ function LocationMap(props) {
     },
   });
 
-  const onMarkerClick = (location, marker, e) => {
-    console.log(location);
-    setState({
-      ...state,
-      selectedPlace: location,
-      activeMarker: marker,
-    });
+  const defaultMapOptions = {
+    fullscreenControl: false,
+    scaleControl: false,
+    zoomControl: false,
+    mapTypeControl: false,
+
+    streetViewControl: false,
+    rotateControl: false,
   };
   return (
-    <div style={{ height: "50px", width: "50px" }}>
+    <div
+      style={{
+        height: "200px",
+        width: "auto",
+
+        // backgroundColor: "#ebeadf",
+        // paddingTop: "30px",
+      }}
+    >
       <Map
         defaultZoom={1}
+        disableDefaultUI={true}
+        options={defaultMapOptions}
         initialCenter={{
           lat: state.mapCenter.lat,
           lng: state.mapCenter.lng,
         }}
         google={props.google}
-        style={{ height: "500px", width: "500px" }}
+        style={{
+          height: "200px",
+          width: "70%",
+          paddingLeft: "30px",
+          paddingRight: "30px",
+        }}
       >
-        <Marker
-          {...location}
-          key={location.id}
-          onClick={onMarkerClick}
-          name={location.name}
-          position={{
-            lat: location.lat,
-            lng: location.lng,
-          }}
-        />
+        {ApiLocations.map((locationApi) => (
+          // console.log(locationApi);
+          // console.log(props.id);
+          //  if (locationApi.id == props.id) {
+          //console.log(locationApi);
+          <Marker
+            {...locationApi}
+            key={locationApi.id}
+            // onClick={onMarkerClick}
+            name={locationApi.name}
+            position={{
+              lat: locationApi.lat,
+              lng: locationApi.lng,
+            }}
+          />
+        ))}
       </Map>
     </div>
   );
