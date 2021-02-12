@@ -137,7 +137,7 @@ function Signup() {
           <input
             type="text"
             name="fullName"
-            placeholder={`${t("signup:signup.Full Name")}*`}
+            placeholder={`${t("signup:signup.FullName")}*`}
             ref={register({ required: true, maxLength: 30 })}
           />
           {errors.fullName && <p>{t("signup:signup.FullNameReq")}</p>}
@@ -156,7 +156,7 @@ function Signup() {
           <Register type="submit">{t("signup:signup.Register")}</Register>
           <br />
           <LoginText>
-            <p></p>
+            <p>{t("signup:signup.AlreadyMember")}</p>
             <Link to="/auth/login">
               <RegisterLink>{t("signup:signup.Login")}</RegisterLink>
             </Link>

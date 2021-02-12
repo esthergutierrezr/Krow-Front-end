@@ -11,10 +11,6 @@
     "forgetPW": "Recuperar password",
     "guest": "Continuar como convidado",
     "emailReq": "O Email é necessário"
-  },
-  "history": {
-    "history": "Histórico",
-    "paragraph": "Clica no botão para verificar o teu histórico de transações, fazer o download de recibos e gerir as tuas subscrições.",
-    "billings": "Gerir Faturas/Subscrições"
   }
+  
 }
