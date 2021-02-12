@@ -10,10 +10,6 @@ import styled from 'styled-components';
 
 // This component renders a component according to the log-in and membership status of the user.
 
-const ProfilePicture = styled.div`
-
-
-`;
 
 function Greeting() {
   const { user } = useContext(AuthContext)
@@ -21,7 +17,7 @@ function Greeting() {
   const initialGreeting = `${t("homepage:userGreeting.Hi")} ${user.fullName}`;
   return (
     <HeadersBg>
-      <h2 className="welcome">{user? initialGreeting :t("homepage:homePage.WelcomeToKrow")}</h2>
+      <div className='welcome-container'><h2 className="welcome h2 raleway">{user? initialGreeting :t("homepage:homePage.WelcomeToKrow")}</h2></div>
         <Link to="/auth/login" className="profile-picture"><img  src={ProfilePic} alt="" /></Link>
       {user ? <UserGreeting {...user} /> : <GuestGreeting />}
     </HeadersBg>
