@@ -106,6 +106,7 @@ function MapContainer(props) {
           style={{ height: "770px", width: "100vw" }}
           containerStyle={{ height: "550px", width: "100vw" }}
           zoom={16}
+          disableDefaultUI={true}
           center={{
             lat: location.center.lat,
             lng: location.center.lng,

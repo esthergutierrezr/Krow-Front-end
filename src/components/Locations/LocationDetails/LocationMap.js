@@ -1,5 +1,6 @@
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { useState, Component } from "react";
+import ApiLocations from "../ApiLocations.json";
 
 function LocationMap(props) {
   const [state, setState] = useState({
@@ -35,11 +36,12 @@ function LocationMap(props) {
         height: "200px",
         width: "auto",
         backgroundColor: "#ebeadf",
-        padding: "30px",
+        paddingTop: "30px",
       }}
     >
       <Map
         defaultZoom={1}
+        disableDefaultUI={true}
         options={defaultMapOptions}
         initialCenter={{
           lat: state.mapCenter.lat,
@@ -47,22 +49,26 @@ function LocationMap(props) {
         }}
         google={props.google}
         style={{
-          height: "230px",
-          width: "400px",
+          height: "200px",
+          width: "70%",
           paddingLeft: "30px",
           paddingRight: "30px",
         }}
       >
-        <Marker
-          {...location}
-          key={location.id}
-          onClick={onMarkerClick}
-          name={location.name}
-          position={{
-            lat: location.lat,
-            lng: location.lng,
-          }}
-        />
+        {ApiLocations.filter((locationApi) => locationApi.id == props.id).map(
+          (locationApi) => (
+            <Marker
+              {...locationApi}
+              key={locationApi.id}
+              // onClick={onMarkerClick}
+              name={locationApi.name}
+              position={{
+                lat: locationApi.lat,
+                lng: locationApi.lng,
+              }}
+            />
+          )
+        )}
       </Map>
     </div>
   );

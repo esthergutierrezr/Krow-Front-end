@@ -10,12 +10,32 @@
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   background-color: white;
-  padding-top: 30px;
-  padding-left: 30px;
+
   width: 100vw;
+  font-family: Raleway;
 }
+.details-separator {
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow-style {
+  height: 13px;
+  width: 22px;
+  padding-left: 67%;
+}
+.arrow-style-info {
+  height: 13px;
+  width: 22px;
+  padding-left: 50%;
+}
+.info-location {
+  padding: 20px;
+}
+
 .description {
   background-color: #ebeadf;
+  padding: 20px;
 }
 
 .details_checkout {
@@ -28,7 +48,8 @@
   background-color: #f8c962;
   height: 66px;
   width: 100vw;
-  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
   border: none;
   border-radius: 10px;
   outline: none;
@@ -41,4 +62,10 @@
   border: none;
   border-radius: 10px;
   outline: none;
+}
+
+.separator {
+  border-top: 1px solid rgba(170, 170, 170, 0.871);
+  padding-left: 10px;
+  padding-right: 10px;
 }

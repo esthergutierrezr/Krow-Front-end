@@ -93,6 +93,9 @@ function ListLocationCard(props) {
             </div>
 
             <LocationsRating rating={props.rating} />
+            {popUpAlreadyChecked ? (
+              <PopUpAlreadyChecked toggle={togglePopUpAlreadyChecked} />
+            ) : null}
           </div>
           <div className="container">
             <a href={`/locations/${props.id}`}>
@@ -102,9 +105,6 @@ function ListLocationCard(props) {
               className={checked ? "indisponivel" : "disponivel"}
               onClick={checked === null ? checkIn : message}
             >
-              {popUpAlreadyChecked ? (
-                <PopUpAlreadyChecked toggle={togglePopUpAlreadyChecked} />
-              ) : null}
               Check-In
             </button>
           </div>

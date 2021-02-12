@@ -4,8 +4,8 @@
   color: black;
   border: white;
   font-size: 18px;
-  padding-left: 30px;
-  padding-right: 50px;
+  padding-left: 54px;
+  padding-right: 27px;
 
   /* position: relative;
   margin: 0 20px; */
@@ -13,17 +13,23 @@
   direction: rtl; */
 }
 .search-input {
-  /* height: 25px;
-  margin: 0;
-  padding-right: 30px;
-  width: 100%; */
+  position: relative;
 }
-.input-img {
-  /* position: absolute;
-  bottom: 2px;
-  right: 5px;
-  width: 24px;
-  height: 24px; */
+.input-img-list {
+  position: absolute;
+
+  width: 24.6px;
+  height: 24.6px;
+  bottom: 88.5%;
+
+  left: 10%;
+}
+.input-img-map {
+  position: absolute;
+  width: 24.6px;
+  height: 24.6px;
+  bottom: 19.5%;
+  left: 10%;
 }
 .search-input .placeholder {
   color: black;

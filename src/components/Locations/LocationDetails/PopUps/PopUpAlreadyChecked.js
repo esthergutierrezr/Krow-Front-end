@@ -3,7 +3,7 @@ import "./PopUpA.css";
 
 export default function PopUpAlreadyChecked(props) {
   return (
-    <div className="PopUpAlreadyChecked">
+    <div className="PopUp">
       <div className="popup_inner">
         <p
           style={{
